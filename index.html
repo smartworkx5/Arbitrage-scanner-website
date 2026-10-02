@@ -7,7 +7,7 @@
 <meta name="description" content="Real-time crypto arbitrage terminal: spot spreads across 16 exchanges, CEX vs DEX pools, triangular loops, funding-rate carry and a paper trading bot.">
 <link rel="canonical" href="https://YOUR-DOMAIN.com/">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<meta name="theme-color" content="#0f172a">
+<meta name="theme-color" content="#04070b">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Crypto Arbitrage Matrix">
 <meta property="og:title" content="Crypto Arbitrage Matrix: Real-Time Crypto Arbitrage Scanner">
@@ -21,27 +21,65 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Organization", "name": "Crypto Arbitrage Matrix", "url": "https://YOUR-DOMAIN.com/", "logo": "https://YOUR-DOMAIN.com/favicon.svg"}, {"@context": "https://schema.org", "@type": "WebSite", "name": "Crypto Arbitrage Matrix", "url": "https://YOUR-DOMAIN.com/"}, {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Crypto Arbitrage Matrix", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "url": "https://cryptoscanner-indol.vercel.app/", "description": "Real-time cryptocurrency arbitrage terminal with cross-exchange spot scanning across 16 exchanges, CEX vs DEX pools, triangular arbitrage loops, a funding rate cash-and-carry scanner and an automated paper trading bot."}]</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head"><div class="wrap head-in">
-<a class="brand" href="index.html" aria-label="Crypto Arbitrage Matrix home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#1b2743"/><path d="M6 21l7-7 4 4 9-9" fill="none" stroke="#f5b544" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 26h20" stroke="#4fd8a0" stroke-width="2" stroke-linecap="round"/></svg><span>Crypto Arbitrage Matrix</span></a>
+<a class="brand" href="index.html" aria-label="Crypto Arbitrage Matrix home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#0a121b"/><path d="M6 21l7-7 4 4 9-9" fill="none" stroke="#00ff9d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 26h20" stroke="#22d3ee" stroke-width="2" stroke-linecap="round"/></svg><span>Crypto Arbitrage Matrix</span></a>
 <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="site-nav">Menu</button>
 <nav class="nav" id="site-nav" aria-label="Main"><a href="features.html">Features</a><a href="strategies.html">Strategies</a><a href="paper-trading-bot.html">Paper trading</a><a href="how-it-works.html">How it works</a><a href="learn.html">Learn</a><a href="faq.html">FAQ</a><a class="btn sm" href="https://cryptoscanner-indol.vercel.app/" target="_blank" rel="noopener">Launch app</a></nav>
 </div></header>
 <main id="main">
 <section class="hero"><div class="wrap hero-grid">
-<div>
-<h1>Find crypto price gaps across 16 exchanges before you place a trade</h1>
+<div class="hero-copy">
+<p class="status-pill"><span class="dot"></span>Live scanner · 16 exchanges</p>
+<h1>Find crypto <span class="hl glitch" data-text="price gaps">price gaps</span> across <span class="cy">16 exchanges</span> before you place a trade</h1>
 <p class="lede">Crypto Arbitrage Matrix is a real-time scanner for cross-exchange spreads, CEX vs DEX pools, triangular loops and funding-rate yield. It runs in your browser, and it includes a paper trading bot so you can test ideas without risking money.</p>
 <div class="btn-row"><a class="btn" href="https://cryptoscanner-indol.vercel.app/" target="_blank" rel="noopener">Launch the app</a><a class="btn ghost" href="features.html">Explore features</a></div>
 <ul class="hero-notes"><li>Real-time scanning</li><li>16 exchanges</li><li>Paper trading included</li></ul>
 </div>
+<div class="term" role="img" aria-label="Preview of the scanner terminal showing simulated spreads">
+<div class="term-bar"><i></i><i></i><i></i><span class="term-title">ARB-MATRIX // SPREAD SCANNER // SIMULATED <span id="t-clock"></span></span><span class="term-live">LIVE</span></div>
+<div aria-hidden="true">
+<div class="kpis"><div class="kpi"><span>Best net</span><b id="k-best" class="num">--</b></div><div class="kpi"><span>Net-positive</span><b id="k-open" class="num">--</b></div><div class="kpi"><span>Quotes scanned</span><b id="k-scan" class="num">--</b></div></div>
+<div class="t-row t-head"><span>Pair</span><span>Buy → Sell</span><span class="t-gross">Gross</span><span class="t-net">Net</span></div>
+<div id="t-rows"></div>
+<div class="spark"><div class="spark-h"><span>Best net spread</span><span id="spark-now" class="num"></span></div>
+<svg viewBox="0 0 300 80" preserveAspectRatio="none"><defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00ff9d" stop-opacity=".35"/><stop offset="1" stop-color="#00ff9d" stop-opacity="0"/></linearGradient></defs><polygon id="spark-area" fill="url(#sg)" points=""/><polyline id="spark-line" fill="none" stroke="#00ff9d" stroke-width="1.8" vector-effect="non-scaling-stroke" stroke-linejoin="round" points=""/></svg></div>
+</div>
+<div class="term-foot"><span>Demo data, simulated</span><span>Not a prediction · not advice</span></div>
+</div>
+</div></section>
+
+<section class="stats"><div class="wrap stat-grid">
+<div class="stat"><strong data-count="16">16</strong><span>Exchanges scanned</span></div>
+<div class="stat"><strong data-count="4">4</strong><span>Strategies, one terminal</span></div>
+<div class="stat"><strong data-count="0">0</strong><span>Real funds needed to start</span></div>
+<div class="stat"><strong data-count="1">1</strong><span>Browser tab, nothing to install</span></div>
+</div></section>
+
+<section id="matrix"><div class="wrap">
+<div class="sec-head"><p class="eyebrow">01 · The matrix</p><h2>One screen. Sixteen exchanges. Every gap.</h2>
+<p>Compare the same pair across exchanges at a glance. The cheapest venue is where you would buy, the richest is where you would sell. Preview below uses simulated numbers.</p></div>
+<div class="panel">
+<p class="swipe-hint">← swipe to see all 16 exchanges →</p>
+<div class="hm-scroll"><div class="hm-grid" id="hm-grid" aria-hidden="true"></div></div>
+<div class="hm-foot"><span class="hm-read" id="hm-read">Hover or tap a cell to inspect it. Green = cheapest (buy), red = richest (sell).</span><span class="legend">Buy <i></i> Sell</span></div>
+</div>
+</div></section>
+
+<section class="band"><div class="wrap calc-split">
+<div>
+<p class="eyebrow">02 · Net, not gross</p>
+<h2>Gross spread is not profit</h2>
+<p style="color:var(--muted)">Try the maths every arbitrage trade has to pass. Change the numbers and watch how fast fees and transfer costs eat a price gap.</p>
+<div class="callout"><p><strong>Why net numbers matter.</strong> A 0.6% price gap sounds good until you subtract two trading fees and a transfer cost. The calculator shows how quickly that happens. The scanner is built around that reality.</p></div>
+</div>
 <form class="calc" id="spread-calc" onsubmit="return false" aria-labelledby="calc-h">
-<h2 id="calc-h">Is the spread worth it?</h2>
+<h3 id="calc-h">Is the spread worth it?</h3>
 <p class="sub">Try the maths every arbitrage trade has to pass. Change the numbers.</p>
 <div class="calc-grid">
 <div><label for="c-buy">Buy price (exchange A)</label><input id="c-buy" type="number" step="any" min="0" value="100.00" inputmode="decimal"></div>
@@ -61,28 +99,33 @@
 </div></section>
 
 <section><div class="wrap">
-<div class="sec-head"><h2>Four ways to look for an edge, in one terminal</h2>
+<div class="sec-head"><p class="eyebrow">03 · Strategies</p><h2>Four ways to look for an edge, in one terminal</h2>
 <p>Most arbitrage tools cover one kind of opportunity. This one scans four, so you can compare them side by side on the same screen.</p></div>
-<div class="ledger">
-<div class="row"><h3>Cross-exchange spot</h3><p>Compare the same pair across 16 exchanges and see where the price gap is widest right now.</p><a class="more" href="strategy-cross-exchange-arbitrage.html">Read more</a></div>
-<div class="row"><h3>CEX vs DEX pools</h3><p>Check centralized exchange prices against decentralized pool prices, where gas and slippage decide the outcome.</p><a class="more" href="strategy-cex-vs-dex-arbitrage.html">Read more</a></div>
-<div class="row"><h3>Triangular loops</h3><p>Trade around three pairs on one exchange and end with more of your starting coin. No transfers between exchanges.</p><a class="more" href="strategy-triangular-arbitrage.html">Read more</a></div>
-<div class="row"><h3>Funding-rate carry</h3><p>Scan for delta-neutral cash-and-carry setups that aim to collect perpetual futures funding payments.</p><a class="more" href="strategy-funding-rate-arbitrage.html">Read more</a></div>
+<div class="cards">
+<div class="card"><span class="no">01</span><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 17h28M30 10l7 7-7 7"/><path d="M40 31H12M18 24l-7 7 7 7"/></svg><h3>Cross-exchange spot</h3><p>Compare the same pair across 16 exchanges and see where the price gap is widest right now.</p><a class="more" href="strategy-cross-exchange-arbitrage.html">Read more</a></div>
+<div class="card"><span class="no">02</span><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="9" width="16" height="30" rx="3"/><circle cx="35" cy="24" r="10"/><path d="M21 24h4M10 17h6M10 23h6"/></svg><h3>CEX vs DEX pools</h3><p>Check centralized exchange prices against decentralized pool prices, where gas and slippage decide the outcome.</p><a class="more" href="strategy-cex-vs-dex-arbitrage.html">Read more</a></div>
+<div class="card"><span class="no">03</span><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 7L42 38H6z"/><circle cx="24" cy="7" r="3" fill="currentColor"/><circle cx="42" cy="38" r="3" fill="currentColor"/><circle cx="6" cy="38" r="3" fill="currentColor"/></svg><h3>Triangular loops</h3><p>Trade around three pairs on one exchange and end with more of your starting coin. No transfers between exchanges.</p><a class="more" href="strategy-triangular-arbitrage.html">Read more</a></div>
+<div class="card"><span class="no">04</span><svg class="ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 36l10-12 8 7 10-16 8 6"/><path d="M6 42h36"/></svg><h3>Funding-rate carry</h3><p>Scan for delta-neutral cash-and-carry setups that aim to collect perpetual futures funding payments.</p><a class="more" href="strategy-funding-rate-arbitrage.html">Read more</a></div>
 </div></div></section>
 
 <section class="band"><div class="wrap split">
 <div>
+<p class="eyebrow">04 · Paper trading</p>
 <h2>Test it with paper money first</h2>
-<p>The built-in automated paper trading bot acts on scanner signals using simulated funds. You see how a strategy would have behaved, including the fees that shrink most spreads, before real capital is anywhere near it.</p>
+<p style="color:var(--muted)">The built-in automated paper trading bot acts on scanner signals using simulated funds. You see how a strategy would have behaved, including the fees that shrink most spreads, before real capital is anywhere near it.</p>
 <ul class="checks"><li>No exchange API keys needed to explore</li><li>See net results, not just headline spreads</li><li>Learn which strategies fit your risk appetite</li></ul>
 <a class="btn" style="margin-top:1.4rem" href="paper-trading-bot.html">About the paper trading bot</a>
 </div>
-<div class="callout"><p><strong>Why net numbers matter.</strong> A 0.6% price gap sounds good until you subtract two trading fees and a transfer cost. The calculator above shows how quickly that happens. The scanner is built around that reality.</p></div>
+<div class="panel" role="img" aria-label="Preview of the paper trade log with simulated trades">
+<div class="blot-h"><span>Paper trade log · simulated</span><span>P&amp;L <b id="blot-pnl" class="num">$0.00</b></span></div>
+<div class="blot-body" id="blot-body" aria-hidden="true"></div>
+<div class="term-foot" style="padding-inline:.2rem"><span>Wins and losses both shown</span><span>Demo data, not a prediction</span></div>
+</div>
 </div></section>
 
 <section><div class="wrap">
-<div class="sec-head"><h2>From open tab to first signal</h2></div>
-<ol class="steps">
+<div class="sec-head"><p class="eyebrow">05 · Workflow</p><h2>From open tab to first signal</h2></div>
+<ol class="steps flow">
 <li><div><h3>Open the app</h3><p>It runs in a modern browser and can be added to your phone or desktop like an app.</p></div></li>
 <li><div><h3>Pick a strategy</h3><p>Choose spot spreads, CEX vs DEX, triangular loops or funding-rate carry.</p></div></li>
 <li><div><h3>Read the net spread</h3><p>Compare opportunities after costs, then decide whether any are worth acting on.</p></div></li>
@@ -104,7 +147,7 @@
 </div></section>
 <footer class="site-foot"><div class="wrap">
 <div class="foot-grid">
-<div><a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#1b2743"/><path d="M6 21l7-7 4 4 9-9" fill="none" stroke="#f5b544" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 26h20" stroke="#4fd8a0" stroke-width="2" stroke-linecap="round"/></svg><span>Crypto Arbitrage Matrix</span></a><p>A real-time cryptocurrency arbitrage terminal covering 16 exchanges, DEX pools, triangular loops and funding-rate yield.</p></div>
+<div><a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#0a121b"/><path d="M6 21l7-7 4 4 9-9" fill="none" stroke="#00ff9d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 26h20" stroke="#22d3ee" stroke-width="2" stroke-linecap="round"/></svg><span>Crypto Arbitrage Matrix</span></a><p>A real-time cryptocurrency arbitrage terminal covering 16 exchanges, DEX pools, triangular loops and funding-rate yield.</p></div>
 <div><h4>Product</h4><ul><li><a href="features.html">Features</a></li><li><a href="strategies.html">Strategies</a></li><li><a href="paper-trading-bot.html">Paper trading bot</a></li><li><a href="how-it-works.html">How it works</a></li></ul></div>
 <div><h4>Learn</h4><ul><li><a href="learn.html">Guides</a></li><li><a href="learn-what-is-crypto-arbitrage.html">What is arbitrage?</a></li><li><a href="learn-arbitrage-fees-slippage-transfer-time.html">Fees and slippage</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
 <div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="risk-disclosure.html">Risk disclosure</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
