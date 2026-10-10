@@ -300,27 +300,30 @@ export default function LandingPage() {
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {[
-              { tab: "Scanner", desc: "Real-time arbitrage opportunities ranked by profit" },
-              { tab: "CEX vs DEX", desc: "Centralized vs decentralized price gaps with calculator" },
-              { tab: "Spread", desc: "Full spread analysis across 16 exchanges" },
-              { tab: "Movers", desc: "Top gainers and losers, updated live" },
+              { tab: "Spot Matrix", desc: "2,355 arbitrage pairs found across 16 exchanges", img: "https://aeb9hcvyfaw2hgog.public.blob.vercel-storage.com/app-screenshots/scanner-spot-matrix-Np57AV5jPoRihaeWtLBQzqF10atLNJ.jpg" },
+              { tab: "CEX vs DEX", desc: "46 CEX vs DEX opportunities with profit calculator", img: "https://aeb9hcvyfaw2hgog.public.blob.vercel-storage.com/app-screenshots/cex-vs-dex-0EiOnCDYaRAb9HorNbHrBpx55rzDZH.jpg" },
+              { tab: "Spread Analyzer", desc: "Bid/ask spreads ranked — spot gaps instantly", img: "https://aeb9hcvyfaw2hgog.public.blob.vercel-storage.com/app-screenshots/spread-analyzer-Y7NNBcDrGzGAlu9UNuToC6vQ7yjK4o.jpg" },
+              { tab: "Top Movers", desc: "Biggest gainers with arbitrage routes mapped", img: "https://aeb9hcvyfaw2hgog.public.blob.vercel-storage.com/app-screenshots/top-movers-gH02EZ8gO21xMLys7zLT7uEFh0n4qI.jpg" },
             ].map((s) => (
-              <div key={s.tab} className="glass-card overflow-hidden !p-0">
+              <div key={s.tab} className="glass-card group overflow-hidden !p-0">
                 <div className="border-b border-slate-800 bg-slate-900/50 px-4 py-3">
-                  <span className="text-sm font-semibold text-white">{s.tab} Tab</span>
+                  <span className="text-sm font-semibold text-white">{s.tab}</span>
                   <p className="text-xs text-slate-400">{s.desc}</p>
                 </div>
-                <div className="flex aspect-video items-center justify-center bg-slate-950/50 p-8 text-center">
-                  <div>
-                    <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-green-500/10 text-2xl">📸</div>
-                    <p className="text-sm text-slate-400">App screenshot coming soon</p>
-                    <p className="mt-1 text-xs text-slate-500">Taken directly from the live scanner</p>
-                  </div>
+                <div className="relative overflow-hidden">
+                  <img
+                    src={s.img}
+                    alt={`${s.tab} - Crypto Arbitrage Scanner app screenshot`}
+                    className="w-full transition duration-500 group-hover:scale-[1.02]"
+                    loading="lazy"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a0e17]/60 via-transparent to-transparent" />
                 </div>
               </div>
             ))}
           </div>
           <div className="mt-8 text-center">
+            <p className="mb-4 text-sm text-slate-400">Want to see it live? Launch the app and explore every tab yourself.</p>
             <LaunchAppButton className="btn-primary">
               Launch the App & See For Yourself ↗
             </LaunchAppButton>
