@@ -45,11 +45,10 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  // Google Search Console verification: set GOOGLE_SITE_VERIFICATION env var
-  // in Vercel to emit the verification meta tag automatically.
-  verification: process.env.GOOGLE_SITE_VERIFICATION
-    ? { google: process.env.GOOGLE_SITE_VERIFICATION }
-    : undefined,
+  // Google Search Console verification.
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION || "e3YaSAklr9EKNfN9qkxsj2-xot68m2wk-3VCGbV7fJc",
+  },
 };
 
 export const viewport: Viewport = {
