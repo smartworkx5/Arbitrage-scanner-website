@@ -45,34 +45,58 @@ export const metadata: Metadata = {
 
 const features = [
   {
-    title: "Top Gainers & Losers Scanner",
-    text: "The Arbitrage Matrix ranks the biggest gainers and losers on every connected exchange in real time — your live watchlist of exactly where the action is.",
-    icon: "🚀",
+    title: "Arbitrage Scanner",
+    text: "The core engine. Scans 16 exchanges in real time, finds price differences on the same token, and ranks every opportunity by profit potential. Switch between cards and table view.",
+    icon: "🎯",
+    tab: "Scanner",
   },
   {
-    title: "16-Exchange Arbitrage Detection",
-    text: "Every mover is instantly checked across 16 exchanges. When the same token trades at different prices, you see the spread the second it appears.",
-    icon: "🌐",
-  },
-  {
-    title: "4 Arbitrage Strategies",
-    text: "Cross-exchange, CEX vs DEX, triangular and funding-rate arbitrage — detected automatically and ranked by profit potential.",
+    title: "CEX vs DEX Arbitrage",
+    text: "Compares centralized exchange prices against decentralized pools. Built-in calculator shows exact profit after gas fees and slippage.",
     icon: "⚖️",
+    tab: "CEX vs DEX",
+  },
+  {
+    title: "Spread Analyzer",
+    text: "See the full spread picture across all 16 exchanges for any token. Know exactly where to buy low and sell high.",
+    icon: "📊",
+    tab: "Spread",
+  },
+  {
+    title: "Top Movers",
+    text: "Live ranking of the biggest gainers and losers across every connected exchange. Your watchlist of exactly where the action is.",
+    icon: "🚀",
+    tab: "Movers",
+  },
+  {
+    title: "16-Exchange Grid",
+    text: "All 16 connected exchanges in one visual grid. See which exchanges are live, their status, and jump straight to opportunities.",
+    icon: "🌐",
+    tab: "Exchanges",
+  },
+  {
+    title: "Smart Watchlist",
+    text: "Track your favorite tokens. Get instant alerts when an arbitrage gap appears on anything you're watching.",
+    icon: "⭐",
+    tab: "Watchlist",
+  },
+  {
+    title: "Profit Calculator",
+    text: "Every opportunity includes a one-click calculator. Enter your amount, see net profit after all fees — before you trade.",
+    icon: "🧮",
+    tab: "Calculator",
+  },
+  {
+    title: "Advanced Filters",
+    text: "Filter by minimum spread, volume, exchange, or token. Sort by profit, spread %, or recency. Find exactly what you want in seconds.",
+    icon: "🔍",
+    tab: "Filters",
   },
   {
     title: "Paper Trading Bot",
     text: "Practice every opportunity with virtual money before risking a cent. Test strategies, build confidence, go live when you're ready.",
     icon: "🤖",
-  },
-  {
-    title: "Real-Time Price Alerts",
-    text: "Get notified the moment an arbitrage gap or a big mover appears — on desktop and on your phone.",
-    icon: "🔔",
-  },
-  {
-    title: "Mobile Friendly",
-    text: "The full scanner runs beautifully in your mobile browser. Watch the market from anywhere and react in seconds.",
-    icon: "📱",
+    tab: "Paper Trade",
   },
 ];
 
@@ -239,22 +263,67 @@ export default function LandingPage() {
         {/* ---------- Features ---------- */}
         <section id="features" className="mx-auto max-w-6xl scroll-mt-20 px-4 py-16 md:py-20">
           <div className="text-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-green-400">Features</p>
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-green-400">Inside the App</p>
             <h2 className="text-3xl font-bold md:text-4xl">
-              Everything you need to <span className="gradient-text">spot arbitrage first</span>
+              Every tool you need to <span className="gradient-text">profit from arbitrage</span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-slate-400">
-              Built for traders who want the spread before everyone else sees it.
+              9 powerful features, one app. This is exactly what you get when you launch the scanner.
             </p>
           </div>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((f) => (
-              <article key={f.title} className="glass-card group">
+              <article key={f.title} className="glass-card group relative overflow-hidden">
+                <div className="absolute right-4 top-4 rounded-full border border-slate-700 bg-slate-800/50 px-2 py-0.5 text-[10px] font-medium text-slate-400">
+                  {f.tab}
+                </div>
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-green-500/20 to-blue-600/20 text-2xl transition group-hover:scale-110" aria-hidden>{f.icon}</div>
                 <h3 className="mb-2 text-lg font-semibold text-white">{f.title}</h3>
                 <p className="text-sm leading-relaxed text-slate-400">{f.text}</p>
               </article>
             ))}
+          </div>
+        </section>
+
+        <div className="section-divider" />
+
+        {/* ---------- App Screenshots ---------- */}
+        <section id="screenshots" className="mx-auto max-w-6xl scroll-mt-20 px-4 py-16 md:py-20">
+          <div className="text-center">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-green-400">See It In Action</p>
+            <h2 className="text-3xl font-bold md:text-4xl">
+              Real screenshots from the <span className="gradient-text">live app</span>
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-slate-400">
+              No mockups. No fake UI. These are actual screens from the running scanner.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {[
+              { tab: "Scanner", desc: "Real-time arbitrage opportunities ranked by profit" },
+              { tab: "CEX vs DEX", desc: "Centralized vs decentralized price gaps with calculator" },
+              { tab: "Spread", desc: "Full spread analysis across 16 exchanges" },
+              { tab: "Movers", desc: "Top gainers and losers, updated live" },
+            ].map((s) => (
+              <div key={s.tab} className="glass-card overflow-hidden !p-0">
+                <div className="border-b border-slate-800 bg-slate-900/50 px-4 py-3">
+                  <span className="text-sm font-semibold text-white">{s.tab} Tab</span>
+                  <p className="text-xs text-slate-400">{s.desc}</p>
+                </div>
+                <div className="flex aspect-video items-center justify-center bg-slate-950/50 p-8 text-center">
+                  <div>
+                    <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-green-500/10 text-2xl">📸</div>
+                    <p className="text-sm text-slate-400">App screenshot coming soon</p>
+                    <p className="mt-1 text-xs text-slate-500">Taken directly from the live scanner</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 text-center">
+            <LaunchAppButton className="btn-primary">
+              Launch the App & See For Yourself ↗
+            </LaunchAppButton>
           </div>
         </section>
 
