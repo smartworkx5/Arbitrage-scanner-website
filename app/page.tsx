@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LaunchAppButton } from "./LaunchAppButton";
+import { MobileMenu } from "./MobileMenu";
 import { faqJsonLd } from "./components/Seo";
 import LiveTicker from "./LiveTicker";
 
@@ -153,7 +154,7 @@ export default function LandingPage() {
 
       {/* ---------- Header ---------- */}
       <header className="sticky top-0 z-40 border-b border-slate-800/80 bg-[#0a0e17]/90 backdrop-blur">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4" aria-label="Main">
+        <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-4" aria-label="Main">
           <Link href="/" className="text-lg font-bold tracking-tight">
             <span className="gradient-text">Crypto Arbitrage</span> Scanner
           </Link>
@@ -166,12 +167,13 @@ export default function LandingPage() {
             <a href="#faq" className="hover:text-white">FAQ</a>
           </div>
           <div className="flex items-center gap-3">
-            <Link href="/signin" className="text-sm font-medium text-slate-300 hover:text-white">
+            <Link href="/signin" className="hidden text-sm font-medium text-slate-300 hover:text-white sm:block">
               Sign in
             </Link>
-            <Link href="/signin" className="btn-primary !px-4 !py-2 text-sm">
+            <Link href="/signin" className="btn-primary hidden !px-4 !py-2 text-sm sm:inline-flex">
               Free Trial
             </Link>
+            <MobileMenu />
           </div>
         </nav>
       </header>
@@ -181,17 +183,18 @@ export default function LandingPage() {
         <section className="relative overflow-hidden px-4 pb-16 pt-14 md:pt-20">
           <div aria-hidden className="pointer-events-none absolute inset-0">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(34,197,94,0.14),transparent_60%)]" />
-            <div className="absolute -left-32 top-20 h-96 w-96 rounded-full bg-green-500/10 blur-3xl" />
-            <div className="absolute -right-32 top-40 h-96 w-96 rounded-full bg-blue-600/10 blur-3xl" />
+            <div className="animate-float-slow absolute -left-32 top-20 h-96 w-96 rounded-full bg-green-500/10 blur-3xl" />
+            <div className="animate-float absolute -right-32 top-40 h-96 w-96 rounded-full bg-blue-600/10 blur-3xl" />
+            <div className="absolute left-1/2 top-1/3 h-64 w-64 -translate-x-1/2 rounded-full bg-emerald-500/5 blur-3xl" />
             <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.05)_1px,transparent_1px)] bg-[size:44px_44px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
           </div>
           <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
             <div className="text-center lg:text-left">
-              <p className="mb-5 inline-block rounded-full border border-green-500/30 bg-green-500/10 px-4 py-1 text-sm text-green-300">
+              <p className="animate-pulse-glow mb-5 inline-block rounded-full border border-green-500/30 bg-green-500/10 px-4 py-1 text-sm text-green-300">
                 ⚡ Real-time arbitrage scanning across 16 exchanges
               </p>
               <h1 className="text-4xl font-extrabold leading-tight tracking-tight md:text-5xl xl:text-6xl">
-                <span className="gradient-text">Crypto Arbitrage Scanner</span>
+                <span className="gradient-text-animated">Crypto Arbitrage Scanner</span>
                 <br />
                 Spot arbitrage gaps before they close
               </h1>
@@ -234,23 +237,28 @@ export default function LandingPage() {
         </section>
 
         {/* ---------- Features ---------- */}
-        <section id="features" className="mx-auto max-w-6xl scroll-mt-20 px-4 py-16">
-          <h2 className="text-center text-3xl font-bold md:text-4xl">
-            Everything you need to <span className="gradient-text">spot arbitrage first</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-slate-400">
-            Built for traders who want the spread before everyone else sees it.
-          </p>
+        <section id="features" className="mx-auto max-w-6xl scroll-mt-20 px-4 py-16 md:py-20">
+          <div className="text-center">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-green-400">Features</p>
+            <h2 className="text-3xl font-bold md:text-4xl">
+              Everything you need to <span className="gradient-text">spot arbitrage first</span>
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-slate-400">
+              Built for traders who want the spread before everyone else sees it.
+            </p>
+          </div>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((f) => (
-              <article key={f.title} className="card card-hover">
-                <div className="mb-4 text-3xl" aria-hidden>{f.icon}</div>
-                <h3 className="mb-2 text-lg font-semibold">{f.title}</h3>
+              <article key={f.title} className="glass-card group">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-green-500/20 to-blue-600/20 text-2xl transition group-hover:scale-110" aria-hidden>{f.icon}</div>
+                <h3 className="mb-2 text-lg font-semibold text-white">{f.title}</h3>
                 <p className="text-sm leading-relaxed text-slate-400">{f.text}</p>
               </article>
             ))}
           </div>
         </section>
+
+        <div className="section-divider" />
 
         {/* ---------- How it works ---------- */}
         <section id="how-it-works" className="border-y border-slate-800/60 bg-[#0d1320] px-4 py-16">
