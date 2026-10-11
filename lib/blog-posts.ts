@@ -9,64 +9,94 @@ export interface BlogPost extends ArticleMeta {
 // AUTO-IMPORTS START
 import { post as autoPost001 } from "./blog/posts/altcoin-exchange-gaps";
 import { post as autoPost002 } from "./blog/posts/amm-price-inefficiencies";
-import { post as autoPost003 } from "./blog/posts/basis-trading-capital";
-import { post as autoPost004 } from "./blog/posts/best-exchange-pairs-arbitrage";
-import { post as autoPost005 } from "./blog/posts/best-funding-rate-opportunities";
-import { post as autoPost006 } from "./blog/posts/best-pairs-triangular-arbitrage";
-import { post as autoPost007 } from "./blog/posts/binance-bybit-spread-guide";
-import { post as autoPost008 } from "./blog/posts/cash-and-carry-crypto";
-import { post as autoPost009 } from "./blog/posts/cex-dex-stablecoin-gaps";
-import { post as autoPost010 } from "./blog/posts/cex-vs-dex-arbitrage-guide";
-import { post as autoPost011 } from "./blog/posts/coinbase-kraken-arbitrage";
-import { post as autoPost012 } from "./blog/posts/cross-exchange-arbitrage-guide";
-import { post as autoPost013 } from "./blog/posts/cross-exchange-hidden-risks";
-import { post as autoPost014 } from "./blog/posts/cross-margin-vs-isolated";
-import { post as autoPost015 } from "./blog/posts/crypto-arbitrage-glossary";
-import { post as autoPost016 } from "./blog/posts/crypto-arbitrage-minimum-capital";
-import { post as autoPost017 } from "./blog/posts/crypto-arbitrage-myths";
-import { post as autoPost018 } from "./blog/posts/crypto-arbitrage-time-needed";
-import { post as autoPost019 } from "./blog/posts/crypto-arbitrage-vs-day-trading";
-import { post as autoPost020 } from "./blog/posts/crypto-transfer-times";
-import { post as autoPost021 } from "./blog/posts/delta-neutral-strategies";
-import { post as autoPost022 } from "./blog/posts/dex-aggregator-arbitrage";
-import { post as autoPost023 } from "./blog/posts/dex-arbitrage-gas-costs";
-import { post as autoPost024 } from "./blog/posts/dex-arbitrage-tools";
-import { post as autoPost025 } from "./blog/posts/expiry-day-mechanics";
-import { post as autoPost026 } from "./blog/posts/funding-arbitrage-capital-needed";
-import { post as autoPost027 } from "./blog/posts/funding-arbitrage-vs-staking";
-import { post as autoPost028 } from "./blog/posts/funding-rate-arbitrage-guide";
-import { post as autoPost029 } from "./blog/posts/funding-rate-history-analysis";
-import { post as autoPost030 } from "./blog/posts/funding-rate-risks";
-import { post as autoPost031 } from "./blog/posts/funding-rates-explained";
-import { post as autoPost032 } from "./blog/posts/funding-vs-basis-trade";
-import { post as autoPost033 } from "./blog/posts/futures-basis-explained";
-import { post as autoPost034 } from "./blog/posts/how-crypto-arbitrage-works";
-import { post as autoPost035 } from "./blog/posts/how-price-gaps-form-crypto";
-import { post as autoPost036 } from "./blog/posts/is-crypto-arbitrage-profitable-2026";
-import { post as autoPost037 } from "./blog/posts/layer-2-arbitrage";
-import { post as autoPost038 } from "./blog/posts/leverage-in-arbitrage";
-import { post as autoPost039 } from "./blog/posts/liquidation-risk-arbitrage";
-import { post as autoPost040 } from "./blog/posts/mempool-frontrunning-risks";
-import { post as autoPost041 } from "./blog/posts/new-token-dex-arbitrage";
-import { post as autoPost042 } from "./blog/posts/okx-bitget-arbitrage";
-import { post as autoPost043 } from "./blog/posts/perpetual-futures-basis-trade";
-import { post as autoPost044 } from "./blog/posts/quarterly-futures-arbitrage";
-import { post as autoPost045 } from "./blog/posts/rebalancing-after-arbitrage";
-import { post as autoPost046 } from "./blog/posts/spot-futures-2026-outlook";
-import { post as autoPost047 } from "./blog/posts/spot-futures-arbitrage-guide";
-import { post as autoPost048 } from "./blog/posts/stablecoin-cross-exchange-arb";
-import { post as autoPost049 } from "./blog/posts/triangular-arbitrage-2026-viability";
-import { post as autoPost050 } from "./blog/posts/triangular-arbitrage-binance";
-import { post as autoPost051 } from "./blog/posts/triangular-arbitrage-bots";
-import { post as autoPost052 } from "./blog/posts/triangular-arbitrage-example";
-import { post as autoPost053 } from "./blog/posts/triangular-arbitrage-fees";
-import { post as autoPost054 } from "./blog/posts/triangular-arbitrage-guide";
-import { post as autoPost055 } from "./blog/posts/triangular-arbitrage-profit-calculator";
-import { post as autoPost056 } from "./blog/posts/triangular-arbitrage-risks";
-import { post as autoPost057 } from "./blog/posts/triangular-vs-cross-exchange";
-import { post as autoPost058 } from "./blog/posts/types-of-crypto-arbitrage";
-import { post as autoPost059 } from "./blog/posts/uniswap-arbitrage-guide";
-import { post as autoPost060 } from "./blog/posts/what-is-crypto-arbitrage-2026";
+import { post as autoPost003 } from "./blog/posts/arbitrage-drawdowns";
+import { post as autoPost004 } from "./blog/posts/arbitrage-risk-management";
+import { post as autoPost005 } from "./blog/posts/basis-trading-capital";
+import { post as autoPost006 } from "./blog/posts/best-exchange-pairs-arbitrage";
+import { post as autoPost007 } from "./blog/posts/best-funding-rate-opportunities";
+import { post as autoPost008 } from "./blog/posts/best-pairs-triangular-arbitrage";
+import { post as autoPost009 } from "./blog/posts/binance-arbitrage-guide";
+import { post as autoPost010 } from "./blog/posts/binance-bybit-spread-guide";
+import { post as autoPost011 } from "./blog/posts/bitget-arbitrage-guide";
+import { post as autoPost012 } from "./blog/posts/bybit-arbitrage-guide";
+import { post as autoPost013 } from "./blog/posts/cash-and-carry-crypto";
+import { post as autoPost014 } from "./blog/posts/cex-dex-stablecoin-gaps";
+import { post as autoPost015 } from "./blog/posts/cex-vs-dex-arbitrage-guide";
+import { post as autoPost016 } from "./blog/posts/choosing-arbitrage-exchanges";
+import { post as autoPost017 } from "./blog/posts/coinbase-arbitrage-guide";
+import { post as autoPost018 } from "./blog/posts/coinbase-kraken-arbitrage";
+import { post as autoPost019 } from "./blog/posts/counterparty-risk-crypto";
+import { post as autoPost020 } from "./blog/posts/cross-exchange-arbitrage-guide";
+import { post as autoPost021 } from "./blog/posts/cross-exchange-hidden-risks";
+import { post as autoPost022 } from "./blog/posts/cross-margin-vs-isolated";
+import { post as autoPost023 } from "./blog/posts/crypto-arbitrage-glossary";
+import { post as autoPost024 } from "./blog/posts/crypto-arbitrage-minimum-capital";
+import { post as autoPost025 } from "./blog/posts/crypto-arbitrage-myths";
+import { post as autoPost026 } from "./blog/posts/crypto-arbitrage-time-needed";
+import { post as autoPost027 } from "./blog/posts/crypto-arbitrage-vs-day-trading";
+import { post as autoPost028 } from "./blog/posts/crypto-trading-fees-guide";
+import { post as autoPost029 } from "./blog/posts/crypto-transfer-times";
+import { post as autoPost030 } from "./blog/posts/delta-neutral-strategies";
+import { post as autoPost031 } from "./blog/posts/dex-aggregator-arbitrage";
+import { post as autoPost032 } from "./blog/posts/dex-arbitrage-gas-costs";
+import { post as autoPost033 } from "./blog/posts/dex-arbitrage-tools";
+import { post as autoPost034 } from "./blog/posts/diversification-arbitrage";
+import { post as autoPost035 } from "./blog/posts/ether-etf-outflows-funding-pressure";
+import { post as autoPost036 } from "./blog/posts/ethereum-glamsterdam-dex-arbitrage";
+import { post as autoPost037 } from "./blog/posts/exchange-hacks-arbitrage";
+import { post as autoPost038 } from "./blog/posts/execution-risk-arbitrage";
+import { post as autoPost039 } from "./blog/posts/expiry-day-mechanics";
+import { post as autoPost040 } from "./blog/posts/fee-calculator-arbitrage";
+import { post as autoPost041 } from "./blog/posts/fee-tiers-explained";
+import { post as autoPost042 } from "./blog/posts/funding-arbitrage-capital-needed";
+import { post as autoPost043 } from "./blog/posts/funding-arbitrage-vs-staking";
+import { post as autoPost044 } from "./blog/posts/funding-rate-arbitrage-guide";
+import { post as autoPost045 } from "./blog/posts/funding-rate-history-analysis";
+import { post as autoPost046 } from "./blog/posts/funding-rate-risks";
+import { post as autoPost047 } from "./blog/posts/funding-rates-explained";
+import { post as autoPost048 } from "./blog/posts/funding-vs-basis-trade";
+import { post as autoPost049 } from "./blog/posts/futures-basis-explained";
+import { post as autoPost050 } from "./blog/posts/gateio-arbitrage-guide";
+import { post as autoPost051 } from "./blog/posts/gold-4194-bitcoin-83000-safe-haven";
+import { post as autoPost052 } from "./blog/posts/hidden-costs-arbitrage";
+import { post as autoPost053 } from "./blog/posts/how-crypto-arbitrage-works";
+import { post as autoPost054 } from "./blog/posts/how-price-gaps-form-crypto";
+import { post as autoPost055 } from "./blog/posts/insurance-funds-explained";
+import { post as autoPost056 } from "./blog/posts/is-crypto-arbitrage-profitable-2026";
+import { post as autoPost057 } from "./blog/posts/kraken-arbitrage-guide";
+import { post as autoPost058 } from "./blog/posts/kucoin-arbitrage-guide";
+import { post as autoPost059 } from "./blog/posts/layer-2-arbitrage";
+import { post as autoPost060 } from "./blog/posts/leverage-in-arbitrage";
+import { post as autoPost061 } from "./blog/posts/liquidation-risk-arbitrage";
+import { post as autoPost062 } from "./blog/posts/mempool-frontrunning-risks";
+import { post as autoPost063 } from "./blog/posts/mexc-arbitrage-guide";
+import { post as autoPost064 } from "./blog/posts/new-token-dex-arbitrage";
+import { post as autoPost065 } from "./blog/posts/okx-arbitrage-guide";
+import { post as autoPost066 } from "./blog/posts/okx-bitget-arbitrage";
+import { post as autoPost067 } from "./blog/posts/overleveraging-arbitrage";
+import { post as autoPost068 } from "./blog/posts/perpetual-futures-basis-trade";
+import { post as autoPost069 } from "./blog/posts/quarterly-futures-arbitrage";
+import { post as autoPost070 } from "./blog/posts/rebalancing-after-arbitrage";
+import { post as autoPost071 } from "./blog/posts/regulatory-risk-arbitrage";
+import { post as autoPost072 } from "./blog/posts/spot-futures-2026-outlook";
+import { post as autoPost073 } from "./blog/posts/spot-futures-arbitrage-guide";
+import { post as autoPost074 } from "./blog/posts/stablecoin-cross-exchange-arb";
+import { post as autoPost075 } from "./blog/posts/stablecoin-depeg-risk";
+import { post as autoPost076 } from "./blog/posts/starknet-surge-october-2026-arbitrage";
+import { post as autoPost077 } from "./blog/posts/thailand-bitcoin-ethereum-etf-approval";
+import { post as autoPost078 } from "./blog/posts/triangular-arbitrage-2026-viability";
+import { post as autoPost079 } from "./blog/posts/triangular-arbitrage-binance";
+import { post as autoPost080 } from "./blog/posts/triangular-arbitrage-bots";
+import { post as autoPost081 } from "./blog/posts/triangular-arbitrage-example";
+import { post as autoPost082 } from "./blog/posts/triangular-arbitrage-fees";
+import { post as autoPost083 } from "./blog/posts/triangular-arbitrage-guide";
+import { post as autoPost084 } from "./blog/posts/triangular-arbitrage-profit-calculator";
+import { post as autoPost085 } from "./blog/posts/triangular-arbitrage-risks";
+import { post as autoPost086 } from "./blog/posts/triangular-vs-cross-exchange";
+import { post as autoPost087 } from "./blog/posts/types-of-crypto-arbitrage";
+import { post as autoPost088 } from "./blog/posts/uniswap-arbitrage-guide";
+import { post as autoPost089 } from "./blog/posts/what-is-crypto-arbitrage-2026";
+import { post as autoPost090 } from "./blog/posts/withdrawal-fees-arbitrage";
 // AUTO-IMPORTS END
 
 export const blogPosts: BlogPost[] = [
@@ -980,5 +1010,35 @@ export const blogPosts: BlogPost[] = [
   autoPost058,
   autoPost059,
   autoPost060,
+  autoPost061,
+  autoPost062,
+  autoPost063,
+  autoPost064,
+  autoPost065,
+  autoPost066,
+  autoPost067,
+  autoPost068,
+  autoPost069,
+  autoPost070,
+  autoPost071,
+  autoPost072,
+  autoPost073,
+  autoPost074,
+  autoPost075,
+  autoPost076,
+  autoPost077,
+  autoPost078,
+  autoPost079,
+  autoPost080,
+  autoPost081,
+  autoPost082,
+  autoPost083,
+  autoPost084,
+  autoPost085,
+  autoPost086,
+  autoPost087,
+  autoPost088,
+  autoPost089,
+  autoPost090,
   // AUTO-POSTS END
 ];
