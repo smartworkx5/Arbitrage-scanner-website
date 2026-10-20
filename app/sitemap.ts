@@ -4,71 +4,77 @@ import { guides } from "@/lib/guides";
 import { blogPosts } from "@/lib/blog-posts";
 import { pairs } from "@/lib/pairs";
 
+// next.config.mjs sets trailingSlash: true, so every canonical URL ends
+// with "/". Sitemap entries MUST use the canonical (trailing-slash) form —
+// listing the no-slash form makes every entry a 308 redirect, which Google
+// reports as "Page with redirect" and deprioritises for discovery.
+const u = (path: string) => (path === "/" ? `${SITE_URL}/` : `${SITE_URL}${path}/`);
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   return [
     {
-      url: `${SITE_URL}/`,
+      url: u("/"),
       lastModified: now,
       changeFrequency: "weekly",
       priority: 1,
     },
     {
-      url: `${SITE_URL}/guides`,
+      url: u("/guides"),
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     ...guides.map((g) => ({
-      url: `${SITE_URL}/guides/${g.slug}`,
+      url: u(`/guides/${g.slug}`),
       lastModified: new Date(g.dateModified),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
     {
-      url: `${SITE_URL}/arbitrage`,
+      url: u("/arbitrage"),
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     ...pairs.map((p) => ({
-      url: `${SITE_URL}/arbitrage/${p.slug}`,
+      url: u(`/arbitrage/${p.slug}`),
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
     {
-      url: `${SITE_URL}/best-crypto-arbitrage-scanners`,
+      url: u("/best-crypto-arbitrage-scanners"),
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${SITE_URL}/glossary`,
+      url: u("/glossary"),
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${SITE_URL}/blog`,
+      url: u("/blog"),
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     ...blogPosts.map((b) => ({
-      url: `${SITE_URL}/blog/${b.slug}`,
+      url: u(`/blog/${b.slug}`),
       lastModified: new Date(b.dateModified),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
     {
-      url: `${SITE_URL}/privacy`,
+      url: u("/privacy"),
       lastModified: now,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
-      url: `${SITE_URL}/signin`,
+      url: u("/signin"),
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.5,
