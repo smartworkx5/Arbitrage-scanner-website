@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Upgrade to Pro — $24.99",
-  description: "Pay $24.99 USDT via Binance to unlock Pro access to Crypto Arbitrage Scanner — $24.99 per month.",
+  description: "Pay $24.99 USDT via Binance to unlock Pro access to Cryptoscopia — $24.99 per month.",
   robots: { index: false, follow: false },
 };
 

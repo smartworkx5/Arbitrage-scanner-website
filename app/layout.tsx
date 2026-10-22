@@ -8,8 +8,8 @@ import { siteJsonLd } from "./components/Seo";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Crypto Arbitrage Scanner — Find Arbitrage Across 16 Exchanges",
-    template: "%s | Crypto Arbitrage Scanner",
+    default: "Cryptoscopia | Crypto Arbitrage Scanner — Find Arbitrage Across 16 Exchanges",
+    template: "%s | Cryptoscopia",
   },
   description: SITE_DESCRIPTION,
   keywords: [

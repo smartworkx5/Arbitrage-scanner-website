@@ -61,7 +61,7 @@ export function siteJsonLd() {
       "@type": "Organization",
       name: SITE_NAME,
       url: SITE_URL,
-      logo: `${SITE_URL}/app/icon.svg`,
+      logo: `${SITE_URL}/apple-icon`,
       sameAs: [],
     },
     {

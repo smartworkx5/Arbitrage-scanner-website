@@ -4,7 +4,7 @@ import SignInButton from "./SignInButton";
 
 export const metadata: Metadata = {
   title: "Sign in — start your free 3-day trial",
-  description: "Sign in with Google to start your free 3-day trial of Crypto Arbitrage Scanner.",
+  description: "Sign in with Google to start your free 3-day trial of Cryptoscopia.",
   robots: { index: false, follow: false },
 };
 

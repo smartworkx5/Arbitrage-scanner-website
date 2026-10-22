@@ -28,9 +28,9 @@ const appScreenshots = [
 ];
 
 export const metadata: Metadata = {
-  title: "Crypto Arbitrage Scanner — Spot Arbitrage Gaps Before They Close",
+  title: "Cryptoscopia | Crypto Arbitrage Scanner — Spot Arbitrage Gaps Before They Close",
   description:
-    "The Crypto Arbitrage Scanner finds the top gainers and top losers in real time, then checks those tokens across 16 exchanges to spot cross-exchange, CEX vs DEX, triangular and funding-rate arbitrage — plus a paper trading bot to practice risk-free. Start your free 3-day trial.",
+    "Cryptoscopia finds the top gainers and top losers in real time, then checks those tokens across 16 exchanges to spot cross-exchange, CEX vs DEX, triangular and funding-rate arbitrage — plus a paper trading bot to practice risk-free. Start your free 3-day trial.",
   keywords: [
     "crypto arbitrage scanner",
     "crypto arbitrage finder",
@@ -48,14 +48,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${siteUrl}/`,
-    siteName: "Crypto Arbitrage Scanner",
-    title: "Crypto Arbitrage Scanner — Spot Arbitrage Gaps Before They Close",
+    siteName: "Cryptoscopia",
+    title: "Cryptoscopia | Crypto Arbitrage Scanner — Spot Arbitrage Gaps Before They Close",
     description:
       "Find top gainers and losers in real time. Spot arbitrage across 16 exchanges — cross-exchange, CEX vs DEX, triangular, funding-rate — and practice with a paper trading bot. Free 3-day trial.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Crypto Arbitrage Scanner",
+    title: "Cryptoscopia | Crypto Arbitrage Scanner",
     description:
       "Real-time arbitrage scanning across 16 exchanges, plus a paper trading bot. Free 3-day trial, no credit card required.",
   },
@@ -144,7 +144,7 @@ const faqs = [
   },
   {
     q: "What exactly is the Arbitrage Matrix?",
-    a: "It's the core of Crypto Arbitrage Scanner. It finds the top gainers and top losers on exchanges in real time, then checks those same tokens across 16 exchanges to spot arbitrage opportunities: cross-exchange spreads, CEX vs DEX gaps, triangular arbitrage and funding-rate arbitrage — all ranked by profit potential.",
+    a: "It's the core of Cryptoscopia. It finds the top gainers and top losers on exchanges in real time, then checks those same tokens across 16 exchanges to spot arbitrage opportunities: cross-exchange spreads, CEX vs DEX gaps, triangular arbitrage and funding-rate arbitrage — all ranked by profit potential.",
   },
   {
     q: "What is the paper trading bot?",
@@ -168,14 +168,15 @@ const faqs = [
   },
   {
     q: "Do I need to install anything?",
-    a: "No. Crypto Arbitrage Scanner is a web app that runs in your browser on desktop and mobile. Click 'Launch App' and you're in.",
+    a: "No. Cryptoscopia is a web app that runs in your browser on desktop and mobile. Click 'Launch App' and you're in.",
   },
 ];
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Crypto Arbitrage Scanner",
+  name: "Cryptoscopia",
+  alternateName: "Crypto Arbitrage Scanner",
   applicationCategory: "FinanceApplication",
   operatingSystem: "Web",
   url: "https://cryptoscopia.com/app",
@@ -207,8 +208,9 @@ export default async function LandingPage() {
       {/* ---------- Header ---------- */}
       <header className="sticky top-0 z-40 border-b border-slate-800/80 bg-[#0a0e17]/90 backdrop-blur">
         <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-4" aria-label="Main">
-          <Link href="/" className="text-lg font-bold tracking-tight">
-            <span className="gradient-text">Crypto Arbitrage</span> Scanner
+          <Link href="/" className="flex items-center gap-2 text-lg font-bold tracking-tight">
+            <img src="/images/logo-mark.svg" alt="Cryptoscopia logo" width={30} height={30} />
+            <span className="gradient-text">Cryptoscopia</span>
           </Link>
           <div className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
             <a href="#features" className="hover:text-white">Features</a>
@@ -246,12 +248,12 @@ export default async function LandingPage() {
                 ⚡ Real-time arbitrage scanning across 16 exchanges
               </p>
               <h1 className="text-4xl font-extrabold leading-tight tracking-tight md:text-5xl xl:text-6xl">
-                <span className="gradient-text-animated">Crypto Arbitrage Scanner</span>
+                <span className="gradient-text-animated">Cryptoscopia</span>
                 <br />
                 Spot arbitrage gaps before they close
               </h1>
               <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-400 lg:mx-0">
-                The Arbitrage Matrix finds the <strong className="text-slate-200">top gainers and top losers</strong> in
+                Cryptoscopia's Arbitrage Matrix finds the <strong className="text-slate-200">top gainers and top losers</strong> in
                 real time, then checks those tokens across <strong className="text-slate-200">16 exchanges</strong> to
                 spot cross-exchange, CEX vs DEX, triangular and funding-rate arbitrage — and lets you
                 test every opportunity risk-free with the built-in <strong className="text-slate-200">paper trading bot</strong>.
@@ -287,7 +289,7 @@ export default async function LandingPage() {
                       </div>
                       <img
                         src={s.img}
-                        alt={`${s.tab} - Crypto Arbitrage Scanner app screenshot`}
+                        alt={`${s.tab} - Cryptoscopia app screenshot`}
                         className="w-full"
                         loading="lazy"
                       />
@@ -454,7 +456,7 @@ export default async function LandingPage() {
           <div className="card !bg-gradient-to-br !from-green-950/60 !via-[#111827] !to-blue-950/40 text-center">
             <h2 className="text-2xl font-bold md:text-3xl">Stop missing the spreads that matter</h2>
             <p className="mx-auto mt-3 max-w-xl text-slate-400">
-              Join Crypto Arbitrage Scanner today. Your first 3 days are on us.
+              Join Cryptoscopia today. Your first 3 days are on us.
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link href="/signin" className="btn-primary w-full sm:w-auto">Start Free 3-Day Trial</Link>
@@ -470,7 +472,7 @@ export default async function LandingPage() {
       <footer className="border-t border-slate-800/80 px-4 py-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 md:flex-row">
           <p className="text-sm text-slate-400">
-            <span className="font-bold text-slate-200">Crypto Arbitrage Scanner</span> · Trade smarter, not harder.
+            <span className="font-bold text-slate-200">Cryptoscopia</span> · Trade smarter, not harder.
           </p>
           <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400" aria-label="Footer">
             <a href="#features" className="hover:text-white">Features</a>
