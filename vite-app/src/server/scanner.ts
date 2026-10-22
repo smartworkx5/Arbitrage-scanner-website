@@ -181,22 +181,43 @@ class ArbitrageScannerEngine {
           }
         });
 
-        await Promise.allSettled([...pricePromises, ...statusPromises]);
+        // 3. Prices gate the first result. Deposit/withdraw statuses only enrich the
+        // opportunities (badges/fees), so they get a short grace window instead of
+        // blocking the scan — some status endpoints return multi-MB payloads whose
+        // body download previously held the whole app on the loading screen.
+        await Promise.allSettled(pricePromises);
+        await Promise.race([
+          Promise.allSettled(statusPromises),
+          new Promise((resolve) => setTimeout(resolve, 1500)),
+        ]);
 
-        // 3. Compute Arbitrage Opportunities across all pairs and exchange pairs
+        // 4. Compute Arbitrage Opportunities across all pairs and exchange pairs
         this.opportunities = this.computeArbitrageOpportunities();
 
-        // 4. Fetch DEX prices & compute CEX vs DEX Arbitrage Opportunities
-        try {
-          await cexDexScannerEngine.fetchAllDexPrices();
-          const exchangeNames: Record<string, string> = {};
-          for (const ex of EXCHANGES) {
-            exchangeNames[ex.id] = ex.name;
-          }
-          cexDexScannerEngine.computeOpportunities(this.priceCache, this.statusCache, exchangeNames);
-        } catch (dexErr) {
-          console.warn('CEX vs DEX scan step notice:', dexErr);
-        }
+        // When the remaining statuses finish arriving, recompute in the background
+        // so deposit/withdraw badges and fees become accurate without blocking.
+        Promise.allSettled(statusPromises)
+          .then(() => {
+            try {
+              this.opportunities = this.computeArbitrageOpportunities();
+            } catch {}
+          })
+          .catch(() => {});
+
+        // 5. DEX prices & CEX vs DEX opportunities run off the critical path —
+        // the CEX vs DEX tab fills in when they land instead of delaying first render.
+        cexDexScannerEngine
+          .fetchAllDexPrices()
+          .then(() => {
+            const exchangeNames: Record<string, string> = {};
+            for (const ex of EXCHANGES) {
+              exchangeNames[ex.id] = ex.name;
+            }
+            cexDexScannerEngine.computeOpportunities(this.priceCache, this.statusCache, exchangeNames);
+          })
+          .catch((dexErr) => {
+            console.warn('CEX vs DEX scan step notice:', dexErr);
+          });
 
         this.scanDurationMs = Date.now() - startTime;
         this.lastScanTimestamp = Date.now();
@@ -429,8 +450,10 @@ class ArbitrageScannerEngine {
       result = result.filter((o) => o.grossSpreadPercent >= options.minSpread!);
     }
 
-    // Max Spread
-    if (options.maxSpread !== undefined && !isNaN(options.maxSpread)) {
+    // Max Spread (0 or undefined means All / No upper limit — matches the FilterBar presets,
+    // where 0 is the "All/Unlimited" option and the app's default; treating 0 as a literal
+    // cap filtered out every opportunity and left the grid permanently empty)
+    if (options.maxSpread !== undefined && !isNaN(options.maxSpread) && options.maxSpread > 0) {
       result = result.filter((o) => o.grossSpreadPercent <= options.maxSpread!);
     }
 
