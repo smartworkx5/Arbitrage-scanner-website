@@ -38,20 +38,21 @@ async function fetchWithTimeout(url: string, options: RequestInit = {}): Promise
     if (!isBrowser) throw err;
   }
 
-  // 2) Browser CORS fallback: public proxies, each with its OWN fresh timeout budget.
-  // Previously every proxy shared the direct attempt's single 3s AbortController, so the
-  // chain almost always aborted before any proxy answered — exchanges without CORS
-  // headers (e.g. MEXC, Coinstore) therefore never loaded in the browser at all,
-  // which also left their Top Movers permanently empty.
+  // 2) Browser CORS fallback. FIRST choice is our own same-origin proxy
+  // (/api/proxy on the hosting site, which fetches allowlisted exchange APIs
+  // server-side) — the free public proxies proved unreliable (corsproxy.io now
+  // answers 401, allorigins frequently times out), which is why exchanges
+  // without CORS headers (e.g. MEXC) never loaded in the browser and their
+  // Top Movers stayed empty. Each attempt gets its own fresh timeout budget.
   if (isBrowser && (url.startsWith('http://') || url.startsWith('https://'))) {
-    const proxies = [
-      `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
-      `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
-      `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
+    const proxies: Array<[string, number]> = [
+      [`/api/proxy?url=${encodeURIComponent(url)}`, 10000],
+      [`https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`, 6000],
+      [`https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`, 6000],
     ];
-    for (const proxyUrl of proxies) {
+    for (const [proxyUrl, budgetMs] of proxies) {
       try {
-        const proxyResponse = await attempt(proxyUrl, 6000, { 'Accept': 'application/json' });
+        const proxyResponse = await attempt(proxyUrl, budgetMs, { 'Accept': 'application/json' });
         if (proxyResponse.ok) return proxyResponse;
       } catch {
         // Try next proxy

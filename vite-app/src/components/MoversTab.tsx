@@ -40,10 +40,12 @@ export const MoversTab: React.FC<MoversTabProps> = ({
         if (json.gainers.length > 0 || json.losers.length > 0) {
           setData(json);
         } else if (isInitial) {
-          // If returned empty during cold start, retry once after 1.5s
+          // If returned empty during cold start, retry once after 1.5s; if it is
+          // still empty, show this exchange's empty state instead of silently
+          // keeping the previously selected exchange's rows on screen.
           setTimeout(async () => {
             const retryJson = await dataService.getExchangeMovers(selectedExchange, limit);
-            if (retryJson && (retryJson.gainers.length > 0 || retryJson.losers.length > 0)) {
+            if (retryJson && (Array.isArray(retryJson.gainers) || Array.isArray(retryJson.losers))) {
               setData(retryJson);
             }
           }, 1500);
