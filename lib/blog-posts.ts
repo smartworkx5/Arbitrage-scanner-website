@@ -9,12 +9,7 @@ export interface BlogPost extends ArticleMeta {
 // AUTO-IMPORTS START
 import { post as autoPost001 } from "./blog/posts/aerodrome-velodrome-merge-aero-conversion-october-2026";
 import { post as autoPost002 } from "./blog/posts/africa-crypto-arbitrage";
-import { post as autoPost003 } from "./blog/posts/ai-agents-crypto-trading-2026";
-import { post as autoPost004 } from "./blog/posts/ai-crypto-research-tools-2026";
 import { post as autoPost005 } from "./blog/posts/ai-in-arbitrage-trading";
-import { post as autoPost006 } from "./blog/posts/ai-market-making-crypto-2026";
-import { post as autoPost007 } from "./blog/posts/ai-on-chain-anomaly-detection-2026";
-import { post as autoPost008 } from "./blog/posts/ai-trading-prompts-workflows-2026";
 import { post as autoPost009 } from "./blog/posts/airdrop-arbitrage";
 import { post as autoPost010 } from "./blog/posts/aleo-21-percent-canton-drop-movers-october-2026";
 import { post as autoPost011 } from "./blog/posts/algorithmic-stablecoins-after-genius-2026";
@@ -1282,12 +1277,7 @@ export const blogPosts: BlogPost[] = [
   // AUTO-POSTS START
   autoPost001,
   autoPost002,
-  autoPost003,
-  autoPost004,
   autoPost005,
-  autoPost006,
-  autoPost007,
-  autoPost008,
   autoPost009,
   autoPost010,
   autoPost011,
