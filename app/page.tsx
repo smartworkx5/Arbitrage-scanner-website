@@ -488,6 +488,9 @@ export default async function LandingPage() {
             <Link href="/guides" className="hover:text-white">Guides</Link>
             <Link href="/blog" className="hover:text-white">Blog</Link>
             <Link href="/arbitrage" className="hover:text-white">Exchange Comparisons</Link>
+            <Link href="/live" className="hover:text-white">Live Spreads</Link>
+            <Link href="/arbitrage-calculator" className="hover:text-white">Profit Calculator</Link>
+            <Link href="/affiliates" className="hover:text-white">Affiliates</Link>
             <Link href="/best-crypto-arbitrage-scanners" className="hover:text-white">Best Scanners</Link>
             <Link href="/glossary" className="hover:text-white">Glossary</Link>
             <Link href="/privacy" className="hover:text-white">Privacy</Link>

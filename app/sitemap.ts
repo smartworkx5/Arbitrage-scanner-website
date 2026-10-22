@@ -37,6 +37,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    {
+      url: u("/live"),
+      lastModified: now,
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
+      url: u("/arbitrage-calculator"),
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: u("/affiliates"),
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
     ...pairs.map((p) => ({
       url: u(`/arbitrage/${p.slug}`),
       lastModified: now,
