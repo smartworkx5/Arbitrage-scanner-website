@@ -3,11 +3,11 @@
 import Script from "next/script";
 
 /**
- * Google Analytics 4 — loads only when NEXT_PUBLIC_GA_ID is set in Vercel
- * env vars (e.g. G-XXXXXXXXXX). No GA ID = no tracking scripts at all.
+ * Google Analytics 4 — Crypto Arbitrage Scanner property.
+ * Measurement ID G-ND29Q1XR36 (GA4 property created 2026-10-22).
  */
 export function Analytics() {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  const gaId = "G-ND29Q1XR36";
   if (!gaId) return null;
   return (
     <>
