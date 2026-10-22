@@ -23,7 +23,6 @@ import { post as autoPost013 } from "./blog/posts/altcoin-exchange-gaps";
 import { post as autoPost014 } from "./blog/posts/altcoin-season-2026";
 import { post as autoPost015 } from "./blog/posts/altcoin-treasury-companies-2026";
 import { post as autoPost016 } from "./blog/posts/amm-price-inefficiencies";
-import { post as autoPost017 } from "./blog/posts/anti-cz-whale-hyperliquid-100m-october-20-2026";
 import { post as autoPost018 } from "./blog/posts/api-key-security";
 import { post as autoPost019 } from "./blog/posts/api-management-tools";
 import { post as autoPost020 } from "./blog/posts/api-trading-basics";
@@ -39,7 +38,6 @@ import { post as autoPost029 } from "./blog/posts/arbitrage-scanners-compared";
 import { post as autoPost030 } from "./blog/posts/arbitrage-success-stories";
 import { post as autoPost031 } from "./blog/posts/arbitrage-vs-hodling";
 import { post as autoPost032 } from "./blog/posts/avoiding-crypto-scams";
-import { post as autoPost033 } from "./blog/posts/backtesting-ml-strategies-2026";
 import { post as autoPost034 } from "./blog/posts/backtesting-tools-crypto";
 import { post as autoPost035 } from "./blog/posts/backup-recovery-crypto";
 import { post as autoPost036 } from "./blog/posts/bank-issued-stablecoins-2026";
@@ -56,7 +54,6 @@ import { post as autoPost046 } from "./blog/posts/binance-bybit-spread-guide";
 import { post as autoPost047 } from "./blog/posts/binance-vs-coinbase-2026";
 import { post as autoPost048 } from "./blog/posts/bitcoin-2026-predictions";
 import { post as autoPost049 } from "./blog/posts/bitcoin-80000-support-cautious-recovery-october-19-2026";
-import { post as autoPost050 } from "./blog/posts/bitcoin-82000-rangebound-fomc-october-20-2026";
 import { post as autoPost051 } from "./blog/posts/bitcoin-arbitrage-guide";
 import { post as autoPost052 } from "./blog/posts/bitcoin-defends-80000-fed-hold-repricing-october-2026";
 import { post as autoPost053 } from "./blog/posts/bitcoin-digital-gold-thesis-2026";
@@ -78,7 +75,6 @@ import { post as autoPost068 } from "./blog/posts/bitcoin-treasury-companies-exp
 import { post as autoPost069 } from "./blog/posts/bitcoin-treasury-risks-bear-market-2026";
 import { post as autoPost070 } from "./blog/posts/bitcoin-weekend-gaps";
 import { post as autoPost071 } from "./blog/posts/bitget-arbitrage-guide";
-import { post as autoPost072 } from "./blog/posts/bitmine-ethereum-treasury-12535-eth-october-20-2026";
 import { post as autoPost073 } from "./blog/posts/bloomberg-bitcoin-shake-stocks-metals-october-2026";
 import { post as autoPost074 } from "./blog/posts/bot-backtesting-guide";
 import { post as autoPost075 } from "./blog/posts/bridge-arbitrage";
@@ -95,13 +91,10 @@ import { post as autoPost085 } from "./blog/posts/cbdcs-vs-crypto-2026";
 import { post as autoPost086 } from "./blog/posts/central-bank-gold-buying-crypto-2026";
 import { post as autoPost087 } from "./blog/posts/cex-dex-stablecoin-gaps";
 import { post as autoPost088 } from "./blog/posts/cex-vs-dex-arbitrage-guide";
-import { post as autoPost089 } from "./blog/posts/chain-analysis-privacy-limits-2026";
 import { post as autoPost090 } from "./blog/posts/charting-tools-arbitrage";
 import { post as autoPost091 } from "./blog/posts/choosing-arbitrage-exchanges";
-import { post as autoPost092 } from "./blog/posts/coin-mixers-legal-landscape-2026";
 import { post as autoPost093 } from "./blog/posts/coinbase-arbitrage-guide";
 import { post as autoPost094 } from "./blog/posts/coinbase-kraken-arbitrage";
-import { post as autoPost095 } from "./blog/posts/cold-storage-best-practices-2026";
 import { post as autoPost096 } from "./blog/posts/collateral-management";
 import { post as autoPost097 } from "./blog/posts/colocation-crypto";
 import { post as autoPost098 } from "./blog/posts/community-vs-solo-trading";
@@ -126,7 +119,6 @@ import { post as autoPost116 } from "./blog/posts/crypto-etf-outflows-1-billion-
 import { post as autoPost117 } from "./blog/posts/crypto-index-funds-vs-etfs-2026";
 import { post as autoPost118 } from "./blog/posts/crypto-market-outlook-2026";
 import { post as autoPost119 } from "./blog/posts/crypto-options-basics";
-import { post as autoPost120 } from "./blog/posts/crypto-price-prediction-markets-2026";
 import { post as autoPost121 } from "./blog/posts/crypto-security-basics";
 import { post as autoPost122 } from "./blog/posts/crypto-tax-arbitrage-eu";
 import { post as autoPost123 } from "./blog/posts/crypto-tax-arbitrage-uk";
@@ -153,7 +145,6 @@ import { post as autoPost143 } from "./blog/posts/dex-vs-cex-2026";
 import { post as autoPost144 } from "./blog/posts/disaster-recovery-trading";
 import { post as autoPost145 } from "./blog/posts/diversification-arbitrage";
 import { post as autoPost146 } from "./blog/posts/downtober-back-to-back-losing-octobers-2026";
-import { post as autoPost147 } from "./blog/posts/election-prediction-market-trading-2026";
 import { post as autoPost148 } from "./blog/posts/elections-crypto-impact";
 import { post as autoPost149 } from "./blog/posts/equities-selloff-crypto-correlation-october-2026";
 import { post as autoPost150 } from "./blog/posts/esma-tokenized-collateral-crisis-call-october-2026";
@@ -188,7 +179,6 @@ import { post as autoPost178 } from "./blog/posts/execution-risk-arbitrage";
 import { post as autoPost179 } from "./blog/posts/expiry-day-mechanics";
 import { post as autoPost180 } from "./blog/posts/failed-arbitrage-stories";
 import { post as autoPost181 } from "./blog/posts/famous-arbitrage-trades";
-import { post as autoPost182 } from "./blog/posts/fed-decision-prediction-markets-2026";
 import { post as autoPost183 } from "./blog/posts/fed-october-hold-odds-bitcoin-rebound-october-2026";
 import { post as autoPost184 } from "./blog/posts/fee-calculator-arbitrage";
 import { post as autoPost185 } from "./blog/posts/fee-tiers-explained";
@@ -217,7 +207,6 @@ import { post as autoPost207 } from "./blog/posts/futures-exchanges-compared";
 import { post as autoPost208 } from "./blog/posts/gateio-arbitrage-guide";
 import { post as autoPost209 } from "./blog/posts/genius-act-explained-traders-2026";
 import { post as autoPost210 } from "./blog/posts/genius-act-occ-final-rules-october-2026";
-import { post as autoPost211 } from "./blog/posts/gold-4130-pakistan-435800-tola-october-20-2026";
 import { post as autoPost212 } from "./blog/posts/gold-4194-bitcoin-83000-safe-haven";
 import { post as autoPost213 } from "./blog/posts/gold-below-4200-consolidation-october-2026";
 import { post as autoPost214 } from "./blog/posts/gold-bitcoin-hedge-portfolio-2026";
@@ -246,7 +235,6 @@ import { post as autoPost236 } from "./blog/posts/india-crypto-arbitrage";
 import { post as autoPost237 } from "./blog/posts/inflation-hedges-compared-2026";
 import { post as autoPost238 } from "./blog/posts/institutional-bitcoin-allocation-models-2026";
 import { post as autoPost239 } from "./blog/posts/institutional-crypto-2026";
-import { post as autoPost240 } from "./blog/posts/institutional-custody-insurance-2026";
 import { post as autoPost241 } from "./blog/posts/insurance-funds-explained";
 import { post as autoPost242 } from "./blog/posts/internet-redundancy-trading";
 import { post as autoPost243 } from "./blog/posts/is-arbitrage-risk-free";
@@ -273,12 +261,10 @@ import { post as autoPost263 } from "./blog/posts/linux-trading-setup";
 import { post as autoPost264 } from "./blog/posts/liquid-staking-arbitrage";
 import { post as autoPost265 } from "./blog/posts/liquidation-risk-arbitrage";
 import { post as autoPost266 } from "./blog/posts/liquidity-guide-crypto";
-import { post as autoPost267 } from "./blog/posts/llm-crypto-trading-risks-2026";
 import { post as autoPost268 } from "./blog/posts/longevity-trading-career";
 import { post as autoPost269 } from "./blog/posts/loss-psychology-crypto";
 import { post as autoPost270 } from "./blog/posts/lowest-fee-exchanges-2026";
 import { post as autoPost271 } from "./blog/posts/luna-collapse-arbitrage";
-import { post as autoPost272 } from "./blog/posts/machine-learning-crypto-trading-2026";
 import { post as autoPost273 } from "./blog/posts/macro-crypto-correlation";
 import { post as autoPost274 } from "./blog/posts/margin-optimization-guide";
 import { post as autoPost275 } from "./blog/posts/market-making-basics";
@@ -287,18 +273,14 @@ import { post as autoPost277 } from "./blog/posts/meme-coin-arbitrage";
 import { post as autoPost278 } from "./blog/posts/meme-coin-manias";
 import { post as autoPost279 } from "./blog/posts/mempool-analysis-guide";
 import { post as autoPost280 } from "./blog/posts/mempool-frontrunning-risks";
-import { post as autoPost281 } from "./blog/posts/metaplanet-super-league-2100-btc-october-20-2026";
 import { post as autoPost282 } from "./blog/posts/mexc-arbitrage-guide";
 import { post as autoPost283 } from "./blog/posts/mica-regulation-impact";
 import { post as autoPost284 } from "./blog/posts/mica-vs-genius-stablecoin-rules-2026";
 import { post as autoPost285 } from "./blog/posts/miner-flows-bitcoin";
 import { post as autoPost286 } from "./blog/posts/mnav-premium-bitcoin-treasuries-2026";
 import { post as autoPost287 } from "./blog/posts/mobile-trading-apps";
-import { post as autoPost288 } from "./blog/posts/monero-vs-zcash-privacy-compared-2026";
 import { post as autoPost289 } from "./blog/posts/monitoring-alerting-trading";
-import { post as autoPost290 } from "./blog/posts/mpc-wallets-explained-2026";
 import { post as autoPost291 } from "./blog/posts/multi-venue-execution";
-import { post as autoPost292 } from "./blog/posts/multisig-vs-mpc-custody-2026";
 import { post as autoPost293 } from "./blog/posts/multisig-wallets-guide";
 import { post as autoPost294 } from "./blog/posts/network-fees-by-coin";
 import { post as autoPost295 } from "./blog/posts/new-listing-arbitrage";
@@ -324,24 +306,11 @@ import { post as autoPost314 } from "./blog/posts/pepe-top-gainer-starknet-top-l
 import { post as autoPost315 } from "./blog/posts/perpetual-futures-basis-trade";
 import { post as autoPost316 } from "./blog/posts/perps-vs-quarterlies";
 import { post as autoPost317 } from "./blog/posts/phishing-crypto-guide";
-import { post as autoPost318 } from "./blog/posts/polymarket-vs-kalshi-compared-2026";
 import { post as autoPost319 } from "./blog/posts/portfolio-trackers-arbitrage";
-import { post as autoPost320 } from "./blog/posts/prediction-market-arbitrage-2026";
-import { post as autoPost321 } from "./blog/posts/prediction-market-manipulation-risks-2026";
-import { post as autoPost322 } from "./blog/posts/prediction-market-taxes-record-keeping-2026";
-import { post as autoPost323 } from "./blog/posts/prediction-markets-explained-2026";
-import { post as autoPost324 } from "./blog/posts/prediction-markets-vs-bookmakers-2026";
-import { post as autoPost325 } from "./blog/posts/privacy-coins-2026-guide";
-import { post as autoPost326 } from "./blog/posts/privacy-coins-delisting-pressure-2026";
-import { post as autoPost327 } from "./blog/posts/privacy-coins-trading-liquidity-2026";
-import { post as autoPost328 } from "./blog/posts/privacy-dexs-confidential-defi-2026";
-import { post as autoPost329 } from "./blog/posts/privacy-preserving-stablecoins-2026";
 import { post as autoPost330 } from "./blog/posts/profit-threshold-arbitrage";
 import { post as autoPost331 } from "./blog/posts/prop-trading-arbitrage";
 import { post as autoPost332 } from "./blog/posts/pump-fun-hyperliquid-leverage-perps-october-2026";
-import { post as autoPost333 } from "./blog/posts/pump-fun-polymarket-openai-pre-ipo-october-20-2026";
 import { post as autoPost334 } from "./blog/posts/put-call-parity-crypto";
-import { post as autoPost335 } from "./blog/posts/qualified-custodians-crypto-2026";
 import { post as autoPost336 } from "./blog/posts/quantum-computing-bitcoin-threat-2026";
 import { post as autoPost337 } from "./blog/posts/quantum-computing-timeline-experts-2026";
 import { post as autoPost338 } from "./blog/posts/quantum-fud-vs-facts-bitcoin-2026";
@@ -358,22 +327,15 @@ import { post as autoPost348 } from "./blog/posts/record-keeping-traders";
 import { post as autoPost349 } from "./blog/posts/reducing-arbitrage-fees";
 import { post as autoPost350 } from "./blog/posts/regulation-2026-outlook";
 import { post as autoPost351 } from "./blog/posts/regulatory-risk-arbitrage";
-import { post as autoPost352 } from "./blog/posts/reinforcement-learning-trading-2026";
 import { post as autoPost353 } from "./blog/posts/restaking-arbitrage";
 import { post as autoPost354 } from "./blog/posts/russia-p2p-crypto-ban-2027-october-2026";
-import { post as autoPost355 } from "./blog/posts/rwa-oracles-price-feeds-2026";
 import { post as autoPost356 } from "./blog/posts/rwa-token-arbitrage";
-import { post as autoPost357 } from "./blog/posts/rwa-tokenization-legal-structure-2026";
 import { post as autoPost358 } from "./blog/posts/safe-haven-flows-market-stress-2026";
 import { post as autoPost359 } from "./blog/posts/safest-exchanges-2026";
 import { post as autoPost360 } from "./blog/posts/scaling-arbitrage-operation";
 import { post as autoPost361 } from "./blog/posts/sec-3x-leveraged-bitcoin-ether-etps-october-2026";
-import { post as autoPost362 } from "./blog/posts/sec-november-roundtable-machine-readable-october-20-2026";
 import { post as autoPost363 } from "./blog/posts/secure-trading-setup";
-import { post as autoPost364 } from "./blog/posts/self-custody-vs-exchange-custody-2026";
-import { post as autoPost365 } from "./blog/posts/sentiment-analysis-crypto-trading-2026";
 import { post as autoPost366 } from "./blog/posts/setting-price-alerts";
-import { post as autoPost367 } from "./blog/posts/shielded-pools-zcash-usage-2026";
 import { post as autoPost368 } from "./blog/posts/silver-weekly-slide-gold-silver-ratio-october-2026";
 import { post as autoPost369 } from "./blog/posts/sim-swap-protection";
 import { post as autoPost370 } from "./blog/posts/singapore-crypto-arbitrage";
@@ -381,7 +343,6 @@ import { post as autoPost371 } from "./blog/posts/solana-arbitrage-guide";
 import { post as autoPost372 } from "./blog/posts/solana-treasury-companies-2026";
 import { post as autoPost373 } from "./blog/posts/solana-xrp-etf-approvals-2026";
 import { post as autoPost374 } from "./blog/posts/south-korea-exchange-block-arbitrage-october-2026";
-import { post as autoPost375 } from "./blog/posts/sports-prediction-markets-2026";
 import { post as autoPost376 } from "./blog/posts/spot-bitcoin-etf-flow-dashboard-2026";
 import { post as autoPost377 } from "./blog/posts/spot-futures-2026-outlook";
 import { post as autoPost378 } from "./blog/posts/spot-futures-arbitrage-guide";
@@ -404,7 +365,6 @@ import { post as autoPost394 } from "./blog/posts/statistical-arbitrage-crypto";
 import { post as autoPost395 } from "./blog/posts/stellar-xlm-stablecoin-billion-milestone-october-2026";
 import { post as autoPost396 } from "./blog/posts/strategy-650000-bitcoin-reserve-2026";
 import { post as autoPost397 } from "./blog/posts/strategy-microstrategy-bitcoin-playbook-2026";
-import { post as autoPost398 } from "./blog/posts/strive-bitcoin-treasury-36818-btc-october-20-2026";
 import { post as autoPost399 } from "./blog/posts/switching-exchanges-guide";
 import { post as autoPost400 } from "./blog/posts/tax-as-arbitrage-cost";
 import { post as autoPost401 } from "./blog/posts/tax-software-traders";
@@ -412,8 +372,6 @@ import { post as autoPost402 } from "./blog/posts/thailand-bitcoin-ethereum-etf-
 import { post as autoPost403 } from "./blog/posts/thailand-bitcoin-ethereum-etf-rules-october-2026";
 import { post as autoPost404 } from "./blog/posts/thailand-etf-framework-live-what-next-october-2026";
 import { post as autoPost405 } from "./blog/posts/token-unlocks-october-17-aster-cro-dbr-october-2026";
-import { post as autoPost406 } from "./blog/posts/tokenized-assets-liquidity-problem-2026";
-import { post as autoPost407 } from "./blog/posts/tokenized-carbon-credits-2026";
 import { post as autoPost408 } from "./blog/posts/tokenized-funds-franklin-blackrock-2026";
 import { post as autoPost409 } from "./blog/posts/tokenized-gold-vs-physical-gold-2026";
 import { post as autoPost410 } from "./blog/posts/tokenized-private-credit-2026";
@@ -447,7 +405,6 @@ import { post as autoPost437 } from "./blog/posts/uniswap-arbitrage-guide";
 import { post as autoPost438 } from "./blog/posts/us-government-bitcoin-transfer-coinbase-prime-october-2026";
 import { post as autoPost439 } from "./blog/posts/usa-crypto-arbitrage-guide";
 import { post as autoPost440 } from "./blog/posts/usd-pkr-277-interbank-279-open-market-october-19-2026";
-import { post as autoPost441 } from "./blog/posts/usd-pkr-277-interbank-october-20-2026";
 import { post as autoPost442 } from "./blog/posts/usd-pkr-steady-277-pkr-traders-october-2026";
 import { post as autoPost443 } from "./blog/posts/usdc-depeg-2023-case";
 import { post as autoPost444 } from "./blog/posts/usdc-significant-emoney-token-mica-arbitrage-october-2026";
@@ -465,13 +422,11 @@ import { post as autoPost455 } from "./blog/posts/withdrawal-fees-arbitrage";
 import { post as autoPost456 } from "./blog/posts/withdrawal-whitelists";
 import { post as autoPost457 } from "./blog/posts/wrapped-bitcoin-arbitrage";
 import { post as autoPost458 } from "./blog/posts/xrp-etf-inflow-streak-14-days-2026";
-import { post as autoPost459 } from "./blog/posts/xrp-reserves-11-81b-binance-october-20-2026";
 import { post as autoPost460 } from "./blog/posts/xrp-whale-inflows-binance-seven-month-high-october-2026";
 import { post as autoPost461 } from "./blog/posts/yield-bearing-stablecoins-ban-2026";
 import { post as autoPost462 } from "./blog/posts/yield-farming-vs-arbitrage";
 import { post as autoPost463 } from "./blog/posts/yield-on-idle-capital";
 import { post as autoPost464 } from "./blog/posts/zero-fee-arbitrage-myth";
-import { post as autoPost465 } from "./blog/posts/zero-knowledge-proofs-trading-2026";
 // AUTO-IMPORTS END
 
 export const blogPosts: BlogPost[] = [
@@ -1341,7 +1296,6 @@ export const blogPosts: BlogPost[] = [
   autoPost014,
   autoPost015,
   autoPost016,
-  autoPost017,
   autoPost018,
   autoPost019,
   autoPost020,
@@ -1357,7 +1311,6 @@ export const blogPosts: BlogPost[] = [
   autoPost030,
   autoPost031,
   autoPost032,
-  autoPost033,
   autoPost034,
   autoPost035,
   autoPost036,
@@ -1374,7 +1327,6 @@ export const blogPosts: BlogPost[] = [
   autoPost047,
   autoPost048,
   autoPost049,
-  autoPost050,
   autoPost051,
   autoPost052,
   autoPost053,
@@ -1396,7 +1348,6 @@ export const blogPosts: BlogPost[] = [
   autoPost069,
   autoPost070,
   autoPost071,
-  autoPost072,
   autoPost073,
   autoPost074,
   autoPost075,
@@ -1413,13 +1364,10 @@ export const blogPosts: BlogPost[] = [
   autoPost086,
   autoPost087,
   autoPost088,
-  autoPost089,
   autoPost090,
   autoPost091,
-  autoPost092,
   autoPost093,
   autoPost094,
-  autoPost095,
   autoPost096,
   autoPost097,
   autoPost098,
@@ -1444,7 +1392,6 @@ export const blogPosts: BlogPost[] = [
   autoPost117,
   autoPost118,
   autoPost119,
-  autoPost120,
   autoPost121,
   autoPost122,
   autoPost123,
@@ -1471,7 +1418,6 @@ export const blogPosts: BlogPost[] = [
   autoPost144,
   autoPost145,
   autoPost146,
-  autoPost147,
   autoPost148,
   autoPost149,
   autoPost150,
@@ -1506,7 +1452,6 @@ export const blogPosts: BlogPost[] = [
   autoPost179,
   autoPost180,
   autoPost181,
-  autoPost182,
   autoPost183,
   autoPost184,
   autoPost185,
@@ -1535,7 +1480,6 @@ export const blogPosts: BlogPost[] = [
   autoPost208,
   autoPost209,
   autoPost210,
-  autoPost211,
   autoPost212,
   autoPost213,
   autoPost214,
@@ -1564,7 +1508,6 @@ export const blogPosts: BlogPost[] = [
   autoPost237,
   autoPost238,
   autoPost239,
-  autoPost240,
   autoPost241,
   autoPost242,
   autoPost243,
@@ -1591,12 +1534,10 @@ export const blogPosts: BlogPost[] = [
   autoPost264,
   autoPost265,
   autoPost266,
-  autoPost267,
   autoPost268,
   autoPost269,
   autoPost270,
   autoPost271,
-  autoPost272,
   autoPost273,
   autoPost274,
   autoPost275,
@@ -1605,18 +1546,14 @@ export const blogPosts: BlogPost[] = [
   autoPost278,
   autoPost279,
   autoPost280,
-  autoPost281,
   autoPost282,
   autoPost283,
   autoPost284,
   autoPost285,
   autoPost286,
   autoPost287,
-  autoPost288,
   autoPost289,
-  autoPost290,
   autoPost291,
-  autoPost292,
   autoPost293,
   autoPost294,
   autoPost295,
@@ -1642,24 +1579,11 @@ export const blogPosts: BlogPost[] = [
   autoPost315,
   autoPost316,
   autoPost317,
-  autoPost318,
   autoPost319,
-  autoPost320,
-  autoPost321,
-  autoPost322,
-  autoPost323,
-  autoPost324,
-  autoPost325,
-  autoPost326,
-  autoPost327,
-  autoPost328,
-  autoPost329,
   autoPost330,
   autoPost331,
   autoPost332,
-  autoPost333,
   autoPost334,
-  autoPost335,
   autoPost336,
   autoPost337,
   autoPost338,
@@ -1676,22 +1600,15 @@ export const blogPosts: BlogPost[] = [
   autoPost349,
   autoPost350,
   autoPost351,
-  autoPost352,
   autoPost353,
   autoPost354,
-  autoPost355,
   autoPost356,
-  autoPost357,
   autoPost358,
   autoPost359,
   autoPost360,
   autoPost361,
-  autoPost362,
   autoPost363,
-  autoPost364,
-  autoPost365,
   autoPost366,
-  autoPost367,
   autoPost368,
   autoPost369,
   autoPost370,
@@ -1699,7 +1616,6 @@ export const blogPosts: BlogPost[] = [
   autoPost372,
   autoPost373,
   autoPost374,
-  autoPost375,
   autoPost376,
   autoPost377,
   autoPost378,
@@ -1722,7 +1638,6 @@ export const blogPosts: BlogPost[] = [
   autoPost395,
   autoPost396,
   autoPost397,
-  autoPost398,
   autoPost399,
   autoPost400,
   autoPost401,
@@ -1730,8 +1645,6 @@ export const blogPosts: BlogPost[] = [
   autoPost403,
   autoPost404,
   autoPost405,
-  autoPost406,
-  autoPost407,
   autoPost408,
   autoPost409,
   autoPost410,
@@ -1765,7 +1678,6 @@ export const blogPosts: BlogPost[] = [
   autoPost438,
   autoPost439,
   autoPost440,
-  autoPost441,
   autoPost442,
   autoPost443,
   autoPost444,
@@ -1783,13 +1695,11 @@ export const blogPosts: BlogPost[] = [
   autoPost456,
   autoPost457,
   autoPost458,
-  autoPost459,
   autoPost460,
   autoPost461,
   autoPost462,
   autoPost463,
   autoPost464,
-  autoPost465,
   // AUTO-POSTS END
 ];
 
