@@ -6,6 +6,7 @@ import { authOptions } from "@/lib/auth";
 import { getUser, isDbConfigured } from "@/lib/db";
 import TrialCountdown from "./TrialCountdown";
 import ClientSignOut from "./SignOutButton";
+import ReferralCard from "./ReferralCard";
 
 export const dynamic = "force-dynamic";
 
@@ -130,6 +131,8 @@ export default async function DashboardPage() {
           </a>
         </div>
       )}
+
+      <ReferralCard />
 
       {/* ---------- Locked / expired state ---------- */}
       {!hasAccess && (

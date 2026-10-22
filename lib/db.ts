@@ -108,3 +108,96 @@ export async function setPaymentStatus(paymentId: number, status: "approved" | "
     await setPaid(updated[0].user_email);
   }
 }
+
+// ---------------------------------------------------------------------------
+// Referrals / affiliates
+// ---------------------------------------------------------------------------
+
+let referralColumnsReady = false;
+
+export async function ensureReferralColumns(): Promise<void> {
+  if (referralColumnsReady) return;
+  await rows(`ALTER TABLE users ADD COLUMN IF NOT EXISTS referral_code TEXT`);
+  await rows(`ALTER TABLE users ADD COLUMN IF NOT EXISTS referred_by TEXT`);
+  await rows(
+    `CREATE UNIQUE INDEX IF NOT EXISTS idx_users_referral_code ON users(referral_code) WHERE referral_code IS NOT NULL`
+  );
+  referralColumnsReady = true;
+}
+
+const CODE_ALPHABET = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";
+
+function generateCode(): string {
+  let code = "";
+  for (let i = 0; i < 8; i++) {
+    code += CODE_ALPHABET[Math.floor(Math.random() * CODE_ALPHABET.length)];
+  }
+  return code;
+}
+
+export async function getOrCreateReferralCode(email: string): Promise<string> {
+  await ensureReferralColumns();
+  const existing = await rows<{ referral_code: string | null }>(
+    `SELECT referral_code FROM users WHERE email = $1`,
+    [email]
+  );
+  if (existing[0]?.referral_code) return existing[0].referral_code;
+  for (let attempt = 0; attempt < 5; attempt++) {
+    const code = generateCode();
+    try {
+      const updated = await rows<{ referral_code: string }>(
+        `UPDATE users SET referral_code = $1 WHERE email = $2 AND referral_code IS NULL RETURNING referral_code`,
+        [code, email]
+      );
+      if (updated[0]?.referral_code) return updated[0].referral_code;
+    } catch {
+      // unique-index collision — retry with a fresh code
+    }
+  }
+  throw new Error("Could not allocate a referral code.");
+}
+
+export async function claimReferral(
+  email: string,
+  code: string
+): Promise<"claimed" | "already" | "invalid" | "self"> {
+  await ensureReferralColumns();
+  const clean = code.trim().toUpperCase();
+  if (!/^[A-Z0-9]{6,10}$/.test(clean)) return "invalid";
+  const owners = await rows<{ email: string }>(
+    `SELECT email FROM users WHERE referral_code = $1`,
+    [clean]
+  );
+  if (!owners[0]) return "invalid";
+  if (owners[0].email === email) return "self";
+  const updated = await rows<{ email: string }>(
+    `UPDATE users SET referred_by = $1 WHERE email = $2 AND referred_by IS NULL RETURNING email`,
+    [clean, email]
+  );
+  return updated[0] ? "claimed" : "already";
+}
+
+export interface ReferralStats {
+  code: string;
+  signups: number;
+  activePro: number;
+  estimatedMonthlyUsd: number;
+}
+
+export async function getReferralStats(email: string): Promise<ReferralStats> {
+  const code = await getOrCreateReferralCode(email);
+  const counts = await rows<{ signups: string; active_pro: string }>(
+    `SELECT COUNT(*)::text AS signups,
+            COUNT(*) FILTER (WHERE plan = 'paid')::text AS active_pro
+       FROM users WHERE referred_by = $1`,
+    [code]
+  );
+  const signups = parseInt(counts[0]?.signups ?? "0", 10);
+  const activePro = parseInt(counts[0]?.active_pro ?? "0", 10);
+  return {
+    code,
+    signups,
+    activePro,
+    estimatedMonthlyUsd: Math.round(activePro * 24.99 * 0.4 * 100) / 100,
+  };
+}

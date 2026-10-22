@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Providers } from "./providers";
 import { Analytics } from "./components/Analytics";
+import RefCapture from "./components/RefCapture";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/site";
 import { siteJsonLd } from "./components/Seo";
 
@@ -72,6 +73,7 @@ export default function RootLayout({
           }}
         />
         <Providers>{children}</Providers>
+        <RefCapture />
         <Analytics />
       </body>
     </html>
