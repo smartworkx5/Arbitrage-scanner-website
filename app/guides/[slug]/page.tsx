@@ -95,7 +95,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
             Put this strategy into practice
           </h2>
           <p className="mt-2 text-slate-300">
-            Crypto Arbitrage Scanner detects {guide.title.toLowerCase().includes("triangular") ? "triangular loops" : guide.title.toLowerCase().includes("funding") ? "funding-rate opportunities" : guide.title.toLowerCase().includes("cex") ? "CEX vs DEX gaps" : "cross-exchange spreads"} in real time across 16 exchanges — and the paper trading bot lets you practice risk-free.
+            Cryptoscopia detects {guide.title.toLowerCase().includes("triangular") ? "triangular loops" : guide.title.toLowerCase().includes("funding") ? "funding-rate opportunities" : guide.title.toLowerCase().includes("cex") ? "CEX vs DEX gaps" : "cross-exchange spreads"} in real time across 16 exchanges — and the paper trading bot lets you practice risk-free.
           </p>
           <Link href="/signin" className="btn-primary mt-4 inline-block">
             Start Free 3-Day Trial

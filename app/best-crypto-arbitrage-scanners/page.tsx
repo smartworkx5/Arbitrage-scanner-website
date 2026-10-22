@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 const blocks: ContentBlock[] = [
   {
     type: "p",
-    text: "Searching for the **best crypto arbitrage scanner**? The market is full of tools promising risk-free profits — most of them disappoint. This guide explains what actually matters when choosing one, how the main approaches compare, and where Crypto Arbitrage Scanner fits in. No hype, just the criteria professionals use.",
+    text: "Searching for the **best crypto arbitrage scanner**? The market is full of tools promising risk-free profits — most of them disappoint. This guide explains what actually matters when choosing one, how the main approaches compare, and where Cryptoscopia fits in. No hype, just the criteria professionals use.",
   },
   { type: "h2", text: "What a good arbitrage scanner must do" },
   {
@@ -51,14 +51,14 @@ const blocks: ContentBlock[] = [
       ["**Manual checking**", "Minutes", "2–3 exchanges", "Free", "Learning the concepts"],
       ["**Spreadsheet + APIs**", "Seconds–minutes", "As many as you code", "Your time", "Developers"],
       ["**Generic trading bots**", "Fast", "Varies", "$30–$100+/mo", "Automation-first traders"],
-      ["**Crypto Arbitrage Scanner**", "Real-time", "**16 exchanges**", "**$24.99 once**", "Retail traders who want it working now"],
+      ["**Cryptoscopia**", "Real-time", "**16 exchanges**", "**$24.99/month**", "Retail traders who want it working now"],
     ],
   },
   {
     type: "p",
     text: "Manual checking is free but cannot compete with spreads that live for seconds. Building your own API stack works if you code — budget weekends, not hours. Generic bots are powerful but complex, and their subscriptions quietly eat small edges. A purpose-built scanner is the pragmatic middle ground: turn it on, see ranked opportunities, practice with paper trading.",
   },
-  { type: "h2", text: "How Crypto Arbitrage Scanner compares" },
+  { type: "h2", text: "How Cryptoscopia compares" },
   {
     type: "list",
     items: [

@@ -109,7 +109,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             See arbitrage opportunities live
           </h2>
           <p className="mt-2 text-slate-300">
-            Crypto Arbitrage Scanner monitors 16 exchanges in real time — try
+            Cryptoscopia monitors 16 exchanges in real time — try
             it free for 3 days.
           </p>
           <Link href="/signin" className="btn-primary mt-4 inline-block">

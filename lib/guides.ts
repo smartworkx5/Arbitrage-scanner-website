@@ -101,7 +101,7 @@ export const guides: Guide[] = [
       { type: "h2", text: "How to find cross-exchange spreads" },
       {
         type: "p",
-        text: "Manual checking cannot compete — spreads live for seconds. Traders use scanners that poll order books across exchanges continuously. [Crypto Arbitrage Scanner](/), for example, watches 16 exchanges in real time, ranks opportunities by net spread, and lets you rehearse execution with a paper trading bot before committing real funds. See also our guide to [crypto arbitrage opportunities](/blog/crypto-arbitrage-opportunities) and the [glossary](/glossary) if any term here is new.",
+        text: "Manual checking cannot compete — spreads live for seconds. Traders use scanners that poll order books across exchanges continuously. [Cryptoscopia](/), for example, watches 16 exchanges in real time, ranks opportunities by net spread, and lets you rehearse execution with a paper trading bot before committing real funds. See also our guide to [crypto arbitrage opportunities](/blog/crypto-arbitrage-opportunities) and the [glossary](/glossary) if any term here is new.",
       },
       {
         type: "faq",

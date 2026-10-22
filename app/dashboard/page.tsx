@@ -56,8 +56,9 @@ export default async function DashboardPage() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-10">
       <header className="mb-8 flex items-center justify-between">
-        <Link href="/" className="text-lg font-bold tracking-tight">
-          <span className="gradient-text">Crypto Arbitrage</span> Scanner
+        <Link href="/" className="flex items-center gap-2 text-lg font-bold tracking-tight">
+          <img src="/images/logo-mark.svg" alt="Cryptoscopia logo" width={30} height={30} />
+          <span className="gradient-text">Cryptoscopia</span>
         </Link>
         <ClientSignOut />
       </header>

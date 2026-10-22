@@ -222,7 +222,7 @@ export default function GlossaryPage() {
             Know the terms. Now see the opportunities.
           </h2>
           <p className="mt-2 text-slate-300">
-            Crypto Arbitrage Scanner finds live spreads across 16 exchanges —
+            Cryptoscopia finds live spreads across 16 exchanges —
             try it free for 3 days.
           </p>
           <Link href="/signin" className="btn-primary mt-4 inline-block">
