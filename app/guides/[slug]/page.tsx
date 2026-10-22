@@ -5,6 +5,7 @@ import { guides } from "@/lib/guides";
 import { SITE_URL } from "@/lib/site";
 import { ArticleBody } from "@/app/components/ArticleBody";
 import { Breadcrumbs, articleJsonLd, faqJsonLd } from "@/app/components/Seo";
+import TrialCta from "@/app/components/TrialCta";
 
 export async function generateStaticParams() {
   return guides.map((g) => ({ slug: g.slug }));
@@ -120,6 +121,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
           </div>
         </div>
       </div>
+      <TrialCta />
     </div>
   );
 }

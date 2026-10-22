@@ -3,6 +3,7 @@ import Link from "next/link";
 import { guides } from "@/lib/guides";
 import { SITE_URL } from "@/lib/site";
 import { Breadcrumbs } from "@/app/components/Seo";
+import TrialCta from "@/app/components/TrialCta";
 
 export const metadata: Metadata = {
   title: "Crypto Arbitrage Guides — Strategies Explained Step by Step",
@@ -74,6 +75,7 @@ export default function GuidesHub() {
           </p>
         </div>
       </div>
+      <TrialCta />
     </div>
   );
 }

@@ -18,10 +18,15 @@ export default function SignInPage() {
           <img src="/images/logo-mark.svg" alt="Cryptoscopia logo" width={30} height={30} />
           <span className="gradient-text">Cryptoscopia</span>
         </Link>
-        <h1 className="mt-6 text-2xl font-bold">Welcome back</h1>
+        <h1 className="mt-6 text-2xl font-bold">Start your free 3-day trial</h1>
         <p className="mt-2 text-sm text-slate-400">
-          Sign in with Google to start your free 3-day trial. We only store your name and email.
+          Sign in with Google — it takes 10 seconds. We only store your name and email.
         </p>
+        <ul className="mx-auto mt-5 max-w-xs space-y-2 text-left text-sm text-slate-300">
+          <li className="flex gap-2"><span className="text-green-400">✓</span>Full access to all 16 exchanges + paper trading bot</li>
+          <li className="flex gap-2"><span className="text-green-400">✓</span>No credit card required</li>
+          <li className="flex gap-2"><span className="text-green-400">✓</span>After 3 days, access simply stops unless you choose Pro</li>
+        </ul>
         <div className="mt-8">
           <SignInButton configured={configured} />
         </div>

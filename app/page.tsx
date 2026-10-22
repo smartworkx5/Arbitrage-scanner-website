@@ -142,21 +142,13 @@ const faqs = [
     q: "How does the free 3-day trial work?",
     a: "Sign in with your Google account and you get full access — the Arbitrage Matrix, all 16 exchanges, and the paper trading bot — for 3 days, completely free. No credit card required. When the trial ends you simply lose access until you upgrade to Pro.",
   },
-  {
-    q: "What exactly is the Arbitrage Matrix?",
-    a: "It's the core of Cryptoscopia. It finds the top gainers and top losers on exchanges in real time, then checks those same tokens across 16 exchanges to spot arbitrage opportunities: cross-exchange spreads, CEX vs DEX gaps, triangular arbitrage and funding-rate arbitrage — all ranked by profit potential.",
-  },
-  {
-    q: "What is the paper trading bot?",
-    a: "A risk-free practice mode. The bot lets you execute the arbitrage opportunities the scanner finds using virtual money, so you can test strategies and build confidence before trading with real funds.",
-  },
-  {
+      {
     q: "How much does Pro cost?",
     a: "Pro is $24.99 per month — a monthly plan, not a one-time payment. Pay via Binance, and each monthly payment keeps your Pro access active for that month. There are no hidden fees.",
   },
   {
     q: "How do I pay for Pro?",
-    a: "We accept payment via Binance. On the payment page you'll see our Binance ID (346894283): send exactly 24.99 USDT, then upload a screenshot of the transfer along with your transaction ID. Our team reviews it and activates your Pro access, usually within a few hours.",
+    a: "Pay via Binance in 3 steps: 1) On the payment page, send exactly 24.99 USDT to our Binance ID (346894283). 2) Upload a screenshot of the transfer with your transaction ID. 3) We review it and activate Pro — usually within a few hours. Sent the wrong amount or network? Contact us and we'll sort it out.",
   },
   {
     q: "How long does payment approval take?",
@@ -248,15 +240,15 @@ export default async function LandingPage() {
                 ⚡ Real-time arbitrage scanning across 16 exchanges
               </p>
               <h1 className="text-4xl font-extrabold leading-tight tracking-tight md:text-5xl xl:text-6xl">
-                <span className="gradient-text-animated">Cryptoscopia</span>
+                Find <span className="gradient-text-animated">crypto arbitrage gaps</span>
                 <br />
-                Spot arbitrage gaps before they close
+                across 16 exchanges — before they close
               </h1>
               <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-400 lg:mx-0">
-                Cryptoscopia's Arbitrage Matrix finds the <strong className="text-slate-200">top gainers and top losers</strong> in
-                real time, then checks those tokens across <strong className="text-slate-200">16 exchanges</strong> to
-                spot cross-exchange, CEX vs DEX, triangular and funding-rate arbitrage — and lets you
-                test every opportunity risk-free with the built-in <strong className="text-slate-200">paper trading bot</strong>.
+                Cryptoscopia scans the <strong className="text-slate-200">top gainers and losers</strong> across
+                <strong className="text-slate-200">16 exchanges</strong> in real time and ranks the best price differences for you.
+                Built for retail traders — no coding, nothing to install. Practice risk-free with the built-in
+                <strong className="text-slate-200">paper trading bot</strong>.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
                 <Link href="/signin" className="btn-primary w-full sm:w-auto">
@@ -267,6 +259,7 @@ export default async function LandingPage() {
                 </LaunchAppButton>
               </div>
               <p className="mt-4 text-sm text-slate-500">No credit card required · Full access for 3 days</p>
+              <p className="mt-2 text-xs text-slate-500">No scanner can guarantee profits — Cryptoscopia finds the gaps; you decide the trades.</p>
               <dl className={`mx-auto mt-10 grid max-w-xl grid-cols-2 gap-6 lg:mx-0 ${stats.length >= 4 ? "sm:grid-cols-4" : "sm:grid-cols-3"}`}>
                 {stats.map(([v, l]) => (
                   <div key={l} className="text-center lg:text-left">
@@ -276,6 +269,9 @@ export default async function LandingPage() {
                   </div>
                 ))}
               </dl>
+              <p className="mx-auto mt-6 max-w-xl text-xs leading-relaxed text-slate-500 lg:mx-0">
+                Scanning: Binance · Bybit · OKX · KuCoin · Gate.io · MEXC · Bitget · HTX · CoinEx · BitMart · LBank · XT.com · Bitrue · CEX.io · Coinstore · + DEX pools
+              </p>
             </div>
             <div className="relative">
               <div aria-hidden className="pointer-events-none absolute -inset-4 rounded-3xl bg-gradient-to-br from-green-500/15 via-transparent to-blue-600/15 blur-2xl" />
@@ -314,7 +310,7 @@ export default async function LandingPage() {
           <div className="text-center">
             <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-green-400">Inside the App</p>
             <h2 className="text-3xl font-bold md:text-4xl">
-              Every tool you need to <span className="gradient-text">profit from arbitrage</span>
+              Every tool you need to <span className="gradient-text">find arbitrage</span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-slate-400">
               9 powerful features, one app. This is exactly what you get when you launch the scanner.
@@ -368,11 +364,9 @@ export default async function LandingPage() {
               </p>
               <ul className="mt-6 space-y-3 text-sm text-slate-300">
                 {[
-                  "Full scanner access for 3 days",
-                  "Top gainers & losers scanner",
-                  "Arbitrage detection across 16 exchanges",
-                  "Paper trading bot",
+                  "Everything in Pro — free for 3 days",
                   "No credit card required",
+                  "Access simply stops if you don't upgrade",
                 ].map((li) => (
                   <li key={li} className="flex gap-2"><span className="text-green-400">✓</span>{li}</li>
                 ))}
@@ -395,7 +389,6 @@ export default async function LandingPage() {
                   "All 4 arbitrage strategies",
                   "Paper trading bot",
                   "Real-time price alerts",
-                  "Mobile friendly",
                   "Priority support",
                 ].map((li) => (
                   <li key={li} className="flex gap-2"><span className="text-green-400">✓</span>{li}</li>
@@ -404,7 +397,21 @@ export default async function LandingPage() {
               <Link href="/signin" className="btn-primary mt-8 w-full">Upgrade to Pro</Link>
             </article>
           </div>
+          <div className="card mt-8">
+            <h3 className="font-semibold text-slate-100">How paying works</h3>
+            <ol className="mt-3 grid gap-3 text-sm text-slate-300 sm:grid-cols-3">
+              <li><span className="font-bold text-green-400">1.</span> Send exactly 24.99 USDT on Binance to our Binance ID</li>
+              <li><span className="font-bold text-green-400">2.</span> Upload your transfer screenshot + transaction ID</li>
+              <li><span className="font-bold text-green-400">3.</span> Pro activates within a few hours (max 24h)</li>
+            </ol>
+            <p className="mt-3 text-xs text-slate-500">Sent the wrong amount or network? Don't worry — contact us and we'll sort it out.</p>
+          </div>
         </section>
+
+        {/* Sticky mobile trial CTA */}
+        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-800 bg-[#0a0e17]/95 px-4 py-3 backdrop-blur md:hidden">
+          <Link href="/signin" className="btn-primary flex w-full justify-center">Start Free 3-Day Trial — no card needed</Link>
+        </div>
 
         {/* ---------- FAQ ---------- */}
         <section id="faq" className="mx-auto max-w-3xl scroll-mt-20 px-4 py-16">

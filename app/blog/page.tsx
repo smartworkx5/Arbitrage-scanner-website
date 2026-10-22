@@ -3,6 +3,7 @@ import Link from "next/link";
 import { blogPosts } from "@/lib/blog-posts";
 import { SITE_URL } from "@/lib/site";
 import { Breadcrumbs } from "@/app/components/Seo";
+import TrialCta from "@/app/components/TrialCta";
 
 export const metadata: Metadata = {
   title: "Crypto Arbitrage Blog — News, Guides & Market Insights",
@@ -81,6 +82,7 @@ export default function BlogIndex() {
           ))}
         </div>
       </div>
+      <TrialCta />
     </div>
   );
 }

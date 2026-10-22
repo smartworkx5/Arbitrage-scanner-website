@@ -5,6 +5,7 @@ import { blogPosts } from "@/lib/blog-posts";
 import { SITE_URL } from "@/lib/site";
 import { ArticleBody } from "@/app/components/ArticleBody";
 import { Breadcrumbs, articleJsonLd, faqJsonLd } from "@/app/components/Seo";
+import TrialCta from "@/app/components/TrialCta";
 
 export async function generateStaticParams() {
   return blogPosts.map((p) => ({ slug: p.slug }));
@@ -134,6 +135,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           </div>
         </div>
       </div>
+      <TrialCta />
     </div>
   );
 }
