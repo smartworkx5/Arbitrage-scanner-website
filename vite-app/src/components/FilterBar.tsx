@@ -60,7 +60,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const minSpreadPresets = [0, 1.0, 5.0, 10.0, 20.0, 50.0];
-  const maxSpreadPresets = [15, 30, 50, 100, 200, 0]; // 0 means All/Unlimited
+  const maxSpreadPresets = [15, 20, 30, 50, 100, 200, 0]; // 0 means All/Unlimited; 20 is the app default
 
   const handleMinSpreadChange = (val: number) => {
     const updates: Partial<FilterState> = { minSpread: val };

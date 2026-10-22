@@ -23,7 +23,7 @@ export const MoversTab: React.FC<MoversTabProps> = ({
   onOpenCalculator,
   onOpenDetail,
 }) => {
-  const [selectedExchange, setSelectedExchange] = useState<string>('mexc');
+  const [selectedExchange, setSelectedExchange] = useState<string>('coinstore');
   const [limit, setLimit] = useState<number>(20);
   const [loading, setLoading] = useState(false);
   const [selectedCexDexCalcOpp, setSelectedCexDexCalcOpp] = useState<CexDexArbitrageOpportunity | null>(null);

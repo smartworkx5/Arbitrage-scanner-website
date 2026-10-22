@@ -7,56 +7,61 @@ const FETCH_TIMEOUT_MS = 3000;
 const isBrowser = typeof window !== 'undefined';
 
 async function fetchWithTimeout(url: string, options: RequestInit = {}): Promise<Response> {
-  const controller = new AbortController();
-  const timeoutMs = isBrowser ? 3000 : FETCH_TIMEOUT_MS;
-  const id = setTimeout(() => controller.abort(), timeoutMs);
-  
-  try {
-    const headers: Record<string, string> = {
-      'Accept': 'application/json, text/plain, */*',
-      ...(options.headers as Record<string, string> || {}),
-    };
+  const headers: Record<string, string> = {
+    'Accept': 'application/json, text/plain, */*',
+    ...(options.headers as Record<string, string> || {}),
+  };
 
-    if (!isBrowser) {
-      headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
-      headers['Accept-Language'] = 'en-US,en;q=0.9';
-    }
-
-    try {
-      const response = await fetch(url, {
-        ...options,
-        signal: controller.signal,
-        headers,
-      });
-      if (response.ok) return response;
-      if (!isBrowser && response.status !== 404) return response;
-    } catch (primaryErr) {
-      // If in browser and direct fetch fails (likely CORS or mixed content), try fast fallback proxies
-      if (isBrowser && (url.startsWith('http://') || url.startsWith('https://'))) {
-        const proxies = [
-          `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
-          `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
-          `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
-        ];
-        for (const proxyUrl of proxies) {
-          try {
-            const proxyResponse = await fetch(proxyUrl, {
-              signal: controller.signal,
-              headers: { 'Accept': 'application/json' },
-            });
-            if (proxyResponse.ok) return proxyResponse;
-          } catch {
-            // Try next proxy
-          }
-        }
-      }
-      throw primaryErr;
-    }
-
-    return await fetch(url, { ...options, signal: controller.signal, headers });
-  } finally {
-    clearTimeout(id);
+  if (!isBrowser) {
+    headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
+    headers['Accept-Language'] = 'en-US,en;q=0.9';
   }
+
+  const attempt = async (target: string, timeoutMs: number, hdrs: Record<string, string>): Promise<Response> => {
+    const controller = new AbortController();
+    const id = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      return await fetch(target, { ...options, signal: controller.signal, headers: hdrs });
+    } finally {
+      clearTimeout(id);
+    }
+  };
+
+  // 1) Direct attempt
+  let directError: any = null;
+  try {
+    const response = await attempt(url, FETCH_TIMEOUT_MS, headers);
+    if (response.ok || !isBrowser) return response;
+    // Browser + HTTP error (e.g. a geo-block 403): fall through to the proxy fallback
+  } catch (err) {
+    directError = err;
+    if (!isBrowser) throw err;
+  }
+
+  // 2) Browser CORS fallback: public proxies, each with its OWN fresh timeout budget.
+  // Previously every proxy shared the direct attempt's single 3s AbortController, so the
+  // chain almost always aborted before any proxy answered — exchanges without CORS
+  // headers (e.g. MEXC, Coinstore) therefore never loaded in the browser at all,
+  // which also left their Top Movers permanently empty.
+  if (isBrowser && (url.startsWith('http://') || url.startsWith('https://'))) {
+    const proxies = [
+      `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
+      `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+      `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
+    ];
+    for (const proxyUrl of proxies) {
+      try {
+        const proxyResponse = await attempt(proxyUrl, 6000, { 'Accept': 'application/json' });
+        if (proxyResponse.ok) return proxyResponse;
+      } catch {
+        // Try next proxy
+      }
+    }
+  }
+
+  if (directError) throw directError;
+  // Direct returned a non-OK response and no proxy succeeded — surface a fresh direct attempt
+  return attempt(url, FETCH_TIMEOUT_MS, headers);
 }
 
 function safeFloat(val: any): number {

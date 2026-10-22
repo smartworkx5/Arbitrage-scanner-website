@@ -1,7 +1,6 @@
 import React from 'react';
 import { RefreshCw, Activity, ShieldCheck, Bell, Volume2, VolumeX, Key, ArrowRightLeft, Layers, Sparkles, Percent, TrendingUp, Cpu, LogOut } from 'lucide-react';
 import { ScanResultSummary } from '../types';
-import { PWAInstallButton } from './PWAInstallButton';
 
 interface HeaderProps {
   summary: ScanResultSummary | null;
@@ -67,16 +66,12 @@ export const Header: React.FC<HeaderProps> = ({
                 <h1 className="text-sm font-extrabold bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent tracking-tight leading-none">
                   Cryptoscopia
                 </h1>
-                <span className="text-[9px] uppercase font-mono px-1.5 py-0.2 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-semibold">
-                  {summary?.totalExchanges || 15} EXCHANGES
-                </span>
               </div>
             </div>
           </div>
 
           {/* Mobile Action buttons */}
           <div className="flex items-center gap-1.5 md:hidden">
-            <PWAInstallButton variant="header" />
             <button
               onClick={handleLogout}
               title="Log out"
@@ -238,9 +233,6 @@ export const Header: React.FC<HeaderProps> = ({
           >
             {soundEnabled ? <Volume2 className="w-3.5 h-3.5" /> : <VolumeX className="w-3.5 h-3.5" />}
           </button>
-
-          {/* PWA Install Button */}
-          <PWAInstallButton variant="header" />
 
           {/* Scan Now Button */}
           <button

@@ -59,9 +59,9 @@ export default function App() {
   // Filters State
   const [filter, setFilter] = useState<FilterState>({
     search: '',
-    minSpread: 0, // Default to show all >0% spread
-    maxSpread: 0, // Default to 0 (All / No upper limit) so all opportunities are immediately visible
-    openStatusOnly: false, // Default to false so all active pairs are visible, user can toggle Open D/W Only anytime
+    minSpread: 5, // Default view: only spreads above 5% (user preference)
+    maxSpread: 20, // Default view: only spreads below 20% — keeps unrealistic junk spreads out
+    openStatusOnly: true, // Default: only pairs where deposit & withdraw are open on both sides
     contractVerifiedOnly: false,
     buyExchanges: [],
     sellExchanges: [],
@@ -250,10 +250,10 @@ export default function App() {
                       Try lowering the Minimum Spread filter (e.g. to 0.5% or All) or searching for a different coin ticker.
                     </p>
                     <button
-                      onClick={() => setFilter({ ...filter, minSpread: 0, search: '' })}
+                      onClick={() => setFilter({ ...filter, minSpread: 0, maxSpread: 0, openStatusOnly: false, search: '' })}
                       className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-all shadow-md cursor-pointer"
                     >
-                      Reset Spread Filters
+                      Show All Opportunities
                     </button>
                   </div>
                 ) : viewMode === 'cards' ? (

@@ -265,7 +265,7 @@ export const dataService = {
   /**
    * Fetch 24h Top Gainers & Losers with Arbitrage Sourcing
    */
-  async getExchangeMovers(exchangeId: string = 'mexc', limit: number = 20): Promise<{ gainers: any[]; losers: any[] }> {
+  async getExchangeMovers(exchangeId: string = 'coinstore', limit: number = 20): Promise<{ gainers: any[]; losers: any[] }> {
     const cleanId = (exchangeId || 'mexc').toLowerCase().trim();
     try {
       const serverData = await safeApiFetch<any>(`/api/movers?exchange=${encodeURIComponent(cleanId)}&limit=${limit}`, { retries: 2, baseDelay: 400 });
