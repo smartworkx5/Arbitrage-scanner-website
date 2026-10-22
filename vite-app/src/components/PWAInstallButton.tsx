@@ -63,7 +63,7 @@ export const PWAInstallButton: React.FC<{ variant?: 'header' | 'floating' | 'sid
                 <Smartphone className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-white">Install Crypto Arbitrage Matrix</h3>
+                <h3 className="text-base font-bold text-white">Install Cryptoscopia</h3>
                 <p className="text-xs text-slate-400">Run standalone with instant zero-lag desktop/mobile experience</p>
               </div>
             </div>

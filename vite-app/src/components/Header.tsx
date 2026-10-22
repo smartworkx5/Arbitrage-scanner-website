@@ -1,5 +1,5 @@
 import React from 'react';
-import { RefreshCw, Activity, ShieldCheck, Zap, Bell, Volume2, VolumeX, Key, ArrowRightLeft, Layers, Sparkles, Percent, TrendingUp, Cpu, LogOut } from 'lucide-react';
+import { RefreshCw, Activity, ShieldCheck, Bell, Volume2, VolumeX, Key, ArrowRightLeft, Layers, Sparkles, Percent, TrendingUp, Cpu, LogOut } from 'lucide-react';
 import { ScanResultSummary } from '../types';
 import { PWAInstallButton } from './PWAInstallButton';
 
@@ -55,15 +55,17 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Logo & Tagline */}
         <div className="flex items-center gap-2.5 w-full md:w-auto justify-between md:justify-start">
           <div className="flex items-center gap-2">
-            <div className="relative flex items-center justify-center w-7 h-7 rounded-lg bg-gradient-to-tr from-emerald-500 to-teal-400 p-0.5 shadow-md shadow-emerald-500/20">
-              <div className="w-full h-full bg-slate-950/90 rounded-[6px] flex items-center justify-center">
-                <Zap className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400/20" />
-              </div>
+            <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-white/10 shadow-md overflow-hidden shrink-0">
+              <img
+                src={`${import.meta.env.BASE_URL}logo-mark.svg`}
+                alt="Cryptoscopia"
+                className="w-6 h-6"
+              />
             </div>
             <div>
               <div className="flex items-center gap-1.5">
                 <h1 className="text-sm font-extrabold bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent tracking-tight leading-none">
-                  ARBITRAGE MATRIX
+                  Cryptoscopia
                 </h1>
                 <span className="text-[9px] uppercase font-mono px-1.5 py-0.2 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-semibold">
                   {summary?.totalExchanges || 15} EXCHANGES

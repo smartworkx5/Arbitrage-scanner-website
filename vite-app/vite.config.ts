@@ -11,11 +11,11 @@ export default defineConfig(() => {
       tailwindcss(),
       VitePWA({
         registerType: 'autoUpdate',
-        includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'icon.svg', 'pwa-192x192.png', 'pwa-512x512.png', 'pwa-maskable-512x512.png'],
+        includeAssets: ['logo-mark.svg'],
         manifest: {
           id: '/',
-          name: 'Crypto Arbitrage Matrix',
-          short_name: 'Crypto Matrix',
+          name: 'Cryptoscopia',
+          short_name: 'Cryptoscopia',
           description: 'Real-time cryptocurrency arbitrage terminal with cross-exchange spot scanning across 16 exchanges, CEX vs DEX pools, and paper trading bot.',
           theme_color: '#0f172a',
           background_color: '#020617',
@@ -26,22 +26,10 @@ export default defineConfig(() => {
           categories: ['finance', 'productivity', 'utilities'],
           icons: [
             {
-              src: '/pwa-192x192.png',
-              sizes: '192x192',
-              type: 'image/png',
+              src: '/app/logo-mark.svg',
+              sizes: 'any',
+              type: 'image/svg+xml',
               purpose: 'any',
-            },
-            {
-              src: '/pwa-512x512.png',
-              sizes: '512x512',
-              type: 'image/png',
-              purpose: 'any',
-            },
-            {
-              src: '/pwa-maskable-512x512.png',
-              sizes: '512x512',
-              type: 'image/png',
-              purpose: 'maskable',
             },
           ],
         },

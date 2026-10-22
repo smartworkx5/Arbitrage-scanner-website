@@ -335,7 +335,7 @@ export default function App() {
       <footer className="border-t border-slate-800/80 bg-slate-950 py-3 text-center text-xs text-slate-500 font-mono">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-1.5">
           <div>
-            Arbitrage Matrix Engine • Scanning 16 Spot Exchanges & Multi-Chain DEXs in Real-Time
+            Cryptoscopia Engine • Scanning 16 Spot Exchanges & Multi-Chain DEXs in Real-Time
           </div>
           <div className="flex items-center gap-3">
             <span className="text-emerald-400 font-semibold flex items-center gap-1">
