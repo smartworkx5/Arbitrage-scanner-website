@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -15,6 +15,10 @@ export const dynamic = "force-dynamic";
  *
  * Results are cached in memory for ~30 seconds so the exchange APIs are
  * not hammered by preview traffic.
+ *
+ * Optional query: ?ex=Binance,Bybit (exact exchange display names) —
+ * restricts the computation to just those exchanges (used by the
+ * /arbitrage/<pair> pages). Each filter combination is cached separately.
  */
 
 interface Quote {
@@ -188,11 +192,14 @@ interface SpreadsPayload {
   spreads: SpreadRow[];
 }
 
-let cache: { at: number; payload: SpreadsPayload } | null = null;
+const caches = new Map<string, { at: number; payload: SpreadsPayload }>();
 
-async function buildSpreads(): Promise<SpreadsPayload> {
+async function buildSpreads(only?: string[]): Promise<SpreadsPayload> {
+  const fetchers = only
+    ? FETCHERS.filter((f) => only.includes(f.name))
+    : FETCHERS;
   const results = await Promise.all(
-    FETCHERS.map(async (f) => {
+    fetchers.map(async (f) => {
       try {
         return { name: f.name, quotes: await f.run() };
       } catch {
@@ -202,6 +209,10 @@ async function buildSpreads(): Promise<SpreadsPayload> {
   );
   const live = results.filter((r) => r.quotes.size > 0);
   if (live.length === 0) {
+    // With an explicit ?ex= filter, an empty result is a valid answer
+    // (e.g. neither requested exchange is covered by our feeds) — the
+    // caller shows an empty state rather than an outage message.
+    if (only) return { updatedAt: new Date().toISOString(), spreads: [] };
     throw new Error("All exchange feeds are unreachable right now");
   }
 
@@ -260,15 +271,31 @@ async function buildSpreads(): Promise<SpreadsPayload> {
   return { updatedAt: new Date().toISOString(), spreads: spreads.slice(0, MAX_RESULTS) };
 }
 
-export async function GET() {
-  if (cache && Date.now() - cache.at < CACHE_TTL_MS) {
-    return NextResponse.json(cache.payload, {
+export async function GET(request: NextRequest) {
+  // Optional ?ex=Binance,Bybit filter (exact display names): compute spreads
+  // using only those exchanges' quotes. Normalized to canonical fetcher
+  // order so the cache key is stable regardless of parameter order.
+  const exParam = request.nextUrl.searchParams.get("ex");
+  const requested = exParam
+    ? exParam
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean)
+    : null;
+  const only = requested
+    ? FETCHERS.map((f) => f.name).filter((name) => requested.includes(name))
+    : undefined;
+  const key = only ? only.join(",") : "__all__";
+
+  const cached = caches.get(key);
+  if (cached && Date.now() - cached.at < CACHE_TTL_MS) {
+    return NextResponse.json(cached.payload, {
       headers: { "Cache-Control": "public, s-maxage=30, stale-while-revalidate=30" },
     });
   }
   try {
-    const payload = await buildSpreads();
-    cache = { at: Date.now(), payload };
+    const payload = await buildSpreads(only);
+    caches.set(key, { at: Date.now(), payload });
     return NextResponse.json(payload, {
       headers: { "Cache-Control": "public, s-maxage=30, stale-while-revalidate=30" },
     });

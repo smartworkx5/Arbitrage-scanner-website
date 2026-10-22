@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { pairs } from "@/lib/pairs";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
 import { Breadcrumbs, articleJsonLd, faqJsonLd } from "@/app/components/Seo";
+import PairLive from "./PairLive";
 
 export async function generateStaticParams() {
   return pairs.map((p) => ({ pair: p.slug }));
@@ -95,6 +96,13 @@ export default function PairPage({ params }: { params: { pair: string } }) {
             {t}
           </p>
         ))}
+
+        <h2 className="pt-6 text-2xl font-bold text-white">
+          Live {pair.a} vs {pair.b} spreads
+        </h2>
+        <div className="mt-4">
+          <PairLive a={pair.a} b={pair.b} />
+        </div>
 
         <h2 className="pt-6 text-2xl font-bold text-white">
           Why {pair.a} and {pair.b} prices diverge
