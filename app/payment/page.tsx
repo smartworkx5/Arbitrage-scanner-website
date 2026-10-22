@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Upgrade to Pro — $24.99",
-  description: "Pay $24.99 USDT via Binance to unlock lifetime Pro access to Crypto Arbitrage Scanner.",
+  description: "Pay $24.99 USDT via Binance to unlock Pro access to Crypto Arbitrage Scanner — $24.99 per month.",
   robots: { index: false, follow: false },
 };
 
@@ -34,8 +34,8 @@ export default async function PaymentPage() {
         Upgrade to <span className="gradient-text">Pro</span>
       </h1>
       <p className="mt-2 text-slate-400">
-        One-time payment of <strong className="text-slate-100">${PRICE}</strong>. No subscription,
-        no renewals — lifetime access.
+        Monthly payment of <strong className="text-slate-100">${PRICE}</strong> — Pro stays
+        active for the month you pay for. Renew next month to keep scanning.
       </p>
 
       {!isDbConfigured() && (

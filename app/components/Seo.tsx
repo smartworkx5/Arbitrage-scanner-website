@@ -87,7 +87,7 @@ export function softwareAppJsonLd() {
       "@type": "Offer",
       price: "24.99",
       priceCurrency: "USD",
-      description: "Pro lifetime access (one-time payment)",
+      description: "Pro access — $24.99 per month",
     },
     aggregateRating: undefined,
   };

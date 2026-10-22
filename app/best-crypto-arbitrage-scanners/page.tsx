@@ -65,7 +65,7 @@ const blocks: ContentBlock[] = [
       "**16 exchanges monitored simultaneously** — cross-exchange spreads, CEX vs DEX gaps, triangular loops and funding-rate opportunities in one view.",
       "**Ranked by profit potential** — opportunities sorted so the best net spreads surface first.",
       "**Paper trading bot included** — execute every strategy with virtual money and build a track record before going live.",
-      "**One-time $24.99, not a subscription** — most competing tools charge $30–$100 *per month*. A subscription has to be beaten by your edge every single month; a one-time payment does not.",
+      "**$24.99 per month, flat** — most competing tools charge $30–$100 *per month* for the same kind of scanning. Pro sits at the low end of that range while covering 16 exchanges, and you can verify it free for 3 days first.",
       "**3-day free trial** — full access with just a Google sign-in, no credit card, so you can verify it works for you before paying anything.",
     ],
   },
@@ -94,7 +94,7 @@ const blocks: ContentBlock[] = [
       },
       {
         q: "How much should a crypto arbitrage scanner cost?",
-        a: "Subscription scanners typically run $30–$100/month, which is hard to justify on small capital. A one-time payment (like our $24.99 Pro) removes the monthly hurdle entirely.",
+        a: "Subscription scanners typically run $30–$100/month, which is hard to justify on small capital. Our Pro sits at the bottom of that range — $24.99/month — and starts with a free 3-day trial.",
       },
       {
         q: "Can a scanner guarantee arbitrage profits?",
@@ -111,7 +111,7 @@ const faqs = [
   },
   {
     q: "How much should a crypto arbitrage scanner cost?",
-    a: "Subscription scanners typically run $30–$100/month, which is hard to justify on small capital. A one-time payment (like our $24.99 Pro) removes the monthly hurdle entirely.",
+    a: "Subscription scanners typically run $30–$100/month, which is hard to justify on small capital. Our Pro sits at the bottom of that range — $24.99/month — and starts with a free 3-day trial.",
   },
   {
     q: "Can a scanner guarantee arbitrage profits?",

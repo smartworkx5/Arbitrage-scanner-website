@@ -114,7 +114,7 @@ export default async function DashboardPage() {
           </span>
           <h2 className="mt-4 text-2xl font-bold">Welcome to Pro 🚀</h2>
           <p className="mt-2 text-sm text-slate-400">
-            Your lifetime access is active. Enjoy unlimited scanning.
+            Your Pro access is active. Enjoy unlimited scanning.
           </p>
           <ul className="mt-6 grid gap-2 text-sm text-slate-300 sm:grid-cols-2">
             {unlockedFeatures.map((f) => (
@@ -136,8 +136,8 @@ export default async function DashboardPage() {
           <p className="text-4xl" aria-hidden>🔒</p>
           <h2 className="mt-4 text-2xl font-bold">Your free trial has ended</h2>
           <p className="mx-auto mt-2 max-w-md text-sm text-slate-400">
-            You&apos;ve used your 3 free days. Upgrade to Pro for a one-time payment of $24.99 and
-            keep unlimited access forever.
+            You&apos;ve used your 3 free days. Upgrade to Pro for $24.99/month to keep
+            unlimited access.
           </p>
           <Link href="/payment" className="btn-primary mx-auto mt-8 w-full sm:w-auto">
             Upgrade to Pro — $24.99

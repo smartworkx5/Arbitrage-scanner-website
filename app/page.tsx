@@ -1,15 +1,34 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { sql } from "@vercel/postgres";
 import { LaunchAppButton } from "./LaunchAppButton";
 import { MobileMenu } from "./MobileMenu";
 import { faqJsonLd } from "./components/Seo";
-import LiveTicker from "./LiveTicker";
+
+export const revalidate = 300;
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://crypto-rb-trade-scanner.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://cryptoscopia.com";
+
+async function getRegisteredUserCount(): Promise<number | null> {
+  try {
+    const { rows } = await sql`SELECT COUNT(*)::int AS c FROM users`;
+    const c = Number((rows[0] as { c?: number | string } | undefined)?.c ?? NaN);
+    return Number.isFinite(c) ? c : null;
+  } catch {
+    return null;
+  }
+}
+
+const appScreenshots = [
+  { tab: "Spot Matrix", desc: "2,355 arbitrage pairs found across 16 exchanges", img: "https://aeb9hcvyfaw2hgog.public.blob.vercel-storage.com/app-screenshots/scanner-spot-matrix-Np57AV5jPoRihaeWtLBQzqF10atLNJ.jpg" },
+  { tab: "CEX vs DEX", desc: "46 CEX vs DEX opportunities with profit calculator", img: "https://aeb9hcvyfaw2hgog.public.blob.vercel-storage.com/app-screenshots/cex-vs-dex-0EiOnCDYaRAb9HorNbHrBpx55rzDZH.jpg" },
+  { tab: "Spread Analyzer", desc: "Bid/ask spreads ranked — spot gaps instantly", img: "https://aeb9hcvyfaw2hgog.public.blob.vercel-storage.com/app-screenshots/spread-analyzer-Y7NNBcDrGzGAlu9UNuToC6vQ7yjK4o.jpg" },
+  { tab: "Top Movers", desc: "Biggest gainers with arbitrage routes mapped", img: "https://aeb9hcvyfaw2hgog.public.blob.vercel-storage.com/app-screenshots/top-movers-gH02EZ8gO21xMLys7zLT7uEFh0n4qI.jpg" },
+];
 
 export const metadata: Metadata = {
-  title: "Crypto Arbitrage Scanner | Real-Time Arbitrage Across 16 Exchanges",
+  title: "Crypto Arbitrage Scanner — Spot Arbitrage Gaps Before They Close",
   description:
     "The Crypto Arbitrage Scanner finds the top gainers and top losers in real time, then checks those tokens across 16 exchanges to spot cross-exchange, CEX vs DEX, triangular and funding-rate arbitrage — plus a paper trading bot to practice risk-free. Start your free 3-day trial.",
   keywords: [
@@ -30,7 +49,7 @@ export const metadata: Metadata = {
     type: "website",
     url: `${siteUrl}/`,
     siteName: "Crypto Arbitrage Scanner",
-    title: "Crypto Arbitrage Scanner",
+    title: "Crypto Arbitrage Scanner — Spot Arbitrage Gaps Before They Close",
     description:
       "Find top gainers and losers in real time. Spot arbitrage across 16 exchanges — cross-exchange, CEX vs DEX, triangular, funding-rate — and practice with a paper trading bot. Free 3-day trial.",
   },
@@ -114,7 +133,7 @@ const steps = [
   {
     n: "3",
     title: "Upgrade to Pro",
-    text: "Love it? Unlock unlimited access for a one-time $24.99 payment via Binance — approved fast, manually reviewed.",
+    text: "Love it? Unlock unlimited access for just $24.99/month via Binance — approved fast, manually reviewed.",
   },
 ];
 
@@ -133,7 +152,7 @@ const faqs = [
   },
   {
     q: "How much does Pro cost?",
-    a: "Pro is a one-time payment of $24.99 — not a subscription. Pay once and keep access. There are no renewals or hidden fees.",
+    a: "Pro is $24.99 per month — a monthly plan, not a one-time payment. Pay via Binance, and each monthly payment keeps your Pro access active for that month. There are no hidden fees.",
   },
   {
     q: "How do I pay for Pro?",
@@ -145,7 +164,7 @@ const faqs = [
   },
   {
     q: "Do you offer refunds?",
-    a: "Because Pro is a one-time digital access product, all sales are final once access is granted. That's exactly why we give you a full 3-day free trial first — try everything before you pay a cent.",
+    a: "Because Pro is a monthly digital access plan, a payment is final once that month's access is granted. That's exactly why we give you a full 3-day free trial first — try everything before you pay a cent.",
   },
   {
     q: "Do I need to install anything?",
@@ -159,18 +178,27 @@ const jsonLd = {
   name: "Crypto Arbitrage Scanner",
   applicationCategory: "FinanceApplication",
   operatingSystem: "Web",
-  url: "https://crypto-rb-scanner.vercel.app/app",
+  url: "https://cryptoscopia.com/app",
   description:
     "Real-time crypto arbitrage scanner: finds top gainers and losers, detects cross-exchange, CEX vs DEX, triangular and funding-rate arbitrage across 16 exchanges, with a paper trading bot for risk-free practice.",
   offers: {
     "@type": "Offer",
     price: "24.99",
     priceCurrency: "USD",
-    description: "Pro lifetime access (one-time payment)",
+    description: "Pro access — $24.99 per month",
   },
 };
 
-export default function LandingPage() {
+export default async function LandingPage() {
+  const registeredUsers = await getRegisteredUserCount();
+  const stats: [string, string][] = [
+    ["16", "Exchanges scanned"],
+    ...(registeredUsers !== null
+      ? ([[registeredUsers.toLocaleString("en-US"), "Registered users"]] as [string, string][])
+      : []),
+    ["4", "Arbitrage strategies"],
+    ["$24.99", "Per month Pro price"],
+  ];
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
@@ -237,12 +265,8 @@ export default function LandingPage() {
                 </LaunchAppButton>
               </div>
               <p className="mt-4 text-sm text-slate-500">No credit card required · Full access for 3 days</p>
-              <dl className="mx-auto mt-10 grid max-w-md grid-cols-3 gap-6 lg:mx-0">
-                {[
-                  ["16", "Exchanges scanned"],
-                  ["4", "Arbitrage strategies"],
-                  ["$24.99", "One-time Pro price"],
-                ].map(([v, l]) => (
+              <dl className={`mx-auto mt-10 grid max-w-xl grid-cols-2 gap-6 lg:mx-0 ${stats.length >= 4 ? "sm:grid-cols-4" : "sm:grid-cols-3"}`}>
+                {stats.map(([v, l]) => (
                   <div key={l} className="text-center lg:text-left">
                     <dt className="sr-only">{l}</dt>
                     <dd className="text-2xl font-extrabold text-white md:text-3xl">{v}</dd>
@@ -254,7 +278,30 @@ export default function LandingPage() {
             <div className="relative">
               <div aria-hidden className="pointer-events-none absolute -inset-4 rounded-3xl bg-gradient-to-br from-green-500/15 via-transparent to-blue-600/15 blur-2xl" />
               <div className="relative">
-                <LiveTicker />
+                <div className="grid grid-cols-2 gap-3">
+                  {appScreenshots.map((s) => (
+                    <figure key={s.tab} className="glass-card overflow-hidden !p-0">
+                      <div className="border-b border-slate-800 bg-slate-900/50 px-3 py-2">
+                        <span className="text-xs font-semibold text-white">{s.tab}</span>
+                        <p className="text-[11px] leading-snug text-slate-400">{s.desc}</p>
+                      </div>
+                      <img
+                        src={s.img}
+                        alt={`${s.tab} - Crypto Arbitrage Scanner app screenshot`}
+                        className="w-full"
+                        loading="lazy"
+                      />
+                    </figure>
+                  ))}
+                </div>
+                <p className="mt-4 text-center text-sm text-slate-400">
+                  Real screenshots from the live app — no mockups, no fake UI.
+                </p>
+                <div className="mt-3 text-center">
+                  <LaunchAppButton className="btn-primary">
+                    Launch the App & See For Yourself ↗
+                  </LaunchAppButton>
+                </div>
               </div>
             </div>
           </div>
@@ -287,51 +334,6 @@ export default function LandingPage() {
 
         <div className="section-divider" />
 
-        {/* ---------- App Screenshots ---------- */}
-        <section id="screenshots" className="mx-auto max-w-6xl scroll-mt-20 px-4 py-16 md:py-20">
-          <div className="text-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-green-400">See It In Action</p>
-            <h2 className="text-3xl font-bold md:text-4xl">
-              Real screenshots from the <span className="gradient-text">live app</span>
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-slate-400">
-              No mockups. No fake UI. These are actual screens from the running scanner.
-            </p>
-          </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            {[
-              { tab: "Spot Matrix", desc: "2,355 arbitrage pairs found across 16 exchanges", img: "https://aeb9hcvyfaw2hgog.public.blob.vercel-storage.com/app-screenshots/scanner-spot-matrix-Np57AV5jPoRihaeWtLBQzqF10atLNJ.jpg" },
-              { tab: "CEX vs DEX", desc: "46 CEX vs DEX opportunities with profit calculator", img: "https://aeb9hcvyfaw2hgog.public.blob.vercel-storage.com/app-screenshots/cex-vs-dex-0EiOnCDYaRAb9HorNbHrBpx55rzDZH.jpg" },
-              { tab: "Spread Analyzer", desc: "Bid/ask spreads ranked — spot gaps instantly", img: "https://aeb9hcvyfaw2hgog.public.blob.vercel-storage.com/app-screenshots/spread-analyzer-Y7NNBcDrGzGAlu9UNuToC6vQ7yjK4o.jpg" },
-              { tab: "Top Movers", desc: "Biggest gainers with arbitrage routes mapped", img: "https://aeb9hcvyfaw2hgog.public.blob.vercel-storage.com/app-screenshots/top-movers-gH02EZ8gO21xMLys7zLT7uEFh0n4qI.jpg" },
-            ].map((s) => (
-              <div key={s.tab} className="glass-card group overflow-hidden !p-0">
-                <div className="border-b border-slate-800 bg-slate-900/50 px-4 py-3">
-                  <span className="text-sm font-semibold text-white">{s.tab}</span>
-                  <p className="text-xs text-slate-400">{s.desc}</p>
-                </div>
-                <div className="relative overflow-hidden">
-                  <img
-                    src={s.img}
-                    alt={`${s.tab} - Crypto Arbitrage Scanner app screenshot`}
-                    className="w-full transition duration-500 group-hover:scale-[1.02]"
-                    loading="lazy"
-                  />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a0e17]/60 via-transparent to-transparent" />
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-8 text-center">
-            <p className="mb-4 text-sm text-slate-400">Want to see it live? Launch the app and explore every tab yourself.</p>
-            <LaunchAppButton className="btn-primary">
-              Launch the App & See For Yourself ↗
-            </LaunchAppButton>
-          </div>
-        </section>
-
-        <div className="section-divider" />
-
         {/* ---------- How it works ---------- */}
         <section id="how-it-works" className="border-y border-slate-800/60 bg-[#0d1320] px-4 py-16">
           <div className="mx-auto max-w-5xl">
@@ -354,7 +356,7 @@ export default function LandingPage() {
         <section id="pricing" className="mx-auto max-w-5xl scroll-mt-20 px-4 py-16">
           <h2 className="text-center text-3xl font-bold md:text-4xl">Simple, honest pricing</h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-slate-400">
-            Try everything free for 3 days. Pay once, keep it forever.
+            Try everything free for 3 days. Then Pro is just $24.99/month.
           </p>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             <article className="card">
@@ -381,11 +383,11 @@ export default function LandingPage() {
               </span>
               <h3 className="text-xl font-semibold">Pro</h3>
               <p className="mt-2 text-4xl font-extrabold">
-                $24.99 <span className="text-base font-normal text-slate-400">/ one-time</span>
+                $24.99 <span className="text-base font-normal text-slate-400">/ month</span>
               </p>
               <ul className="mt-6 space-y-3 text-sm text-slate-300">
                 {[
-                  "Unlimited lifetime access",
+                  "Unlimited access to every feature",
                   "Top gainers & losers scanner",
                   "16-exchange arbitrage detection",
                   "All 4 arbitrage strategies",

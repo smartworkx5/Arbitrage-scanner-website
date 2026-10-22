@@ -1,4 +1,10 @@
 {
-  "cleanUrls": false,
-  "trailingSlash": true
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "crypto-rb-scanner.vercel.app" }],
+      "destination": "https://cryptoscopia.com/:path*",
+      "permanent": true
+    }
+  ]
 }
