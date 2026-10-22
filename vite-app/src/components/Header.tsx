@@ -1,5 +1,5 @@
 import React from 'react';
-import { RefreshCw, Activity, ShieldCheck, Zap, Bell, Volume2, VolumeX, Key, ArrowRightLeft, Layers, Sparkles, Percent, TrendingUp, Cpu } from 'lucide-react';
+import { RefreshCw, Activity, ShieldCheck, Zap, Bell, Volume2, VolumeX, Key, ArrowRightLeft, Layers, Sparkles, Percent, TrendingUp, Cpu, LogOut } from 'lucide-react';
 import { ScanResultSummary } from '../types';
 import { PWAInstallButton } from './PWAInstallButton';
 
@@ -34,6 +34,21 @@ export const Header: React.FC<HeaderProps> = ({
     ? new Date(summary.timestamp).toLocaleTimeString()
     : 'Never';
 
+  const handleLogout = async () => {
+    try {
+      const r = await fetch('/api/auth/csrf');
+      const { csrfToken } = await r.json();
+      await fetch('/api/auth/signout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ csrfToken, callbackUrl: '/', json: 'true' }),
+      });
+    } catch {
+      /* ignore — redirect home regardless */
+    }
+    window.location.href = '/';
+  };
+
   return (
     <header className="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-xl border-b border-white/10 text-white px-3 sm:px-6 py-2 shadow-xl">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2.5 w-full">
@@ -60,6 +75,13 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Mobile Action buttons */}
           <div className="flex items-center gap-1.5 md:hidden">
             <PWAInstallButton variant="header" />
+            <button
+              onClick={handleLogout}
+              title="Log out"
+              className="p-1.5 rounded-lg border border-white/10 bg-slate-900 text-slate-300 hover:text-white cursor-pointer"
+            >
+              <LogOut className="w-3.5 h-3.5" />
+            </button>
             {onOpenApiModal && (
               <button
                 onClick={onOpenApiModal}
@@ -226,6 +248,16 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <RefreshCw className={`w-3 h-3 ${isScanning ? 'animate-spin' : ''}`} />
             <span>{isScanning ? 'Scanning...' : 'Scan Now'}</span>
+          </button>
+
+          {/* Log Out Button */}
+          <button
+            onClick={handleLogout}
+            title="Log out of your account"
+            className="flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-lg border border-white/10 bg-slate-900 text-slate-300 hover:text-white hover:border-red-400/40 transition-all cursor-pointer"
+          >
+            <LogOut className="w-3 h-3" />
+            <span>Log Out</span>
           </button>
         </div>
       </div>
