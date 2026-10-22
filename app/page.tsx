@@ -186,7 +186,7 @@ export default async function LandingPage() {
   const registeredUsers = await getRegisteredUserCount();
   const stats: [string, string][] = [
     ["16", "Exchanges scanned"],
-    ...(registeredUsers !== null
+    ...(registeredUsers !== null && registeredUsers >= 100
       ? ([[registeredUsers.toLocaleString("en-US"), "Registered users"]] as [string, string][])
       : []),
     ["4", "Arbitrage strategies"],
