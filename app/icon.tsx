@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const size = { width: 512, height: 512 };
+export const size = { width: 192, height: 192 };
 export const contentType = "image/png";
 
 /** Cryptoscopia favicon — generated from the brand mark (scope "C" + breakout arrow). */
@@ -15,10 +15,10 @@ export default function Icon() {
           alignItems: "center",
           justifyContent: "center",
           backgroundColor: "#0a0e17",
-          borderRadius: 112,
+          borderRadius: 42,
         }}
       >
-        <svg width="380" height="380" viewBox="0 0 64 64" fill="none">
+        <svg width="142" height="142" viewBox="0 0 64 64" fill="none">
           <defs>
             <linearGradient id="g" x1="8" y1="56" x2="56" y2="8" gradientUnits="userSpaceOnUse">
               <stop offset="0" stopColor="#10B981" />
