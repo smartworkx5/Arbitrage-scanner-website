@@ -4,6 +4,7 @@ import { sql } from "@vercel/postgres";
 import { LaunchAppButton } from "./LaunchAppButton";
 import { MobileMenu } from "./MobileMenu";
 import { faqJsonLd } from "./components/Seo";
+import ScreenshotCarousel from "./components/ScreenshotCarousel";
 
 export const revalidate = 300;
 
@@ -276,22 +277,7 @@ export default async function LandingPage() {
             <div className="relative">
               <div aria-hidden className="pointer-events-none absolute -inset-4 rounded-3xl bg-gradient-to-br from-green-500/15 via-transparent to-blue-600/15 blur-2xl" />
               <div className="relative">
-                <div className="grid grid-cols-2 gap-3">
-                  {appScreenshots.map((s) => (
-                    <figure key={s.tab} className="glass-card overflow-hidden !p-0">
-                      <div className="border-b border-slate-800 bg-slate-900/50 px-3 py-2">
-                        <span className="text-xs font-semibold text-white">{s.tab}</span>
-                        <p className="text-[11px] leading-snug text-slate-400">{s.desc}</p>
-                      </div>
-                      <img
-                        src={s.img}
-                        alt={`${s.tab} - Cryptoscopia app screenshot`}
-                        className="w-full"
-                        loading="lazy"
-                      />
-                    </figure>
-                  ))}
-                </div>
+                <ScreenshotCarousel shots={appScreenshots} />
                 <p className="mt-4 text-center text-sm text-slate-400">
                   Real screenshots from the live app — no mockups, no fake UI.
                 </p>
