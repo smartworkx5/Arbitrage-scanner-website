@@ -43,6 +43,7 @@ class ArbitrageScannerEngine {
   
   private lastScanTimestamp = 0;
   private scanDurationMs = 0;
+  private lastProgressComputeMs = 0;
   private isScanning = false;
   private autoScanTimer: NodeJS.Timeout | null = null;
   private currentScanPromise: Promise<ArbitrageOpportunity[]> | null = null;
@@ -154,6 +155,18 @@ class ArbitrageScannerEngine {
             const pairCount = Object.keys(prices).length;
 
             this.priceCache.set(ex.id, prices);
+
+            // Progressive results: recompute opportunities from whatever has
+            // landed so far (throttled) so the UI fills in as data arrives
+            // instead of waiting for the slowest exchange to finish.
+            const nowMs = Date.now();
+            if (nowMs - this.lastProgressComputeMs > 700) {
+              this.lastProgressComputeMs = nowMs;
+              try {
+                this.opportunities = this.computeArbitrageOpportunities();
+              } catch {}
+            }
+
             meta.latencyMs = latency;
             meta.pairCount = pairCount;
             meta.lastScanMs = Date.now();

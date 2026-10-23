@@ -23,11 +23,13 @@ export default withAuth(
             | { plan: string; trial_ends_at: string | null }
             | undefined;
           const isPaid = u?.plan === "paid";
-          // Same fail-open rule as the dashboard: no row/data -> allow.
+          // Strict for the paid app (aligned with /api/access): no user row
+          // or no trial end date means NO access — previously both failed
+          // open, which let any signed-in account use the app forever.
           const trialActive = u?.trial_ends_at
             ? new Date(u.trial_ends_at).getTime() > Date.now()
-            : true;
-          hasAccess = isPaid || trialActive;
+            : false;
+          hasAccess = !!u && (isPaid || trialActive);
         } catch {
           // Fail open on DB error (consistent with dashboard behaviour).
           hasAccess = true;

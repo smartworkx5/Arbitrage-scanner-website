@@ -46,9 +46,8 @@ async function fetchWithTimeout(url: string, options: RequestInit = {}): Promise
   // Top Movers stayed empty. Each attempt gets its own fresh timeout budget.
   if (isBrowser && (url.startsWith('http://') || url.startsWith('https://'))) {
     const proxies: Array<[string, number]> = [
-      [`/api/proxy?url=${encodeURIComponent(url)}`, 10000],
-      [`https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`, 6000],
-      [`https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`, 6000],
+      [`/api/proxy?url=${encodeURIComponent(url)}`, 8000],
+      [`https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`, 5000],
     ];
     for (const [proxyUrl, budgetMs] of proxies) {
       try {

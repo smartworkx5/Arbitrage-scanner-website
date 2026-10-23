@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import {
   ArbitrageOpportunity,
   ExchangeMeta,
@@ -34,6 +34,13 @@ export default function App() {
   const [isScanning, setIsScanning] = useState<boolean>(false);
   const [initialLoading, setInitialLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+
+  // Access gate: 'checking' | 'granted' | 'error'. The app shell can be served
+  // from the PWA service-worker cache without touching the server, so the
+  // server-side middleware alone cannot protect it — the app verifies the
+  // session with /api/app-session on every boot before any data loads.
+  const [accessState, setAccessState] = useState<'checking' | 'granted' | 'error'>('checking');
+  const followUpsRef = useRef(0);
 
   // Tab & View States
   const [activeTab, setActiveTab] = useState<'scanner' | 'cexdex' | 'spread' | 'movers' | 'exchanges' | 'watchlist'>('scanner');
@@ -96,6 +103,7 @@ export default function App() {
   // Fetch Data using Universal Data Service (Works on Vercel & Node.js)
   const fetchData = useCallback(async (isManualTrigger = false) => {
     if (isManualTrigger) setIsScanning(true);
+    let scanStillRunning = false;
 
     try {
       const [oppsResult, exData, cexDexResult] = await Promise.all([
@@ -121,6 +129,8 @@ export default function App() {
         if (cexDexResult.summary) setCexDexSummary(cexDexResult.summary);
       }
 
+      scanStillRunning = !!oppsResult?.summary?.isScanning;
+
       // Successful fetch clears any previous error
       if (oppsResult || exData || cexDexResult) {
         setError(null);
@@ -137,6 +147,14 @@ export default function App() {
     } finally {
       setIsScanning(false);
       setInitialLoading(false);
+      // Progressive fill: while the engine is still scanning, refresh a few
+      // times so results appear as each exchange lands instead of all at once.
+      if (scanStillRunning && followUpsRef.current < 8) {
+        followUpsRef.current += 1;
+        setTimeout(() => fetchData(), 2500);
+      } else {
+        followUpsRef.current = 0;
+      }
     }
   }, [filter]);
 
@@ -154,10 +172,58 @@ export default function App() {
     }
   };
 
-  // Initial load: Runs ONCE on first open to populate initial scan data, then stops automatic re-scanning
+  // Access verification: runs on boot, then re-checks every 5 minutes and
+  // whenever the tab becomes visible again (catches sign-out / trial expiry
+  // even when the shell came from the service-worker cache).
+  const verifyAccess = useCallback(async (): Promise<boolean> => {
+    try {
+      const res = await fetch('/api/app-session', { cache: 'no-store' });
+      if (res.status === 404) {
+        // Standalone deployment without the gate endpoint — nothing to verify against.
+        setAccessState('granted');
+        return true;
+      }
+      if (!res.ok) {
+        setAccessState('error');
+        return false;
+      }
+      const data = await res.json().catch(() => null);
+      if (data?.hasAccess) {
+        setAccessState('granted');
+        return true;
+      }
+      const dest =
+        data?.reason === 'expired'
+          ? '/payment?expired=1'
+          : '/signin?callbackUrl=%2Fapp%2F';
+      window.location.replace(dest);
+      return false;
+    } catch {
+      setAccessState('error');
+      return false;
+    }
+  }, []);
+
   useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+    verifyAccess();
+    const id = setInterval(verifyAccess, 5 * 60 * 1000);
+    const onVis = () => {
+      if (document.visibilityState === 'visible') verifyAccess();
+    };
+    document.addEventListener('visibilitychange', onVis);
+    return () => {
+      clearInterval(id);
+      document.removeEventListener('visibilitychange', onVis);
+    };
+  }, [verifyAccess]);
+
+  // Initial load: only after access is granted. Runs ONCE on first open to
+  // populate initial scan data, then stops automatic re-scanning.
+  useEffect(() => {
+    if (accessState === 'granted') {
+      fetchData();
+    }
+  }, [fetchData, accessState]);
 
   // Saved Opportunities list
   const savedOpportunities = useMemo(() => {
@@ -188,8 +254,28 @@ export default function App() {
 
       {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 py-3 space-y-3">
-        {/* Banner Alert for Active Scanning */}
-        {initialLoading ? (
+        {/* Access check / initial loading states */}
+        {accessState === 'error' ? (
+          <div className="flex flex-col items-center justify-center py-20 gap-3 text-center">
+            <div>
+              <h2 className="text-base font-bold text-white mb-1">
+                Could not verify your access
+              </h2>
+              <p className="text-xs text-slate-400 max-w-md font-mono mb-4">
+                The access check could not reach the server. Please check your connection and try again.
+              </p>
+              <button
+                onClick={() => {
+                  setAccessState('checking');
+                  verifyAccess();
+                }}
+                className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-all shadow-md cursor-pointer"
+              >
+                Retry
+              </button>
+            </div>
+          </div>
+        ) : accessState !== 'granted' || initialLoading ? (
           <div className="flex flex-col items-center justify-center py-20 gap-3 text-center">
             <div className="relative">
               <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
@@ -198,10 +284,14 @@ export default function App() {
             </div>
             <div>
               <h2 className="text-base font-bold text-white mb-1">
-                Connecting to 15 Exchange Feeds & DEX Pools...
+                {accessState === 'checking'
+                  ? 'Verifying your access…'
+                  : 'Connecting to 15 Exchange Feeds & DEX Pools...'}
               </h2>
               <p className="text-xs text-slate-400 max-w-md font-mono">
-                Querying order books on Gate.io, HTX, CoinEx, KuCoin, BitMart, MEXC, Bybit, OKX, Bitget, LBank, XT, Bitrue, CEX.io, Coinstore + DEXs...
+                {accessState === 'checking'
+                  ? 'Confirming your subscription before loading the scanner.'
+                  : 'Querying order books on Gate.io, HTX, CoinEx, KuCoin, BitMart, MEXC, Bybit, OKX, Bitget, LBank, XT, Bitrue, CEX.io, Coinstore + DEXs...'}
               </p>
             </div>
           </div>
