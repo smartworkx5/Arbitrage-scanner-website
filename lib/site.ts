@@ -3,7 +3,7 @@ export const SITE_NAME = "Cryptoscopia";
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
   "https://cryptoscopia.com";
-export const SITE_TAGLINE = "Spot arbitrage gaps before they close";
+export const SITE_TAGLINE = "Real-time price gaps across 16 exchanges";
 export const SITE_DESCRIPTION =
-  "Cryptoscopia is a crypto arbitrage scanner that finds top gainers and losers in real time and detects cross-exchange, CEX vs DEX, triangular and funding-rate arbitrage across 16 exchanges — with a paper trading bot for risk-free practice.";
+  "Cryptoscopia is a real-time crypto arbitrage scanner comparing prices across 16 exchanges — cross-exchange, triangular & funding-rate spreads. Free 3-day trial.";
 export const BRAND_TWITTER = "@cryptoarbscan";

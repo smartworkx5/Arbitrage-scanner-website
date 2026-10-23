@@ -59,7 +59,7 @@ export default function Image() {
             CRYPTO ARBITRAGE SCANNER
           </div>
           <div style={{ fontSize: 31, color: "#94a3b8", marginTop: 18 }}>
-            Spot arbitrage gaps before they close
+            Real-time price gaps across 16 exchanges
           </div>
         </div>
       </div>

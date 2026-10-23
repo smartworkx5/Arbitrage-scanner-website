@@ -29,9 +29,9 @@ const appScreenshots = [
 ];
 
 export const metadata: Metadata = {
-  title: "Cryptoscopia | Crypto Arbitrage Scanner — Spot Arbitrage Gaps Before They Close",
+  title: "Cryptoscopia | Crypto Arbitrage Scanner — Real-Time Price Gaps Across 16 Exchanges",
   description:
-    "Cryptoscopia finds the top gainers and top losers in real time, then checks those tokens across 16 exchanges to spot cross-exchange, CEX vs DEX, triangular and funding-rate arbitrage — plus a paper trading bot to practice risk-free. Start your free 3-day trial.",
+    "Cryptoscopia is a real-time crypto arbitrage scanner comparing prices across 16 exchanges — cross-exchange, triangular & funding-rate spreads. Free 3-day trial.",
   keywords: [
     "crypto arbitrage scanner",
     "crypto arbitrage finder",
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
     type: "website",
     url: `${siteUrl}/`,
     siteName: "Cryptoscopia",
-    title: "Cryptoscopia | Crypto Arbitrage Scanner — Spot Arbitrage Gaps Before They Close",
+    title: "Cryptoscopia | Crypto Arbitrage Scanner — Real-Time Price Gaps Across 16 Exchanges",
     description:
-      "Find top gainers and losers in real time. Spot arbitrage across 16 exchanges — cross-exchange, CEX vs DEX, triangular, funding-rate — and practice with a paper trading bot. Free 3-day trial.",
+      "Find real-time crypto arbitrage opportunities across 16 exchanges — cross-exchange, CEX vs DEX, triangular and funding-rate spreads, plus a paper trading bot to practice risk-free. Free 3-day trial.",
   },
   twitter: {
     card: "summary_large_image",
