@@ -8,3 +8,5 @@ out/
 .DS_Store
 .vercel
 .env*
+vite-app/node_modules/
+vite-app/dist/
