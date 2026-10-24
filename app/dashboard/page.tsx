@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "@/lib/auth";
 import { getUser, isDbConfigured } from "@/lib/db";
+import { isLifetimeAdmin } from "@/lib/admin";
 import TrialCountdown from "./TrialCountdown";
 import ClientSignOut from "./SignOutButton";
 import ReferralCard from "./ReferralCard";
@@ -51,7 +52,13 @@ export default async function DashboardPage() {
   }
 
   const trialActive = trialEndsAt ? new Date(trialEndsAt).getTime() > Date.now() : true;
-  const isPaid = plan === "paid";
+  // Lifetime admin: never shows trial/expired/upgrade states — always Pro.
+  const isLifetime = isLifetimeAdmin(session.user.email);
+  if (isLifetime) {
+    plan = "lifetime";
+    trialEndsAt = null;
+  }
+  const isPaid = plan === "paid" || plan === "lifetime";
   const hasAccess = isPaid || trialActive;
 
   return (
@@ -112,7 +119,7 @@ export default async function DashboardPage() {
       {isPaid && (
         <div className="card mt-6 !border-green-500/40">
           <span className="inline-block rounded-full bg-green-500/15 px-3 py-1 text-xs font-bold text-green-300">
-            PRO ACTIVE
+            {plan === "lifetime" ? "LIFETIME PRO" : "PRO ACTIVE"}
           </span>
           <h2 className="mt-4 text-2xl font-bold">Welcome to Pro 🚀</h2>
           <p className="mt-2 text-sm text-slate-400">
