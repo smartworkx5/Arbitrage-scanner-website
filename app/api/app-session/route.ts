@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { getUser, isDbConfigured } from "@/lib/db";
+import { isLifetimeAdmin } from "@/lib/admin";
 
 export const dynamic = "force-dynamic";
 
@@ -34,6 +35,21 @@ export async function GET() {
 
   if (!isDbConfigured()) {
     return NextResponse.json({ hasAccess: true, email }, { headers });
+  }
+
+  // Lifetime admin: bypasses trial/Pro checks entirely — the app stays
+  // open forever for this email, no expiry, no upgrade redirect.
+  if (isLifetimeAdmin(email)) {
+    return NextResponse.json(
+      {
+        hasAccess: true,
+        reason: "admin_lifetime",
+        email,
+        plan: "lifetime",
+        trialEndsAt: null,
+      },
+      { headers }
+    );
   }
 
   try {

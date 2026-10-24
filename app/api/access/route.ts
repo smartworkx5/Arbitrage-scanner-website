@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getUser, isDbConfigured } from "@/lib/db";
+import { isLifetimeAdmin } from "@/lib/admin";
 
 export const dynamic = "force-dynamic";
 
@@ -30,6 +31,17 @@ export async function GET(req: NextRequest) {
   const email = req.nextUrl.searchParams.get("email")?.trim().toLowerCase();
   if (!email || !email.includes("@")) {
     return NextResponse.json({ error: "Missing or invalid ?email= parameter." }, { status: 400 });
+  }
+
+  // Lifetime admin: full access regardless of trial/payment state.
+  if (isLifetimeAdmin(email)) {
+    return NextResponse.json({
+      email,
+      hasAccess: true,
+      plan: "lifetime",
+      trialActive: true,
+      trialEndsAt: null,
+    });
   }
 
   if (!isDbConfigured()) {
