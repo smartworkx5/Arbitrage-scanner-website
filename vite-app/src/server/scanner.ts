@@ -15,6 +15,29 @@ import {
   ExchangeSpreadFilterOptions,
 } from './types';
 
+/**
+ * Honest net profit for one cross-exchange route, in USDT.
+ *   gross profit  = tradeSize * grossSpreadPercent / 100
+ *   buy taker fee = tradeSize * 0.1%
+ *   sell taker fee = (tradeSize - buy taker fee) * 0.1%  (approx, on principal)
+ *   withdrawal    = cheapest open buy-exchange withdrawal fee, when known
+ * When withdrawalFeeUsdt is null the result is taker-fee-only (before
+ * withdrawal) — callers must label it that way and never display $0.
+ * No transfer time, survival rate, or fee outside calculateWithdrawalFees
+ * is invented here.
+ */
+export function computeNetProfitUsdt(
+  tradeSizeUsdt: number,
+  grossSpreadPercent: number,
+  withdrawalFeeUsdt: number | null,
+): number {
+  const buyFee = tradeSizeUsdt * 0.001;
+  const sellFee = (tradeSizeUsdt - buyFee) * 0.001;
+  const grossProfit = tradeSizeUsdt * (grossSpreadPercent / 100);
+  const profit = grossProfit - buyFee - sellFee - (withdrawalFeeUsdt ?? 0);
+  return Math.round(profit * 100) / 100;
+}
+
 export function normalizeExchangeId(rawId: string = ''): string {
   const clean = (rawId || '').toLowerCase().replace(/[^a-z0-9]/g, '');
   if (clean === 'mexc' || clean === 'mex') return 'mexc';
@@ -40,6 +63,10 @@ class ArbitrageScannerEngine {
   private priceCache = new Map<string, ExchangePrices>(); // exId -> ExchangePrices
   private statusCache = new Map<string, Record<string, CurrencyStatus>>(); // exId -> CurrencyStatus map
   private opportunities: ArbitrageOpportunity[] = [];
+  // First-seen time per opportunity id, kept in engine memory only.
+  // An id first appearing on this scan gets the scan time — no history
+  // is invented for it, so spreadAgeSeconds starts at 0 on first sighting.
+  private firstSeenAtById = new Map<string, number>();
   
   private lastScanTimestamp = 0;
   private scanDurationMs = 0;
@@ -293,10 +320,6 @@ class ArbitrageScannerEngine {
             // Ignore absurdly high erroneous spreads (> 500% usually indicates wrong decimal place or dead market)
             if (grossSpreadPercent > 500 || grossSpreadPercent < 0.1) continue;
 
-            const estimatedFeePercent = 0.2; // 0.1% buy + 0.1% sell
-            const netProfitPercent = Math.round((grossSpreadPercent - estimatedFeePercent) * 100) / 100;
-            const profitPer100USDT = Math.round((netProfitPercent / 100) * 100 * 100) / 100;
-            const profitPer1000USDT = Math.round((netProfitPercent / 100) * 1000 * 100) / 100;
 
             // Deposit and Withdraw Status lookup
             const buyStatusMap = this.statusCache.get(buyEx.exId);
@@ -366,6 +389,22 @@ class ArbitrageScannerEngine {
               buyEx.exId
             );
 
+            // Honest net profit: cheapest OPEN buy-exchange withdrawal chain.
+            // Closed chains (isOpen === false) are never chosen, and a missing
+            // open fee stays null — it is never treated as a $0 fee.
+            const openBuyFees = (buyWithdrawalFees ?? []).filter((f) => f.isOpen);
+            const cheapestBuyFee = openBuyFees.length > 0
+              ? openBuyFees.reduce((a, b) => (b.feeUsdt < a.feeUsdt ? b : a))
+              : null;
+            const cheapestWithdrawalChain = cheapestBuyFee ? cheapestBuyFee.chain : null;
+            const cheapestWithdrawalFeeUsdt = cheapestBuyFee ? cheapestBuyFee.feeUsdt : null;
+            const estimatedFeePercent = 0.2; // 0.1% buy + 0.1% sell taker fees only
+            const profitPer100USDT = computeNetProfitUsdt(100, grossSpreadPercent, cheapestWithdrawalFeeUsdt);
+            const profitPer1000USDT = computeNetProfitUsdt(1000, grossSpreadPercent, cheapestWithdrawalFeeUsdt);
+            // Net % is stated on the $1000-trade basis so it is comparable
+            // across coins; profitPer100USDT is the (often lower) $100 figure.
+            const netProfitPercent = Math.round((profitPer1000USDT / 10) * 100) / 100;
+
             const sellWithdrawalFees = calculateWithdrawalFees(
               baseSymbol,
               sellPrice,
@@ -393,8 +432,23 @@ class ArbitrageScannerEngine {
               tokenTier = 'small';
             }
 
+            const oppId = `${symbol}-${buyEx.exId}-${sellEx.exId}`;
+            const scanNowMs = Date.now();
+            const firstSeenAt = this.firstSeenAtById.get(oppId) ?? scanNowMs;
+            if (!this.firstSeenAtById.has(oppId)) {
+              this.firstSeenAtById.set(oppId, firstSeenAt);
+            }
+            // Executable size is only the depth at the displayed best
+            // bid/ask levels. Unknown depth stays null, never zero.
+            const executableUsdt = (buyDepth.askUsdtVolume !== undefined && buyDepth.askUsdtVolume > 0 &&
+              sellDepth.bidUsdtVolume !== undefined && sellDepth.bidUsdtVolume > 0)
+              ? Math.round(Math.min(buyDepth.askUsdtVolume, sellDepth.bidUsdtVolume) * 100) / 100
+              : null;
+            const executableTradeSize = executableUsdt !== null ? Math.min(1000, executableUsdt) : 1000;
+            const executableProfitUsdt = computeNetProfitUsdt(executableTradeSize, grossSpreadPercent, cheapestWithdrawalFeeUsdt);
+
             opps.push({
-              id: `${symbol}-${buyEx.exId}-${sellEx.exId}`,
+              id: oppId,
               symbol,
               baseSymbol,
               quoteSymbol: 'USDT',
@@ -419,6 +473,12 @@ class ArbitrageScannerEngine {
               netProfitPercent,
               profitPer100USDT,
               profitPer1000USDT,
+              cheapestWithdrawalChain,
+              cheapestWithdrawalFeeUsdt,
+              executableUsdt,
+              executableProfitUsdt,
+              firstSeenAt,
+              spreadAgeSeconds: Math.max(0, Math.floor((scanNowMs - firstSeenAt) / 1000)),
               contractMatch,
               contractMatchType: contractEval.matchType,
               verifiedChains: contractEval.verifiedChains,
@@ -438,7 +498,15 @@ class ArbitrageScannerEngine {
       }
     }
 
-    // Sort by gross spread descending
+    // Drop first-seen entries for routes that no longer exist, so the map
+    // does not grow forever and a returning route starts a fresh age.
+    const liveIds = new Set(opps.map((o) => o.id));
+    for (const id of Array.from(this.firstSeenAtById.keys())) {
+      if (!liveIds.has(id)) this.firstSeenAtById.delete(id);
+    }
+
+    // Default engine order is still gross spread; the UI default sort and
+    // the 'profit' sort in getFilteredOpportunities use executable profit.
     opps.sort((a, b) => b.grossSpreadPercent - a.grossSpreadPercent);
     return opps;
   }
@@ -456,6 +524,12 @@ class ArbitrageScannerEngine {
           o.buyExchangeName.toUpperCase().includes(query) ||
           o.sellExchangeName.toUpperCase().includes(query)
       );
+    }
+
+    // Net only: hide routes whose $1000 net profit is zero or negative.
+    // This is separate from minSpread (which is a gross-spread gate).
+    if (options.netOnly) {
+      result = result.filter((o) => o.profitPer1000USDT > 0);
     }
 
     // Min Spread
@@ -513,8 +587,11 @@ class ArbitrageScannerEngine {
         valA = a.grossSpreadPercent;
         valB = b.grossSpreadPercent;
       } else if (sortBy === 'profit') {
-        valA = a.profitPer1000USDT;
-        valB = b.profitPer1000USDT;
+        // Sort by executable profit, not headline profit: a thin coin with
+        // a huge gross % but only a few dollars of depth must not top
+        // the list. Falls back to $1000 profit when depth is unknown.
+        valA = a.executableProfitUsdt ?? a.profitPer1000USDT;
+        valB = b.executableProfitUsdt ?? b.profitPer1000USDT;
       } else if (sortBy === 'symbol') {
         return sortOrder === 'asc'
           ? a.symbol.localeCompare(b.symbol)

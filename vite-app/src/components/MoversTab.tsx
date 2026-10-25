@@ -117,7 +117,7 @@ export const MoversTab: React.FC<MoversTabProps> = ({
         </div>
 
         <button
-          onClick={fetchData}
+          onClick={() => fetchData()}
           disabled={loading}
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500/30 border border-indigo-500/40 text-xs font-semibold transition-all disabled:opacity-50 cursor-pointer shadow-sm"
           title="Refresh top gainers and losers for this exchange"

@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { openExchangeTrade } from '../utils/tradeUrls';
 import { formatOrderSize } from '../utils/formatters';
+import { formatTelegramMessage, openStatusLabel } from '../utils/alertMessage';
 
 interface OpportunityCardProps {
   opp: ArbitrageOpportunity;
@@ -112,13 +113,13 @@ export const OpportunityCard: React.FC<OpportunityCardProps> = ({
           </div>
 
           <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-            {/* Net Profit Badge */}
+            {/* Net Profit Badge — NET is prominent, gross is smaller beside it */}
             <div className="text-right">
               <div className="text-xs sm:text-sm font-extrabold font-mono text-emerald-400">
-                +{opp.grossSpreadPercent.toFixed(2)}%
+                +{opp.netProfitPercent.toFixed(2)}% net{opp.cheapestWithdrawalFeeUsdt === null || opp.cheapestWithdrawalFeeUsdt === undefined ? '*' : ''}
               </div>
-              <div className="text-[9px] sm:text-[10px] font-mono text-emerald-500/90">
-                +${(opp.profitPer100USDT ?? (opp.profitPer1000USDT / 10)).toFixed(2)} / $100
+              <div className="text-[9px] sm:text-[10px] font-mono text-slate-400">
+                Gross +{opp.grossSpreadPercent.toFixed(2)}% · +${opp.profitPer1000USDT.toFixed(2)} / $1000
               </div>
             </div>
 
@@ -297,6 +298,33 @@ export const OpportunityCard: React.FC<OpportunityCardProps> = ({
           </div>
         </div>
 
+        {/* Honest fee breakdown + executable depth */}
+        <div className="mb-2 sm:mb-3 bg-slate-950/90 border border-slate-800/80 rounded-lg sm:rounded-xl p-2 sm:p-2.5 text-[9.5px] sm:text-[11px] space-y-0.5">
+          <div className="text-slate-300">
+            <span className="text-slate-500 font-semibold">Fees:</span> taker 0.1% buy + 0.1% sell
+            {opp.cheapestWithdrawalChain && opp.cheapestWithdrawalFeeUsdt !== null && opp.cheapestWithdrawalFeeUsdt !== undefined ? (
+              <> + withdrawal {opp.cheapestWithdrawalChain} ${opp.cheapestWithdrawalFeeUsdt.toFixed(2)}</>
+            ) : (
+              <> + withdrawal: unknown</>
+            )}
+          </div>
+          <div className="text-slate-300">
+            <span className="text-slate-500 font-semibold">Executable:</span>{' '}
+            {opp.executableUsdt !== null && opp.executableUsdt !== undefined ? (
+              <>${opp.executableUsdt.toFixed(2)} at best bid/ask · executable profit ${((opp.executableProfitUsdt ?? opp.profitPer1000USDT)).toFixed(2)} on ${opp.executableUsdt >= 1000 ? '1000' : opp.executableUsdt.toFixed(2)} trade</>
+            ) : (
+              <>depth unknown · profit shown on $1000 trade</>
+            )}
+          </div>
+          <div className="text-slate-400">
+            WD (buy): {openStatusLabel(opp.buyWithdrawOpen)} · DEP (sell): {openStatusLabel(opp.sellDepositOpen)}
+            {opp.spreadAgeSeconds !== undefined && opp.spreadAgeSeconds > 0 ? <> · seen {opp.spreadAgeSeconds}s ago</> : null}
+            {opp.cheapestWithdrawalFeeUsdt === null || opp.cheapestWithdrawalFeeUsdt === undefined ? (
+              <> · *net shown before withdrawal fee (fee unknown, not $0)</>
+            ) : null}
+          </div>
+        </div>
+
         {/* Contract Address Verification & Both Exchanges Comparison */}
         <div className="mb-2 sm:mb-3 bg-slate-950/90 border border-slate-800/80 rounded-lg sm:rounded-xl p-2 sm:p-2.5 text-[9.5px] sm:text-[11px]">
           {/* Match Indicator Banner */}
@@ -441,6 +469,20 @@ export const OpportunityCard: React.FC<OpportunityCardProps> = ({
         >
           <Calculator className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-400" />
           Simulate
+        </button>
+
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            navigator.clipboard.writeText(formatTelegramMessage(opp)).catch(() => {});
+            setCopiedKey(`tg-${opp.id}`);
+            setTimeout(() => setCopiedKey(null), 2000);
+          }}
+          title="Copy for Telegram (copies text only, does not send)"
+          className="flex-1 flex items-center justify-center gap-1 text-[10px] sm:text-xs font-semibold text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-800 py-1.5 rounded-lg transition-all cursor-pointer"
+        >
+          <Copy className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-400" />
+          {copiedKey === `tg-${opp.id}` ? 'Copied' : 'Copy for Telegram'}
         </button>
       </div>
     </div>

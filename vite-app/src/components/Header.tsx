@@ -8,8 +8,8 @@ interface HeaderProps {
   onScanNow: () => void;
   soundEnabled: boolean;
   onToggleSound: () => void;
-  activeTab: 'scanner' | 'cexdex' | 'spread' | 'triangular' | 'funding' | 'exchanges' | 'watchlist';
-  setActiveTab: (tab: 'scanner' | 'cexdex' | 'spread' | 'triangular' | 'funding' | 'exchanges' | 'watchlist') => void;
+  activeTab: 'scanner' | 'cexdex' | 'spread' | 'movers' | 'exchanges' | 'watchlist';
+  setActiveTab: (tab: 'scanner' | 'cexdex' | 'spread' | 'movers' | 'exchanges' | 'watchlist') => void;
   savedCount: number;
   onOpenApiModal?: () => void;
   cexDexCount?: number;

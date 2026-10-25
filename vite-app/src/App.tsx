@@ -21,6 +21,14 @@ import { CexDexTab } from './components/CexDexTab';
 import { ExchangeSpreadTab } from './components/ExchangeSpreadTab';
 import { MoversTab } from './components/MoversTab';
 import { OfflineIndicator } from './components/PWAInstallButton';
+import { AlertsPanel, type AlertFeedItem } from './components/AlertsPanel';
+import {
+  loadAlertSettings,
+  saveAlertSettings,
+  oppMatchesAlert,
+  formatTelegramMessage,
+  type AlertSettings,
+} from './utils/alertMessage';
 import { RefreshCw, Sparkles } from 'lucide-react';
 import { safeApiFetch } from './utils/api';
 import { dataService } from './services/dataService';
@@ -72,9 +80,73 @@ export default function App() {
     contractVerifiedOnly: false,
     buyExchanges: [],
     sellExchanges: [],
-    sortBy: 'spread',
+    // Default sort is now net profit (executable $), not gross spread.
+    // Gross spread remains available via the FilterBar sort dropdown.
+    sortBy: 'profit',
     sortOrder: 'desc',
+    // Net only is ON by default: routes whose $1000 net profit is <= 0
+    // are hidden. The FilterBar "Net only" toggle turns this off.
+    netOnly: true,
   });
+
+  // In-app alerts (localStorage only, no external service, no credentials).
+  const [alertSettings, setAlertSettings] = useState<AlertSettings>(() => loadAlertSettings());
+  const [alerts, setAlerts] = useState<AlertFeedItem[]>([]);
+  const alertedIdsRef = useRef<Set<string>>(new Set());
+  const [notificationPermission, setNotificationPermission] = useState<NotificationPermission | 'unsupported'>(() =>
+    typeof Notification !== 'undefined' ? Notification.permission : 'unsupported',
+  );
+
+  const handleAlertSettingsChange = (next: AlertSettings) => {
+    setAlertSettings(next);
+    saveAlertSettings(next);
+  };
+
+  const handleEnableNotifications = () => {
+    // Permission is requested ONLY from this user click, never on load.
+    if (typeof Notification === 'undefined') {
+      setNotificationPermission('unsupported');
+      return;
+    }
+    Notification.requestPermission()
+      .then((perm) => setNotificationPermission(perm))
+      .catch(() => {});
+  };
+
+  // While the app is open and scanning, matching net-profit opportunities
+  // join the alerts feed (once per opportunity id per session). A browser
+  // Notification fires only if the user already granted permission.
+  useEffect(() => {
+    if (!alertSettings.enabled) return;
+    const fresh: AlertFeedItem[] = [];
+    for (const opp of opportunities) {
+      if (alertedIdsRef.current.has(opp.id)) continue;
+      if (!oppMatchesAlert(opp, alertSettings)) continue;
+      alertedIdsRef.current.add(opp.id);
+      fresh.push({
+        id: `${opp.id}-${Date.now()}`,
+        oppId: opp.id,
+        symbol: opp.symbol,
+        buyExchangeName: opp.buyExchangeName,
+        sellExchangeName: opp.sellExchangeName,
+        netProfitPercent: opp.netProfitPercent,
+        profitPer1000USDT: opp.profitPer1000USDT,
+        timestamp: Date.now(),
+        message: formatTelegramMessage(opp),
+      });
+    }
+    if (fresh.length === 0) return;
+    setAlerts((prev) => [...fresh, ...prev].slice(0, 50));
+    if (notificationPermission === 'granted') {
+      for (const item of fresh) {
+        try {
+          new Notification(`${item.symbol} net +${item.netProfitPercent.toFixed(2)}%`, {
+            body: `Buy ${item.buyExchangeName} → Sell ${item.sellExchangeName} · +$${item.profitPer1000USDT.toFixed(2)} / $1000`,
+          });
+        } catch {}
+      }
+    }
+  }, [opportunities, alertSettings, notificationPermission]);
 
   const handleFilterChange = (updated: Partial<FilterState>) => {
     setFilter((prev) => ({ ...prev, ...updated }));
@@ -314,6 +386,15 @@ export default function App() {
                   isRefreshing={isScanning}
                 />
 
+                <AlertsPanel
+                  settings={alertSettings}
+                  onSettingsChange={handleAlertSettingsChange}
+                  alerts={alerts}
+                  onClearAlerts={() => setAlerts([])}
+                  notificationPermission={notificationPermission}
+                  onEnableNotifications={handleEnableNotifications}
+                />
+
                 {/* Error Banner */}
                 {error && (
                   <div className="bg-rose-500/10 border border-rose-500/30 text-rose-300 p-3 rounded-xl mb-3 text-xs flex items-center justify-between">
@@ -340,7 +421,7 @@ export default function App() {
                       Try lowering the Minimum Spread filter (e.g. to 0.5% or All) or searching for a different coin ticker.
                     </p>
                     <button
-                      onClick={() => setFilter({ ...filter, minSpread: 0, maxSpread: 0, openStatusOnly: false, search: '' })}
+                      onClick={() => setFilter({ ...filter, minSpread: 0, maxSpread: 0, openStatusOnly: false, netOnly: false, search: '' })}
                       className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-all shadow-md cursor-pointer"
                     >
                       Show All Opportunities

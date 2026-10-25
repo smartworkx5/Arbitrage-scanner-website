@@ -32,6 +32,18 @@ export interface ArbitrageOpportunity {
   netProfitPercent: number;
   profitPer100USDT: number;
   profitPer1000USDT: number;
+  // Honest net-profit fields (see scanner.computeArbitrageOpportunities).
+  // netProfitPercent / profitPer100USDT / profitPer1000USDT are now computed
+  // from taker fees PLUS the cheapest open withdrawal fee when one is known.
+  // When no open withdrawal fee is known, cheapestWithdrawalFeeUsdt is null
+  // and the profit figures are taker-fee-only (before withdrawal) — the UI
+  // must label that case, and must never display the unknown fee as $0.
+  cheapestWithdrawalChain: string | null;
+  cheapestWithdrawalFeeUsdt: number | null;
+  executableUsdt: number | null;
+  executableProfitUsdt: number;
+  firstSeenAt: number;
+  spreadAgeSeconds: number;
   contractMatch: boolean | null;
   contractMatchType?: 'native' | 'contract_match' | 'registry_verified' | 'mismatch' | 'unverified';
   verifiedChains?: string[];
@@ -76,6 +88,7 @@ export interface ScanResultSummary {
 
 export interface FilterState {
   search: string;
+  netOnly?: boolean;
   minSpread: number;
   maxSpread: number;
   openStatusOnly: boolean;
@@ -134,6 +147,8 @@ export interface CexDexArbitrageOpportunity {
   cexDepositOpen: boolean | null;
   cexWithdrawOpen: boolean | null;
   cexVolume24h?: number;
+  cexVolumeUsd?: number;
+  cexVolumeToken?: number;
   
   // DEX Details
   dexId: string;

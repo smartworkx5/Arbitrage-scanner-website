@@ -94,6 +94,17 @@ export interface ArbitrageOpportunity {
   netProfitPercent: number;   // grossSpreadPercent - estimatedFeePercent
   profitPer100USDT: number;   // (netProfitPercent / 100) * 100
   profitPer1000USDT: number;  // (netProfitPercent / 100) * 1000
+  // Honest net-profit fields. netProfitPercent / profitPer100USDT /
+  // profitPer1000USDT are now taker fees PLUS the cheapest open withdrawal
+  // fee when one is known. When none is known, cheapestWithdrawalFeeUsdt
+  // is null and the profit figures are taker-fee-only (before withdrawal)
+  // — the UI must label that case and never display the unknown fee as $0.
+  cheapestWithdrawalChain: string | null;
+  cheapestWithdrawalFeeUsdt: number | null;
+  executableUsdt: number | null;
+  executableProfitUsdt: number;
+  firstSeenAt: number;
+  spreadAgeSeconds: number;
   
   // Safety checks
   contractMatch: boolean | null; // true: matching contract, false: mismatch warning, null: unknown
@@ -127,6 +138,7 @@ export interface ScanResultSummary {
 }
 
 export interface FilterOptions {
+  netOnly?: boolean;
   search?: string;
   minSpread?: number;
   maxSpread?: number;

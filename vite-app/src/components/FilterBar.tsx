@@ -389,6 +389,19 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             <span>Open D/W Only</span>
           </button>
 
+          {/* Net only toggle: hides routes whose $1000 net profit is <= 0 */}
+          <button
+            onClick={() => onFilterChange({ netOnly: !(filter.netOnly !== false) })}
+            title="Hide opportunities whose $1000 net profit is zero or negative"
+            className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium border transition-all cursor-pointer ${
+              filter.netOnly !== false
+                ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40 shadow-sm'
+                : 'bg-slate-950/80 text-slate-400 border-white/10 hover:text-slate-200 hover:border-white/20'
+            }`}
+          >
+            <span>Net only</span>
+          </button>
+
           {/* Contract Match Only Toggle */}
           <button
             onClick={() => onFilterChange({ contractVerifiedOnly: !filter.contractVerifiedOnly })}
@@ -411,7 +424,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
               className="bg-transparent text-xs text-slate-200 outline-none cursor-pointer pr-1"
             >
               <option value="spread" className="bg-slate-900">Sort: Gross Spread %</option>
-              <option value="profit" className="bg-slate-900">Sort: Profit / $1k USDT</option>
+              <option value="profit" className="bg-slate-900">Sort: Net profit (executable $)</option>
               <option value="symbol" className="bg-slate-900">Sort: Coin Symbol</option>
               <option value="buyPrice" className="bg-slate-900">Sort: Buy Price ($)</option>
             </select>

@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { openExchangeTrade } from '../utils/tradeUrls';
 import { formatOrderSize } from '../utils/formatters';
+import { formatTelegramMessage } from '../utils/alertMessage';
 
 interface OpportunityTableProps {
   opportunities: ArbitrageOpportunity[];
@@ -64,8 +65,10 @@ export const OpportunityTable: React.FC<OpportunityTableProps> = ({
               <th className="py-2 px-3">WD</th>
               <th className="py-2 px-3">Sell (Bid)</th>
               <th className="py-2 px-3">DEP</th>
-              <th className="py-2 px-3 text-right">Spread %</th>
-              <th className="py-2 px-3 text-right">Profit / $100</th>
+              <th className="py-2 px-3 text-right">Spread % (gross)</th>
+              <th className="py-2 px-3 text-right">Net %</th>
+              <th className="py-2 px-3 text-right">Profit / $1000</th>
+              <th className="py-2 px-3 text-right">Executable</th>
               <th className="py-2 px-3">Contract Comparison (Buy vs Sell)</th>
               <th className="py-2 px-3 text-center">Action</th>
             </tr>
@@ -227,14 +230,33 @@ export const OpportunityTable: React.FC<OpportunityTableProps> = ({
                     )}
                   </td>
 
-                  {/* Spread % */}
+                  {/* Spread % (gross, smaller figure) */}
                   <td className="py-2 px-3 text-right font-extrabold text-amber-400 text-xs">
                     +{opp.grossSpreadPercent.toFixed(2)}%
                   </td>
 
-                  {/* Net Profit */}
+                  {/* Net % (prominent) */}
+                  <td className="py-2 px-3 text-right font-extrabold text-emerald-400 text-xs">
+                    +{opp.netProfitPercent.toFixed(2)}%{opp.cheapestWithdrawalFeeUsdt === null || opp.cheapestWithdrawalFeeUsdt === undefined ? '*' : ''}
+                    <div className="text-[9px] font-normal text-slate-500">
+                      {opp.cheapestWithdrawalChain && opp.cheapestWithdrawalFeeUsdt !== null && opp.cheapestWithdrawalFeeUsdt !== undefined
+                        ? `wd ${opp.cheapestWithdrawalChain} $${opp.cheapestWithdrawalFeeUsdt.toFixed(2)}`
+                        : 'wd unknown*'}
+                    </div>
+                  </td>
+
+                  {/* Net Profit / $1000 */}
                   <td className="py-2 px-3 text-right font-bold text-emerald-400 text-xs">
-                    +${(opp.profitPer100USDT ?? (opp.profitPer1000USDT / 10)).toFixed(2)}
+                    +${opp.profitPer1000USDT.toFixed(2)}
+                  </td>
+
+                  {/* Executable depth */}
+                  <td className="py-2 px-3 text-right text-xs text-slate-300">
+                    {opp.executableUsdt !== null && opp.executableUsdt !== undefined ? (
+                      <>${opp.executableUsdt.toFixed(2)}<div className="text-[9px] text-slate-500">exec profit ${(opp.executableProfitUsdt ?? opp.profitPer1000USDT).toFixed(2)}</div></>
+                    ) : (
+                      'depth unknown'
+                    )}
                   </td>
 
                   {/* Contract Match & Buy vs Sell Addresses */}
@@ -308,6 +330,18 @@ export const OpportunityTable: React.FC<OpportunityTableProps> = ({
                         className="p-1 rounded bg-slate-800 text-slate-300 hover:text-white border border-slate-700 transition-all cursor-pointer"
                       >
                         <Eye className="w-3 h-3" />
+                      </button>
+
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigator.clipboard.writeText(formatTelegramMessage(opp)).catch(() => {});
+                          copyToClipboard(formatTelegramMessage(opp), `tbl-tg-${opp.id}`, e);
+                        }}
+                        title="Copy for Telegram (copies text only, does not send)"
+                        className="p-1 rounded bg-slate-800 text-slate-300 hover:text-white border border-slate-700 transition-all cursor-pointer"
+                      >
+                        {copiedKey === `tbl-tg-${opp.id}` ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
                       </button>
                     </div>
                   </td>

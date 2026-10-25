@@ -40,6 +40,7 @@ export const dataService = {
     if (filter.minSpread !== undefined) params.set('minSpread', String(filter.minSpread));
     if (filter.maxSpread !== undefined && filter.maxSpread > 0) params.set('maxSpread', String(filter.maxSpread));
     if (filter.openStatusOnly) params.set('openStatusOnly', 'true');
+    if (filter.netOnly) params.set('netOnly', 'true');
     if (filter.contractVerifiedOnly) params.set('contractVerifiedOnly', 'true');
     if (filter.tokenTier && filter.tokenTier !== 'ALL') params.set('tokenTier', filter.tokenTier);
     if (filter.buyExchanges && filter.buyExchanges.length > 0) {
@@ -89,6 +90,7 @@ export const dataService = {
       minSpread: filter.minSpread,
       maxSpread: filter.maxSpread,
       openStatusOnly: filter.openStatusOnly,
+      netOnly: filter.netOnly,
       contractVerifiedOnly: filter.contractVerifiedOnly,
       tokenTier: filter.tokenTier,
       buyExchanges: filter.buyExchanges,
