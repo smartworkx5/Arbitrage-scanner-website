@@ -2,14 +2,38 @@
 
 import { useState } from "react";
 
-export default function AutoVerify({ binanceId }: { binanceId: string }) {
-  const [paymentId, setPaymentId] = useState<number | null>(null);
-  const [code, setCode] = useState("");
-  const [txnId, setTxnId] = useState("");
+interface Props {
+  binanceId: string;
+  amount: string;
+  initialPaymentId: number | null;
+  initialCode: string | null;
+}
+
+/**
+ * Simple top-up card, modelled on the example the user supplied:
+ * order / total / Pay ID / note code, then exactly four buttons —
+ * Copy Pay ID, Copy Amount, Copy Note, Check Payment Status.
+ * The example's own values (a different site's Pay ID and fractional
+ * amount) are deliberately NOT used: this site's real values are
+ * passed in as props (Pay ID 346894283, 24.99 USDT).
+ */
+export default function AutoVerify({ binanceId, amount, initialPaymentId, initialCode }: Props) {
+  const [paymentId, setPaymentId] = useState<number | null>(initialPaymentId);
+  const [code, setCode] = useState<string>(initialCode ?? "");
+  const [copied, setCopied] = useState<string>("");
   const [busy, setBusy] = useState(false);
-  const [copied, setCopied] = useState(false);
   const [message, setMessage] = useState("");
-  const [kind, setKind] = useState<"idle" | "ok" | "error" | "info">("idle");
+  const [kind, setKind] = useState<"idle" | "ok" | "error">("idle");
+
+  async function copy(text: string, label: string) {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(label);
+      setTimeout(() => setCopied(""), 2000);
+    } catch {
+      // Clipboard unavailable — values are still shown above for manual copy.
+    }
+  }
 
   async function getCode() {
     setBusy(true);
@@ -20,8 +44,6 @@ export default function AutoVerify({ binanceId }: { binanceId: string }) {
       if (!res.ok) throw new Error(data.error ?? "Could not create a payment code.");
       setPaymentId(data.paymentId);
       setCode(data.verificationCode);
-      setKind("info");
-      setMessage("Your unique code is ready. Put this exact code in the Binance Pay note/message when you send the payment.");
     } catch (err) {
       setKind("error");
       setMessage(err instanceof Error ? err.message : "Could not create a payment code.");
@@ -38,7 +60,7 @@ export default function AutoVerify({ binanceId }: { binanceId: string }) {
       const res = await fetch("/api/payments/verify", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ paymentId, txnId: txnId.trim() || undefined }),
+        body: JSON.stringify({ paymentId }),
       });
       const data = await res.json();
       if (!res.ok || !data.ok) throw new Error(data.error ?? "Verification failed.");
@@ -49,16 +71,6 @@ export default function AutoVerify({ binanceId }: { binanceId: string }) {
       setMessage(err instanceof Error ? err.message : "Verification failed.");
     } finally {
       setBusy(false);
-    }
-  }
-
-  async function copy(text: string) {
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      // Clipboard unavailable — the code is still shown above for manual copy.
     }
   }
 
@@ -76,59 +88,62 @@ export default function AutoVerify({ binanceId }: { binanceId: string }) {
   }
 
   return (
-    <div className="space-y-4">
-      <p className="text-sm text-slate-400">
-        Fastest way: get your unique code, send exactly <strong className="text-slate-100">24.99 USDT</strong> to{" "}
-        <code className="text-green-300">{binanceId}</code> on Binance Pay, and paste the code in the
-        payment&apos;s note/message field. Then tap Check — the site reads the site account&apos;s own
-        Binance Pay history and activates Pro automatically when it finds your exact transfer.
-        No screenshot, no waiting for manual approval.
-      </p>
+    <div>
+      <h2 className="text-lg font-semibold">🔶 TOP-UP VIA BINANCE PAY</h2>
+      <div className="my-4 border-t border-slate-700" aria-hidden />
+
+      <dl className="space-y-3 text-sm">
+        <div className="flex justify-between gap-4">
+          <dt className="text-slate-400">📦 Order:</dt>
+          <dd className="text-right font-medium text-slate-100">Cryptoscopia Pro (1 month)</dd>
+        </div>
+        <div className="flex justify-between gap-4">
+          <dt className="text-slate-400">💰 Total to Pay:</dt>
+          <dd className="text-right font-bold text-green-300">{amount} USDT</dd>
+        </div>
+        <div className="flex justify-between gap-4">
+          <dt className="text-slate-400">🆔 Binance Pay ID:</dt>
+          <dd className="text-right font-mono font-bold text-slate-100">{binanceId}</dd>
+        </div>
+        <div className="flex justify-between gap-4">
+          <dt className="text-slate-400">Binance Pay note code:</dt>
+          <dd className="text-right font-mono font-bold text-amber-300">{code || "—"}</dd>
+        </div>
+      </dl>
+
+      <div className="my-4 border-t border-slate-700" aria-hidden />
 
       {!code ? (
         <button onClick={getCode} disabled={busy} className="btn-primary w-full disabled:opacity-60">
-          {busy ? "Creating…" : "Get my payment code"}
+          {busy ? "Creating…" : "Get my note code"}
         </button>
       ) : (
         <>
-          <div className="flex items-center justify-between gap-3 rounded-xl border border-slate-700 bg-slate-900 px-4 py-3">
-            <div>
-              <p className="text-xs text-slate-500">Your Binance Pay note code</p>
-              <code className="font-mono text-xl font-bold text-amber-300">{code}</code>
-            </div>
-            <button onClick={() => copy(code)} className="btn-secondary shrink-0">
-              {copied ? "Copied ✓" : "Copy code"}
+          <p className="text-sm text-slate-300">
+            Open Binance → Pay and send the exact Total to Pay to that Pay ID. Do not round the
+            amount. Put the note code above in the Binance Pay note/message field, then check the
+            status after paying.
+          </p>
+
+          <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <button onClick={() => copy(binanceId, "payid")} className="btn-secondary">
+              {copied === "payid" ? "Copied ✓" : "Copy Binance Pay ID"}
+            </button>
+            <button onClick={() => copy(amount, "amount")} className="btn-secondary">
+              {copied === "amount" ? "Copied ✓" : "Copy amount"}
+            </button>
+            <button onClick={() => copy(code, "note")} className="btn-secondary">
+              {copied === "note" ? "Copied ✓" : "Copy note"}
+            </button>
+            <button onClick={check} disabled={busy} className="btn-primary disabled:opacity-60">
+              {busy ? "Checking…" : "Check payment status"}
             </button>
           </div>
-          <p className="text-xs text-slate-400">
-            Already paid without a code? Paste your Binance transaction/order ID below instead — the
-            same automatic check will look that ID up.
-          </p>
-          <input
-            className="input"
-            value={txnId}
-            onChange={(e) => setTxnId(e.target.value)}
-            placeholder="Binance transaction / order ID (optional if you used the code)"
-          />
-          <button onClick={check} disabled={busy} className="btn-primary w-full disabled:opacity-60">
-            {busy ? "Checking Binance…" : "I have sent — check payment automatically"}
-          </button>
-          <p className="text-xs text-slate-500">
-            If the transfer was just sent, wait a few minutes and tap Check again — Binance Pay
-            history can lag slightly. Amount must be exactly 24.99 USDT; a different amount will not
-            match, by design.
-          </p>
         </>
       )}
 
-      {message && (
-        <p
-          className={`rounded-xl border p-3 text-sm ${
-            kind === "error"
-              ? "border-red-500/40 bg-red-500/10 text-red-300"
-              : "border-slate-700 bg-slate-900 text-slate-300"
-          }`}
-        >
+      {message && kind === "error" && (
+        <p className="mt-4 rounded-xl border border-red-500/40 bg-red-500/10 p-3 text-sm text-red-300">
           {message}
         </p>
       )}
