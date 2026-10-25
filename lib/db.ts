@@ -54,6 +54,10 @@ export interface DbPayment {
   user_email: string;
   screenshot_url: string | null;
   txn_ref: string | null;
+  verification_code: string | null;
+  binance_txn_id: string | null;
+  verified_via: string | null;
+  verified_at: string | null;
   status: string;
   created_at: string;
 }
@@ -97,6 +101,98 @@ export async function createPayment(
 
 export async function listPendingPayments(): Promise<DbPayment[]> {
   return rows<DbPayment>("SELECT * FROM payments WHERE status = 'pending' ORDER BY created_at DESC");
+}
+
+export async function listAllUsers(): Promise<DbUser[]> {
+  return rows<DbUser>(
+    "SELECT * FROM users ORDER BY created_at DESC NULLS LAST, email ASC"
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Automatic Binance Pay verification (see lib/binance.ts).
+// New columns are added idempotently, so an existing payments table keeps
+// working and no manual migration is required on first deploy.
+// ---------------------------------------------------------------------------
+
+let paymentVerificationColumnsReady = false;
+
+export async function ensurePaymentVerificationColumns(): Promise<void> {
+  if (paymentVerificationColumnsReady) return;
+  await rows(`ALTER TABLE payments ADD COLUMN IF NOT EXISTS verification_code TEXT`);
+  await rows(`ALTER TABLE payments ADD COLUMN IF NOT EXISTS binance_txn_id TEXT`);
+  await rows(`ALTER TABLE payments ADD COLUMN IF NOT EXISTS verified_via TEXT`);
+  await rows(`ALTER TABLE payments ADD COLUMN IF NOT EXISTS verified_at TIMESTAMPTZ`);
+  await rows(
+    `CREATE UNIQUE INDEX IF NOT EXISTS idx_payments_verification_code ON payments(verification_code) WHERE verification_code IS NOT NULL`
+  );
+  await rows(
+    `CREATE UNIQUE INDEX IF NOT EXISTS idx_payments_binance_txn_id ON payments(binance_txn_id) WHERE binance_txn_id IS NOT NULL`
+  );
+  paymentVerificationColumnsReady = true;
+}
+
+function generateVerificationCode(): string {
+  const alphabet = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";
+  let code = "";
+  for (let i = 0; i < 6; i++) code += alphabet[Math.floor(Math.random() * alphabet.length)];
+  return `CS-${code}`;
+}
+
+export async function createPaymentIntent(email: string): Promise<DbPayment | null> {
+  await ensurePaymentVerificationColumns();
+  // Reuse a still-pending intent for this user instead of minting a new code
+  // on every click — the code the user already copied must stay valid.
+  const existing = await rows<DbPayment>(
+    `SELECT * FROM payments WHERE user_email = $1 AND status = 'pending' AND verification_code IS NOT NULL ORDER BY created_at DESC LIMIT 1`,
+    [email]
+  );
+  if (existing[0]) return existing[0];
+  for (let attempt = 0; attempt < 5; attempt++) {
+    try {
+      const result = await rows<DbPayment>(
+        `INSERT INTO payments (user_email, status, verification_code) VALUES ($1, 'pending', $2) RETURNING *`,
+        [email, generateVerificationCode()]
+      );
+      if (result[0]) return result[0];
+    } catch {
+      // verification-code collision — retry with a fresh code
+    }
+  }
+  throw new Error("Could not create a payment code.");
+}
+
+export async function getPaymentById(paymentId: number): Promise<DbPayment | null> {
+  await ensurePaymentVerificationColumns();
+  const result = await rows<DbPayment>("SELECT * FROM payments WHERE id = $1 LIMIT 1", [paymentId]);
+  return result[0] ?? null;
+}
+
+export async function isBinanceTxnUsed(
+  binanceTxnId: string,
+  excludePaymentId?: number
+): Promise<boolean> {
+  await ensurePaymentVerificationColumns();
+  const result = await rows<{ id: number }>(
+    `SELECT id FROM payments WHERE binance_txn_id = $1 AND status = 'approved' AND id <> $2 LIMIT 1`,
+    [binanceTxnId, excludePaymentId ?? -1]
+  );
+  return result.length > 0;
+}
+
+export async function markPaymentVerified(
+  paymentId: number,
+  binanceTxnId: string,
+  verifiedVia: string
+): Promise<string | null> {
+  await ensurePaymentVerificationColumns();
+  const updated = await rows<DbPayment>(
+    `UPDATE payments SET status = 'approved', binance_txn_id = $1, verified_via = $2, verified_at = NOW() WHERE id = $3 RETURNING user_email`,
+    [binanceTxnId, verifiedVia, paymentId]
+  );
+  const userEmail = updated[0]?.user_email ?? null;
+  if (userEmail) await setPaid(userEmail);
+  return userEmail;
 }
 
 export async function setPaymentStatus(paymentId: number, status: "approved" | "rejected"): Promise<void> {

@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { authOptions } from "@/lib/auth";
 import { isDbConfigured } from "@/lib/db";
 import PaymentForm from "./PaymentForm";
+import AutoVerify from "./AutoVerify";
 
 export const dynamic = "force-dynamic";
 
@@ -60,15 +61,30 @@ export default async function PaymentPage() {
         </div>
         <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm text-slate-300" start={3}>
           <li>Double-check the amount: it must be exactly <strong>${PRICE} USDT</strong>.</li>
-          <li>Take a screenshot of the completed transfer.</li>
+          <li>
+            For automatic activation, first get your payment code in Step 2 below and paste it in
+            the Binance Pay note/message field.
+          </li>
+          <li>Take a screenshot of the completed transfer (only needed for manual review).</li>
         </ol>
       </div>
 
       <div className="card mt-6">
-        <h2 className="text-lg font-semibold">Step 2 — Submit your payment below</h2>
+        <h2 className="text-lg font-semibold">Step 2 — Automatic verification (recommended)</h2>
         <p className="mt-2 text-sm text-slate-400">
-          Upload the screenshot and your transaction ID. We review every payment manually and
-          activate Pro access, usually within a few hours.
+          Send the payment with your unique note code, then tap Check — Pro activates automatically
+          when Binance confirms the exact 24.99 USDT transfer. No admin wait.
+        </p>
+        <div className="mt-6">
+          <AutoVerify binanceId={binanceId} />
+        </div>
+      </div>
+
+      <div className="card mt-6">
+        <h2 className="text-lg font-semibold">Step 2 (alternative) — Submit for manual review</h2>
+        <p className="mt-2 text-sm text-slate-400">
+          If automatic verification is not available, upload the screenshot and your transaction ID.
+          We review every payment manually and activate Pro access, usually within a few hours.
         </p>
         <div className="mt-6">
           <PaymentForm binanceId={binanceId} />

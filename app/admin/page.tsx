@@ -4,8 +4,9 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "@/lib/auth";
 import { isAdminEmail } from "@/lib/admin";
-import { isDbConfigured, listPendingPayments } from "@/lib/db";
+import { isDbConfigured, listAllUsers, listPendingPayments } from "@/lib/db";
 import AdminPayments from "./AdminPayments";
+import AdminUsers from "./AdminUsers";
 
 export const dynamic = "force-dynamic";
 
@@ -40,12 +41,13 @@ export default async function AdminPage() {
   }
 
   let payments: Awaited<ReturnType<typeof listPendingPayments>> = [];
+  let users: Awaited<ReturnType<typeof listAllUsers>> = [];
   let dbError = "";
   if (isDbConfigured()) {
     try {
-      payments = await listPendingPayments();
+      [payments, users] = await Promise.all([listPendingPayments(), listAllUsers()]);
     } catch (err) {
-      dbError = "Could not load payments from the database.";
+      dbError = "Could not load data from the database.";
       console.error("[admin] load failed:", err);
     }
   } else {
@@ -56,7 +58,7 @@ export default async function AdminPage() {
     <main className="mx-auto max-w-3xl px-4 py-10">
       <header className="mb-8 flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Admin — Payment Review</h1>
+          <h1 className="text-3xl font-bold">Admin Dashboard</h1>
           <p className="mt-1 text-sm text-slate-400">Signed in as {email}</p>
         </div>
         <Link href="/dashboard" className="text-sm text-slate-400 hover:text-white">
@@ -69,7 +71,13 @@ export default async function AdminPage() {
           ⚠️ {dbError}
         </p>
       ) : (
-        <AdminPayments initial={payments} />
+        <div className="space-y-8">
+          <AdminUsers initial={users} />
+          <div>
+            <h2 className="mb-4 text-xl font-bold">Pending payments</h2>
+            <AdminPayments initial={payments} />
+          </div>
+        </div>
       )}
     </main>
   );

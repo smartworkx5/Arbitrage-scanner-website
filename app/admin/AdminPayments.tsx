@@ -7,6 +7,7 @@ interface Payment {
   user_email: string;
   screenshot_url: string | null;
   txn_ref: string | null;
+  verification_code: string | null;
   status: string;
   created_at: string;
 }
@@ -15,6 +16,25 @@ export default function AdminPayments({ initial }: { initial: Payment[] }) {
   const [payments, setPayments] = useState<Payment[]>(initial);
   const [busy, setBusy] = useState<number | null>(null);
   const [error, setError] = useState("");
+
+  async function verify(paymentId: number) {
+    setBusy(paymentId);
+    setError("");
+    try {
+      const res = await fetch("/api/admin/verify-payment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ paymentId }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.ok) throw new Error(data.error ?? "Verification failed");
+      setPayments((prev) => prev.filter((p) => p.id !== paymentId));
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Verification failed");
+    } finally {
+      setBusy(null);
+    }
+  }
 
   async function act(paymentId: number, action: "approve" | "reject") {
     const verb = action === "approve" ? "Approve" : "Reject";
@@ -63,6 +83,12 @@ export default function AdminPayments({ initial }: { initial: Payment[] }) {
                   <code className="text-slate-200">{p.txn_ref}</code>
                 </p>
               )}
+              {p.verification_code && (
+                <p className="mt-1 text-sm">
+                  <span className="text-slate-500">Note code:</span>{" "}
+                  <code className="text-amber-300">{p.verification_code}</code>
+                </p>
+              )}
             </div>
             <span className="rounded-full bg-amber-500/15 px-3 py-1 text-xs font-bold text-amber-300">
               PENDING
@@ -82,7 +108,14 @@ export default function AdminPayments({ initial }: { initial: Payment[] }) {
             <p className="mt-4 text-sm text-slate-500">No screenshot uploaded.</p>
           )}
 
-          <div className="mt-4 flex gap-3">
+          <div className="mt-4 flex flex-wrap gap-3">
+            <button
+              onClick={() => verify(p.id)}
+              disabled={busy === p.id}
+              className="btn-primary flex-1 disabled:opacity-60"
+            >
+              {busy === p.id ? "Checking Binance…" : "⚡ Verify via Binance"}
+            </button>
             <button
               onClick={() => act(p.id, "approve")}
               disabled={busy === p.id}

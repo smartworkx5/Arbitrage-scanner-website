@@ -25,6 +25,15 @@ CREATE TABLE IF NOT EXISTS payments (
 CREATE INDEX IF NOT EXISTS idx_payments_status ON payments(status);
 CREATE INDEX IF NOT EXISTS idx_payments_user_email ON payments(user_email);
 
+-- Automatic Binance Pay verification (also added idempotently at runtime
+-- by ensurePaymentVerificationColumns in lib/db.ts):
+ALTER TABLE payments ADD COLUMN IF NOT EXISTS verification_code TEXT;
+ALTER TABLE payments ADD COLUMN IF NOT EXISTS binance_txn_id TEXT;
+ALTER TABLE payments ADD COLUMN IF NOT EXISTS verified_via TEXT;
+ALTER TABLE payments ADD COLUMN IF NOT EXISTS verified_at TIMESTAMPTZ;
+CREATE UNIQUE INDEX IF NOT EXISTS idx_payments_verification_code ON payments(verification_code) WHERE verification_code IS NOT NULL;
+CREATE UNIQUE INDEX IF NOT EXISTS idx_payments_binance_txn_id ON payments(binance_txn_id) WHERE binance_txn_id IS NOT NULL;
+
 -- Referrals (also auto-applied by the app via ensureReferralColumns)
 ALTER TABLE users ADD COLUMN IF NOT EXISTS referral_code TEXT;
 ALTER TABLE users ADD COLUMN IF NOT EXISTS referred_by TEXT;
