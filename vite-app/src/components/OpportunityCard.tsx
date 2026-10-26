@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 import { openExchangeTrade } from '../utils/tradeUrls';
 import { formatOrderSize } from '../utils/formatters';
-import { formatTelegramMessage, openStatusLabel } from '../utils/alertMessage';
+import { formatTelegramMessage } from '../utils/alertMessage';
 
 interface OpportunityCardProps {
   opp: ArbitrageOpportunity;
@@ -113,16 +113,6 @@ export const OpportunityCard: React.FC<OpportunityCardProps> = ({
           </div>
 
           <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-            {/* Net Profit Badge — NET is prominent, gross is smaller beside it */}
-            <div className="text-right">
-              <div className="text-xs sm:text-sm font-extrabold font-mono text-emerald-400">
-                +{opp.netProfitPercent.toFixed(2)}% net{opp.cheapestWithdrawalFeeUsdt === null || opp.cheapestWithdrawalFeeUsdt === undefined ? '*' : ''}
-              </div>
-              <div className="text-[9px] sm:text-[10px] font-mono text-slate-400">
-                Gross +{opp.grossSpreadPercent.toFixed(2)}% · +${opp.profitPer1000USDT.toFixed(2)} / $1000
-              </div>
-            </div>
-
             {/* Bookmark star */}
             <button
               onClick={() => onToggleSave(opp.id)}
@@ -295,33 +285,6 @@ export const OpportunityCard: React.FC<OpportunityCardProps> = ({
                 </div>
               )}
             </div>
-          </div>
-        </div>
-
-        {/* Honest fee breakdown + executable depth */}
-        <div className="mb-2 sm:mb-3 bg-slate-950/90 border border-slate-800/80 rounded-lg sm:rounded-xl p-2 sm:p-2.5 text-[9.5px] sm:text-[11px] space-y-0.5">
-          <div className="text-slate-300">
-            <span className="text-slate-500 font-semibold">Fees:</span> taker 0.1% buy + 0.1% sell
-            {opp.cheapestWithdrawalChain && opp.cheapestWithdrawalFeeUsdt !== null && opp.cheapestWithdrawalFeeUsdt !== undefined ? (
-              <> + withdrawal {opp.cheapestWithdrawalChain} ${opp.cheapestWithdrawalFeeUsdt.toFixed(2)}</>
-            ) : (
-              <> + withdrawal: unknown</>
-            )}
-          </div>
-          <div className="text-slate-300">
-            <span className="text-slate-500 font-semibold">Executable:</span>{' '}
-            {opp.executableUsdt !== null && opp.executableUsdt !== undefined ? (
-              <>${opp.executableUsdt.toFixed(2)} at best bid/ask · executable profit ${((opp.executableProfitUsdt ?? opp.profitPer1000USDT)).toFixed(2)} on ${opp.executableUsdt >= 1000 ? '1000' : opp.executableUsdt.toFixed(2)} trade</>
-            ) : (
-              <>depth unknown · profit shown on $1000 trade</>
-            )}
-          </div>
-          <div className="text-slate-400">
-            WD (buy): {openStatusLabel(opp.buyWithdrawOpen)} · DEP (sell): {openStatusLabel(opp.sellDepositOpen)}
-            {opp.spreadAgeSeconds !== undefined ? <> · Seen {opp.spreadAgeSeconds > 0 ? `${opp.spreadAgeSeconds}s ago` : 'just now'} — spreads can close during transfer, check before moving funds.</> : null}
-            {opp.cheapestWithdrawalFeeUsdt === null || opp.cheapestWithdrawalFeeUsdt === undefined ? (
-              <> · *net shown before withdrawal fee (fee unknown, not $0)</>
-            ) : null}
           </div>
         </div>
 

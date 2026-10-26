@@ -373,13 +373,18 @@ class ArbitrageScannerEngine {
             const buyInferred = inferSupportedChains(baseSymbol, buyContracts);
             const sellInferred = inferSupportedChains(baseSymbol, sellContracts);
 
-            const buyWithdrawChains = buyBaseStatus?.withdrawChains && buyBaseStatus.withdrawChains.length > 0
+            // 'Unverified Spot Market' is a verification status label, not a
+            // blockchain — it must never be used as a withdrawal/deposit chain
+            // or a fee chain (it previously produced a bogus $0.50 fee).
+            const rawBuyWithdrawChains = buyBaseStatus?.withdrawChains && buyBaseStatus.withdrawChains.length > 0
               ? buyBaseStatus.withdrawChains
               : (contractEval.verifiedChains.length > 0 ? contractEval.verifiedChains : buyInferred.withdrawChains);
+            const buyWithdrawChains = rawBuyWithdrawChains.filter((c) => c !== 'Unverified Spot Market');
 
-            const sellDepositChains = sellBaseStatus?.depositChains && sellBaseStatus.depositChains.length > 0
+            const rawSellDepositChains = sellBaseStatus?.depositChains && sellBaseStatus.depositChains.length > 0
               ? sellBaseStatus.depositChains
               : (contractEval.verifiedChains.length > 0 ? contractEval.verifiedChains : sellInferred.depositChains);
+            const sellDepositChains = rawSellDepositChains.filter((c) => c !== 'Unverified Spot Market');
 
             const buyWithdrawalFees = calculateWithdrawalFees(
               baseSymbol,
