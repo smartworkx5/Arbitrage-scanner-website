@@ -75,7 +75,7 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               onClick={handleLogout}
               title="Log out"
-              className="p-1.5 rounded-lg border border-white/10 bg-slate-900 text-slate-300 hover:text-white cursor-pointer"
+              className="p-2 min-h-[40px] min-w-[40px] flex items-center justify-center rounded-lg border border-white/10 bg-slate-900 text-slate-300 hover:text-white cursor-pointer"
             >
               <LogOut className="w-3.5 h-3.5" />
             </button>
@@ -83,7 +83,7 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 onClick={onOpenApiModal}
                 title="Gemini API Key Connection"
-                className={`p-1.5 rounded-lg border text-xs cursor-pointer ${
+                className={`p-2 min-h-[40px] min-w-[40px] flex items-center justify-center rounded-lg border text-xs cursor-pointer ${
                   apiConnected
                     ? 'bg-emerald-950/60 border-emerald-500/40 text-emerald-300'
                     : 'bg-slate-900 border-amber-500/30 text-amber-300'
@@ -95,7 +95,7 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               onClick={onScanNow}
               disabled={isScanning}
-              className="flex items-center gap-1 text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 text-white transition-all shadow cursor-pointer"
+              className="flex items-center gap-1 text-[11px] font-semibold px-2.5 py-2 min-h-[40px] rounded-lg bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 text-white transition-all shadow cursor-pointer"
             >
               <RefreshCw className={`w-3 h-3 ${isScanning ? 'animate-spin' : ''}`} />
               {isScanning ? 'Scanning...' : 'Scan'}
@@ -104,10 +104,10 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex items-center gap-1 bg-slate-900/90 p-0.5 rounded-lg border border-white/10 w-full md:w-auto overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <div className="mobile-scroll-x flex items-center gap-1 bg-slate-900/90 p-0.5 rounded-lg border border-white/10 w-full md:w-auto overflow-x-auto">
           <button
             onClick={() => setActiveTab('scanner')}
-            className={`shrink-0 whitespace-nowrap flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
+            className={`shrink-0 whitespace-nowrap flex items-center gap-1.5 px-2.5 sm:px-3 py-2 min-h-[40px] rounded-md text-xs font-medium transition-all cursor-pointer ${
               activeTab === 'scanner'
                 ? 'bg-white/15 text-white shadow-sm font-semibold border border-white/10'
                 : 'text-slate-400 hover:text-slate-200'
@@ -119,7 +119,7 @@ export const Header: React.FC<HeaderProps> = ({
 
           <button
             onClick={() => setActiveTab('cexdex')}
-            className={`shrink-0 whitespace-nowrap flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
+            className={`shrink-0 whitespace-nowrap flex items-center gap-1.5 px-2.5 sm:px-3 py-2 min-h-[40px] rounded-md text-xs font-medium transition-all cursor-pointer ${
               activeTab === 'cexdex'
                 ? 'bg-gradient-to-r from-emerald-500/30 to-indigo-500/30 text-white shadow-sm font-semibold border border-emerald-500/40'
                 : 'text-slate-400 hover:text-slate-200'
@@ -136,7 +136,7 @@ export const Header: React.FC<HeaderProps> = ({
 
           <button
             onClick={() => setActiveTab('spread')}
-            className={`shrink-0 whitespace-nowrap flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
+            className={`shrink-0 whitespace-nowrap flex items-center gap-1.5 px-2.5 sm:px-3 py-2 min-h-[40px] rounded-md text-xs font-medium transition-all cursor-pointer ${
               activeTab === 'spread'
                 ? 'bg-gradient-to-r from-emerald-500/30 to-teal-500/30 text-white shadow-sm font-semibold border border-emerald-500/40'
                 : 'text-slate-400 hover:text-slate-200'
@@ -149,7 +149,7 @@ export const Header: React.FC<HeaderProps> = ({
 
           <button
             onClick={() => setActiveTab('movers')}
-            className={`shrink-0 whitespace-nowrap flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
+            className={`shrink-0 whitespace-nowrap flex items-center gap-1.5 px-2.5 sm:px-3 py-2 min-h-[40px] rounded-md text-xs font-medium transition-all cursor-pointer ${
               activeTab === 'movers'
                 ? 'bg-gradient-to-r from-orange-500/30 to-rose-500/30 text-white shadow-sm font-semibold border border-orange-500/40'
                 : 'text-slate-400 hover:text-slate-200'
@@ -161,7 +161,7 @@ export const Header: React.FC<HeaderProps> = ({
 
           <button
             onClick={() => setActiveTab('exchanges')}
-            className={`shrink-0 whitespace-nowrap flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
+            className={`shrink-0 whitespace-nowrap flex items-center gap-1.5 px-2.5 sm:px-3 py-2 min-h-[40px] rounded-md text-xs font-medium transition-all cursor-pointer ${
               activeTab === 'exchanges'
                 ? 'bg-white/15 text-white shadow-sm font-semibold border border-white/10'
                 : 'text-slate-400 hover:text-slate-200'
@@ -173,7 +173,7 @@ export const Header: React.FC<HeaderProps> = ({
 
           <button
             onClick={() => setActiveTab('watchlist')}
-            className={`shrink-0 whitespace-nowrap flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
+            className={`shrink-0 whitespace-nowrap flex items-center gap-1.5 px-2.5 sm:px-3 py-2 min-h-[40px] rounded-md text-xs font-medium transition-all cursor-pointer ${
               activeTab === 'watchlist'
                 ? 'bg-white/15 text-white shadow-sm font-semibold border border-white/10'
                 : 'text-slate-400 hover:text-slate-200'

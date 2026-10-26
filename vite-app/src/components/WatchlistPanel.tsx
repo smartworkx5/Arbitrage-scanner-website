@@ -1,4 +1,5 @@
 import React from 'react';
+import { useIsMobile } from '../hooks/useIsMobile';
 import { ArbitrageOpportunity } from '../types';
 import { OpportunityCard } from './OpportunityCard';
 import { OpportunityTable } from './OpportunityTable';
@@ -23,6 +24,7 @@ export const WatchlistPanel: React.FC<WatchlistPanelProps> = ({
   onOpenDetail,
   viewMode,
 }) => {
+  const isMobile = useIsMobile();
   return (
     <div className="space-y-6 relative z-10">
       {/* Header */}
@@ -58,7 +60,7 @@ export const WatchlistPanel: React.FC<WatchlistPanelProps> = ({
             Click the star icon on any arbitrage opportunity in the Scanner Matrix to bookmark and track it here.
           </p>
         </div>
-      ) : viewMode === 'cards' ? (
+      ) : (viewMode === 'cards' || isMobile) ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {savedOpportunities.map((opp) => (
             <OpportunityCard

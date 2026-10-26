@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+/* Phone layout helpers (layout only — no data or colour changes).
+   Horizontal strips (tab bar, table scrollers) get momentum touch
+   scrolling and a thin visible scrollbar on phones, so a user can see
+   that more content lies sideways instead of finding it clipped. */
+@media (max-width: 767px) {
+  .mobile-scroll-x {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(51 65 85) transparent;
+  }
+  .mobile-scroll-x::-webkit-scrollbar {
+    height: 4px;
+  }
+  .mobile-scroll-x::-webkit-scrollbar-thumb {
+    background: rgb(51 65 85);
+    border-radius: 9999px;
+  }
+}

@@ -91,7 +91,7 @@ export const MoversTab: React.FC<MoversTabProps> = ({
             <select
               value={selectedExchange}
               onChange={(e) => setSelectedExchange(e.target.value)}
-              className="bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-slate-200 text-xs font-bold focus:outline-none focus:border-indigo-500 cursor-pointer"
+              className="w-full sm:w-auto bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-2.5 min-h-[40px] text-slate-200 text-xs font-bold focus:outline-none focus:border-indigo-500 cursor-pointer"
             >
               {exchangeOptions.map((ex) => (
                 <option key={ex.id} value={ex.id}>
@@ -106,7 +106,7 @@ export const MoversTab: React.FC<MoversTabProps> = ({
             <select
               value={limit}
               onChange={(e) => setLimit(Number(e.target.value))}
-              className="bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-slate-200 text-xs font-bold focus:outline-none focus:border-indigo-500 cursor-pointer"
+              className="w-full sm:w-auto bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-2.5 min-h-[40px] text-slate-200 text-xs font-bold focus:outline-none focus:border-indigo-500 cursor-pointer"
             >
               <option value={5}>Top 5</option>
               <option value={10}>Top 10</option>
@@ -119,7 +119,7 @@ export const MoversTab: React.FC<MoversTabProps> = ({
         <button
           onClick={() => fetchData()}
           disabled={loading}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500/30 border border-indigo-500/40 text-xs font-semibold transition-all disabled:opacity-50 cursor-pointer shadow-sm"
+          className="w-full sm:w-auto justify-center flex items-center gap-1.5 px-3 py-2.5 min-h-[40px] rounded-lg bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500/30 border border-indigo-500/40 text-xs font-semibold transition-all disabled:opacity-50 cursor-pointer shadow-sm"
           title="Refresh top gainers and losers for this exchange"
         >
           <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin text-indigo-400' : ''}`} />
@@ -136,7 +136,7 @@ export const MoversTab: React.FC<MoversTabProps> = ({
             </div>
             <div>
               <h3 className="text-emerald-400 font-bold text-sm">Top Gainers</h3>
-              <p className="text-[10px] text-slate-400">Price is HIGH here. We can SELL here if we buy cheaper elsewhere.</p>
+              <p className="text-xs text-slate-400">Price is HIGH here. We can SELL here if we buy cheaper elsewhere.</p>
             </div>
           </div>
 
@@ -215,7 +215,7 @@ export const MoversTab: React.FC<MoversTabProps> = ({
             </div>
             <div>
               <h3 className="text-rose-400 font-bold text-sm">Top Losers</h3>
-              <p className="text-[10px] text-slate-400">Price is LOW here. We can BUY here and sell higher elsewhere.</p>
+              <p className="text-xs text-slate-400">Price is LOW here. We can BUY here and sell higher elsewhere.</p>
             </div>
           </div>
 

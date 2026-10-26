@@ -75,7 +75,7 @@ export const OpportunityCard: React.FC<OpportunityCardProps> = ({
     <div className="bg-slate-950/80 backdrop-blur-xl border border-slate-800/90 hover:border-emerald-500/40 rounded-xl sm:rounded-2xl p-2.5 sm:p-4 transition-all duration-200 shadow-xl hover:shadow-2xl flex flex-col justify-between group">
       {/* Top Header */}
       <div>
-        <div className="flex items-center justify-between gap-1.5 mb-2 sm:mb-3">
+        <div className="flex flex-wrap items-center justify-between gap-1.5 mb-2 sm:mb-3">
           <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
             <button
               onClick={() => onOpenDetail(opp.symbol)}
@@ -417,10 +417,10 @@ export const OpportunityCard: React.FC<OpportunityCardProps> = ({
       </div>
 
       {/* Action Buttons (Compact Mobile Bar) */}
-      <div className="flex items-center justify-between gap-1.5 sm:gap-2 pt-1.5 sm:pt-2 border-t border-slate-800/80">
+      <div className="flex flex-wrap items-center justify-between gap-1.5 sm:gap-2 pt-1.5 sm:pt-2 border-t border-slate-800/80">
         <button
           onClick={() => onOpenDetail(opp.symbol)}
-          className="flex-1 flex items-center justify-center gap-1 text-[10px] sm:text-xs font-semibold text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-800 py-1.5 rounded-lg transition-all cursor-pointer"
+          className="flex-1 flex items-center justify-center gap-1 text-[10px] sm:text-xs font-semibold text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-800 py-2.5 min-h-[40px] rounded-lg transition-all cursor-pointer"
         >
           <Eye className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-400" />
           Cross-Ex
@@ -428,7 +428,7 @@ export const OpportunityCard: React.FC<OpportunityCardProps> = ({
 
         <button
           onClick={() => onOpenCalculator(opp)}
-          className="flex-1 flex items-center justify-center gap-1 text-[10px] sm:text-xs font-bold text-emerald-300 hover:text-white bg-emerald-500/15 hover:bg-emerald-500/30 border border-emerald-500/30 py-1.5 rounded-lg transition-all cursor-pointer"
+          className="flex-1 flex items-center justify-center gap-1 text-[10px] sm:text-xs font-bold text-emerald-300 hover:text-white bg-emerald-500/15 hover:bg-emerald-500/30 border border-emerald-500/30 py-2.5 min-h-[40px] rounded-lg transition-all cursor-pointer"
         >
           <Calculator className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-400" />
           Simulate
@@ -442,7 +442,7 @@ export const OpportunityCard: React.FC<OpportunityCardProps> = ({
             setTimeout(() => setCopiedKey(null), 2000);
           }}
           title="Copy for Telegram (copies text only, does not send)"
-          className="flex-1 flex items-center justify-center gap-1 text-[10px] sm:text-xs font-semibold text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-800 py-1.5 rounded-lg transition-all cursor-pointer"
+          className="flex-1 flex items-center justify-center gap-1 text-[10px] sm:text-xs font-semibold text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-800 py-2.5 min-h-[40px] rounded-lg transition-all cursor-pointer"
         >
           <Copy className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-400" />
           {copiedKey === `tg-${opp.id}` ? 'Copied' : 'Copy for Telegram'}

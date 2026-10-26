@@ -38,12 +38,12 @@ export const CalculatorModal: React.FC<CalculatorModalProps> = ({ opp, onClose }
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-xl animate-fade-in">
-      <div className="bg-slate-900/90 border border-white/15 rounded-3xl max-w-2xl w-full p-6 shadow-2xl backdrop-blur-2xl relative text-white max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-xl animate-fade-in">
+      <div className="bg-slate-900/90 border border-white/15 rounded-3xl max-w-2xl w-full p-4 sm:p-6 shadow-2xl backdrop-blur-2xl relative text-white max-h-[92dvh] overflow-y-auto">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute right-5 top-5 text-slate-400 hover:text-white p-2 rounded-xl bg-slate-950 border border-slate-800 transition-all cursor-pointer"
+          className="absolute right-5 top-5 text-slate-400 hover:text-white p-2.5 min-h-[40px] min-w-[40px] flex items-center justify-center rounded-xl bg-slate-950 border border-slate-800 transition-all cursor-pointer"
         >
           <X className="w-4 h-4" />
         </button>

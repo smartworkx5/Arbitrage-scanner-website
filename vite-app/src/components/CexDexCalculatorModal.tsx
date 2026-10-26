@@ -54,7 +54,7 @@ export const CexDexCalculatorModal: React.FC<CexDexCalculatorModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-lg bg-slate-900 border border-slate-700/80 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+      <div className="relative w-full max-w-lg bg-slate-900 border border-slate-700/80 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[92dvh]">
         {/* Modal Header */}
         <div className="flex items-center justify-between px-5 py-4 bg-slate-950 border-b border-white/10">
           <div className="flex items-center gap-2.5">
@@ -75,14 +75,14 @@ export const CexDexCalculatorModal: React.FC<CexDexCalculatorModalProps> = ({
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-colors"
+            className="p-2.5 min-h-[40px] min-w-[40px] flex items-center justify-center rounded-lg bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Modal Body */}
-        <div className="p-5 overflow-y-auto space-y-4">
+        <div className="p-4 sm:p-5 overflow-y-auto space-y-4">
           {/* Investment Input */}
           <div>
             <label className="block text-xs font-semibold text-slate-300 mb-1.5">

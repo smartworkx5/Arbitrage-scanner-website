@@ -55,7 +55,7 @@ export const OpportunityTable: React.FC<OpportunityTableProps> = ({
 
   return (
     <div className="bg-slate-950/80 backdrop-blur-xl border border-slate-800 rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl mb-6 relative z-10">
-      <div className="overflow-x-auto">
+      <div className="mobile-scroll-x overflow-x-auto">
         <table className="w-full text-left text-xs border-collapse min-w-[850px]">
           <thead>
             <tr className="bg-slate-900/90 text-slate-400 border-b border-slate-800 font-mono text-[10px] uppercase tracking-wider">

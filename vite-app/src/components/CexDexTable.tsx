@@ -53,7 +53,7 @@ export const CexDexTable: React.FC<CexDexTableProps> = ({
 
   return (
     <div className="bg-slate-900/90 border border-slate-800 rounded-xl overflow-hidden shadow-xl mb-6">
-      <div className="overflow-x-auto">
+      <div className="mobile-scroll-x overflow-x-auto">
         <table className="w-full text-left text-xs text-slate-200">
           <thead className="bg-slate-950/80 text-[11px] text-slate-400 uppercase tracking-wider font-semibold border-b border-white/10">
             <tr>

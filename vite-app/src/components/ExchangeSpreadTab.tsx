@@ -22,6 +22,7 @@ import {
   X,
 } from 'lucide-react';
 import { ExchangeSpreadOverview, ExchangeTokenSpread } from '../types';
+import { useIsMobile } from '../hooks/useIsMobile';
 import { safeApiFetch } from '../utils/api';
 import { dataService } from '../services/dataService';
 
@@ -42,6 +43,7 @@ export const ExchangeSpreadTab: React.FC<ExchangeSpreadTabProps> = ({
   const [sortBy, setSortBy] = useState<'spread' | 'spreadUsd' | 'volume' | 'symbol' | 'bid' | 'ask' | 'depth'>('spread');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
   const [viewMode, setViewMode] = useState<'table' | 'cards'>('table');
+  const isMobile = useIsMobile();
 
   const [data, setData] = useState<ExchangeSpreadOverview | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -423,7 +425,7 @@ export const ExchangeSpreadTab: React.FC<ExchangeSpreadTabProps> = ({
                 setCurrentPage(1);
               }}
               placeholder={`Search tokens in ${data?.exchange?.name || 'exchange'} (e.g. BTC, ETH, SOL, PEPE)...`}
-              className="w-full bg-slate-950/80 border border-white/10 rounded-lg pl-8 pr-8 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500/60 focus:ring-1 focus:ring-emerald-500/30 transition-all font-mono"
+              className="w-full min-h-[40px] bg-slate-950/80 border border-white/10 rounded-lg pl-8 pr-8 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500/60 focus:ring-1 focus:ring-emerald-500/30 transition-all font-mono"
             />
             {search && (
               <button
@@ -561,7 +563,7 @@ export const ExchangeSpreadTab: React.FC<ExchangeSpreadTabProps> = ({
             <div className="flex items-center bg-slate-950/80 border border-white/10 rounded-lg p-0.5">
               <button
                 onClick={() => setViewMode('table')}
-                className={`p-1.5 rounded-md transition-all cursor-pointer ${
+                className={`p-2 min-h-[40px] min-w-[40px] flex items-center justify-center rounded-md transition-all cursor-pointer ${
                   viewMode === 'table' ? 'bg-white/15 text-white' : 'text-slate-400 hover:text-slate-200'
                 }`}
                 title="Table view"
@@ -570,7 +572,7 @@ export const ExchangeSpreadTab: React.FC<ExchangeSpreadTabProps> = ({
               </button>
               <button
                 onClick={() => setViewMode('cards')}
-                className={`p-1.5 rounded-md transition-all cursor-pointer ${
+                className={`p-2 min-h-[40px] min-w-[40px] flex items-center justify-center rounded-md transition-all cursor-pointer ${
                   viewMode === 'cards' ? 'bg-white/15 text-white' : 'text-slate-400 hover:text-slate-200'
                 }`}
                 title="Card grid view"
@@ -623,10 +625,10 @@ export const ExchangeSpreadTab: React.FC<ExchangeSpreadTabProps> = ({
             Reset Filters
           </button>
         </div>
-      ) : viewMode === 'table' ? (
+      ) : (viewMode === 'table' && !isMobile) ? (
         /* TABLE VIEW */
         <div className="bg-slate-900/70 border border-white/10 rounded-2xl overflow-hidden shadow-xl">
-          <div className="overflow-x-auto">
+          <div className="mobile-scroll-x overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
                 <tr className="bg-slate-950/90 border-b border-white/10 text-slate-400 font-mono text-[11px] uppercase tracking-wider">
@@ -862,7 +864,7 @@ export const ExchangeSpreadTab: React.FC<ExchangeSpreadTabProps> = ({
               <button
                 onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
                 disabled={currentPage === 1}
-                className="px-2.5 py-1 rounded-lg bg-slate-900 border border-white/10 text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-800"
+                className="px-2.5 py-2.5 min-h-[40px] rounded-lg bg-slate-900 border border-white/10 text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-800"
               >
                 Previous
               </button>
@@ -872,7 +874,7 @@ export const ExchangeSpreadTab: React.FC<ExchangeSpreadTabProps> = ({
               <button
                 onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
                 disabled={currentPage === totalPages}
-                className="px-2.5 py-1 rounded-lg bg-slate-900 border border-white/10 text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-800"
+                className="px-2.5 py-2.5 min-h-[40px] rounded-lg bg-slate-900 border border-white/10 text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-800"
               >
                 Next
               </button>

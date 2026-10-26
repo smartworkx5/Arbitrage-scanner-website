@@ -8,6 +8,7 @@ import {
   CexDexSummary,
 } from './types';
 import { Header } from './components/Header';
+import { useIsMobile } from './hooks/useIsMobile';
 import { StatsOverview } from './components/StatsOverview';
 import { FilterBar } from './components/FilterBar';
 import { OpportunityCard } from './components/OpportunityCard';
@@ -52,6 +53,9 @@ export default function App() {
 
   // Tab & View States
   const [activeTab, setActiveTab] = useState<'scanner' | 'cexdex' | 'spread' | 'movers' | 'exchanges' | 'watchlist'>('scanner');
+  // Phones render the card version even when 'table' is selected: the wide
+  // 850px table cannot fit 360px without page-level sideways scrolling.
+  const isMobile = useIsMobile();
   const [viewMode, setViewMode] = useState<'cards' | 'table'>('cards');
   const [soundEnabled, setSoundEnabled] = useState<boolean>(false);
 
@@ -427,7 +431,7 @@ export default function App() {
                       Show All Opportunities
                     </button>
                   </div>
-                ) : viewMode === 'cards' ? (
+                ) : (viewMode === 'cards' || isMobile) ? (
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-6">
                     {opportunities.map((opp) => (
                       <OpportunityCard

@@ -200,7 +200,7 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-150">
       <div
-        className="bg-slate-900 border border-slate-700/80 rounded-2xl w-full max-w-lg shadow-2xl overflow-hidden relative"
+        className="bg-slate-900 border border-slate-700/80 rounded-2xl w-full max-w-lg shadow-2xl overflow-hidden relative max-h-[92dvh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -221,14 +221,14 @@ export const ApiKeyModal: React.FC<ApiKeyModalProps> = ({
           </div>
           <button
             onClick={onClose}
-            className="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-slate-800 transition-colors cursor-pointer"
+            className="text-slate-400 hover:text-white p-2.5 min-h-[40px] min-w-[40px] flex items-center justify-center rounded-lg hover:bg-slate-800 transition-colors cursor-pointer"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Body */}
-        <div className="p-5 space-y-4 text-xs text-slate-300">
+        <div className="p-4 sm:p-5 space-y-4 text-xs text-slate-300 overflow-y-auto min-h-0">
           {/* Status Badge */}
           {serverStatus?.hasGeminiKey && !successInfo && (
             <div className="bg-emerald-950/40 border border-emerald-500/30 rounded-xl px-3 py-2 flex items-center justify-between">

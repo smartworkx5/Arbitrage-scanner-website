@@ -274,13 +274,13 @@ export const CexDexCard: React.FC<CexDexCardProps> = ({
       </div>
 
       {/* Action Buttons Footer */}
-      <div className="grid grid-cols-3 gap-1.5 pt-1 border-t border-white/5">
+      <div className="flex flex-wrap gap-1.5 pt-1 border-t border-white/5">
         {/* CEX Button */}
         <a
           href={cexTradeData.webUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-1 py-1.5 px-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-[11px] font-semibold border border-white/10 transition-colors"
+          className="flex items-center justify-center gap-1 py-2.5 min-h-[40px] flex-1 px-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-[11px] font-semibold border border-white/10 transition-colors"
           title={`Trade ${opp.baseSymbol} on ${opp.cexName}`}
         >
           <span>{opp.cexName}</span>
@@ -292,7 +292,7 @@ export const CexDexCard: React.FC<CexDexCardProps> = ({
           href={opp.dexTradeUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-1 py-1.5 px-2 rounded-lg bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-200 text-[11px] font-semibold border border-indigo-500/30 transition-colors"
+          className="flex items-center justify-center gap-1 py-2.5 min-h-[40px] flex-1 px-2 rounded-lg bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-200 text-[11px] font-semibold border border-indigo-500/30 transition-colors"
           title={`Swap ${opp.baseSymbol} on ${opp.dexName}`}
         >
           <span>{opp.dexName.split(' ')[0]}</span>
@@ -302,7 +302,7 @@ export const CexDexCard: React.FC<CexDexCardProps> = ({
         {/* Calculator Button */}
         <button
           onClick={() => onOpenCalculator(opp)}
-          className="flex items-center justify-center gap-1 py-1.5 px-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-semibold shadow-sm transition-all active:scale-95"
+          className="flex items-center justify-center gap-1 py-2.5 min-h-[40px] flex-1 px-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-semibold shadow-sm transition-all active:scale-95"
           title="Calculate exact net profit with fees"
         >
           <Calculator className="w-3 h-3" />

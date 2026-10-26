@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { useIsMobile } from '../hooks/useIsMobile';
 import {
   CexDexArbitrageOpportunity,
   CexDexFilterState,
@@ -81,6 +82,7 @@ export const CexDexTab: React.FC<CexDexTabProps> = ({
   onToggleSave,
 }) => {
   const [viewMode, setViewMode] = useState<'cards' | 'table'>('cards');
+  const isMobile = useIsMobile();
   const [selectedCalcOpp, setSelectedCalcOpp] = useState<CexDexArbitrageOpportunity | null>(null);
 
   // Filters State
@@ -349,7 +351,7 @@ export const CexDexTab: React.FC<CexDexTabProps> = ({
                 placeholder="Search token, meme, AI agent, chain..."
                 value={filter.search}
                 onChange={(e) => setFilter({ ...filter, search: e.target.value })}
-                className="w-full bg-slate-950 border border-slate-700/80 rounded-lg pl-8 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500"
+                className="w-full bg-slate-950 border border-slate-700/80 rounded-lg pl-8 pr-3 py-2.5 min-h-[40px] text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500"
               />
             </div>
 
@@ -357,7 +359,7 @@ export const CexDexTab: React.FC<CexDexTabProps> = ({
             <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-lg border border-white/10 shrink-0">
               <button
                 onClick={() => setViewMode('cards')}
-                className={`p-1.5 rounded transition-all ${
+                className={`p-2 min-h-[40px] min-w-[40px] flex items-center justify-center rounded transition-all ${
                   viewMode === 'cards'
                     ? 'bg-emerald-500/20 text-emerald-300'
                     : 'text-slate-400 hover:text-slate-200'
@@ -368,7 +370,7 @@ export const CexDexTab: React.FC<CexDexTabProps> = ({
               </button>
               <button
                 onClick={() => setViewMode('table')}
-                className={`p-1.5 rounded transition-all ${
+                className={`p-2 min-h-[40px] min-w-[40px] flex items-center justify-center rounded transition-all ${
                   viewMode === 'table'
                     ? 'bg-emerald-500/20 text-emerald-300'
                     : 'text-slate-400 hover:text-slate-200'
@@ -389,7 +391,7 @@ export const CexDexTab: React.FC<CexDexTabProps> = ({
             <select
               value={filter.chain}
               onChange={(e) => setFilter({ ...filter, chain: e.target.value })}
-              className="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-1.5 text-slate-200 text-xs focus:outline-none focus:border-emerald-500"
+              className="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-2.5 min-h-[40px] text-slate-200 text-xs focus:outline-none focus:border-emerald-500"
             >
               {CHAINS.map((c) => (
                 <option key={c} value={c}>{c === 'ALL' ? '🌐 All Chains' : c}</option>
@@ -403,7 +405,7 @@ export const CexDexTab: React.FC<CexDexTabProps> = ({
             <select
               value={filter.dex}
               onChange={(e) => setFilter({ ...filter, dex: e.target.value })}
-              className="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-1.5 text-slate-200 text-xs focus:outline-none focus:border-emerald-500"
+              className="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-2.5 min-h-[40px] text-slate-200 text-xs focus:outline-none focus:border-emerald-500"
             >
               {DEX_LIST.map((d) => (
                 <option key={d} value={d}>{d === 'ALL' ? '🦄 All DEXs' : d}</option>
@@ -417,7 +419,7 @@ export const CexDexTab: React.FC<CexDexTabProps> = ({
             <select
               value={filter.cex}
               onChange={(e) => setFilter({ ...filter, cex: e.target.value })}
-              className="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-1.5 text-slate-200 text-xs focus:outline-none focus:border-emerald-500"
+              className="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-2.5 min-h-[40px] text-slate-200 text-xs focus:outline-none focus:border-emerald-500"
             >
               {CEX_LIST.map((c) => (
                 <option key={c} value={c}>{c === 'ALL' ? '🏦 All CEXs' : c}</option>
@@ -433,7 +435,7 @@ export const CexDexTab: React.FC<CexDexTabProps> = ({
             <select
               value={filter.minSpread}
               onChange={(e) => setFilter({ ...filter, minSpread: parseFloat(e.target.value) })}
-              className="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-1.5 text-slate-200 text-xs focus:outline-none focus:border-emerald-500 font-mono"
+              className="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-2.5 min-h-[40px] text-slate-200 text-xs focus:outline-none focus:border-emerald-500 font-mono"
             >
               <option value="0.2">≥ 0.2% Spread</option>
               <option value="0.5">≥ 0.5% Spread</option>
@@ -451,7 +453,7 @@ export const CexDexTab: React.FC<CexDexTabProps> = ({
             <select
               value={filter.minDexLiquidity}
               onChange={(e) => setFilter({ ...filter, minDexLiquidity: parseFloat(e.target.value) })}
-              className="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-1.5 text-slate-200 text-xs focus:outline-none focus:border-emerald-500 font-mono"
+              className="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-2.5 min-h-[40px] text-slate-200 text-xs focus:outline-none focus:border-emerald-500 font-mono"
             >
               <option value="100">≥ $100 Liquidity (Micro)</option>
               <option value="500">≥ $500 Liquidity</option>
@@ -469,7 +471,7 @@ export const CexDexTab: React.FC<CexDexTabProps> = ({
             <select
               value={filter.sortBy}
               onChange={(e) => setFilter({ ...filter, sortBy: e.target.value as any })}
-              className="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-1.5 text-slate-200 text-xs focus:outline-none focus:border-emerald-500"
+              className="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-2.5 min-h-[40px] text-slate-200 text-xs focus:outline-none focus:border-emerald-500"
             >
               <option value="spread">⚡ Spread % (High to Low)</option>
               <option value="profit">💰 Net Profit ($1k)</option>
@@ -537,7 +539,7 @@ export const CexDexTab: React.FC<CexDexTabProps> = ({
             Reset All Filters
           </button>
         </div>
-      ) : viewMode === 'cards' ? (
+      ) : (viewMode === 'cards' || isMobile) ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {filteredOpps.map((opp) => (
             <CexDexCard

@@ -47,13 +47,13 @@ export const AlertsPanel: React.FC<AlertsPanelProps> = ({
         <div className="flex items-center gap-2">
           {settings.enabled ? <Bell className="w-4 h-4 text-emerald-400" /> : <BellOff className="w-4 h-4 text-slate-400" />}
           <h3 className="text-sm font-bold text-white">In-app alerts</h3>
-          <span className="text-[10px] font-mono text-slate-400">
+          <span className="text-xs font-mono text-slate-400">
             Works while this app tab stays open. No Telegram bot, no email service.
           </span>
         </div>
         <button
           onClick={() => onSettingsChange({ ...settings, enabled: !settings.enabled })}
-          className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer ${
+          className={`px-2.5 py-2.5 min-h-[40px] rounded-lg text-xs font-semibold border transition-all cursor-pointer ${
             settings.enabled
               ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
               : 'bg-slate-950/80 text-slate-400 border-white/10 hover:text-slate-200'
@@ -63,7 +63,7 @@ export const AlertsPanel: React.FC<AlertsPanelProps> = ({
         </button>
       </div>
 
-      <div className="flex flex-wrap items-end gap-2 text-xs">
+      <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-end gap-2 text-xs">
         <label className="flex flex-col gap-1 text-slate-400">
           Min net profit %
           <input
@@ -71,7 +71,7 @@ export const AlertsPanel: React.FC<AlertsPanelProps> = ({
             step="0.5"
             value={settings.minNetProfitPercent}
             onChange={(e) => onSettingsChange({ ...settings, minNetProfitPercent: Number(e.target.value) || 0 })}
-            className="w-24 bg-slate-950/80 border border-white/10 rounded-lg px-2 py-1.5 text-white outline-none focus:border-emerald-500/60"
+            className="w-full sm:w-24 bg-slate-950/80 border border-white/10 rounded-lg px-2 py-2.5 min-h-[40px] text-white outline-none focus:border-emerald-500/60"
           />
         </label>
         <label className="flex flex-col gap-1 text-slate-400">
@@ -81,7 +81,7 @@ export const AlertsPanel: React.FC<AlertsPanelProps> = ({
             value={settings.coinSearch}
             onChange={(e) => onSettingsChange({ ...settings, coinSearch: e.target.value })}
             placeholder="e.g. BTC"
-            className="w-28 bg-slate-950/80 border border-white/10 rounded-lg px-2 py-1.5 text-white outline-none focus:border-emerald-500/60"
+            className="w-full sm:w-28 bg-slate-950/80 border border-white/10 rounded-lg px-2 py-2.5 min-h-[40px] text-white outline-none focus:border-emerald-500/60"
           />
         </label>
         <label className="flex flex-col gap-1 text-slate-400">
@@ -91,7 +91,7 @@ export const AlertsPanel: React.FC<AlertsPanelProps> = ({
             value={settings.buyExchanges.join(', ')}
             onChange={(e) => onSettingsChange({ ...settings, buyExchanges: e.target.value.split(',').map((s) => s.trim().toLowerCase()).filter(Boolean) })}
             placeholder="mexc, bybit"
-            className="w-40 bg-slate-950/80 border border-white/10 rounded-lg px-2 py-1.5 text-white outline-none focus:border-emerald-500/60"
+            className="w-full sm:w-40 bg-slate-950/80 border border-white/10 rounded-lg px-2 py-2.5 min-h-[40px] text-white outline-none focus:border-emerald-500/60"
           />
         </label>
         <label className="flex flex-col gap-1 text-slate-400">
@@ -101,7 +101,7 @@ export const AlertsPanel: React.FC<AlertsPanelProps> = ({
             value={settings.sellExchanges.join(', ')}
             onChange={(e) => onSettingsChange({ ...settings, sellExchanges: e.target.value.split(',').map((s) => s.trim().toLowerCase()).filter(Boolean) })}
             placeholder="gateio, okx"
-            className="w-40 bg-slate-950/80 border border-white/10 rounded-lg px-2 py-1.5 text-white outline-none focus:border-emerald-500/60"
+            className="w-full sm:w-40 bg-slate-950/80 border border-white/10 rounded-lg px-2 py-2.5 min-h-[40px] text-white outline-none focus:border-emerald-500/60"
           />
         </label>
         {notificationPermission === 'unsupported' ? (
@@ -111,7 +111,7 @@ export const AlertsPanel: React.FC<AlertsPanelProps> = ({
         ) : (
           <button
             onClick={onEnableNotifications}
-            className="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-sky-500/15 hover:bg-sky-500/25 text-sky-300 border border-sky-500/30 cursor-pointer"
+            className="px-2.5 py-2.5 min-h-[40px] rounded-lg text-xs font-semibold bg-sky-500/15 hover:bg-sky-500/25 text-sky-300 border border-sky-500/30 cursor-pointer"
           >
             Enable notifications
           </button>
@@ -119,7 +119,7 @@ export const AlertsPanel: React.FC<AlertsPanelProps> = ({
         {alerts.length > 0 && (
           <button
             onClick={onClearAlerts}
-            className="ml-auto flex items-center gap-1 px-2 py-1.5 rounded-lg text-[11px] text-slate-400 hover:text-rose-300 border border-white/10 cursor-pointer"
+            className="ml-auto flex items-center gap-1 px-2 py-2.5 min-h-[40px] rounded-lg text-[11px] text-slate-400 hover:text-rose-300 border border-white/10 cursor-pointer"
           >
             <Trash2 className="w-3 h-3" /> Clear feed
           </button>
@@ -147,7 +147,7 @@ export const AlertsPanel: React.FC<AlertsPanelProps> = ({
               <button
                 onClick={() => copyAlert(item)}
                 title="Copy for Telegram (copies text only, does not send)"
-                className="shrink-0 flex items-center gap-1 px-2 py-1 rounded-lg text-[11px] font-semibold bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 cursor-pointer"
+                className="shrink-0 flex items-center gap-1 px-2 py-2.5 min-h-[40px] rounded-lg text-[11px] font-semibold bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 cursor-pointer"
               >
                 {copiedId === item.id ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
                 {copiedId === item.id ? 'Copied' : 'Copy for Telegram'}

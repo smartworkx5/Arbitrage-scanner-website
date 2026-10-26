@@ -180,11 +180,11 @@ export const TokenDetailModal: React.FC<TokenDetailModalProps> = ({ symbol, onCl
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-slate-950/85 backdrop-blur-xl animate-fade-in">
-      <div className="bg-slate-900/95 border border-slate-700/80 rounded-2xl sm:rounded-3xl max-w-5xl w-full p-3 sm:p-6 shadow-2xl backdrop-blur-2xl relative text-white max-h-[94vh] overflow-y-auto">
+      <div className="bg-slate-900/95 border border-slate-700/80 rounded-2xl sm:rounded-3xl max-w-5xl w-full p-3 sm:p-6 shadow-2xl backdrop-blur-2xl relative text-white max-h-[92dvh] overflow-y-auto">
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute right-3 top-3 sm:right-5 sm:top-5 text-slate-400 hover:text-white p-1.5 sm:p-2 rounded-xl bg-slate-950 border border-slate-800 transition-all cursor-pointer z-10"
+          className="absolute right-3 top-3 sm:right-5 sm:top-5 text-slate-400 hover:text-white p-2.5 min-h-[40px] min-w-[40px] flex items-center justify-center rounded-xl bg-slate-950 border border-slate-800 transition-all cursor-pointer z-10"
         >
           <X className="w-4 h-4" />
         </button>
@@ -562,7 +562,8 @@ export const TokenDetailModal: React.FC<TokenDetailModalProps> = ({ symbol, onCl
               </div>
 
               {/* Responsive Table for All Screens */}
-              <div className="overflow-x-auto">
+              <div className="mobile-scroll-x overflow-x-auto">
+                <p className="md:hidden px-3 pt-2 text-[11px] text-slate-500">Swipe sideways to see all columns →</p>
                 <table className="w-full text-left text-xs border-collapse min-w-[700px]">
                   <thead>
                     <tr className="bg-slate-900/60 text-slate-400 border-b border-slate-800 font-mono text-[10px] uppercase">

@@ -190,7 +190,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             value={filter.search}
             onChange={(e) => onFilterChange({ search: e.target.value })}
             placeholder="Search coin (e.g. BTC, PEPE, SOL)..."
-            className="w-full bg-slate-950/80 border border-white/10 focus:border-emerald-500/80 rounded-lg pl-8 pr-6 py-1.5 text-xs text-white placeholder-slate-400 outline-none transition-all focus:bg-slate-900"
+            className="w-full min-h-[40px] bg-slate-950/80 border border-white/10 focus:border-emerald-500/80 rounded-lg pl-8 pr-6 py-2.5 text-xs text-white placeholder-slate-400 outline-none transition-all focus:bg-slate-900"
           />
           {filter.search && (
             <button
@@ -208,7 +208,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setIsExchangeMenuOpen(!isExchangeMenuOpen)}
-              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium border transition-all cursor-pointer ${
+              className={`flex items-center gap-1.5 px-2.5 py-2.5 min-h-[40px] rounded-lg text-xs font-medium border transition-all cursor-pointer ${
                 isFiltered
                   ? 'bg-amber-500/20 text-amber-300 border-amber-500/50 shadow-sm'
                   : 'bg-slate-950/80 text-slate-200 border-white/10 hover:border-white/20 hover:bg-slate-900'
@@ -223,7 +223,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
 
             {/* Exchange Popover Dropdown Menu */}
             {isExchangeMenuOpen && (
-              <div className="absolute left-0 lg:left-auto lg:right-0 mt-1.5 w-80 sm:w-88 bg-slate-950 border border-slate-800 rounded-xl p-3 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+              <div className="absolute left-0 lg:left-auto lg:right-0 mt-1.5 w-[min(20rem,calc(100vw-2.5rem))] sm:w-88 bg-slate-950 border border-slate-800 rounded-xl p-3 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-150">
                 {/* Popover Header */}
                 <div className="flex items-center justify-between pb-2 border-b border-slate-800 mb-2">
                   <div className="flex items-center gap-1.5">
@@ -244,7 +244,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                 <div className="grid grid-cols-3 gap-1 bg-slate-900 p-1 rounded-lg mb-2 text-[10px] font-mono">
                   <button
                     onClick={() => setExchangeMode('both')}
-                    className={`py-1 rounded font-bold transition-all ${
+                    className={`py-2 min-h-[40px] rounded font-bold transition-all ${
                       exchangeMode === 'both' ? 'bg-emerald-500 text-slate-950 shadow-sm' : 'text-slate-400 hover:text-white'
                     }`}
                   >
@@ -252,7 +252,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                   </button>
                   <button
                     onClick={() => setExchangeMode('buy')}
-                    className={`py-1 rounded font-bold transition-all ${
+                    className={`py-2 min-h-[40px] rounded font-bold transition-all ${
                       exchangeMode === 'buy' ? 'bg-emerald-500 text-slate-950 shadow-sm' : 'text-slate-400 hover:text-white'
                     }`}
                   >
@@ -260,7 +260,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                   </button>
                   <button
                     onClick={() => setExchangeMode('sell')}
-                    className={`py-1 rounded font-bold transition-all ${
+                    className={`py-2 min-h-[40px] rounded font-bold transition-all ${
                       exchangeMode === 'sell' ? 'bg-emerald-500 text-slate-950 shadow-sm' : 'text-slate-400 hover:text-white'
                     }`}
                   >
@@ -273,13 +273,13 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                   <div className="flex items-center gap-1.5">
                     <button
                       onClick={handleSelectAllExchanges}
-                      className="px-2 py-0.5 bg-emerald-500/15 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/30 rounded text-[10px] font-semibold transition-all cursor-pointer"
+                      className="px-2 py-2 min-h-[40px] bg-emerald-500/15 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/30 rounded text-[10px] font-semibold transition-all cursor-pointer"
                     >
                       Select All
                     </button>
                     <button
                       onClick={handleDeselectAllExchanges}
-                      className="px-2 py-0.5 bg-rose-500/15 hover:bg-rose-500/30 text-rose-300 border border-rose-500/30 rounded text-[10px] font-semibold transition-all cursor-pointer"
+                      className="px-2 py-2 min-h-[40px] bg-rose-500/15 hover:bg-rose-500/30 text-rose-300 border border-rose-500/30 rounded text-[10px] font-semibold transition-all cursor-pointer"
                     >
                       Deselect All
                     </button>
@@ -303,7 +303,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                     value={exchangeSearch}
                     onChange={(e) => setExchangeSearch(e.target.value)}
                     placeholder="Search exchange name..."
-                    className="w-full bg-slate-900 border border-slate-800 rounded-lg pl-7 pr-2.5 py-1 text-[11px] text-white placeholder-slate-500 outline-none focus:border-emerald-500/60 font-sans"
+                    className="w-full bg-slate-900 border border-slate-800 rounded-lg pl-7 pr-2.5 py-2.5 min-h-[40px] text-[11px] text-white placeholder-slate-500 outline-none focus:border-emerald-500/60 font-sans"
                   />
                 </div>
 
@@ -315,7 +315,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                       <button
                         key={ex.id}
                         onClick={() => handleToggleExchange(ex.id)}
-                        className={`flex items-center justify-between p-1.5 rounded-lg text-[11px] font-medium border transition-all cursor-pointer ${
+                        className={`flex items-center justify-between p-2 min-h-[40px] rounded-lg text-[11px] font-medium border transition-all cursor-pointer ${
                           active
                             ? 'bg-emerald-950/40 border-emerald-500/40 text-emerald-200'
                             : 'bg-slate-900/40 border-slate-800 text-slate-500 hover:text-slate-300 hover:border-slate-700'
@@ -343,7 +343,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
           <div className="flex items-center bg-slate-950/80 border border-white/10 rounded-lg p-0.5 text-xs">
             <button
               onClick={() => onFilterChange({ tokenTier: 'ALL' })}
-              className={`px-2 py-1 rounded-md font-medium transition-all cursor-pointer ${
+              className={`px-2 py-2 min-h-[40px] rounded-md font-medium transition-all cursor-pointer ${
                 !filter.tokenTier || filter.tokenTier === 'ALL'
                   ? 'bg-emerald-500/20 text-emerald-300 shadow-sm font-semibold'
                   : 'text-slate-400 hover:text-slate-200'
@@ -353,7 +353,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             </button>
             <button
               onClick={() => onFilterChange({ tokenTier: 'SMALL_MICRO' })}
-              className={`flex items-center gap-1 px-2.5 py-1 rounded-md font-medium transition-all cursor-pointer ${
+              className={`flex items-center gap-1 px-2.5 py-2 min-h-[40px] rounded-md font-medium transition-all cursor-pointer ${
                 filter.tokenTier === 'SMALL_MICRO'
                   ? 'bg-amber-500/25 text-amber-300 font-semibold border border-amber-500/40 shadow-sm'
                   : 'text-slate-400 hover:text-amber-300'
@@ -365,7 +365,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             </button>
             <button
               onClick={() => onFilterChange({ tokenTier: 'MAJOR' })}
-              className={`px-2 py-1 rounded-md font-medium transition-all cursor-pointer ${
+              className={`px-2 py-2 min-h-[40px] rounded-md font-medium transition-all cursor-pointer ${
                 filter.tokenTier === 'MAJOR'
                   ? 'bg-sky-500/20 text-sky-300 shadow-sm font-semibold'
                   : 'text-slate-400 hover:text-slate-200'
@@ -379,7 +379,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
           {/* Open Deposit/Withdraw Only Toggle */}
           <button
             onClick={() => onFilterChange({ openStatusOnly: !filter.openStatusOnly })}
-            className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium border transition-all cursor-pointer ${
+            className={`flex items-center gap-1 px-2.5 py-2.5 min-h-[40px] rounded-lg text-xs font-medium border transition-all cursor-pointer ${
               filter.openStatusOnly
                 ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40 shadow-sm'
                 : 'bg-slate-950/80 text-slate-400 border-white/10 hover:text-slate-200 hover:border-white/20'
@@ -393,7 +393,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
           <button
             onClick={() => onFilterChange({ netOnly: !(filter.netOnly !== false) })}
             title="Hide opportunities whose $1000 net profit is zero or negative"
-            className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium border transition-all cursor-pointer ${
+            className={`flex items-center gap-1 px-2.5 py-2.5 min-h-[40px] rounded-lg text-xs font-medium border transition-all cursor-pointer ${
               filter.netOnly !== false
                 ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40 shadow-sm'
                 : 'bg-slate-950/80 text-slate-400 border-white/10 hover:text-slate-200 hover:border-white/20'
@@ -405,7 +405,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
           {/* Contract Match Only Toggle */}
           <button
             onClick={() => onFilterChange({ contractVerifiedOnly: !filter.contractVerifiedOnly })}
-            className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium border transition-all cursor-pointer ${
+            className={`flex items-center gap-1 px-2.5 py-2.5 min-h-[40px] rounded-lg text-xs font-medium border transition-all cursor-pointer ${
               filter.contractVerifiedOnly
                 ? 'bg-sky-500/20 text-sky-300 border-sky-500/40 shadow-sm'
                 : 'bg-slate-950/80 text-slate-400 border-white/10 hover:text-slate-200 hover:border-white/20'
@@ -416,7 +416,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
           </button>
 
           {/* Sort By Dropdown */}
-          <div className="flex items-center gap-1 bg-slate-950/80 border border-white/10 rounded-lg px-2 py-1 text-xs text-slate-300">
+          <div className="flex items-center gap-1 bg-slate-950/80 border border-white/10 rounded-lg px-2 py-2.5 min-h-[40px] text-xs text-slate-300">
             <ArrowUpDown className="w-3 h-3 text-slate-400" />
             <select
               value={filter.sortBy}
@@ -435,7 +435,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             <button
               onClick={onRefresh}
               disabled={isRefreshing}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/30 transition-all cursor-pointer shadow-sm disabled:opacity-50"
+              className="flex items-center gap-1.5 px-2.5 py-2.5 min-h-[40px] rounded-lg text-xs font-semibold bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/30 transition-all cursor-pointer shadow-sm disabled:opacity-50"
               title="Refresh Spot Matrix arbitrage opportunities"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${isRefreshing ? 'animate-spin text-emerald-400' : ''}`} />
@@ -448,7 +448,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             <button
               onClick={() => onViewModeChange('cards')}
               title="Card Grid View"
-              className={`p-1 rounded-md transition-all ${
+              className={`p-2 min-h-[40px] min-w-[40px] flex items-center justify-center rounded-md transition-all ${
                 viewMode === 'cards'
                   ? 'bg-white/15 text-emerald-400 shadow-sm'
                   : 'text-slate-400 hover:text-slate-200'
@@ -459,7 +459,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             <button
               onClick={() => onViewModeChange('table')}
               title="Compact Table View"
-              className={`p-1 rounded-md transition-all ${
+              className={`p-2 min-h-[40px] min-w-[40px] flex items-center justify-center rounded-md transition-all ${
                 viewMode === 'table'
                   ? 'bg-white/15 text-emerald-400 shadow-sm'
                   : 'text-slate-400 hover:text-slate-200'
@@ -485,7 +485,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                 <button
                   key={val}
                   onClick={() => handleMinSpreadChange(val)}
-                  className={`px-1.5 py-0.5 rounded text-[10px] font-mono font-medium transition-all cursor-pointer ${
+                  className={`px-2.5 py-2 min-h-[40px] rounded text-[10px] font-mono font-medium transition-all cursor-pointer ${
                     (filter.minSpread === val || (val === 0 && (!filter.minSpread || filter.minSpread === 0)))
                       ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm font-bold'
                       : 'bg-slate-950/80 text-slate-400 hover:text-slate-200 border border-white/10'
@@ -508,7 +508,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                 <button
                   key={val}
                   onClick={() => handleMaxSpreadChange(val)}
-                  className={`px-1.5 py-0.5 rounded text-[10px] font-mono font-medium transition-all cursor-pointer ${
+                  className={`px-2.5 py-2 min-h-[40px] rounded text-[10px] font-mono font-medium transition-all cursor-pointer ${
                     (filter.maxSpread === val || (val === 0 && (!filter.maxSpread || filter.maxSpread === 0)))
                       ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40 shadow-sm font-bold'
                       : 'bg-slate-950/80 text-slate-400 hover:text-slate-200 border border-white/10'

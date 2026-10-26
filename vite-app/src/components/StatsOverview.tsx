@@ -8,11 +8,11 @@ interface StatsOverviewProps {
 
 export const StatsOverview: React.FC<StatsOverviewProps> = ({ summary }) => {
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 mb-3 relative z-10">
+    <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-2 mb-3 relative z-10">
       {/* Opportunities Count */}
       <div className="bg-slate-900/60 backdrop-blur-md border border-white/10 rounded-xl px-3 py-2 flex items-center justify-between shadow-md hover:bg-slate-900/80 transition-all">
         <div className="flex flex-col">
-          <span className="text-[10px] text-slate-400 font-medium">Arbitrage Pairs</span>
+          <span className="text-xs text-slate-400 font-medium">Arbitrage Pairs</span>
           <div className="flex items-baseline gap-1.5 mt-0.5">
             <span className="text-base font-extrabold text-white font-mono leading-none">
               {summary?.opportunitiesCount ?? 0}
@@ -30,7 +30,7 @@ export const StatsOverview: React.FC<StatsOverviewProps> = ({ summary }) => {
       {/* Max Spread % */}
       <div className="bg-slate-900/60 backdrop-blur-md border border-white/10 rounded-xl px-3 py-2 flex items-center justify-between shadow-md hover:bg-slate-900/80 transition-all">
         <div className="flex flex-col">
-          <span className="text-[10px] text-slate-400 font-medium">Peak Spread</span>
+          <span className="text-xs text-slate-400 font-medium">Peak Spread</span>
           <div className="flex items-baseline gap-1.5 mt-0.5">
             <span className="text-base font-extrabold text-amber-400 font-mono leading-none">
               +{summary?.maxSpreadPercent ? summary.maxSpreadPercent.toFixed(2) : '0.00'}%
@@ -48,7 +48,7 @@ export const StatsOverview: React.FC<StatsOverviewProps> = ({ summary }) => {
       {/* Unique Coins */}
       <div className="bg-slate-900/60 backdrop-blur-md border border-white/10 rounded-xl px-3 py-2 flex items-center justify-between shadow-md hover:bg-slate-900/80 transition-all">
         <div className="flex flex-col">
-          <span className="text-[10px] text-slate-400 font-medium">Scanned Coins</span>
+          <span className="text-xs text-slate-400 font-medium">Scanned Coins</span>
           <div className="flex items-baseline gap-1.5 mt-0.5">
             <span className="text-base font-extrabold text-sky-400 font-mono leading-none">
               {summary?.uniqueCoinsScanned ?? 0}
@@ -72,7 +72,7 @@ export const StatsOverview: React.FC<StatsOverviewProps> = ({ summary }) => {
       {/* Total Scanned Pairs */}
       <div className="bg-slate-900/60 backdrop-blur-md border border-white/10 rounded-xl px-3 py-2 flex items-center justify-between shadow-md hover:bg-slate-900/80 transition-all">
         <div className="flex flex-col">
-          <span className="text-[10px] text-slate-400 font-medium">Total Markets</span>
+          <span className="text-xs text-slate-400 font-medium">Total Markets</span>
           <div className="flex items-baseline gap-1.5 mt-0.5">
             <span className="text-base font-extrabold text-purple-300 font-mono leading-none">
               {summary?.totalPairsScanned ? summary.totalPairsScanned.toLocaleString() : '0'}
@@ -90,7 +90,7 @@ export const StatsOverview: React.FC<StatsOverviewProps> = ({ summary }) => {
       {/* Active Exchanges & Latency */}
       <div className="col-span-2 sm:col-span-1 bg-slate-900/60 backdrop-blur-md border border-white/10 rounded-xl px-3 py-2 flex items-center justify-between shadow-md hover:bg-slate-900/80 transition-all">
         <div className="flex flex-col">
-          <span className="text-[10px] text-slate-400 font-medium">Exchanges & Latency</span>
+          <span className="text-xs text-slate-400 font-medium">Exchanges & Latency</span>
           <div className="flex items-baseline gap-2 mt-0.5">
             <span className="text-base font-extrabold text-white font-mono leading-none">
               {summary?.activeExchanges ?? 0}/{summary?.totalExchanges ?? 14}
