@@ -69,6 +69,7 @@ export const OpportunityTable: React.FC<OpportunityTableProps> = ({
               <th className="py-2 px-3 text-right">Net %</th>
               <th className="py-2 px-3 text-right">Profit / $1000</th>
               <th className="py-2 px-3 text-right">Executable</th>
+              <th className="py-2 px-3 text-right">Seen</th>
               <th className="py-2 px-3">Contract Comparison (Buy vs Sell)</th>
               <th className="py-2 px-3 text-center">Action</th>
             </tr>
@@ -257,6 +258,15 @@ export const OpportunityTable: React.FC<OpportunityTableProps> = ({
                     ) : (
                       'depth unknown'
                     )}
+                  </td>
+
+                  {/* Seen (spread age, matching the card) */}
+                  <td className="py-2 px-3 text-right text-xs text-slate-300">
+                    {opp.spreadAgeSeconds === undefined || opp.spreadAgeSeconds === null
+                      ? '—'
+                      : opp.spreadAgeSeconds === 0
+                        ? 'just now'
+                        : `${opp.spreadAgeSeconds}s ago`}
                   </td>
 
                   {/* Contract Match & Buy vs Sell Addresses */}

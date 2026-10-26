@@ -318,7 +318,7 @@ export const OpportunityCard: React.FC<OpportunityCardProps> = ({
           </div>
           <div className="text-slate-400">
             WD (buy): {openStatusLabel(opp.buyWithdrawOpen)} · DEP (sell): {openStatusLabel(opp.sellDepositOpen)}
-            {opp.spreadAgeSeconds !== undefined && opp.spreadAgeSeconds > 0 ? <> · seen {opp.spreadAgeSeconds}s ago</> : null}
+            {opp.spreadAgeSeconds !== undefined ? <> · Seen {opp.spreadAgeSeconds > 0 ? `${opp.spreadAgeSeconds}s ago` : 'just now'} — spreads can close during transfer, check before moving funds.</> : null}
             {opp.cheapestWithdrawalFeeUsdt === null || opp.cheapestWithdrawalFeeUsdt === undefined ? (
               <> · *net shown before withdrawal fee (fee unknown, not $0)</>
             ) : null}

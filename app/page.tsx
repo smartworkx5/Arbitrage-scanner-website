@@ -5,6 +5,7 @@ import { LaunchAppButton } from "./LaunchAppButton";
 import { MobileMenu } from "./MobileMenu";
 import { faqJsonLd } from "./components/Seo";
 import ScreenshotCarousel from "./components/ScreenshotCarousel";
+import LiveSpreads from "./live/LiveSpreads";
 
 export const revalidate = 300;
 
@@ -134,7 +135,7 @@ const steps = [
   {
     n: "3",
     title: "Upgrade to Pro",
-    text: "Love it? Unlock unlimited access for just $24.99/month via Binance — approved fast, manually reviewed.",
+    text: "Love it? Unlock unlimited access for just $24.99/month via Binance — pay with your payment note code, tap Check for auto-verification, with manual screenshot review as the fallback.",
   },
 ];
 
@@ -149,11 +150,11 @@ const faqs = [
   },
   {
     q: "How do I pay for Pro?",
-    a: "Pay via Binance in 3 steps: 1) On the payment page, send exactly 24.99 USDT to our Binance ID (346894283). 2) Upload a screenshot of the transfer with your transaction ID. 3) We review it and activate Pro — usually within a few hours. Sent the wrong amount or network? Contact us and we'll sort it out.",
+    a: "Pay via Binance in 3 steps: 1) On the payment page, send exactly 24.99 USDT to our Binance ID (346894283) and put your payment note code in the Binance Pay note. 2) Tap Check payment status for auto-verification — or upload a screenshot of the transfer with your transaction ID for manual review. 3) Pro activates when your payment is matched; manual screenshot review remains the fallback if the auto-check does not match yet. Sent the wrong amount or network? Contact us and we'll sort it out.",
   },
   {
     q: "How long does payment approval take?",
-    a: "Payments are reviewed manually. Most are approved within a few hours, and never longer than 24 hours. You'll see the 'Pro Active' status on your dashboard as soon as it's approved.",
+    a: "Auto-check runs when you tap Check payment status after paying — if your payment matches by note code or transaction ID, Pro activates then. If it does not match yet, manual screenshot review remains the fallback. You'll see the 'Pro Active' status on your dashboard as soon as it's approved.",
   },
   {
     q: "Do you offer refunds?",
@@ -291,6 +292,37 @@ export default async function LandingPage() {
           </div>
         </section>
 
+        {/* ---------- Live net spreads ---------- */}
+        <section className="mx-auto max-w-6xl px-4 py-16 md:py-20">
+          <div className="text-center">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-green-400">Live Proof</p>
+            <h2 className="text-3xl font-bold md:text-4xl">
+              Live net spreads, <span className="gradient-text">right now</span>
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-slate-400">
+              A no-signup preview of the highest-volume pairs across the exchanges we track,
+              refreshed every minute. This is the same kind of table the full scanner builds on —
+              with more pairs, more exchanges, and net after withdrawal fees and executable depth in the app.
+            </p>
+          </div>
+          <div className="mt-10">
+            <LiveSpreads />
+            <p className="mt-3 text-xs text-slate-500">
+              Est. net is after taker fees on both sides, before withdrawal/transfer fees. This is a
+              no-signup preview of the top pairs; the full scanner in the app shows net after the
+              cheapest open withdrawal fee and executable depth.
+            </p>
+            <p className="mt-3 text-sm text-slate-400">
+              See more on the{" "}
+              <Link href="/live" className="text-green-400 hover:text-green-300">live spreads page</Link>,{" "}
+              <Link href="/app" className="text-green-400 hover:text-green-300">open the full app</Link>, or{" "}
+              <Link href="/arbitrage-calculator" className="text-green-400 hover:text-green-300">try the no-signup arbitrage calculator</Link>.
+            </p>
+          </div>
+        </section>
+
+        <div className="section-divider" />
+
         {/* ---------- Features ---------- */}
         <section id="features" className="mx-auto max-w-6xl scroll-mt-20 px-4 py-16 md:py-20">
           <div className="text-center">
@@ -388,7 +420,7 @@ export default async function LandingPage() {
             <ol className="mt-3 grid gap-3 text-sm text-slate-300 sm:grid-cols-3">
               <li><span className="font-bold text-green-400">1.</span> Send exactly 24.99 USDT on Binance to our Binance ID</li>
               <li><span className="font-bold text-green-400">2.</span> Upload your transfer screenshot + transaction ID</li>
-              <li><span className="font-bold text-green-400">3.</span> Pro activates within a few hours (max 24h)</li>
+              <li><span className="font-bold text-green-400">3.</span> Tap Check for auto-verification — manual screenshot review is the fallback</li>
             </ol>
             <p className="mt-3 text-xs text-slate-500">Sent the wrong amount or network? Don't worry — contact us and we'll sort it out.</p>
           </div>
