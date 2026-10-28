@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
+import { cookies, headers } from "next/headers";
 import { authOptions } from "@/lib/auth";
-import { getUser, isDbConfigured } from "@/lib/db";
+import { DEVICE_COOKIE, resolveDeviceAccess } from "@/lib/device";
+import { createUser, getUser, isDbConfigured } from "@/lib/db";
 import { isLifetimeAdmin } from "@/lib/admin";
 import TrialCountdown from "./TrialCountdown";
 import ClientSignOut from "./SignOutButton";
@@ -33,13 +35,38 @@ export default async function DashboardPage() {
     redirect("/signin");
   }
 
+  // One device = one account: a second email on this device is blocked
+  // here, before any user row is created for it. The device id was set
+  // on /signin before Google sign-in, so a normal login carries it.
+  const deviceAccess = await resolveDeviceAccess(
+    (await cookies()).get(DEVICE_COOKIE)?.value ?? null,
+    session.user.email,
+    (await headers()).get("user-agent")
+  );
+  if (!deviceAccess.allowed) {
+    redirect(
+      `/device-blocked?registered=${encodeURIComponent(
+        deviceAccess.registeredEmailMasked
+      )}`
+    );
+  }
+
   let trialEndsAt: string | null = null;
   let plan = "trial";
   let dbOk = isDbConfigured();
 
   if (dbOk) {
     try {
-      const dbUser = await getUser(session.user.email);
+      // User rows are created here (after the device check passes),
+      // not in the NextAuth sign-in callback — see lib/auth.ts.
+      let dbUser = await getUser(session.user.email);
+      if (!dbUser) {
+        dbUser = await createUser(
+          session.user.email,
+          session.user.name ?? null,
+          session.user.image ?? null
+        );
+      }
       if (dbUser) {
         plan = dbUser.plan;
         trialEndsAt = dbUser.trial_ends_at;

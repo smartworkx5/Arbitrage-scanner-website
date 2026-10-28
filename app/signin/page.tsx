@@ -43,6 +43,11 @@ export default function SignInPage() {
         <p className="mt-6 text-xs text-slate-500">
           By signing in you agree to our terms. Your data is never sold.
         </p>
+        <p className="mt-2 text-xs text-slate-500">
+          One device can be registered to one account only. If this device
+          is already registered to another email, you will be asked to
+          sign in with that previous email.
+        </p>
         <Link href="/" className="mt-4 inline-block text-sm text-slate-400 hover:text-white">
           ← Back to home
         </Link>

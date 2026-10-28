@@ -280,6 +280,77 @@ export interface ReferralStats {
   estimatedMonthlyUsd: number;
 }
 
+export interface DeviceBinding {
+  device_id: string;
+  email: string;
+  created_at: string;
+  last_seen_at: string | null;
+  user_agent: string | null;
+}
+
+let deviceBindingsTableReady = false;
+
+export async function ensureDeviceBindingsTable(): Promise<void> {
+  if (deviceBindingsTableReady) return;
+  await rows(`CREATE TABLE IF NOT EXISTS device_bindings (
+    device_id TEXT PRIMARY KEY,
+    email TEXT NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    last_seen_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    user_agent TEXT
+  )`);
+  await rows(
+    `CREATE INDEX IF NOT EXISTS idx_device_bindings_email ON device_bindings(email)`
+  );
+  deviceBindingsTableReady = true;
+}
+
+export async function getDeviceBinding(
+  deviceId: string
+): Promise<DeviceBinding | null> {
+  await ensureDeviceBindingsTable();
+  const result = await rows<DeviceBinding>(
+    "SELECT * FROM device_bindings WHERE device_id = $1 LIMIT 1",
+    [deviceId]
+  );
+  return result[0] ?? null;
+}
+
+export async function bindDevice(
+  deviceId: string,
+  email: string,
+  userAgent: string | null
+): Promise<DeviceBinding | null> {
+  await ensureDeviceBindingsTable();
+  // Never overwrite an existing binding: first registration wins.
+  await rows(
+    `INSERT INTO device_bindings (device_id, email, user_agent)
+     VALUES ($1, $2, $3) ON CONFLICT (device_id) DO NOTHING`,
+    [deviceId, email, userAgent]
+  );
+  return getDeviceBinding(deviceId);
+}
+
+export async function touchDeviceBinding(deviceId: string): Promise<void> {
+  await ensureDeviceBindingsTable();
+  await rows(
+    "UPDATE device_bindings SET last_seen_at = NOW() WHERE device_id = $1",
+    [deviceId]
+  );
+}
+
+export async function listDeviceBindings(): Promise<DeviceBinding[]> {
+  await ensureDeviceBindingsTable();
+  return rows<DeviceBinding>(
+    "SELECT * FROM device_bindings ORDER BY last_seen_at DESC NULLS LAST, created_at DESC"
+  );
+}
+
+export async function deleteDeviceBinding(deviceId: string): Promise<void> {
+  await ensureDeviceBindingsTable();
+  await rows("DELETE FROM device_bindings WHERE device_id = $1", [deviceId]);
+}
+
 export async function getReferralStats(email: string): Promise<ReferralStats> {
   const code = await getOrCreateReferralCode(email);
   const counts = await rows<{ signups: string; active_pro: string }>(

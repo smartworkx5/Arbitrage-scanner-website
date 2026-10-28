@@ -1,6 +1,6 @@
 import type { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import { createUser, getUser } from "@/lib/db";
+import { getUser } from "@/lib/db";
 
 export const googleConfigured = Boolean(
   process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET
@@ -20,19 +20,13 @@ export const authOptions: NextAuthOptions = {
     signIn: "/signin",
   },
   callbacks: {
-    // On first sign-in, create the user row (3-day trial). All DB work is
-    // wrapped so auth still works in demo mode without a database.
-    async signIn({ user }) {
-      if (user?.email) {
-        try {
-          const existing = await getUser(user.email);
-          if (!existing) {
-            await createUser(user.email, user.name ?? null, user.image ?? null);
-          }
-        } catch (err) {
-          console.error("[auth] sign-in user upsert failed (demo mode?):", err);
-        }
-      }
+    // Do NOT create the user row here. One device = one account is
+    // enforced by the gated pages (/dashboard, /api/app-session): they
+    // check the device binding FIRST and only then create the user row
+    // (those gates call createUser in lib/db). Creating the
+    // row here would mint a second account for a blocked second email
+    // before the device check ever ran.
+    async signIn() {
       return true;
     },
     async session({ session }) {

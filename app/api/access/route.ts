@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getUser, isDbConfigured } from "@/lib/db";
+import { resolveDeviceAccess } from "@/lib/device";
 import { isLifetimeAdmin } from "@/lib/admin";
 
 export const dynamic = "force-dynamic";
@@ -31,6 +32,30 @@ export async function GET(req: NextRequest) {
   const email = req.nextUrl.searchParams.get("email")?.trim().toLowerCase();
   if (!email || !email.includes("@")) {
     return NextResponse.json({ error: "Missing or invalid ?email= parameter." }, { status: 400 });
+  }
+
+  // One device = one account, when the caller sends a device id
+  // (?device_id= or header x-device-id). Callers that send none cannot
+  // be checked — that is the old native-app path, which must be updated
+  // to send its device id before this gate can block it.
+  const deviceId =
+    req.nextUrl.searchParams.get("device_id") ??
+    req.headers.get("x-device-id");
+  if (deviceId) {
+    const deviceAccess = await resolveDeviceAccess(
+      deviceId,
+      email,
+      req.headers.get("user-agent")
+    );
+    if (!deviceAccess.allowed) {
+      return NextResponse.json({
+        email,
+        hasAccess: false,
+        plan: null,
+        reason: "device_already_registered",
+        registeredEmailMasked: deviceAccess.registeredEmailMasked,
+      });
+    }
   }
 
   // Lifetime admin: full access regardless of trial/payment state.

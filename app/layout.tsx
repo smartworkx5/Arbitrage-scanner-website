@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Providers } from "./providers";
+import DeviceId from "./components/DeviceId";
 import { Analytics } from "./components/Analytics";
 import RefCapture from "./components/RefCapture";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/site";
@@ -73,6 +74,7 @@ export default function RootLayout({
           }}
         />
         <Providers>{children}</Providers>
+        <DeviceId />
         <RefCapture />
         <Analytics />
       </body>

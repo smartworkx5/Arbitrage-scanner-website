@@ -253,6 +253,25 @@ export default function App() {
   // even when the shell came from the service-worker cache).
   const verifyAccess = useCallback(async (): Promise<boolean> => {
     try {
+      // One device = one account: the scanner shell is not served by
+      // Next.js, so it must set the same cs_device_id cookie itself
+      // before calling /api/app-session (same restore logic as the
+      // website's DeviceId component: cookie wins, else localStorage).
+      const cookieMatch = document.cookie
+        .split('; ')
+        .find((part) => part.startsWith('cs_device_id='));
+      const cookieId = cookieMatch
+        ? decodeURIComponent(cookieMatch.slice('cs_device_id='.length))
+        : null;
+      const storedId = window.localStorage.getItem('cs_device_id');
+      const deviceId =
+        cookieId || storedId || crypto.randomUUID().replace(/-/g, '');
+      try {
+        window.localStorage.setItem('cs_device_id', deviceId);
+      } catch {
+        // Private mode — the cookie alone still works.
+      }
+      document.cookie = `cs_device_id=${encodeURIComponent(deviceId)}; path=/; max-age=31536000; SameSite=Lax`;
       const res = await fetch('/api/app-session', { cache: 'no-store' });
       if (res.status === 404) {
         // Standalone deployment without the gate endpoint — nothing to verify against.
@@ -271,7 +290,11 @@ export default function App() {
       const dest =
         data?.reason === 'expired'
           ? '/payment?expired=1'
-          : '/signin?callbackUrl=%2Fapp%2F';
+          : data?.reason === 'device_already_registered'
+            ? `/device-blocked?registered=${encodeURIComponent(
+                data?.registeredEmailMasked ?? ''
+              )}`
+            : '/signin?callbackUrl=%2Fapp%2F';
       window.location.replace(dest);
       return false;
     } catch {

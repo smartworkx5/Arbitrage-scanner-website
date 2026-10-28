@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
+import { cookies, headers } from "next/headers";
 import { authOptions } from "@/lib/auth";
+import { DEVICE_COOKIE, resolveDeviceAccess } from "@/lib/device";
 import { createPaymentIntent, isDbConfigured } from "@/lib/db";
 import PaymentForm from "./PaymentForm";
 import AutoVerify from "./AutoVerify";
@@ -21,6 +23,21 @@ export default async function PaymentPage() {
   const session = await getServerSession(authOptions);
   if (!session?.user?.email) {
     redirect("/signin");
+  }
+
+  // One device = one account: do not let a blocked second email buy Pro
+  // (or mint a payment intent) on a device registered to another email.
+  const deviceAccess = await resolveDeviceAccess(
+    (await cookies()).get(DEVICE_COOKIE)?.value ?? null,
+    session.user.email,
+    (await headers()).get("user-agent")
+  );
+  if (!deviceAccess.allowed) {
+    redirect(
+      `/device-blocked?registered=${encodeURIComponent(
+        deviceAccess.registeredEmailMasked
+      )}`
+    );
   }
 
   const binanceId = process.env.NEXT_PUBLIC_BINANCE_ID || "346894283";

@@ -4,9 +4,15 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "@/lib/auth";
 import { isAdminEmail } from "@/lib/admin";
-import { isDbConfigured, listAllUsers, listPendingPayments } from "@/lib/db";
+import {
+  isDbConfigured,
+  listAllUsers,
+  listDeviceBindings,
+  listPendingPayments,
+} from "@/lib/db";
 import AdminPayments from "./AdminPayments";
 import AdminUsers from "./AdminUsers";
+import AdminDevices from "./AdminDevices";
 
 export const dynamic = "force-dynamic";
 
@@ -42,10 +48,15 @@ export default async function AdminPage() {
 
   let payments: Awaited<ReturnType<typeof listPendingPayments>> = [];
   let users: Awaited<ReturnType<typeof listAllUsers>> = [];
+  let devices: Awaited<ReturnType<typeof listDeviceBindings>> = [];
   let dbError = "";
   if (isDbConfigured()) {
     try {
-      [payments, users] = await Promise.all([listPendingPayments(), listAllUsers()]);
+      [payments, users, devices] = await Promise.all([
+        listPendingPayments(),
+        listAllUsers(),
+        listDeviceBindings(),
+      ]);
     } catch (err) {
       dbError = "Could not load data from the database.";
       console.error("[admin] load failed:", err);
@@ -72,6 +83,7 @@ export default async function AdminPage() {
         </p>
       ) : (
         <div className="space-y-8">
+          <AdminDevices initial={devices} />
           <AdminUsers initial={users} />
           <div>
             <h2 className="mb-4 text-xl font-bold">Pending payments</h2>

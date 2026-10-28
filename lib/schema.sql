@@ -34,6 +34,19 @@ ALTER TABLE payments ADD COLUMN IF NOT EXISTS verified_at TIMESTAMPTZ;
 CREATE UNIQUE INDEX IF NOT EXISTS idx_payments_verification_code ON payments(verification_code) WHERE verification_code IS NOT NULL;
 CREATE UNIQUE INDEX IF NOT EXISTS idx_payments_binance_txn_id ON payments(binance_txn_id) WHERE binance_txn_id IS NOT NULL;
 
+-- One device = one account (also auto-applied at runtime by
+-- ensureDeviceBindingsTable in lib/db.ts): the first email ever seen on
+-- a device wins; a second email on the same device is blocked.
+CREATE TABLE IF NOT EXISTS device_bindings (
+  device_id   TEXT PRIMARY KEY,
+  email       TEXT NOT NULL,
+  created_at  TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  last_seen_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  user_agent  TEXT
+);
+
+CREATE INDEX IF NOT EXISTS idx_device_bindings_email ON device_bindings(email);
+
 -- Referrals (also auto-applied by the app via ensureReferralColumns)
 ALTER TABLE users ADD COLUMN IF NOT EXISTS referral_code TEXT;
 ALTER TABLE users ADD COLUMN IF NOT EXISTS referred_by TEXT;
