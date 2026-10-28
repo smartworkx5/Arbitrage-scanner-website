@@ -35,14 +35,17 @@ const nextConfig = {
       },
     ];
   },
-  // /app WIRING — DRAFT ONLY, staged 2026-10-28, NOT deployed.
+  // /app WIRING — LIVE since 2026-10-28 (deployment dpl_HeimZaCw).
   // Serves the CryptoScanner app (cryptoscanner-tan.vercel.app) from
   // cryptoscopia.com/app while keeping the Next site's own API routes
   // (/api/app-session, /api/access, /api/admin/*) untouched: only the
   // scanner's own API paths are proxied. beforeFiles so it wins over
-  // the old /app shell route. Deploy ONLY after the scanner API fix
-  // is live (its /api/* currently 500) and the project framework is
-  // switched back from vite to Next.js.
+  // the old /app shell route.
+  // The app's HTML references its files with ROOT-absolute paths
+  // (/assets/*, /manifest.webmanifest, icons), so those must be proxied
+  // too — without them the bundle 404s and /app shows a black screen
+  // (found 2026-10-28 22:33 PKT). /sw.js is deliberately NOT proxied:
+  // apex /sw.js is the kill-switch (see public/sw.js).
   async rewrites() {
     return {
       beforeFiles: [
@@ -50,6 +53,35 @@ const nextConfig = {
         {
           source: "/app/:path*",
           destination: "https://cryptoscanner-tan.vercel.app/:path*",
+        },
+        {
+          source: "/assets/:path*",
+          destination: "https://cryptoscanner-tan.vercel.app/assets/:path*",
+        },
+        {
+          source: "/manifest.webmanifest",
+          destination: "https://cryptoscanner-tan.vercel.app/manifest.webmanifest",
+        },
+        {
+          source: "/apple-touch-icon.png",
+          destination: "https://cryptoscanner-tan.vercel.app/apple-touch-icon.png",
+        },
+        {
+          source: "/icon.svg",
+          destination: "https://cryptoscanner-tan.vercel.app/icon.svg",
+        },
+        {
+          source: "/pwa-192x192.png",
+          destination: "https://cryptoscanner-tan.vercel.app/pwa-192x192.png",
+        },
+        {
+          source: "/pwa-512x512.png",
+          destination: "https://cryptoscanner-tan.vercel.app/pwa-512x512.png",
+        },
+        {
+          source: "/pwa-maskable-512x512.png",
+          destination:
+            "https://cryptoscanner-tan.vercel.app/pwa-maskable-512x512.png",
         },
         {
           source: "/api/exchanges",

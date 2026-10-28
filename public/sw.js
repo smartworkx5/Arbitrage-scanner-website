@@ -21,7 +21,22 @@ self.addEventListener('activate', (event) => {
         includeUncontrolled: true,
       });
       for (const client of clients) {
-        if ('navigate' in client) {
+        // Do NOT reload /app pages: the scanner app registers /sw.js on
+        // every load, so reloading an /app page would reinstall this
+        // kill-switch and reload again in a loop. Website pages never
+        // register a worker, so reloading them is safe and clears the
+        // trapped cached app shell.
+        let path = '';
+        try {
+          path = new URL(client.url).pathname;
+        } catch (_) {
+          path = '';
+        }
+        if (
+          'navigate' in client &&
+          path !== '/app' &&
+          !path.startsWith('/app/')
+        ) {
           client.navigate(client.url);
         }
       }
