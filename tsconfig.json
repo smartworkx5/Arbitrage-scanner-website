@@ -29,7 +29,11 @@
   },
   "exclude": [
     "node_modules",
-    "vite-app"
+    "vite-app",
+    "api",
+    "src",
+    "server.ts",
+    "vite.config.ts"
   ],
   "include": [
     "next-env.d.ts",
