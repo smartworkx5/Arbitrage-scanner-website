@@ -1,5 +1,7 @@
 // Kill switch for the CryptoScanner app service worker that was registered on
 // this origin while cryptoscopia.com briefly served the scanner app.
+// (Deploy note: project output directory reset to the Next.js default;
+// the previous "dist" setting was a leftover from the Vite episode.)
 // Any browser still running that old worker will fetch this file as an
 // update, install it, and then this worker unregisters itself, deletes all
 // caches, and reloads open pages so they load the real website from the
