@@ -35,6 +35,58 @@ const nextConfig = {
       },
     ];
   },
+  // /app WIRING — DRAFT ONLY, staged 2026-10-28, NOT deployed.
+  // Serves the CryptoScanner app (cryptoscanner-tan.vercel.app) from
+  // cryptoscopia.com/app while keeping the Next site's own API routes
+  // (/api/app-session, /api/access, /api/admin/*) untouched: only the
+  // scanner's own API paths are proxied. beforeFiles so it wins over
+  // the old /app shell route. Deploy ONLY after the scanner API fix
+  // is live (its /api/* currently 500) and the project framework is
+  // switched back from vite to Next.js.
+  async rewrites() {
+    return {
+      beforeFiles: [
+        { source: "/app", destination: "https://cryptoscanner-tan.vercel.app/" },
+        {
+          source: "/app/:path*",
+          destination: "https://cryptoscanner-tan.vercel.app/:path*",
+        },
+        {
+          source: "/api/exchanges",
+          destination: "https://cryptoscanner-tan.vercel.app/api/exchanges",
+        },
+        {
+          source: "/api/batch",
+          destination: "https://cryptoscanner-tan.vercel.app/api/batch",
+        },
+        {
+          source: "/api/arbitrage",
+          destination: "https://cryptoscanner-tan.vercel.app/api/arbitrage",
+        },
+        {
+          source: "/api/cex-dex-arbitrage",
+          destination:
+            "https://cryptoscanner-tan.vercel.app/api/cex-dex-arbitrage",
+        },
+        {
+          source: "/api/scan",
+          destination: "https://cryptoscanner-tan.vercel.app/api/scan",
+        },
+        {
+          source: "/api/exchange-spreads",
+          destination: "https://cryptoscanner-tan.vercel.app/api/exchange-spreads",
+        },
+        {
+          source: "/api/movers",
+          destination: "https://cryptoscanner-tan.vercel.app/api/movers",
+        },
+        {
+          source: "/api/symbol/:path*",
+          destination: "https://cryptoscanner-tan.vercel.app/api/symbol/:path*",
+        },
+      ],
+    };
+  },
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "**.public.blob.vercel-storage.com" },

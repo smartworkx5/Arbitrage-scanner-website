@@ -1,8 +1,12 @@
 node_modules/
-build/
-dist/
-coverage/
+.next/
+out/
+.env
+.env.local
+.env*.local
+*.pem
 .DS_Store
-*.log
+.vercel
 .env*
-!.env.example
+vite-app/node_modules/
+vite-app/dist/
