@@ -1,0 +1,8 @@
+{
+  "name": "Crypto Arbitrage Matrix",
+  "description": "Real-time cryptocurrency arbitrage terminal with cross-exchange spot scanning across 16 exchanges, CEX vs DEX pools, 0-transfer triangular arbitrage loops, delta-neutral cash-and-carry funding rate yield scanner, and an automated paper trading bot.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

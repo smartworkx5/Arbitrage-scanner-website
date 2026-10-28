@@ -1,1 +1,13 @@
-{"$schema":"https://openapi.vercel.sh/vercel.json","redirects":[{"destination":"https://cryptoscopia.com/:path*","has":[{"type":"host","value":"crypto-rb-scanner\\.vercel\\.app"}],"permanent":true,"source":"/:path*"}]}
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
