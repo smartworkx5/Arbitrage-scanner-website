@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { DEVICE_COOKIE, resolveDeviceAccess } from "@/lib/device";
-import { createUser, getUser, isDbConfigured } from "@/lib/db";
+import { createUser, getUser, isDbConfigured, isProActive, proExpiresAt } from "@/lib/db";
 import { isLifetimeAdmin } from "@/lib/admin";
 
 export const dynamic = "force-dynamic";
@@ -91,7 +91,9 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    const isPaid = user.plan === "paid";
+    // Pro is a 30-day purchase: an expired Pro no longer grants access
+    // until renewed (the dashboard shows the expiry + renew button).
+    const isPaid = isProActive(user);
     const trialActive = user.trial_ends_at
       ? new Date(user.trial_ends_at).getTime() > Date.now()
       : false;
@@ -104,6 +106,7 @@ export async function GET(req: NextRequest) {
         email,
         plan: user.plan,
         trialEndsAt: user.trial_ends_at,
+        proExpiresAt: proExpiresAt(user),
       },
       { headers }
     );

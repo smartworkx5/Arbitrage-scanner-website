@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { cookies, headers } from "next/headers";
 import { authOptions } from "@/lib/auth";
 import { DEVICE_COOKIE, resolveDeviceAccess } from "@/lib/device";
-import { createUser, getUser, isDbConfigured } from "@/lib/db";
+import { createUser, getUser, isDbConfigured, isProActive, proExpiresAt } from "@/lib/db";
 import { isLifetimeAdmin } from "@/lib/admin";
 import TrialCountdown from "./TrialCountdown";
 import ClientSignOut from "./SignOutButton";
@@ -53,6 +53,7 @@ export default async function DashboardPage() {
 
   let trialEndsAt: string | null = null;
   let plan = "trial";
+  let proUntil: string | null = null;
   let dbOk = isDbConfigured();
 
   if (dbOk) {
@@ -70,6 +71,7 @@ export default async function DashboardPage() {
       if (dbUser) {
         plan = dbUser.plan;
         trialEndsAt = dbUser.trial_ends_at;
+        proUntil = proExpiresAt(dbUser);
       } else {
         dbOk = true; // DB reachable, user row missing — keep trial fallback
       }
@@ -84,9 +86,23 @@ export default async function DashboardPage() {
   if (isLifetime) {
     plan = "lifetime";
     trialEndsAt = null;
+    proUntil = null;
   }
-  const isPaid = plan === "paid" || plan === "lifetime";
+  // Pro is a 30-day purchase: "paid" alone no longer means forever.
+  const proActive = plan === "paid" && (proUntil ? new Date(proUntil).getTime() > Date.now() : true);
+  const proExpired = plan === "paid" && !proActive;
+  const isPaid = proActive || plan === "lifetime";
   const hasAccess = isPaid || trialActive;
+
+  const fmtDate = (iso: string) =>
+    new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  const packageLabel = isLifetime
+    ? "Lifetime Pro"
+    : proActive
+      ? "Pro"
+      : proExpired
+        ? "Pro (expired)"
+        : "Free Trial";
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-10">
@@ -100,8 +116,67 @@ export default async function DashboardPage() {
 
       <h1 className="text-3xl font-bold">Dashboard</h1>
       <p className="mt-2 text-slate-400">
-        Signed in as <span className="font-medium text-slate-200">{session.user.email}</span>
+        You stay signed in until you sign out manually.
       </p>
+
+      {/* ---------- Package details ---------- */}
+      <div className="card mt-6">
+        <h2 className="text-lg font-bold">Package details</h2>
+        <dl className="mt-4 space-y-3 text-sm">
+          <div className="flex flex-wrap justify-between gap-2">
+            <dt className="text-slate-400">Signed in as</dt>
+            <dd className="font-medium text-slate-100">{session.user.email}</dd>
+          </div>
+          <div className="flex flex-wrap justify-between gap-2">
+            <dt className="text-slate-400">Package</dt>
+            <dd className="font-medium text-slate-100">{packageLabel}</dd>
+          </div>
+          {isLifetime && (
+            <div className="flex flex-wrap justify-between gap-2">
+              <dt className="text-slate-400">Pro valid until</dt>
+              <dd className="font-medium text-slate-100">Never expires</dd>
+            </div>
+          )}
+          {proActive && proUntil && (
+            <div className="flex flex-wrap justify-between gap-2">
+              <dt className="text-slate-400">Pro valid until</dt>
+              <dd className="font-medium text-green-300">{fmtDate(proUntil)}</dd>
+            </div>
+          )}
+          {proExpired && proUntil && (
+            <div className="flex flex-wrap justify-between gap-2">
+              <dt className="text-slate-400">Pro expired on</dt>
+              <dd className="font-medium text-red-300">{fmtDate(proUntil)}</dd>
+            </div>
+          )}
+          {!isPaid && !proExpired && trialEndsAt && (
+            <div className="flex flex-wrap justify-between gap-2">
+              <dt className="text-slate-400">Trial ends on</dt>
+              <dd className="font-medium text-slate-100">{fmtDate(trialEndsAt)}</dd>
+            </div>
+          )}
+        </dl>
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          {(hasAccess || proExpired) && (
+            <a href={APP_URL} className="btn-primary flex-1">
+              Start App ↗
+            </a>
+          )}
+          {proExpired && (
+            <Link href="/payment" className="btn-secondary flex-1">
+              Upgrade to Pro again — $24.99
+            </Link>
+          )}
+          {!isPaid && !proExpired && (
+            <Link href="/payment" className="btn-secondary flex-1">
+              Upgrade to Pro — $24.99
+            </Link>
+          )}
+          <div className="flex flex-1 items-center justify-center sm:justify-end">
+            <ClientSignOut />
+          </div>
+        </div>
+      </div>
 
       {!dbOk && (
         <div className="card mt-6 !border-amber-500/40">
@@ -152,6 +227,15 @@ export default async function DashboardPage() {
           <p className="mt-2 text-sm text-slate-400">
             Your Pro access is active. Enjoy unlimited scanning.
           </p>
+          {proUntil && (
+            <p className="mt-2 text-sm text-slate-300">
+              Pro valid until <span className="font-medium text-green-300">{fmtDate(proUntil)}</span>
+              {plan === "paid" && " — after that, renew from this dashboard to keep access."}
+            </p>
+          )}
+          {plan === "lifetime" && (
+            <p className="mt-2 text-sm text-slate-300">Pro valid until <span className="font-medium text-green-300">never — lifetime access</span>.</p>
+          )}
           <ul className="mt-6 grid gap-2 text-sm text-slate-300 sm:grid-cols-2">
             {unlockedFeatures.map((f) => (
               <li key={f} className="flex gap-2">
@@ -172,14 +256,29 @@ export default async function DashboardPage() {
       {!hasAccess && (
         <div className="card mt-6 text-center !border-red-500/30">
           <p className="text-4xl" aria-hidden>🔒</p>
-          <h2 className="mt-4 text-2xl font-bold">Your free trial has ended</h2>
-          <p className="mx-auto mt-2 max-w-md text-sm text-slate-400">
-            You&apos;ve used your 3 free days. Upgrade to Pro for $24.99/month to keep
-            unlimited access.
-          </p>
-          <Link href="/payment" className="btn-primary mx-auto mt-8 w-full sm:w-auto">
-            Upgrade to Pro — $24.99
-          </Link>
+          {proExpired ? (
+            <>
+              <h2 className="mt-4 text-2xl font-bold">Your Pro has expired</h2>
+              <p className="mx-auto mt-2 max-w-md text-sm text-slate-400">
+                {proUntil && <>Pro ended on {fmtDate(proUntil)}. </>}
+                Renew Pro for $24.99 for another 30 days to start the app again.
+              </p>
+              <Link href="/payment" className="btn-primary mx-auto mt-8 w-full sm:w-auto">
+                Upgrade to Pro again — $24.99
+              </Link>
+            </>
+          ) : (
+            <>
+              <h2 className="mt-4 text-2xl font-bold">Your free trial has ended</h2>
+              <p className="mx-auto mt-2 max-w-md text-sm text-slate-400">
+                You&apos;ve used your 3 free days. Upgrade to Pro for $24.99/month to keep
+                unlimited access.
+              </p>
+              <Link href="/payment" className="btn-primary mx-auto mt-8 w-full sm:w-auto">
+                Upgrade to Pro — $24.99
+              </Link>
+            </>
+          )}
         </div>
       )}
     </main>

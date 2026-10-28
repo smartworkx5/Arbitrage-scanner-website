@@ -19,6 +19,17 @@ export const authOptions: NextAuthOptions = {
   pages: {
     signIn: "/signin",
   },
+  // Stay signed in until the user signs out manually. The session token
+  // lives 10 years and is refreshed on active use (updateAge 1 day), so
+  // in practice it only ends on manual sign-out (or clearing cookies /
+  // site data). This is deliberate: the user asked for no automatic
+  // logouts. The PACKAGE (trial / Pro) still expires on its own dates —
+  // only the sign-in itself is persistent.
+  session: {
+    strategy: "jwt",
+    maxAge: 60 * 60 * 24 * 365 * 10,
+    updateAge: 60 * 60 * 24,
+  },
   callbacks: {
     // Do NOT create the user row here. One device = one account is
     // enforced by the gated pages (/dashboard, /api/app-session): they

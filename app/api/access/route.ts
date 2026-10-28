@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getUser, isDbConfigured } from "@/lib/db";
+import { getUser, isDbConfigured, isProActive, proExpiresAt } from "@/lib/db";
 import { resolveDeviceAccess } from "@/lib/device";
 import { isLifetimeAdmin } from "@/lib/admin";
 
@@ -18,7 +18,8 @@ export const dynamic = "force-dynamic";
  * - No Google sign-in (no user row)  -> hasAccess: false
  * - Signed in, trial within 3 days   -> hasAccess: true
  * - Trial expired and not paid       -> hasAccess: false (must buy Pro)
- * - Paid                             -> hasAccess: true (forever)
+ * - Paid and within 30 days of payment -> hasAccess: true
+ * - Paid but past its 30-day expiry  -> hasAccess: false (renew Pro)
  */
 export async function GET(req: NextRequest) {
   const apiKey = process.env.APP_API_KEY;
@@ -87,7 +88,7 @@ export async function GET(req: NextRequest) {
   const trialActive = user.trial_ends_at
     ? new Date(user.trial_ends_at).getTime() > Date.now()
     : false;
-  const isPaid = user.plan === "paid";
+  const isPaid = isProActive(user);
 
   return NextResponse.json({
     email,
@@ -95,5 +96,6 @@ export async function GET(req: NextRequest) {
     plan: user.plan,
     trialActive,
     trialEndsAt: user.trial_ends_at,
+    proExpiresAt: proExpiresAt(user),
   });
 }

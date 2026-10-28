@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { sql } from "@vercel/postgres";
 import { LaunchAppButton } from "./LaunchAppButton";
+import HeaderAuth from "./components/HeaderAuth";
 import { MobileMenu } from "./MobileMenu";
 import { faqJsonLd } from "./components/Seo";
 import ScreenshotCarousel from "./components/ScreenshotCarousel";
@@ -215,12 +216,7 @@ export default async function LandingPage() {
             <a href="#faq" className="hover:text-white">FAQ</a>
           </div>
           <div className="flex items-center gap-3">
-            <Link href="/signin" className="hidden text-sm font-medium text-slate-300 hover:text-white sm:block">
-              Sign in
-            </Link>
-            <Link href="/signin" className="btn-primary hidden !px-4 !py-2 text-sm sm:inline-flex">
-              Free Trial
-            </Link>
+            <HeaderAuth />
             <MobileMenu />
           </div>
         </nav>

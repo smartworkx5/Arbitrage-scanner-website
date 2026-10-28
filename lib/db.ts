@@ -46,7 +46,43 @@ export interface DbUser {
   trial_started_at: string | null;
   trial_ends_at: string | null;
   paid_at: string | null;
+  paid_until: string | null;
   created_at: string;
+}
+
+// ---------------------------------------------------------------------------
+// Pro expiry — Pro is sold as $24.99 per month, so a payment buys 30 days.
+// Previously setPaid stored only paid_at and every gate treated "paid" as
+// forever, so no "Pro until" date could ever be shown. Pro now expires
+// 30 days after payment: paid_until when set, otherwise paid_at + 30 days
+// (legacy rows written before paid_until existed). Lifetime admin never
+// expires and is handled by isLifetimeAdmin, not by these helpers.
+// ---------------------------------------------------------------------------
+export const PRO_DURATION_DAYS = 30;
+
+export function proExpiresAt(user: Pick<DbUser, "paid_at" | "paid_until">): string | null {
+  if (user.paid_until) return user.paid_until;
+  if (!user.paid_at) return null;
+  const d = new Date(user.paid_at);
+  d.setDate(d.getDate() + PRO_DURATION_DAYS);
+  return d.toISOString();
+}
+
+export function isProActive(
+  user: Pick<DbUser, "plan" | "paid_at" | "paid_until">,
+  now = Date.now()
+): boolean {
+  if (user.plan !== "paid") return false;
+  const until = proExpiresAt(user);
+  return until ? new Date(until).getTime() > now : true;
+}
+
+let proColumnsReady = false;
+
+export async function ensureProColumns(): Promise<void> {
+  if (proColumnsReady) return;
+  await rows(`ALTER TABLE users ADD COLUMN IF NOT EXISTS paid_until TIMESTAMPTZ`);
+  proColumnsReady = true;
 }
 
 export interface DbPayment {
@@ -83,7 +119,11 @@ export async function createUser(
 }
 
 export async function setPaid(email: string): Promise<void> {
-  await rows("UPDATE users SET plan = 'paid', paid_at = NOW() WHERE email = $1", [email]);
+  await ensureProColumns();
+  await rows(
+    "UPDATE users SET plan = 'paid', paid_at = NOW(), paid_until = NOW() + INTERVAL '30 days' WHERE email = $1",
+    [email]
+  );
 }
 
 export async function createPayment(

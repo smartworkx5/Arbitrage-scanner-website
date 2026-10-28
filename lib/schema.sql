@@ -10,8 +10,12 @@ CREATE TABLE IF NOT EXISTS users (
   trial_started_at TIMESTAMPTZ,
   trial_ends_at    TIMESTAMPTZ,
   paid_at          TIMESTAMPTZ,
+  paid_until       TIMESTAMPTZ,   -- Pro expiry: 30 days after payment
   created_at       TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+
+-- Pro expiry (also auto-applied by the app via ensureProColumns)
+ALTER TABLE users ADD COLUMN IF NOT EXISTS paid_until TIMESTAMPTZ;
 
 CREATE TABLE IF NOT EXISTS payments (
   id            SERIAL PRIMARY KEY,

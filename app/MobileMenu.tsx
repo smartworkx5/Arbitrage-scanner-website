@@ -2,9 +2,12 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useSession, signOut } from "next-auth/react";
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
+  const { data: session } = useSession();
+  const signedIn = Boolean(session?.user?.email);
 
   const links = [
     { href: "#features", label: "Features" },
@@ -59,13 +62,35 @@ export function MobileMenu() {
                   </a>
                 )
               ))}
-              <Link
-                href="/signin"
-                onClick={() => setOpen(false)}
-                className="btn-primary mt-2 w-full"
-              >
-                Start Free Trial
-              </Link>
+              {signedIn ? (
+                <>
+                  <Link
+                    href="/dashboard"
+                    onClick={() => setOpen(false)}
+                    className="btn-primary mt-2 w-full"
+                  >
+                    Dashboard
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setOpen(false);
+                      void signOut({ callbackUrl: "/" });
+                    }}
+                    className="mt-2 w-full rounded-lg px-4 py-3 text-left text-slate-300 hover:bg-slate-800 hover:text-white"
+                  >
+                    Sign out
+                  </button>
+                </>
+              ) : (
+                <Link
+                  href="/signin"
+                  onClick={() => setOpen(false)}
+                  className="btn-primary mt-2 w-full"
+                >
+                  Start Free Trial
+                </Link>
+              )}
             </div>
           </nav>
         </div>
