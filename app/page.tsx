@@ -252,7 +252,7 @@ export default async function LandingPage() {
                 <Link href="/signin" className="btn-primary w-full sm:w-auto">
                   Start Free 3-Day Trial
                 </Link>
-                <LaunchAppButton className="btn-secondary w-full sm:w-auto">
+                <LaunchAppButton className="font-medium text-green-400 underline hover:text-green-300">
                   Launch App ↗
                 </LaunchAppButton>
               </div>
@@ -279,13 +279,27 @@ export default async function LandingPage() {
                   Real screenshots from the live app — no mockups, no fake UI.
                 </p>
                 <div className="mt-3 text-center">
-                  <LaunchAppButton className="btn-primary">
+                  <LaunchAppButton className="font-medium text-green-400 underline hover:text-green-300">
                     Launch the App & See For Yourself ↗
                   </LaunchAppButton>
                 </div>
               </div>
             </div>
           </div>
+        </section>
+
+        {/* ---------- Trust strip ---------- */}
+        <section aria-label="Trial basics" className="border-y border-slate-800/80 bg-[#0d1320] px-4 py-5">
+          <ul className="mx-auto grid max-w-6xl grid-cols-1 gap-3 text-center text-sm text-slate-300 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              "No credit card required",
+              "Full access for 3 days",
+              "$24.99/month for Pro after the trial",
+              "Runs in your browser — nothing to install",
+            ].map((li) => (
+              <li key={li} className="flex items-center justify-center gap-2"><span className="text-green-400">✓</span>{li}</li>
+            ))}
+          </ul>
         </section>
 
         {/* ---------- Live net spreads ---------- */}
