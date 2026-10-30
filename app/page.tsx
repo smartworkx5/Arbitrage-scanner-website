@@ -6,7 +6,7 @@ import HeaderAuth from "./components/HeaderAuth";
 import { MobileMenu } from "./MobileMenu";
 import { faqJsonLd } from "./components/Seo";
 import ScreenshotCarousel from "./components/ScreenshotCarousel";
-import LiveSpreads from "./live/LiveSpreads";
+import LazyLiveSpreads from "./components/LazyLiveSpreads";
 
 export const revalidate = 300;
 
@@ -256,18 +256,18 @@ export default async function LandingPage() {
                   Launch App ↗
                 </LaunchAppButton>
               </div>
-              <p className="mt-4 text-sm text-slate-500">No credit card required · Full access for 3 days</p>
-              <p className="mt-2 text-xs text-slate-500">No scanner can guarantee profits — Cryptoscopia finds the gaps; you decide the trades.</p>
+              <p className="mt-4 text-sm text-slate-400">No credit card required · Full access for 3 days</p>
+              <p className="mt-2 text-xs text-slate-400">No scanner can guarantee profits — Cryptoscopia finds the gaps; you decide the trades.</p>
               <dl className={`mx-auto mt-10 grid max-w-xl grid-cols-2 gap-6 lg:mx-0 ${stats.length >= 4 ? "sm:grid-cols-4" : "sm:grid-cols-3"}`}>
                 {stats.map(([v, l]) => (
                   <div key={l} className="text-center lg:text-left">
                     <dt className="sr-only">{l}</dt>
                     <dd className="text-2xl font-extrabold text-white md:text-3xl">{v}</dd>
-                    <dd className="mt-1 text-xs text-slate-500">{l}</dd>
+                    <dd className="mt-1 text-xs text-slate-400">{l}</dd>
                   </div>
                 ))}
               </dl>
-              <p className="mx-auto mt-6 max-w-xl text-xs leading-relaxed text-slate-500 lg:mx-0">
+              <p className="mx-auto mt-6 max-w-xl text-xs leading-relaxed text-slate-400 lg:mx-0">
                 Scanning: Binance · Bybit · OKX · KuCoin · Gate.io · MEXC · Bitget · HTX · CoinEx · BitMart · LBank · XT.com · Bitrue · CEX.io · Coinstore · + DEX pools
               </p>
             </div>
@@ -302,8 +302,8 @@ export default async function LandingPage() {
             </p>
           </div>
           <div className="mt-10">
-            <LiveSpreads />
-            <p className="mt-3 text-xs text-slate-500">
+            <LazyLiveSpreads />
+            <p className="mt-3 text-xs text-slate-400">
               Est. net is after taker fees on both sides, before withdrawal/transfer fees. This is a
               no-signup preview of the top pairs; the full scanner in the app shows net after the
               cheapest open withdrawal fee and executable depth.
@@ -418,7 +418,7 @@ export default async function LandingPage() {
               <li><span className="font-bold text-green-400">2.</span> Upload your transfer screenshot + transaction ID</li>
               <li><span className="font-bold text-green-400">3.</span> Tap Check for auto-verification — manual screenshot review is the fallback</li>
             </ol>
-            <p className="mt-3 text-xs text-slate-500">Sent the wrong amount or network? Don't worry — contact us and we'll sort it out.</p>
+            <p className="mt-3 text-xs text-slate-400">Sent the wrong amount or network? Don't worry — contact us and we'll sort it out.</p>
           </div>
         </section>
 
@@ -464,7 +464,7 @@ export default async function LandingPage() {
               <p className="mt-2 text-sm text-slate-400">What separates a great scanner from a gimmick — honest buyer's guide.</p>
             </Link>
           </div>
-          <p className="mt-6 text-center text-sm text-slate-500">
+          <p className="mt-6 text-center text-sm text-slate-400">
             More: <Link href="/guides" className="text-emerald-300 underline">all guides</Link> ·{" "}
             <Link href="/blog" className="text-emerald-300 underline">blog</Link> ·{" "}
             <Link href="/arbitrage" className="text-emerald-300 underline">exchange comparisons</Link> ·{" "}
@@ -511,7 +511,7 @@ export default async function LandingPage() {
             <LaunchAppButton className="hover:text-white">Launch App</LaunchAppButton>
           </nav>
         </div>
-        <p className="mx-auto mt-6 max-w-6xl text-xs leading-relaxed text-slate-600">
+        <p className="mx-auto mt-6 max-w-6xl text-xs leading-relaxed text-slate-400">
           Disclaimer: Crypto trading involves substantial risk of loss. Signals are informational tools,
           not financial advice. Never trade with money you cannot afford to lose.
         </p>

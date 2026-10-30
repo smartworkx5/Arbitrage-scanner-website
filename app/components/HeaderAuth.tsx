@@ -10,7 +10,23 @@ export default function HeaderAuth() {
   const { data: session, status } = useSession();
 
   if (status === "loading") {
-    return <span className="hidden text-sm text-slate-500 sm:block">…</span>;
+    // Reserve the exact geometry of the signed-out state while the session
+    // resolves. Rendering only a small "…" span here used to shrink the
+    // header's right-hand group; when the real links/button swapped in, the
+    // centred nav links jumped ~71px and the hero section shifted — a
+    // deterministic desktop CLS of ~0.101 in Lighthouse. Invisible replicas
+    // of the signed-out elements keep every box the same size, so the swap
+    // moves nothing.
+    return (
+      <>
+        <span className="invisible hidden text-sm font-medium text-slate-300 sm:block" aria-hidden="true">
+          Sign in
+        </span>
+        <span className="btn-primary invisible hidden !px-4 !py-2 text-sm sm:inline-flex" aria-hidden="true">
+          Free Trial
+        </span>
+      </>
+    );
   }
 
   if (session?.user?.email) {

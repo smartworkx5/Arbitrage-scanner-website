@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 export type AppShot = { tab: string; desc: string; img: string };
 
@@ -57,7 +58,7 @@ export default function ScreenshotCarousel({ shots }: { shots: AppShot[] }) {
         <p className="text-sm font-bold uppercase tracking-[0.2em] text-green-400">
           Screenshots from the App
         </p>
-        <p className="mt-1 text-xs text-slate-500">
+        <p className="mt-1 text-xs text-slate-400">
           Swipe or use the arrows to look inside the live scanner
         </p>
       </div>
@@ -96,13 +97,26 @@ export default function ScreenshotCarousel({ shots }: { shots: AppShot[] }) {
             >
               {shots.map((s, i) => (
                 <div key={s.tab} className="aspect-[800/1456] w-full shrink-0" aria-hidden={i !== index}>
-                  <img
-                    src={s.img}
-                    alt={`${s.tab} — Cryptoscopia app screenshot`}
-                    className="h-full w-full object-cover"
-                    loading={i === 0 ? "eager" : "lazy"}
-                    draggable={false}
-                  />
+                  {/* Only the visible slide renders an <img>: the other slides
+                      are empty placeholders that keep the track geometry (and
+                      the slide animation) intact. Rendering all four images
+                      up front cost ~3 extra downloads (~400 KiB live) because
+                      lazy loading still fires for track siblings near the
+                      viewport. The incoming slide's image loads on demand
+                      when its index becomes active. */}
+                  {i === index && (
+                    <Image
+                      src={s.img}
+                      alt={`${s.tab} — Cryptoscopia app screenshot`}
+                      width={800}
+                      height={1456}
+                      sizes="(max-width: 640px) 85vw, 322px"
+                      className="h-full w-full object-cover"
+                      priority={i === 0}
+                      loading={i === 0 ? "eager" : "lazy"}
+                      draggable={false}
+                    />
+                  )}
                 </div>
               ))}
             </div>
@@ -136,7 +150,7 @@ export default function ScreenshotCarousel({ shots }: { shots: AppShot[] }) {
       <div className="mt-4 text-center" aria-live="polite">
         <p key={index} className="text-sm font-semibold text-white">
           {shot.tab}
-          <span className="ml-2 text-xs font-normal text-slate-500">
+          <span className="ml-2 text-xs font-normal text-slate-400">
             {index + 1} / {count}
           </span>
         </p>
@@ -149,10 +163,14 @@ export default function ScreenshotCarousel({ shots }: { shots: AppShot[] }) {
               onClick={() => goTo(i)}
               aria-label={`Show screenshot: ${s.tab}`}
               aria-current={i === index}
-              className={`h-2 cursor-pointer rounded-full transition-all duration-300 ${
-                i === index ? "w-7 bg-emerald-500" : "w-2 bg-slate-600 hover:bg-slate-400"
-              }`}
-            />
+              className="flex h-6 w-6 cursor-pointer items-center justify-center"
+            >
+              <span
+                className={`block h-2 rounded-full transition-all duration-300 ${
+                  i === index ? "w-7 bg-emerald-500" : "w-2 bg-slate-600 hover:bg-slate-400"
+                }`}
+              />
+            </button>
           ))}
         </div>
       </div>

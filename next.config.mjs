@@ -120,6 +120,13 @@ const nextConfig = {
     };
   },
   images: {
+    // 384 added to the default deviceSizes: the homepage carousel renders
+    // at 322 CSS px, so on DPR-1 (desktop) the browser can now pick a
+    // 384w image instead of jumping straight to 640w. Mobile (DPR > 1)
+    // still picks 640w, unchanged. No other next/image usage is affected
+    // in a way that hurts: smaller candidates are only chosen when the
+    // rendered size calls for them.
+    deviceSizes: [384, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     remotePatterns: [
       { protocol: "https", hostname: "**.public.blob.vercel-storage.com" },
       { protocol: "https", hostname: "lh3.googleusercontent.com" },

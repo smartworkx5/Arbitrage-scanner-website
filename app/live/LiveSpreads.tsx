@@ -95,7 +95,7 @@ export default function LiveSpreads() {
         <div className="overflow-x-auto">
           <table className="w-full min-w-[720px] text-left text-sm">
             <thead>
-              <tr className="border-b border-slate-800 text-xs uppercase tracking-wide text-slate-500">
+              <tr className="border-b border-slate-800 text-xs uppercase tracking-wide text-slate-400">
                 <th className="px-5 py-3 font-medium">Pair</th>
                 <th className="px-5 py-3 font-medium">Buy on</th>
                 <th className="px-5 py-3 font-medium">Sell on</th>
@@ -151,7 +151,7 @@ export default function LiveSpreads() {
           </table>
         </div>
       </div>
-      <p className="mt-3 text-xs text-slate-500">
+      <p className="mt-3 text-xs text-slate-400">
         {updated
           ? `Last updated ${updated.toLocaleTimeString()} · `
           : ""}
