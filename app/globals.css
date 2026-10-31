@@ -73,7 +73,10 @@ body {
 
 /* Glassmorphism card */
 .glass-card {
-  @apply rounded-2xl border border-white/10 bg-white/[0.03] p-6 shadow-xl shadow-black/20 backdrop-blur-xl transition duration-300;
+  /* backdrop-blur-xl removed 2026-10-31 (PageSpeed): the cards sit over the
+     near-flat dark page background, so the blur was visually negligible but
+     forced an expensive backdrop raster on every card on every paint. */
+  @apply rounded-2xl border border-white/10 bg-white/[0.03] p-6 shadow-xl shadow-black/20 transition duration-300;
 }
 .glass-card:hover {
   @apply -translate-y-1 border-green-500/30 shadow-2xl shadow-green-500/10;

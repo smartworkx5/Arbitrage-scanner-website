@@ -226,9 +226,9 @@ export default async function LandingPage() {
         <section className="relative overflow-hidden px-4 pb-16 pt-14 md:pt-20">
           <div aria-hidden className="pointer-events-none absolute inset-0">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(34,197,94,0.14),transparent_60%)]" />
-            <div className="animate-float-slow absolute -left-32 top-20 h-96 w-96 rounded-full bg-green-500/10 blur-3xl" />
-            <div className="animate-float absolute -right-32 top-40 h-96 w-96 rounded-full bg-blue-600/10 blur-3xl" />
-            <div className="absolute left-1/2 top-1/3 h-64 w-64 -translate-x-1/2 rounded-full bg-emerald-500/5 blur-3xl" />
+            <div className="animate-float-slow absolute -left-32 top-20 h-96 w-96 bg-[radial-gradient(closest-side,rgba(34,197,94,0.13),transparent)]" />
+            <div className="animate-float absolute -right-32 top-40 h-96 w-96 bg-[radial-gradient(closest-side,rgba(37,99,235,0.13),transparent)]" />
+            <div className="absolute left-1/2 top-1/3 h-64 w-64 -translate-x-1/2 bg-[radial-gradient(closest-side,rgba(16,185,129,0.07),transparent)]" />
             <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.05)_1px,transparent_1px)] bg-[size:44px_44px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
           </div>
           <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
@@ -271,7 +271,7 @@ export default async function LandingPage() {
               </p>
             </div>
             <div className="relative">
-              <div aria-hidden className="pointer-events-none absolute -inset-4 rounded-3xl bg-gradient-to-br from-green-500/15 via-transparent to-blue-600/15 blur-2xl" />
+              <div aria-hidden className="pointer-events-none absolute -inset-4 rounded-3xl bg-gradient-to-br from-green-500/15 via-transparent to-blue-600/15" />
               <div className="relative">
                 <ScreenshotCarousel shots={appScreenshots} />
                 <p className="mt-4 text-center text-sm text-slate-400">
