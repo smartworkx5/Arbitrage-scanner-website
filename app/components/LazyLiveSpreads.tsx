@@ -53,7 +53,7 @@ export default function LazyLiveSpreads() {
         <LiveSpreads />
       ) : (
         <div className="card text-center">
-          <p className="animate-pulse text-sm text-slate-400">
+          <p className="text-sm font-medium text-slate-200">
             Loading live spreads from the exchanges…
           </p>
         </div>
