@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "crypto futures basis TradFi"
   ],
   datePublished: "2026-10-15",
-  dateModified: "2026-10-15",
+  dateModified: "2026-11-04",
   readingMinutes: 10,
   category: "Strategies",
   excerpt: "The most interesting arbitrage now lives at the boundary between crypto and traditional finance — ETFs, futures, gold, and FX. Here is how cross-asset arbitrage works and where it breaks.",
@@ -46,11 +46,8 @@ export const post: BlogPost = {
         text: "Different hours, settlement, access rules, and regulation keep crypto-TradFi gaps open. A gap that looks like free money usually has a friction attached — find it before you trade.",
         tone: "warning",
       },
-      { type: "p", text: "A realistic approach starts with observation, not capital. Track the ETF premium or discount, the CME-versus-crypto basis, and the gold token premium for weeks before trading them, and record how they behave around macro events such as CPI prints and rate decisions. Paper-trade the full round trip including all fees, conversion costs, and settlement delays. If you do trade, start small, keep leverage low, and keep an exit plan for each leg separately — including what you will do if one market is closed when you need to exit. Cross-asset arbitrage rewards patience and infrastructure. It punishes traders who mistake a visible gap for a guaranteed profit. For portfolio-level discipline, see [Market-Neutral Crypto Portfolios](/blog/market-neutral-crypto) and [Arbitrage Risk Management](/blog/arbitrage-risk-management)." },
-      { type: "h2", text: "AI Help: Muse AI" },
+      { type: "p", text: "A realistic approach starts with observation, not capital. Track the ETF premium or discount, the CME-versus-crypto basis, and the gold token premium for weeks before trading them, and record how they behave around macro events such as CPI prints and rate decisions. Paper-trade the full round trip including all fees, conversion costs, and settlement delays. If you do trade, start small, keep leverage low, and keep an exit plan for each leg separately — including what you will do if one market is closed when you need to exit. Cross-asset arbitrage rewards patience and infrastructure. It punishes traders who mistake a visible gap for a guaranteed profit. For portfolio-level discipline, see Market-Neutral Crypto Portfolios and [Arbitrage Risk Management](/blog/arbitrage-risk-management)." },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can explain ETF premiums, futures basis, and cross-asset arbitrage in plain language, and it can help you draft a research checklist of frictions to price before trading across crypto and TradFi." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

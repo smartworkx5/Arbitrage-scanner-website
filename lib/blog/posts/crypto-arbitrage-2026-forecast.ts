@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "arbitrage edges"
   ],
   datePublished: "2026-10-16",
-  dateModified: "2026-10-16",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Markets",
   excerpt: "Crypto arbitrage in 2026 is not dead — but the easy edges are. Here is an honest forecast of where opportunities are growing and where they are gone.",
@@ -56,10 +56,7 @@ export const post: BlogPost = {
         text: "Arbitrage is not risk-free. Transfer delays, exchange halts, depegs, and liquidation cascades can turn a locked-in spread into a loss. Never assume a spread is profit until all legs are settled and costs are subtracted.",
         tone: "warning",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can help you sharpen your arbitrage research by drafting a checklist of costs and risks to check before you trade a spread, and by explaining unfamiliar strategies in simple words." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

@@ -69,5 +69,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Age and Legal Requirements for Trading](/blog/arbitrage-minimum-age), [Capital Efficiency in Crypto Arbitrage](/blog/capital-efficiency-arbitrage) and [Structuring Arbitrage as a Business](/blog/arbitrage-business-structure) next." },
   ],
 };

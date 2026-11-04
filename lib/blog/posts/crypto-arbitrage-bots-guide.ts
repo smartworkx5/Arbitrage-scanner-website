@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "arbitrage bot risks 2026"
   ],
   datePublished: "2026-10-12",
-  dateModified: "2026-10-12",
+  dateModified: "2026-11-04",
   readingMinutes: 10,
   category: "Strategies",
   excerpt: "A crypto arbitrage bot scans exchanges for price gaps and trades them automatically — but the reality is messier than the marketing. Here is how they work, what they really cost, and what to expect.",
@@ -30,7 +30,7 @@ export const post: BlogPost = {
       { type: "p", text: "Cross-exchange spot bots are the most common: same asset, two venues, simultaneous legs. Triangular bots loop three pairs on a single exchange (for example BTC → ETH → USDT → BTC), which our [triangular arbitrage guide](/guides/triangular-arbitrage) covers in depth. Funding-rate bots collect the periodic payments on perpetual futures when rates skew. DEX bots chase on-chain price dislocations but must price in gas and MEV competition, which can erase thin on-chain edges entirely. Each type has a different failure mode, which is why bots built for one strategy cannot simply be pointed at another." },
       { type: "h2", text: "What Crypto Arbitrage Bots Cost in 2026" },
       { type: "p", text: "Bot costs come in layers, and beginners usually count only the first one. The software layer ranges from free open-source frameworks to subscription platforms charging roughly $30 to $300 per month depending on features, venue coverage, and execution speed. Custom-built bots cost developer time instead of subscription fees — weeks of work for a basic version, months for a production-grade one with proper risk controls. Neither option is free in practice: subscriptions recur, and your own time has an opportunity cost." },
-      { type: "p", text: "The infrastructure layer is the one people forget. A bot needs a server running 24/7 — a VPS typically costs $10 to $80 per month depending on specs and location, more if you want proximity to exchange matching engines. Exchange data feeds beyond basic tiers can carry fees. And the capital layer dwarfs both: meaningful arbitrage requires funded accounts on multiple venues, and idle inventory sitting on exchanges earns nothing while bearing exchange risk. A bot trading $500 of capital cannot cover its own VPS and subscription costs no matter how clever the code is — our [fee breakdown](/blog/crypto-trading-fees-guide) explains the math in detail." },
+      { type: "p", text: "The infrastructure layer is the one people forget. A bot needs a server running 24/7 — a VPS typically costs $10 to $80 per month depending on specs and location, more if you want proximity to exchange matching engines. Exchange data feeds beyond basic tiers can carry fees. And the capital layer dwarfs both: meaningful arbitrage requires funded accounts on multiple venues, and idle inventory sitting on exchanges earns nothing while bearing exchange risk. A bot trading $500 of capital cannot cover its own VPS and subscription costs no matter how clever the code is — our fee breakdown explains the math in detail." },
       {
         type: "table",
         headers: ["Cost layer", "Typical 2026 range", "What it covers"],

@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "crypto trading legality by country"
   ],
   datePublished: "2026-10-15",
-  dateModified: "2026-10-15",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Risk",
   excerpt: "Crypto arbitrage is legal in most major markets, but the details vary sharply by country. This guide compares the US, EU, UK, and Asia on what traders must actually watch.",
@@ -49,10 +49,7 @@ export const post: BlogPost = {
         text: "This article is general educational information, not legal advice. Crypto rules change frequently and vary by jurisdiction. For business-scale operations or anything involving other people's money, consult a qualified lawyer in your jurisdiction.",
         tone: "info",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, available in the Muse app, that can answer questions and explain complex topics in plain language. For this topic, you can ask it to compare two countries' crypto rules side by side in a simple table, so the differences in licensing and tax reporting are easy to scan." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

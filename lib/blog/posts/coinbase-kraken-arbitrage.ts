@@ -70,5 +70,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Coinbase Arbitrage Guide: Fees, Spreads and Advanced Trade](/blog/coinbase-arbitrage-guide), [Kraken Arbitrage Guide: Reliability-Focused Venue Notes](/blog/kraken-arbitrage-guide) and [AI in Arbitrage Trading: Hype vs Reality](/blog/ai-in-arbitrage-trading) next." },
   ],
 };

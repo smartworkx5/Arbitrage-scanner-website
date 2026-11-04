@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "arbitrage beginner mistakes"
   ],
   datePublished: "2026-10-10",
-  dateModified: "2026-10-10",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Basics",
   excerpt: "The myths around crypto arbitrage — risk-free, passive, dead, or easy — cost beginners real money. Here are the ten most expensive ones, debunked honestly.",
@@ -28,7 +28,7 @@ export const post: BlogPost = {
       { type: "p", text: "In most jurisdictions, buying and selling crypto across exchanges is ordinary, legal trading. The confusion comes from specific regulated activities — like certain derivatives strategies or operating an unlicensed exchange service — being restricted. Arbitrage itself is legal; just handle taxes properly and check local rules on derivatives if your strategy uses them." },
       { type: "h2", text: "Myths About Profits" },
       { type: "h3", text: "Myth 4: You will double your money monthly" },
-      { type: "p", text: "No legitimate strategy compounds at 100% monthly — that is Ponzi math, not arbitrage math. Real arbitrage edges in 2026 are measured in fractions of a percent per trade. Anyone showing you screenshots of explosive \"arbitrage profits\" is either cherry-picking, paper trading, or selling a course. Our honest [profitability analysis](/blog/is-crypto-arbitrage-profitable-2026) sets realistic expectations." },
+      { type: "p", text: "No legitimate strategy compounds at 100% monthly — that is Ponzi math, not arbitrage math. Real arbitrage edges in 2026 are measured in fractions of a percent per trade. Anyone showing you screenshots of explosive \"arbitrage profits\" is either cherry-picking, paper trading, or selling a course. Our honest [profitability analysis](/blog/is-crypto-arbitrage-profitable) sets realistic expectations." },
       { type: "h3", text: "Myth 5: Any price gap is an opportunity" },
       { type: "p", text: "Most visible gaps are not tradeable. Suspended withdrawals, empty order books, fake volume, and withdrawal minimums create spreads that exist only on screen. Professionals assume a spread is fake until proven real — checking deposits, withdrawals, and depth before a single dollar moves. Beginners do the opposite, and pay for it." },
       { type: "h3", text: "Myth 6: Bigger spreads mean bigger profits" },

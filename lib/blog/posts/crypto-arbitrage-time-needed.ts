@@ -67,5 +67,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Crypto Arbitrage as a Side Income](/blog/arbitrage-part-time), [Structuring Arbitrage as a Business](/blog/arbitrage-business-structure) and [Age and Legal Requirements for Trading](/blog/arbitrage-minimum-age) next." },
   ],
 };

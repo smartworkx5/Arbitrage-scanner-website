@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "crypto arbitrage beginner"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 12,
   category: "Basics",
   excerpt: "Thirty honest answers to the questions every beginner asks about crypto arbitrage: spreads, fees, bots, risks, capital, and what actually works.",
@@ -47,10 +47,7 @@ export const post: BlogPost = {
       { type: "h2", text: "Risks Beginners Underestimate" },
       { type: "p", text: "The risks that hurt arbitrageurs most are rarely the exotic ones. They are the ordinary ones: an exchange pauses withdrawals during volatility, a network congests and a transfer takes an hour instead of ten minutes, a stablecoin wobbles, or a fat-fingered order eats the book. Counterparty risk is the deepest of these. Funds held on an exchange are exposed to hacks, freezes, and insolvency. That is why experienced traders spread capital across venues, keep most funds in self-custody when not actively trading, and treat any single exchange as a risk, not a vault. The Oct 16, 2026 liquidation wave of more than $830 million is a reminder that stressed markets punish crowded positions and slow movers first." },
       { type: "p", text: "Taxes and record-keeping are the quiet risk. Many jurisdictions treat each leg of an arbitrage trade as a taxable event, and frequent trading creates a paperwork burden that surprises beginners. Check your local rules before scaling up, and keep clean records from day one. Regulation is also evolving: the GENIUS Act rules expected from the OCC by end of October 2026 and Australia digital-asset consultation show that the rulebook for stablecoins and exchanges is still being written. Staying compliant is part of the job, not an optional extra." },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you learn arbitrage step by step. Ask it to explain spreads, fees, or slippage in simple words, compare two arbitrage strategies, or draft a research checklist you can work through before your first trade." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

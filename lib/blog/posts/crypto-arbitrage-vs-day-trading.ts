@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "is arbitrage better than trading"
   ],
   datePublished: "2026-10-10",
-  dateModified: "2026-10-10",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Basics",
   excerpt: "Arbitrage and day trading both aim to profit from crypto markets — but they demand completely different skills, temperaments, and risk tolerance. Here is how to choose honestly.",
@@ -33,7 +33,7 @@ export const post: BlogPost = {
           ["Risk of ruin for beginners", "Moderate — death by a thousand fees", "High — a few bad trades can wipe accounts"]
         ],
       },
-      { type: "p", text: "This table is the heart of the decision. Arbitrage fails slowly through costs and mistakes; day trading fails quickly through wrong calls and emotional decisions. Neither is safe — [arbitrage has real risks](/blog/what-is-crypto-arbitrage-2026) too — but the shape of the risk is completely different, and different personalities tolerate different shapes." },
+      { type: "p", text: "This table is the heart of the decision. Arbitrage fails slowly through costs and mistakes; day trading fails quickly through wrong calls and emotional decisions. Neither is safe — [arbitrage has real risks](/blog/what-is-crypto-arbitrage) too — but the shape of the risk is completely different, and different personalities tolerate different shapes." },
       { type: "p", text: "One more honest consideration: your existing skills transfer unevenly. Software engineers, analysts, and spreadsheet natives usually adapt to arbitrage faster, because the work is systems and math. People with sales, poker, or competitive gaming backgrounds sometimes adapt to day trading faster, because the work is reads and nerve. Neither background guarantees success — but starting closer to your strengths shortens the expensive learning phase considerably." },
       { type: "h2", text: "Time, Skill, and Capital Compared" },
       { type: "p", text: "Day trading demands screen time during volatile hours, emotional discipline under pressure, and genuine analytical skill — chart reading, risk management, and the psychological toughness to take losses without tilting. It can be done with small capital, which is part of its appeal and part of its danger: small accounts encourage oversized risk-taking." },
