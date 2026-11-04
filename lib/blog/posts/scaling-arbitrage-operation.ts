@@ -14,7 +14,7 @@ export const post: BlogPost = {
       "capital growth"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 10,
   category: "Strategies",
   excerpt: "Scaling arbitrage from $1K to $100K is not just bigger trades. Here is the capital, infrastructure, risk, and operations roadmap for real growth.",
@@ -51,10 +51,7 @@ export const post: BlogPost = {
       { type: "h2", text: "Risk Management That Scales With You" },
       { type: "p", text: "The fastest way to fail at scale is to scale position size without scaling risk controls. Keep per-trade risk as a fixed percentage of capital, cap total exposure per exchange, and set a daily loss limit that stops trading before a bad day becomes a catastrophic one. The Oct 16, 2026 liquidation wave of more than $830M is a useful reminder: volatile days can close spreads, freeze venues, and move prices violently, all at once. An operation with hard limits survives those days and trades the next morning. An operation without them can be wiped out by a single event it never planned for. Review limits monthly and tighten them after any drawdown, rather than loosening them to win the money back." },
       { type: "p", text: "Growth also requires patience about compounding. Jumping from $10,000 to $100,000 by doubling position sizes overnight is gambling, not scaling. Sustainable growth comes from reinvesting verified profits, adding capital gradually, and expanding to new venues only after the existing operation runs smoothly. Each new venue adds balances to reconcile, fees to track, and counterparty exposure to manage. Grow at the speed of your systems, not the speed of your ambition. For the underlying strategies, study [cross-exchange arbitrage](/guides/cross-exchange-arbitrage), [funding rate arbitrage](/guides/funding-rate-arbitrage), and [CEX vs DEX arbitrage](/guides/cex-vs-dex-arbitrage) before deciding which ones deserve more capital." },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you draft a scaling checklist that maps each growth stage to the systems, limits, and records you need before adding capital." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

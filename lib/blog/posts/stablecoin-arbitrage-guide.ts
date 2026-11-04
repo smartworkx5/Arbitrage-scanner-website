@@ -14,7 +14,7 @@ export const post: BlogPost = {
       "depeg trading"
   ],
   datePublished: "2026-10-13",
-  dateModified: "2026-10-13",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Strategies",
   excerpt: "USDT, USDC, and DAI deviate from $1.00 every day. This master guide explains how to capture peg deviations and cross-exchange stablecoin spreads, and when a discount is a depeg warning.",
@@ -22,7 +22,7 @@ export const post: BlogPost = {
   blocks: [
       { type: "p", text: "Stablecoins are supposed to trade at exactly $1.00, yet USDT, USDC, and DAI deviate from their pegs every day, usually by hundredths of a percent, occasionally by much more. On 2026-10-13, with BTC down over 2.2% near $81,744 and $68.68M in liquidations hitting leveraged traders, stablecoin demand spiked as investors rushed to the exits, the classic setup for peg wobbles. This master guide explains how stablecoin arbitrage works in 2026: capturing peg deviations, cross-exchange stablecoin gaps, and depeg-event trading, with honest accounting of the risks." },
       { type: "h2", text: "How peg deviations create opportunity" },
-      { type: "p", text: "A stablecoin's price is set by supply and demand on each venue, not by decree. When selling pressure overwhelms a venue's buy side, USDT can print at $0.998 while another exchange quotes $1.001, a 0.3% round-trip edge for anyone holding inventory on both. Mint-and-redeem arbitrage is the deeper mechanism: authorized participants create or redeem tokens at par with the issuer, pulling the market price back toward $1. Retail traders capture the smaller venue-to-venue gaps; our [stablecoin depeg risk](/blog/stablecoin-depeg-risk) guide explains when small gaps signal something worse." },
+      { type: "p", text: "A stablecoin's price is set by supply and demand on each venue, not by decree. When selling pressure overwhelms a venue's buy side, USDT can print at $0.998 while another exchange quotes $1.001, a 0.3% round-trip edge for anyone holding inventory on both. Mint-and-redeem arbitrage is the deeper mechanism: authorized participants create or redeem tokens at par with the issuer, pulling the market price back toward $1. Retail traders capture the smaller venue-to-venue gaps; our stablecoin depeg risk guide explains when small gaps signal something worse." },
       { type: "h2", text: "Cross-exchange stablecoin spreads" },
       { type: "p", text: "The bread-and-butter trade is buying a stablecoin cheap on one exchange and selling it dear on another. These spreads widen during market stress, exactly when crypto volatility spikes and traders pay premiums for dollar exposure. On October 13, 2026, gold held near $4,168 to $4,181 per ounce as a traditional safe haven while crypto sold off, and stablecoins absorbed parallel safe-haven demand inside crypto markets. Monitor USDT, USDC, and DAI quotes across venues continuously; the [stablecoin cross-exchange guide](/blog/stablecoin-cross-exchange-arb) walks through the execution loop." },
       {

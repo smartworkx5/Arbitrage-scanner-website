@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "exchange fee tiers"
   ],
   datePublished: "2026-10-12",
-  dateModified: "2026-10-12",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Basics",
   excerpt: "Fees are the one part of the profit equation you fully control. Ten tactics, ordered by impact, that can cut your all-in costs by 50–75% without changing your strategy.",
@@ -20,7 +20,7 @@ export const post: BlogPost = {
   blocks: [
       { type: "p", text: "Learning how to reduce arbitrage trading fees is the highest-leverage skill in this game, because fees are the one part of the profit equation you fully control. You cannot control spreads, volatility, or what BTC does next — it traded around $83,650 on October 12, 2026 after whipsawing between $80,420 and recovery — but you can control how much of every spread you keep. The ten tactics below are ordered from highest to lowest typical impact for a retail arbitrageur." },
       { type: "h2", text: "The Big Three: Order Type, Fee Tiers, and Venue Choice" },
-      { type: "p", text: "Before the list, understand the hierarchy. The single biggest fee lever is **order type**: maker orders (limit orders resting on the book) typically cost 0.0–0.1%, while taker orders (market orders crossing the spread) cost 0.05–0.2% or more. On a $10,000 loop, switching one leg from taker to maker can save $10–$20 — more than most \"fee hacks\" combined. The catch is execution risk: a maker order might not fill while the spread is open. [How fee tiers work](/blog/fee-tiers-explained) is worth studying alongside this, since your tier multiplies every saving." },
+      { type: "p", text: "Before the list, understand the hierarchy. The single biggest fee lever is **order type**: maker orders (limit orders resting on the book) typically cost 0.0–0.1%, while taker orders (market orders crossing the spread) cost 0.05–0.2% or more. On a $10,000 loop, switching one leg from taker to maker can save $10–$20 — more than most \"fee hacks\" combined. The catch is execution risk: a maker order might not fill while the spread is open. How fee tiers work is worth studying alongside this, since your tier multiplies every saving." },
       { type: "p", text: "Second is **fee tiers**: almost every exchange discounts fees by 30-day volume or by holding its native token. If your monthly volume pushes you into the next tier, the savings apply to every trade you make. Third is **venue choice itself**: fee schedules vary 2–4x between major exchanges for the same volume, so the \"best\" exchange for arbitrage is often simply the cheapest one with acceptable liquidity." },
       { type: "h2", text: "10 Ways to Reduce Arbitrage Trading Fees" },
       {
@@ -39,7 +39,7 @@ export const post: BlogPost = {
         ],
       },
       { type: "h2", text: "Putting the Ten Together: A Fee Budget Example" },
-      { type: "p", text: "Take a $10,000 cross-exchange loop. Naive execution: two taker legs at 0.1% ($20), a BTC withdrawal ($10), network fee ($3), and slippage ($15) — $48 all-in, or 0.48%. Optimized execution: maker legs at 0.02% ($4), rebalancing in TRC-20 USDT once a day instead of per-loop ($2 amortized), network fees near zero, post-only orders avoiding accidental taker fills ($5 slippage budget) — roughly $11, or 0.11%. Same spread, four times the kept profit. Our [crypto trading fees guide](/blog/crypto-trading-fees-guide) has the full fee-stack breakdown this math builds on." },
+      { type: "p", text: "Take a $10,000 cross-exchange loop. Naive execution: two taker legs at 0.1% ($20), a BTC withdrawal ($10), network fee ($3), and slippage ($15) — $48 all-in, or 0.48%. Optimized execution: maker legs at 0.02% ($4), rebalancing in TRC-20 USDT once a day instead of per-loop ($2 amortized), network fees near zero, post-only orders avoiding accidental taker fills ($5 slippage budget) — roughly $11, or 0.11%. Same spread, four times the kept profit. Our crypto trading fees guide has the full fee-stack breakdown this math builds on." },
       { type: "p", text: "The math compounds with frequency. An arbitrageur running 100 loops a month saves $3,700 on that example — which is why professionals treat fee optimization as a strategy in itself, not a bookkeeping chore. Every basis point you stop paying is a basis point of edge no competitor can take from you." },
       { type: "h2", text: "What Not to Do Chasing Lower Fees" },
       { type: "p", text: "Three traps to avoid. First, do not chase a low-fee venue with thin order books — saving 0.05% in fees while paying 0.5% in slippage is a bad trade. Second, do not buy an exchange's token purely for the discount; a 20% fee rebate is worthless if the token drops 30%. Third, do not skip the test withdrawal to save a few dollars — one lost transfer to the wrong network costs more than a year of fee optimization. [Triangular arbitrage fees](/blog/triangular-arbitrage-fees) deserve the same skeptical treatment, since same-venue strategies have their own hidden costs." },
@@ -71,5 +71,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Crypto Withdrawal Fees Ranked by Coin: 2026 Arbitrage Costs](/blog/withdrawal-fees-arbitrage), [Structuring Arbitrage as a Business](/blog/arbitrage-business-structure) and [Age and Legal Requirements for Trading](/blog/arbitrage-minimum-age) next." },
   ],
 };

@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "arbitrage trading for beginners"
   ],
   datePublished: "2026-10-15",
-  dateModified: "2026-10-15",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Basics",
   excerpt: "Crypto arbitrage sounds simple — buy low on one exchange, sell high on another — but the gap between theory and profit is filled with fees, transfer times, and risk. Here is an honest starting roadmap.",
@@ -59,10 +59,7 @@ export const post: BlogPost = {
         text: "Anyone promising guaranteed arbitrage returns is selling something. Real spreads are small, competitive, and temporary, and every trade carries execution, counterparty, and market risk. Risk only money you can afford to lose.",
         tone: "warning",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can explain arbitrage types in plain language, help you draft a starter checklist, and summarise the fee and risk concepts in this guide before your first trade." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

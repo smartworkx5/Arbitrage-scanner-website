@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "crypto arbitrage strategy 2026"
   ],
   datePublished: "2026-10-10",
-  dateModified: "2026-10-10",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Strategies",
   excerpt: "Spot-futures arbitrage is the classic cash-and-carry trade: buy the coin on spot, short the dated future, and collect the difference as the contract converges. Here is how the whole trade works.",
@@ -57,7 +57,7 @@ export const post: BlogPost = {
       { type: "p", text: "Liquidation is the headline risk. If you use leverage on the futures leg and the market rips upward, your short can be liquidated even though your spot leg is gaining — the exchange liquidates positions leg by leg, not as a portfolio, unless you have portfolio margin. During sharp moves, the two legs can also diverge temporarily: the basis can widen against you, and if you used cross margin with other positions, a losing leg can drag the whole account. Never assume a hedged position cannot blow up." },
       { type: "h2", text: "Running Spot-Futures Arbitrage in 2026" },
       { type: "p", text: "In 2026, the spot-futures basis on major coins is a professional's game: institutional desks, market makers, and well-capitalized funds compete for it, which keeps the basis tight on bitcoin and ether quarterly contracts most of the time. The remaining opportunities tend to cluster around three situations: altcoin futures where retail leverage demand pushes premiums higher, periods of market stress or euphoria when the basis swings violently, and the days just before expiry when convergence accelerates. Traders who succeed here are patient, well-capitalized, and obsessive about costs — the opposite of the get-rich-quick image arbitrage sometimes carries." },
-      { type: "p", text: "If this strategy appeals to you, start by understanding the moving parts: how the [basis itself behaves](/blog/futures-basis-explained), how quarterly contract mechanics work, and how margin modes affect hedged positions. Paper-trade the full cycle once — entry, holding, expiry, settlement — before committing real capital. The mechanics are straightforward; the discipline is the hard part." },
+      { type: "p", text: "If this strategy appeals to you, start by understanding the moving parts: how the basis itself behaves, how quarterly contract mechanics work, and how margin modes affect hedged positions. Paper-trade the full cycle once — entry, holding, expiry, settlement — before committing real capital. The mechanics are straightforward; the discipline is the hard part." },
       {
         type: "faq",
         items: [
@@ -79,5 +79,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Crypto Arbitrage Bots: Complete 2026 Guide](/blog/crypto-arbitrage-bots-guide), [DeFi Arbitrage: Complete 2026 Guide to On-Chain Strategies Beyond CEX-DEX](/blog/defi-arbitrage-guide) and [Arbitrage on Deribit: Options Focus](/blog/deribit-arbitrage-guide) next." },
   ],
 };

@@ -14,7 +14,7 @@ export const post: BlogPost = {
       "arbitrage trading Singapore"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Markets",
   excerpt: "Singapore pairs MAS licensing with deep crypto liquidity. Learn venues, regulation, taxes, and practical arbitrage strategy in the Lion City.",
@@ -44,10 +44,7 @@ export const post: BlogPost = {
         text: "Singapore has no capital gains tax for individuals, but systematic trading may be treated as income. Do not assume arbitrage profits are tax-free. Get professional advice based on your actual trading pattern.",
         tone: "warning",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you explain Singapore's crypto tax concepts in simple words or draft a record-keeping checklist for your trades." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

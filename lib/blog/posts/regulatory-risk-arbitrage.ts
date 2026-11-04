@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "crypto compliance 2026"
   ],
   datePublished: "2026-10-11",
-  dateModified: "2026-10-11",
+  dateModified: "2026-11-04",
   readingMinutes: 10,
   category: "Risk",
   excerpt: "Regulations move markets and freeze accounts. From Thailand's new crypto ETF framework to shifting exchange licensing, here is how arbitrageurs manage regulatory risk in 2026.",
@@ -43,7 +43,7 @@ export const post: BlogPost = {
           ["Fund transit paths", "Banking crackdown blocks deposits/withdrawals", "Maintain multiple on/off-ramp options"]
         ],
       },
-      { type: "p", text: "Stay informed without obsessing: follow one or two reliable regulatory news sources, and treat major announcements (ETF approvals, licensing overhauls, stablecoin laws) as regime signals worth a portfolio review. The U.S. spot ether ETF outflow streak — nine straight sessions of outflows totaling about $542.2 million from October 5–9, 2026 — is the kind of institutional signal that often precedes regulatory or sentiment shifts worth watching. For the market-structure basics underneath all of this, our [what is crypto arbitrage](/blog/what-is-crypto-arbitrage-2026) primer covers how venue fragmentation creates the spreads regulation then shapes." },
+      { type: "p", text: "Stay informed without obsessing: follow one or two reliable regulatory news sources, and treat major announcements (ETF approvals, licensing overhauls, stablecoin laws) as regime signals worth a portfolio review. The U.S. spot ether ETF outflow streak — nine straight sessions of outflows totaling about $542.2 million from October 5–9, 2026 — is the kind of institutional signal that often precedes regulatory or sentiment shifts worth watching. For the market-structure basics underneath all of this, our [what is crypto arbitrage](/blog/what-is-crypto-arbitrage) primer covers how venue fragmentation creates the spreads regulation then shapes." },
       { type: "h2", text: "Tax and Reporting: The Quiet Regulatory Risk" },
       { type: "p", text: "The least dramatic regulatory risk is also the most certain: taxes. Arbitrage generates hundreds or thousands of taxable events — every leg, every swap, every funding payment can be a reportable event depending on your jurisdiction, and 2026 reporting requirements keep tightening globally. The risk is not just the bill; it is the reconstruction. Rebuilding a year's worth of cross-venue trades from exchange exports during an audit is miserable. Use crypto tax software from day one, keep venue exports, and set aside a tax reserve from profits quarterly. Consult a local professional — this article is not tax advice, and rules vary enormously by country." },
       {

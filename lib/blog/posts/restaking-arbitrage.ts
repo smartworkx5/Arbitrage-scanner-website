@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "liquid restaking tokens"
   ],
   datePublished: "2026-10-15",
-  dateModified: "2026-10-15",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Strategies",
   excerpt: "Restaking promises extra yield on already-staked ETH. The real opportunity is in the gaps between staking, restaking, and AVS rewards — and the risks stacked on top.",
@@ -55,11 +55,8 @@ export const post: BlogPost = {
         tone: "warning",
       },
       { type: "p", text: "A disciplined approach is to track the gap between a restaking token and its backing value over weeks, not minutes, and to trade only when the discount exceeds the full cost of exit by a clear margin. In a fragile tape, with BTC around $80,980 to $81,835 on 15 October 2026 and a possible Fed rate decision due on 28 October, patience and small size beat clever leverage. The traders who last in this niche are the ones who treat restaking as a slow yield-harvesting exercise with strict risk checks, not as a shortcut to outsized returns." },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can answer questions, explain ideas in plain language, and help you organise research in a conversation. You can ask it to break a complicated topic into smaller parts." },
       { type: "p", text: "For this topic, you can ask Muse AI to compare two restaking approaches side by side, so you can see how their reward layers and lockup terms differ before you research further. Muse AI is not a trading tool and does not give financial advice." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       {
         type: "faq",
         items: [
@@ -81,5 +78,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [AI in Arbitrage Trading: Hype vs Reality](/blog/ai-in-arbitrage-trading), [Airdrop Farming vs Arbitrage Compared](/blog/airdrop-arbitrage) and [Altcoin Arbitrage Strategy Guide](/blog/altcoin-arbitrage-strategy) next." },
   ],
 };

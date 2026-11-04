@@ -77,5 +77,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Spot-Futures Arbitrage: Complete Guide](/blog/spot-futures-arbitrage-guide), [AI in Arbitrage Trading: Hype vs Reality](/blog/ai-in-arbitrage-trading) and [Airdrop Farming vs Arbitrage Compared](/blog/airdrop-arbitrage) next." },
   ],
 };
