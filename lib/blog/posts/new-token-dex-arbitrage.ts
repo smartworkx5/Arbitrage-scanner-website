@@ -77,5 +77,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Using DEX Aggregators for Arbitrage Execution](/blog/dex-aggregator-arbitrage), [DEX Arbitrage Gas Costs: When Profit Survives](/blog/dex-arbitrage-gas-costs) and [Essential Tools for DEX Arbitrage in 2026](/blog/dex-arbitrage-tools) next." },
   ],
 };

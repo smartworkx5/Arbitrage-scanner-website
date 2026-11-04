@@ -79,5 +79,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Crypto Arbitrage Risk Management: Position Sizing and Kill Switches](/blog/arbitrage-risk-management), [Execution Risk in Arbitrage: Slippage, Partial Fills, Latency](/blog/execution-risk-arbitrage) and [Is Crypto Arbitrage Really Risk-Free?](/blog/is-arbitrage-risk-free) next." },
   ],
 };

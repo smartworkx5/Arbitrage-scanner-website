@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "crypto crash lessons"
   ],
   datePublished: "2026-10-16",
-  dateModified: "2026-10-16",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Strategies",
   excerpt: "The Terra/LUNA collapse of 2022 was crypto's most expensive lesson in reflexive design. Here is what broke, who got hurt, and what arbitrage traders must take from it.",
@@ -55,10 +55,7 @@ export const post: BlogPost = {
         text: "Any strategy that depends on a peg, a subsidized yield, or a reflexive mechanism can fail suddenly and completely. Never hold more in such a system than you can afford to lose in full.",
         tone: "warning",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can help you learn from the LUNA collapse by explaining the death-spiral mechanism in simple words and by summarizing the warning signs to look for in any yield product." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

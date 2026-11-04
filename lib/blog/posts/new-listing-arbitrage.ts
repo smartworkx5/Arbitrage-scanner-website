@@ -14,7 +14,7 @@ export const post: BlogPost = {
       "crypto arbitrage 2026"
   ],
   datePublished: "2026-10-13",
-  dateModified: "2026-10-13",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Strategies",
   excerpt: "Exchange listings create some of crypto's fastest cross-venue gaps. Learn the announcement-to-listing playbook, the four phases of listing edge, and how to avoid the dump.",
@@ -55,7 +55,7 @@ export const post: BlogPost = {
         ],
       },
       { type: "h2", text: "Realistic expectations" },
-      { type: "p", text: "New-listing arbitrage is one of the highest-variance arbitrage niches: a handful of trades a month may produce most of the year's edge, and long quiet stretches are normal. Competition from professional market makers means the easy gaps close fastest on the biggest listings. Treat it as a satellite strategy, a small allocation with strict checklists, rather than a core income source, and review the [profitability reality check](/blog/is-crypto-arbitrage-profitable-2026) to calibrate expectations." },
+      { type: "p", text: "New-listing arbitrage is one of the highest-variance arbitrage niches: a handful of trades a month may produce most of the year's edge, and long quiet stretches are normal. Competition from professional market makers means the easy gaps close fastest on the biggest listings. Treat it as a satellite strategy, a small allocation with strict checklists, rather than a core income source, and review the [profitability reality check](/blog/is-crypto-arbitrage-profitable) to calibrate expectations." },
       { type: "p", text: "Keep meticulous records of which listing setups worked and why: venue pair, token profile, gap size, fill quality. Over time this log becomes your real edge, pattern recognition for which announcements produce tradeable dispersion and which just produce noise. And never deploy capital you cannot afford to have locked if a venue freezes withdrawals mid-event; our [risk management guide](/blog/arbitrage-risk-management) covers contingency planning." },
       {
         type: "faq",

@@ -2,7 +2,7 @@ import type { BlogPost } from "../../blog-posts";
 
 export const post: BlogPost = {
   slug: "lending-rate-arbitrage",
-  title: "Lending Rate Arbitrage Across Protocols: Aave vs Compound Rate Gaps",
+  title: "Lending Rate Arbitrage: Aave vs Compound Rate Gaps",
   description: "Lending rate arbitrage exploits supply and borrow gaps between Aave, Compound, and other protocols. Learn how rate gaps form, how the loop works, and the risks.",
   keywords: [
       "lending rate arbitrage",
@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "borrow rate gaps"
   ],
   datePublished: "2026-10-14",
-  dateModified: "2026-10-14",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Strategies",
   excerpt: "The same asset can earn different supply rates — and cost different borrow rates — across lending protocols. Here is how lending rate arbitrage works, why the gaps exist, and what can go wrong.",

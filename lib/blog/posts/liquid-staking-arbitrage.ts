@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "liquid staking tokens"
   ],
   datePublished: "2026-10-15",
-  dateModified: "2026-10-15",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Strategies",
   excerpt: "When liquid staking tokens trade away from their fair value, a gap opens. Here is how to read it, what drives it, and why it is rarely free money.",
@@ -47,7 +47,7 @@ export const post: BlogPost = {
         ],
       },
       { type: "h2", text: "Risks That Eat the Spread" },
-      { type: "p", text: "The largest risks are smart-contract risk, slashing risk, and liquidity risk. A bug in the staking protocol or its wrappers can freeze funds or break the peg in ways no spreadsheet predicted, and the UNCX incident reported on 15 October 2026, with roughly $86,000 in losses, is a reminder that even small smart-contract failures happen regularly. Slashing reduces the ETH backing each token, and a thin pool can move several percent against you while you exit. Add counterparty risk if you use a centralised staking product, and remember that staking rewards themselves are taxable income in many jurisdictions, so keep records as carefully as you would for any other trade. For a broader view of how these dangers compare with other strategies, see our [arbitrage risk management guide](/blog/arbitrage-risk-management) and the [stablecoin depeg risk](/blog/stablecoin-depeg-risk) discussion, which covers similar discount dynamics." },
+      { type: "p", text: "The largest risks are smart-contract risk, slashing risk, and liquidity risk. A bug in the staking protocol or its wrappers can freeze funds or break the peg in ways no spreadsheet predicted, and the UNCX incident reported on 15 October 2026, with roughly $86,000 in losses, is a reminder that even small smart-contract failures happen regularly. Slashing reduces the ETH backing each token, and a thin pool can move several percent against you while you exit. Add counterparty risk if you use a centralised staking product, and remember that staking rewards themselves are taxable income in many jurisdictions, so keep records as carefully as you would for any other trade. For a broader view of how these dangers compare with other strategies, see our [arbitrage risk management guide](/blog/arbitrage-risk-management) and the stablecoin depeg risk discussion, which covers similar discount dynamics." },
       {
         type: "callout",
         title: "No free lunch",
@@ -55,11 +55,8 @@ export const post: BlogPost = {
         tone: "warning",
       },
       { type: "p", text: "Position sizing matters more than entry timing here. Because the exit can take days, never commit funds you might need during the queue, and never assume the discount will close by a specific date. Many experienced traders treat liquid staking arbitrage as a patient, small-size strategy rather than a fast flip, and they pair it with plain [cross-exchange arbitrage](/guides/cross-exchange-arbitrage) research so they always have a liquid fallback trade. In a week when ETH is roughly 51% below its August 2025 all-time high and sentiment is fragile, patience is worth more than speed." },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can answer questions, explain ideas in plain language, and help you organise research in a conversation. You can ask it to walk through a new concept step by step until it clicks." },
       { type: "p", text: "For this topic, you can ask Muse AI to explain how a liquid staking token tracks its backing ETH in simple words, so you can check a peg deviation with a clear mental model. Muse AI is not a trading tool and does not give financial advice." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       {
         type: "faq",
         items: [
@@ -81,5 +78,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [AI in Arbitrage Trading: Hype vs Reality](/blog/ai-in-arbitrage-trading), [Airdrop Farming vs Arbitrage Compared](/blog/airdrop-arbitrage) and [Altcoin Arbitrage Strategy Guide](/blog/altcoin-arbitrage-strategy) next." },
   ],
 };

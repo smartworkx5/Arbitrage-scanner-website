@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "learn crypto trading free"
   ],
   datePublished: "2026-10-15",
-  dateModified: "2026-10-15",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Basics",
   excerpt: "You do not need an expensive course to learn arbitrage. Here are the best free resources — and a practice routine that turns reading into real skill.",
@@ -48,10 +48,7 @@ export const post: BlogPost = {
         text: "Arbitrage has no secret shortcut. If a course promises guaranteed profits, secret strategies, or private signals, it is selling hype. The real curriculum is free: docs, data, and practice.",
         tone: "warning",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can explain arbitrage concepts in plain language, summarise a long exchange help article into the key points, and help you build a weekly practice plan for learning arbitrage." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

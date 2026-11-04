@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "latency arbitrage scam"
   ],
   datePublished: "2026-10-12",
-  dateModified: "2026-10-12",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Strategies",
   excerpt: "Latency arbitrage is real — but it belongs to colocated HFT firms, not retail traders. Here is what it actually is, why the speed race is unwinnable for individuals, and how to spot the marketing.",
@@ -39,7 +39,7 @@ export const post: BlogPost = {
       },
       { type: "h2", text: "How to Spot Latency Arbitrage Marketing" },
       { type: "p", text: "The marketing version of latency arbitrage follows a script. It promises retail-accessible speed advantages — a special bot, a secret server location, an algorithm that beats the market — usually with screenshots of spectacular returns and urgency to buy before the opportunity closes. The red flags are consistent: guaranteed or near-guaranteed returns, no discussion of adverse selection or infrastructure, testimonials instead of audited track records, and pricing that extracts your money upfront regardless of performance. Genuine HFT firms do not sell their edge to the public for $99 a month; they deploy it with their own capital." },
-      { type: "p", text: "A useful filter: ask what happens when everyone uses the same bot. True edges decay with competition — if a thousand buyers ran the same latency strategy, the edge would vanish instantly. Products that claim the edge survives mass adoption are claiming a perpetual motion machine. The honest version of speed-adjacent retail trading exists — it is called being fast enough for slower-moving spreads, which is a very different game, covered in our [arbitrage fundamentals](/blog/what-is-crypto-arbitrage-2026)." },
+      { type: "p", text: "A useful filter: ask what happens when everyone uses the same bot. True edges decay with competition — if a thousand buyers ran the same latency strategy, the edge would vanish instantly. Products that claim the edge survives mass adoption are claiming a perpetual motion machine. The honest version of speed-adjacent retail trading exists — it is called being fast enough for slower-moving spreads, which is a very different game, covered in our [arbitrage fundamentals](/blog/what-is-crypto-arbitrage)." },
       {
         type: "callout",
         title: "If the edge were real, they would not sell it",
