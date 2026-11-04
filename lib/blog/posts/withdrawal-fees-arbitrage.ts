@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "network fees arbitrage 2026"
   ],
   datePublished: "2026-10-11",
-  dateModified: "2026-10-11",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Basics",
   excerpt: "Withdrawal fees are the silent killer of cross-exchange arbitrage. Here is how network costs rank by coin in 2026 and how to keep them from eating your spreads.",
@@ -38,7 +38,7 @@ export const post: BlogPost = {
       { type: "p", text: "Read that table as structural truth, not a fee schedule: the ordering is stable, the exact numbers are not. The practical takeaway for arbitrage is to rebalance in whatever is cheapest to move, not in whatever you traded. Profited in bitcoin on the selling exchange? Consider converting to a cheap-to-move coin or a stablecoin on a low-fee network before withdrawing — the conversion costs one trading fee but can save far more in withdrawal costs. Just remember the conversion itself carries spread and timing risk, so model it." },
       { type: "h2", text: "How Withdrawal Fees Kill Arbitrage Profits" },
       { type: "p", text: "Withdrawal fees are fixed per transaction, not proportional — and that fixed nature is what makes them deadly for small trades. A $5 withdrawal fee on a $500 transfer is a 1% drag before anything else; on a $10,000 transfer it is 0.05%, barely noticeable. This creates a hard minimum efficient scale for cross-exchange arbitrage: below a certain trade size, the withdrawal fee alone exceeds any realistic spread. Many beginners discover this by running textbook-perfect arbitrage that loses money on every cycle." },
-      { type: "p", text: "An illustrative example: you spot a 1.5% spread on a $1,000 trade — $15 of apparent profit. Trading fees take roughly $4, the withdrawal to rebalance costs $6 on a mid-tier coin, and slippage takes $2. You are left with about $3 for locking up capital and taking transfer-time price risk — a terrible trade. Run the same spread at $10,000 and the fixed $6 withdrawal becomes negligible while the dollar profit scales. The lesson is not that arbitrage needs huge capital; it is that each strategy has a minimum viable size, and withdrawal fees set it. Our [transfer times guide](/blog/crypto-transfer-times) covers the other half of the rebalancing equation: how long each coin takes to arrive." },
+      { type: "p", text: "An illustrative example: you spot a 1.5% spread on a $1,000 trade — $15 of apparent profit. Trading fees take roughly $4, the withdrawal to rebalance costs $6 on a mid-tier coin, and slippage takes $2. You are left with about $3 for locking up capital and taking transfer-time price risk — a terrible trade. Run the same spread at $10,000 and the fixed $6 withdrawal becomes negligible while the dollar profit scales. The lesson is not that arbitrage needs huge capital; it is that each strategy has a minimum viable size, and withdrawal fees set it. Our transfer times guide covers the other half of the rebalancing equation: how long each coin takes to arrive." },
       {
         type: "callout",
         title: "Never skip the memo, tag, or network check",

@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "arbitrage profitability"
   ],
   datePublished: "2026-10-12",
-  dateModified: "2026-10-12",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Basics",
   excerpt: "Exchanges advertising 0% fees make every spread look like profit. The reality: trading fees are only one of six cost layers, and the other five decide whether you actually make money.",
@@ -50,7 +50,7 @@ export const post: BlogPost = {
       },
       { type: "p", text: "The $500 headline spread becomes $342–$434 after honest costs — still positive, but 13–32% smaller than the zero-fee pitch implied. And if the spread had been 0.3% instead of 0.6%, the trade would be a loser even though no trading fee was ever charged. That is the entire myth in one table: **the fee you eliminated was never the binding constraint.**" },
       { type: "h2", text: "How to Compute Your True All-In Cost" },
-      { type: "p", text: "Build a personal cost sheet before you trade, not after. For each venue, record the maker fee, taker fee, withdrawal fee per coin, deposit minimums and confirmation times, and whether funding applies. Then for each strategy add the non-exchange costs: spread width at your actual position size (check the real order book, not the ticker), the network fee at current congestion, and expected slippage from your own market impact. Understanding [how fee tiers work](/blog/fee-tiers-explained) helps here, since your tier changes the first line of the sheet." },
+      { type: "p", text: "Build a personal cost sheet before you trade, not after. For each venue, record the maker fee, taker fee, withdrawal fee per coin, deposit minimums and confirmation times, and whether funding applies. Then for each strategy add the non-exchange costs: spread width at your actual position size (check the real order book, not the ticker), the network fee at current congestion, and expected slippage from your own market impact. Understanding how fee tiers work helps here, since your tier changes the first line of the sheet." },
       { type: "p", text: "A practical rule: if the spread you are chasing is less than roughly 2–3x your measured all-in cost, the trade is not a trade — it is a coin flip with fees attached. For most retail cross-exchange loops, that floor sits around 0.5%–1.0%. Triangular and stablecoin loops run tighter on fees but add execution risk, which is its own kind of cost." },
       { type: "h2", text: "When Zero-Fee Offers Actually Help (and When They Don't)" },
       { type: "p", text: "Zero-fee promos are genuinely useful in exactly one situation: high-frequency, same-venue strategies where the exchange fee was the dominant cost — for example, market-making or triangular arbitrage inside a single exchange's order books, where you never withdraw and never touch a blockchain. There, dropping the maker fee from 0.1% to 0% can turn a marginal strategy viable. Our [cross-exchange arbitrage guide](/guides/cross-exchange-arbitrage) covers where venue choice matters most." },
@@ -82,5 +82,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Crypto Arbitrage Fee Calculator: Spreadsheet Template Walkthrough](/blog/fee-calculator-arbitrage), [Structuring Arbitrage as a Business](/blog/arbitrage-business-structure) and [Age and Legal Requirements for Trading](/blog/arbitrage-minimum-age) next." },
   ],
 };

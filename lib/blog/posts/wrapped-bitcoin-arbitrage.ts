@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "bitcoin defi arbitrage"
   ],
   datePublished: "2026-10-12",
-  dateModified: "2026-10-12",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Markets",
   excerpt: "WBTC should equal BTC — but it doesn't always. Mint/burn mechanics, custody changes, and DeFi liquidations push the wrapped token off peg, creating spreads for traders who understand the plumbing.",
@@ -42,7 +42,7 @@ export const post: BlogPost = {
       },
       { type: "h2", text: "The tradeable setups (and their true costs)" },
       { type: "p", text: "The cleanest setup is the DEX-vs-CEX loop during a liquidation-driven discount: buy discounted WBTC on a DEX like Uniswap, transfer to a venue where WBTC trades near peg (or redeem through a merchant if you have access), and capture the difference. Costs include Ethereum gas on the buy and any transfers, DEX slippage on thin WBTC pools during stress, CEX trading fees on the hedge leg, and — critically — the time your capital is exposed while redemption or transfer completes. A 0.5% gross discount can net to 0.1–0.2% after costs, which is why this trade favors larger size and low-fee operators. The reverse (premium) setup — buy BTC, mint WBTC, sell premium — requires merchant access and is effectively institutional-only." },
-      { type: "p", text: "Alternatives to WBTC carry the same logic with different trust assumptions. cbBTC (Coinbase's wrapped bitcoin), tBTC, and other wrapped variants each have their own custodian/bridge risk and their own deviation patterns — and spreads between wrapped variants themselves (WBTC vs cbBTC) can be traded by those with mint/burn access on both. Stablecoin depegs follow parallel mechanics; our [stablecoin depeg guide](/blog/stablecoin-depeg-risk) covers the shared playbook. The general principle across all of them: the peg holds until the redemption mechanism is doubted, and the trade is pricing that doubt, not ignoring it." },
+      { type: "p", text: "Alternatives to WBTC carry the same logic with different trust assumptions. cbBTC (Coinbase's wrapped bitcoin), tBTC, and other wrapped variants each have their own custodian/bridge risk and their own deviation patterns — and spreads between wrapped variants themselves (WBTC vs cbBTC) can be traded by those with mint/burn access on both. Stablecoin depegs follow parallel mechanics; our stablecoin depeg guide covers the shared playbook. The general principle across all of them: the peg holds until the redemption mechanism is doubted, and the trade is pricing that doubt, not ignoring it." },
       { type: "h2", text: "Risk management for peg-deviation trades" },
       { type: "p", text: "Size these trades like credit trades, not like spot arbitrage, because that is what they are — you are extending trust to a custodian for the duration of the position. Cap exposure per wrapped asset, set a maximum holding time (if the peg has not recovered in your window, exit and reassess rather than hoping), and hedge the BTC price exposure if you plan to hold the discounted token rather than immediately redeem. Keep a written checklist of each custodian's current status — merchant lists, proof-of-reserves publications, and any governance changes — and re-verify before increasing size. The [CEX vs DEX stablecoin gaps guide](/blog/cex-dex-stablecoin-gaps) has a useful framework for evaluating peg mechanics that transfers directly to wrapped BTC." },
       {
@@ -66,5 +66,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Bitcoin Arbitrage: Complete 2026 Guide](/blog/bitcoin-arbitrage-guide), [Bitcoin ETF Arbitrage Mechanics](/blog/bitcoin-etf-arbitrage) and [Post-Halving Bitcoin Market Structure](/blog/bitcoin-halving-arbitrage) next." },
   ],
 };
