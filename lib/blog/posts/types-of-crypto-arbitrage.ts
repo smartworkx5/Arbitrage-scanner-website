@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "dex arbitrage"
   ],
   datePublished: "2026-10-10",
-  dateModified: "2026-10-10",
+  dateModified: "2026-11-04",
   readingMinutes: 10,
   category: "Basics",
   excerpt: "Not all arbitrage is buying low on one exchange and selling high on another. These are the 7 main types of crypto arbitrage — and the very different skills each one demands.",
@@ -49,7 +49,7 @@ export const post: BlogPost = {
         ],
       },
       { type: "h2", text: "Which Type Should Beginners Start With?" },
-      { type: "p", text: "Start with cross-exchange arbitrage on major coins between two reputable exchanges, using small amounts. It teaches you the core skills — fee math, order books, transfers, reconciliation — that every other type builds on. Avoid funding-rate and statistical strategies until you are comfortable with leverage math and risk management, and treat anything involving bridges as advanced territory. Whichever you choose, the honest profitability picture is in our 2026 analysis of [whether crypto arbitrage is still profitable](/blog/is-crypto-arbitrage-profitable-2026)." },
+      { type: "p", text: "Start with cross-exchange arbitrage on major coins between two reputable exchanges, using small amounts. It teaches you the core skills — fee math, order books, transfers, reconciliation — that every other type builds on. Avoid funding-rate and statistical strategies until you are comfortable with leverage math and risk management, and treat anything involving bridges as advanced territory. Whichever you choose, the honest profitability picture is in our 2026 analysis of [whether crypto arbitrage is still profitable](/blog/is-crypto-arbitrage-profitable)." },
       {
         type: "callout",
         title: "One strategy at a time",

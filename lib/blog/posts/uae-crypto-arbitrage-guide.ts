@@ -14,7 +14,7 @@ export const post: BlogPost = {
       "zero tax crypto UAE"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 10,
   category: "Markets",
   excerpt: "The UAE offers zero personal income tax and VARA licensing for crypto. Learn venues, structuring, compliance, and arbitrage strategy in the Emirates.",
@@ -49,10 +49,7 @@ export const post: BlogPost = {
       },
       { type: "h2", text: "Practical Strategy From the UAE" },
       { type: "p", text: "Arbitrage from the UAE follows the same disciplined playbook as anywhere: high-liquidity pairs, pre-positioned capital, careful fee and funding tracking, and modest position sizes. The UAE's advantage shows up in execution: fast AED on-ramps, licensed venues, and a time zone that bridges Asian and European trading hours, letting traders catch spreads in both sessions. Volatility events create the best windows, such as the Oct 16, 2026 session that saw more than $830M in liquidations. Keep exposure per venue capped, watch funding costs, and stay alert to macro catalysts like the US Federal Reserve meeting on Oct 28 to 29, 2026. Study the mechanics in [cross-exchange arbitrage](/guides/cross-exchange-arbitrage) and [CEX vs DEX arbitrage](/guides/cex-vs-dex-arbitrage), and review key terms in the [glossary](/glossary)." },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you draft a comparison of individual versus company trading setups so you can discuss the options clearly with a tax professional." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

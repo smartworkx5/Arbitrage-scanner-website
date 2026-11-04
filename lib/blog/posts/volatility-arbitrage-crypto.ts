@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "crypto volatility surface"
   ],
   datePublished: "2026-10-15",
-  dateModified: "2026-10-15",
+  dateModified: "2026-11-04",
   readingMinutes: 10,
   category: "Strategies",
   excerpt: "Volatility arbitrage bets on how much prices will move, not which way. Here is how implied versus realised volatility works, why delta hedging is the whole job, and why this strategy suits specialists.",
@@ -46,11 +46,8 @@ export const post: BlogPost = {
         text: "It requires options expertise, hedging infrastructure, capital, and round-the-clock monitoring. Most traders are better served by simpler strategies such as pairs trading or basis trading — and by studying rather than trading volatility.",
         tone: "warning",
       },
-      { type: "p", text: "For most readers, the right takeaway is educational. Understanding implied versus realised volatility helps you read option markets, judge whether options are expensive or cheap, and understand why strategies like covered calls or protective puts cost what they do. If you want exposure to volatility ideas without running a delta-hedged book, consider learning through paper trading and small, defined-risk option positions, and studying the related market-neutral approaches in [Market-Neutral Crypto Portfolios](/blog/market-neutral-crypto) and [Pairs Trading Crypto Assets](/blog/pairs-trading-crypto). Never trade volatility with leverage you do not fully understand, and never treat a volatility edge as a safe yield." },
-      { type: "h2", text: "AI Help: Muse AI" },
+      { type: "p", text: "For most readers, the right takeaway is educational. Understanding implied versus realised volatility helps you read option markets, judge whether options are expensive or cheap, and understand why strategies like covered calls or protective puts cost what they do. If you want exposure to volatility ideas without running a delta-hedged book, consider learning through paper trading and small, defined-risk option positions, and studying the related market-neutral approaches in Market-Neutral Crypto Portfolios and Pairs Trading Crypto Assets. Never trade volatility with leverage you do not fully understand, and never treat a volatility edge as a safe yield." },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can explain implied versus realised volatility, delta hedging, and vega in plain language, and it can help you draft a study checklist for learning options before risking capital." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",
@@ -73,5 +70,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [AI in Arbitrage Trading: Hype vs Reality](/blog/ai-in-arbitrage-trading), [Airdrop Farming vs Arbitrage Compared](/blog/airdrop-arbitrage) and [Altcoin Arbitrage Strategy Guide](/blog/altcoin-arbitrage-strategy) next." },
   ],
 };

@@ -81,5 +81,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Triangular Arbitrage: Complete 2026 Guide](/blog/triangular-arbitrage-guide), [10 Ways to Reduce Arbitrage Trading Fees](/blog/reducing-arbitrage-fees) and [Crypto Withdrawal Fees Ranked by Coin: 2026 Arbitrage Costs](/blog/withdrawal-fees-arbitrage) next." },
   ],
 };

@@ -14,7 +14,7 @@ export const post: BlogPost = {
       "arbitrage trading UK"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 10,
   category: "Markets",
   excerpt: "Crypto arbitrage in the UK runs under FCA rules and UK tax law. This guide covers venues, compliance, taxes, and practical strategy.",
@@ -52,10 +52,7 @@ export const post: BlogPost = {
       },
       { type: "h2", text: "Practical Strategy From the UK" },
       { type: "p", text: "UK arbitrage works best as a steady, low-risk operation built on registered venues. Focus on BTC and ETH pairs with deep liquidity, where execution is reliable even if spreads are thin. Watch for spread widening around volatility events, such as the Oct 16, 2026 liquidation wave of more than $830M, when dislocations appear briefly. Keep an eye on macro catalysts too: the US Federal Reserve meeting on Oct 28 to 29, 2026 can move global markets and widen spreads across venues. Pre-position capital, track funding and fees carefully, and keep position sizes modest. Study the core mechanics in [cross-exchange arbitrage](/guides/cross-exchange-arbitrage) and [CEX vs DEX arbitrage](/guides/cex-vs-dex-arbitrage), and browse definitions in the [glossary](/glossary)." },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you summarize UK crypto tax concepts in plain language or draft a record-keeping checklist for your arbitrage trades." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

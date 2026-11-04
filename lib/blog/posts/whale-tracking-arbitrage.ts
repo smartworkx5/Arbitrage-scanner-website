@@ -2,7 +2,7 @@ import type { BlogPost } from "../../blog-posts";
 
 export const post: BlogPost = {
   slug: "whale-tracking-arbitrage",
-  title: "Whale Movements and Arbitrage Timing: How On-Chain Flows Signal Spreads",
+  title: "Whale Tracking for Arbitrage: Reading On-Chain Flows",
   description: "Learn how whale movements create crypto arbitrage timing windows. Track on-chain flows, exchange deposits, and big transfers to spot spreads before they close.",
   keywords: [
       "whale tracking arbitrage",
@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "exchange inflows arbitrage"
   ],
   datePublished: "2026-10-14",
-  dateModified: "2026-10-14",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Markets",
   excerpt: "Large holders move markets when they move coins. Learn how whale tracking turns on-chain flows into arbitrage timing signals — and where the traps are.",

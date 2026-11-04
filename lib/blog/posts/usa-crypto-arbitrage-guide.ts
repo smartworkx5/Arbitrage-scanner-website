@@ -14,7 +14,7 @@ export const post: BlogPost = {
       "arbitrage trading USA"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 11,
   category: "Markets",
   excerpt: "Crypto arbitrage in the USA means navigating venues, taxes, and regulations. This complete guide covers exchanges, compliance, and practical strategy.",
@@ -47,10 +47,7 @@ export const post: BlogPost = {
         text: "US arbitrage profits are taxable and record-keeping is demanding. Keep complete records for every trade leg, use reputable tax software, and consult a tax professional. Rules change often, so verify current requirements before each tax year.",
         tone: "warning",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you explain US crypto tax concepts in simple words or draft a research checklist before you speak with a tax professional." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

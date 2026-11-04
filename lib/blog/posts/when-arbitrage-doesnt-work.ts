@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "arbitrage traps"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Risk",
   excerpt: "Arbitrage is not risk-free. In trending, illiquid, or high-fee regimes, the textbook spread can turn into a real loss — here is how to spot those conditions early.",
@@ -58,10 +58,7 @@ export const post: BlogPost = {
         text: "In bad regimes, the best arbitrage decision is often no trade at all. Preserved capital can be deployed when conditions improve; lost capital cannot.",
         tone: "info",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you reason through bad-regime conditions before you trade. Ask it to explain leg risk in simple words, or to help you draft a no-trade checklist tailored to the exchanges and pairs you use." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",
@@ -84,5 +81,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [How Arbitrage Scanners Work Under the Hood](/blog/how-arbitrage-scanners-work), [Crypto Arbitrage Drawdowns: When Edges Compress for Months](/blog/arbitrage-drawdowns) and [Crypto Arbitrage Risk Management: Position Sizing and Kill Switches](/blog/arbitrage-risk-management) next." },
   ],
 };

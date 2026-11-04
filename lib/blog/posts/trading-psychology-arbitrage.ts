@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "emotional trading arbitrage"
   ],
   datePublished: "2026-10-15",
-  dateModified: "2026-10-15",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Basics",
   excerpt: "Arbitrage looks like pure math, but fear, greed, and impatience decide who survives it. Here is the psychology behind consistent arbitrage trading, and the habits that protect it.",
@@ -35,7 +35,7 @@ export const post: BlogPost = {
         "Review trades weekly by process quality, not just profit, and note which emotions showed up."
         ],
       },
-      { type: "p", text: "These habits work because they move decisions from the heat of the moment to a calmer time. A stop rule written in the morning is far easier to follow than one invented during a drawdown. The same logic applies to position sizing: decide your maximum size when you are calm, and treat any urge to exceed it as a warning sign rather than a signal. For the practical side of sizing and route checks, see [Arbitrage Risk Management](/blog/arbitrage-risk-management). For the record-keeping habit that makes reviews honest, see [Trade Journaling That Improves Results](/blog/journaling-trades)." },
+      { type: "p", text: "These habits work because they move decisions from the heat of the moment to a calmer time. A stop rule written in the morning is far easier to follow than one invented during a drawdown. The same logic applies to position sizing: decide your maximum size when you are calm, and treat any urge to exceed it as a warning sign rather than a signal. For the practical side of sizing and route checks, see [Arbitrage Risk Management](/blog/arbitrage-risk-management). For the record-keeping habit that makes reviews honest, see Trade Journaling That Improves Results." },
       { type: "h2", text: "Managing Emotions Without Pretending They Go Away" },
       { type: "p", text: "A common myth is that good traders feel nothing. In reality, experienced traders feel the same fear and excitement as beginners; they have simply built routines that keep feelings from driving orders. Simple techniques help: pause for a full minute before acting on an alert that triggers excitement, verbalise the trade plan out loud before executing, and keep a short written checklist beside the keyboard. Physical basics matter too. Sleep deprivation, hunger, and exhaustion degrade judgment faster than any market event, and many impulsive trades happen late at night after a long session." },
       {
@@ -44,11 +44,8 @@ export const post: BlogPost = {
         text: "Fear can warn you that a position is too large. Excitement can warn you that you are chasing. Listen to the feeling, check it against your written plan, and let the plan decide.",
         tone: "info",
       },
-      { type: "p", text: "It also helps to separate your identity from your results. A losing day does not make you a bad trader, and a winning day does not make you a genius. Both are single samples in a long series. Traders who tie their self-worth to daily profit swing between overconfidence and despair, and both states produce bad trades. The steadier framing is craft-based: today, did I follow the process, manage risk, and learn something? If the answer is yes, the day served its purpose whatever the profit and loss statement says. For more on handling losses specifically, see [Handling Losses Without Revenge Trading](/blog/loss-psychology-crypto)." },
-      { type: "h2", text: "AI Help: Muse AI" },
+      { type: "p", text: "It also helps to separate your identity from your results. A losing day does not make you a bad trader, and a winning day does not make you a genius. Both are single samples in a long series. Traders who tie their self-worth to daily profit swing between overconfidence and despair, and both states produce bad trades. The steadier framing is craft-based: today, did I follow the process, manage risk, and learn something? If the answer is yes, the day served its purpose whatever the profit and loss statement says. For more on handling losses specifically, see Handling Losses Without Revenge Trading." },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can explain trading psychology concepts such as outcome bias, action bias, and loss aversion in plain language, and help you draft a personal discipline checklist. For example, you can ask it to help you write a short pre-trading routine and a set of stop rules you can keep beside your keyboard." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",
@@ -71,5 +68,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Crypto Arbitrage vs Day Trading: Which Suits You?](/blog/crypto-arbitrage-vs-day-trading), [AI in Arbitrage Trading: Hype vs Reality](/blog/ai-in-arbitrage-trading) and [Grid Trading as Quasi-Arbitrage](/blog/grid-trading-arbitrage) next." },
   ],
 };
