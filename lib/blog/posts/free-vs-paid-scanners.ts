@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "best free crypto scanner"
   ],
   datePublished: "2026-10-15",
-  dateModified: "2026-10-15",
+  dateModified: "2026-11-04",
   readingMinutes: 7,
   category: "Basics",
   excerpt: "Free scanners teach you the game. Paid scanners are supposed to help you play it. Here is what each tier actually delivers, what free tools leave out, and how to decide when a subscription earns its price.",
@@ -48,17 +48,14 @@ export const post: BlogPost = {
         "Review the subscription quarterly: cancel if your trading frequency drops or the edge fades."
         ],
       },
-      { type: "p", text: "One more consideration is security. A scanner should observe markets, not hold your funds. Be wary of any tool, free or paid, that asks you to deposit capital into its own wallet, share API keys with withdrawal permissions, or route trades through its own exchange. A legitimate scanner needs at most read-only access to public market data, and any execution feature should use withdrawal-disabled keys with strict limits. If a tool's business model depends on holding your money, that is a reason to walk away, not a feature to celebrate. For the alerting workflow that pairs with any scanner, see [Setting Effective Arbitrage Price Alerts](/blog/setting-price-alerts)." },
+      { type: "p", text: "One more consideration is security. A scanner should observe markets, not hold your funds. Be wary of any tool, free or paid, that asks you to deposit capital into its own wallet, share API keys with withdrawal permissions, or route trades through its own exchange. A legitimate scanner needs at most read-only access to public market data, and any execution feature should use withdrawal-disabled keys with strict limits. If a tool's business model depends on holding your money, that is a reason to walk away, not a feature to celebrate. For the alerting workflow that pairs with any scanner, see Setting Effective Arbitrage Price Alerts." },
       {
         type: "callout",
         title: "Price is not the same as value",
         text: "A free scanner that teaches you to count costs honestly is worth more than a paid scanner that shows gross spreads as opportunities. Judge every tool by its net-spread accuracy, not by its price tag.",
         tone: "info",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can explain scanner pricing and features in plain language and help you work through the break-even math for a subscription you are considering." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",
@@ -81,5 +78,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [How Arbitrage Scanners Work Under the Hood](/blog/how-arbitrage-scanners-work), [Is Crypto Arbitrage Really Risk-Free?](/blog/is-arbitrage-risk-free) and [Structuring Arbitrage as a Business](/blog/arbitrage-business-structure) next." },
   ],
 };

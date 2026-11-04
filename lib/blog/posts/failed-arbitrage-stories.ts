@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "arbitrage post-mortem"
   ],
   datePublished: "2026-10-16",
-  dateModified: "2026-10-16",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Strategies",
   excerpt: "Arbitrage is sold as risk-free profit. It isn't. These honest post-mortems of trades that blew up show exactly how spreads, leverage, and frozen venues turn winners into losses.",
@@ -59,10 +59,7 @@ export const post: BlogPost = {
         text: "Arbitrage is not risk-free. Every spread carries execution, transfer, custody, counterparty, peg, and liquidity risk. Never trade with capital you cannot afford to have frozen or lost.",
         tone: "warning",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can help you learn from failed arbitrage trades by summarizing a post-mortem in simple words and drafting a pre-trade risk checklist for your own strategies." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

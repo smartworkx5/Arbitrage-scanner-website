@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "perpetual funding strategy 2026"
   ],
   datePublished: "2026-10-10",
-  dateModified: "2026-10-10",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Strategies",
   excerpt: "Funding rate arbitrage lets you collect periodic funding payments while staying neutral to price moves. Here is how the trade works in 2026, what it really pays, and the risks that matter.",
@@ -57,7 +57,7 @@ export const post: BlogPost = {
       { type: "p", text: "Then there is operational risk, the boring one that actually causes losses. Your capital sits on an exchange as spot coins plus futures margin, exposed to outages, withdrawal freezes, and extreme-case insolvency. Opening and closing fees on both legs are a fixed cost that small positions may never overcome. None of this kills the strategy, but all of it belongs in your expected-return math." },
       { type: "h2", text: "What Returns Are Realistic?" },
       { type: "p", text: "Annualize honestly: average funding over a representative period, times intervals per year, minus fees as a share of position size. In calm markets, major-coin funding strategies have historically produced modest single-digit annualized returns after costs. Euphoric altcoin rallies bring brief bursts of far higher yields — exactly when liquidation risk peaks. The real appeal is not spectacular returns; it is returns uncorrelated with market direction." },
-      { type: "p", text: "If your capital could earn a safe yield elsewhere, funding arbitrage must beat it after fees, taxes, and the risk of a bad week. Many run it as one sleeve of a portfolio — a market-neutral allocation beside directional holdings. And unlike staking, nothing is locked: you can exit in minutes when conditions change. Our [funding arbitrage vs staking comparison](/blog/funding-arbitrage-vs-staking) covers the trade-off." },
+      { type: "p", text: "If your capital could earn a safe yield elsewhere, funding arbitrage must beat it after fees, taxes, and the risk of a bad week. Many run it as one sleeve of a portfolio — a market-neutral allocation beside directional holdings. And unlike staking, nothing is locked: you can exit in minutes when conditions change. Our [funding arbitrage vs staking comparison](/guides/funding-rate-arbitrage) covers the trade-off." },
       { type: "h2", text: "Your First Funding Trade: A Checklist" },
       {
         type: "list",

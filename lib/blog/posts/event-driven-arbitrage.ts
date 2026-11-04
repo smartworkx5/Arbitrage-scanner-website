@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "crypto catalyst trading"
   ],
   datePublished: "2026-10-15",
-  dateModified: "2026-10-15",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Strategies",
   excerpt: "News moves crypto prices unevenly across venues, and that unevenness is the event-driven arbitrage opportunity. Here is how catalysts widen spreads, why the gaps are harder to capture than they look, and how to approach event trading with discipline.",
@@ -56,10 +56,7 @@ export const post: BlogPost = {
         text: "A hot CPI print can send Bitcoin down 2% and then recover half the move within the hour. Never size an event trade as if the first move is the final move, and always have an exit plan before you enter.",
         tone: "warning",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can explain an event like a CPI release in plain language and help you build a checklist of what to verify before trading around a scheduled catalyst." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",
@@ -82,5 +79,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [AI in Arbitrage Trading: Hype vs Reality](/blog/ai-in-arbitrage-trading), [Airdrop Farming vs Arbitrage Compared](/blog/airdrop-arbitrage) and [Altcoin Arbitrage Strategy Guide](/blog/altcoin-arbitrage-strategy) next." },
   ],
 };

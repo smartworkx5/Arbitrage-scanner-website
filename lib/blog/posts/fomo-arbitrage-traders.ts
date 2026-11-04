@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "crypto FOMO psychology"
   ],
   datePublished: "2026-10-15",
-  dateModified: "2026-10-15",
+  dateModified: "2026-11-04",
   readingMinutes: 7,
   category: "Basics",
   excerpt: "FOMO is the arbitrageur's most expensive emotion. Here is why it hits even spread traders, and the routines that replace chasing with patience.",
@@ -35,7 +35,7 @@ export const post: BlogPost = {
         "Keep a missed-trade log: note every spread you skipped and what happened next, to prove that missed trades are usually harmless."
         ],
       },
-      { type: "p", text: "The missed-trade log deserves special attention, because it attacks FOMO at its root. FOMO rests on the belief that every missed opportunity is a loss. A log shows the truth: most missed spreads closed without ever being tradeable after costs, and the market produces new spreads constantly. After a few weeks of logging, missing a spread stops feeling like failure and starts feeling like routine. For the journaling habit behind this, see [Trade Journaling That Improves Results](/blog/journaling-trades), and for the wider psychology picture, see [Psychology of Arbitrage Trading](/blog/trading-psychology-arbitrage)." },
+      { type: "p", text: "The missed-trade log deserves special attention, because it attacks FOMO at its root. FOMO rests on the belief that every missed opportunity is a loss. A log shows the truth: most missed spreads closed without ever being tradeable after costs, and the market produces new spreads constantly. After a few weeks of logging, missing a spread stops feeling like failure and starts feeling like routine. For the journaling habit behind this, see Trade Journaling That Improves Results, and for the wider psychology picture, see [Psychology of Arbitrage Trading](/blog/trading-psychology-arbitrage)." },
       { type: "h2", text: "What to Do When FOMO Strikes Mid-Session" },
       { type: "p", text: "Even with good routines, FOMO will still strike. The goal is not to eliminate the feeling but to have a plan for it. When you notice urgency, excitement, or irritation at a missed trade, treat those feelings as a signal to pause, not to act. Step away from the screen for five minutes. Check your written plan. Ask one question: would I take this trade if nobody else knew about it and I had all day to decide? If the answer is no, the trade is FOMO, not opportunity. If the answer is yes, run the full fee and transfer calculation before entering." },
       {
@@ -45,10 +45,7 @@ export const post: BlogPost = {
         tone: "info",
       },
       { type: "p", text: "It also helps to cap your daily trade count and your daily loss in advance. A cap turns FOMO from an open-ended temptation into a bounded decision: if you have already used your trades for the day, the answer is automatically no. That automatic no is a gift. It protects you from the late-session trades that FOMO loves most, the ones taken when you are tired, frustrated, and determined to end the day on a win. For risk limits and route checks, see [Arbitrage Risk Management](/blog/arbitrage-risk-management)." },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can explain FOMO and other trading biases in plain language and help you draft a personal anti-FOMO checklist. For example, you can ask it to help you write a two-minute pre-trade pause routine and a missed-trade log template you can fill in after each session." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",
@@ -71,5 +68,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Structuring Arbitrage as a Business](/blog/arbitrage-business-structure), [Age and Legal Requirements for Trading](/blog/arbitrage-minimum-age) and [Crypto Arbitrage Scanners Compared 2026](/blog/arbitrage-scanners-compared) next." },
   ],
 };

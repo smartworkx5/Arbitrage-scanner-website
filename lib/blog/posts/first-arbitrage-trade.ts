@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "beginner arbitrage execution"
   ],
   datePublished: "2026-10-15",
-  dateModified: "2026-10-15",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Basics",
   excerpt: "Your first arbitrage trade should be small, slow, and fully logged. This walkthrough takes you through every step — before, during, and after — so the lesson survives even if the trade does not profit.",
@@ -47,10 +47,7 @@ export const post: BlogPost = {
         ],
       },
       { type: "p", text: "Review the trade within 24 hours while the details are fresh. Ask three questions. Did the trade make or lose money after all costs? Did I follow my plan, or did I improvise? What is the single biggest cost I can reduce next time? If the answer to the first question is a small loss, that is a normal outcome for a first trade, and it is far better than a lucky win that teaches nothing. A first trade that loses $5 but produces an accurate fee model and a tested route is a successful first trade. A first trade that wins $50 by luck and teaches nothing is a liability, because it encourages larger size before the process is sound." },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can turn your trade plan into a printable pre-flight checklist and help you summarise your trade log into lessons for your next trade." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

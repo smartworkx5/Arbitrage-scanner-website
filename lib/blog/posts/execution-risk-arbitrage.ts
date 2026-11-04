@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "order execution crypto"
   ],
   datePublished: "2026-10-11",
-  dateModified: "2026-10-11",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Risk",
   excerpt: "The spread you see is not the spread you get. Slippage, partial fills, and latency eat arbitrage edges between signal and execution — here is how to measure and control them.",
@@ -31,7 +31,7 @@ export const post: BlogPost = {
         tone: "warning",
       },
       { type: "p", text: "**Partial fills** happen when your order executes against only part of the available liquidity — common in fast markets, on thin books, and when using limit orders priced at the edge. The danger is asymmetric: suppose you buy 1 BTC on Exchange A (fills fully) and your sell order on Exchange B fills only 0.4 BTC before the price moves. You are now long 0.6 BTC unintentionally — a directional bet inside a strategy that was supposed to be market-neutral. If the market drops while you work the remainder, the loss can dwarf the spread you were chasing." },
-      { type: "p", text: "Controls: prefer fill-or-kill or immediate-or-cancel order types where venues support them, so a leg either completes or aborts cleanly. Sequence legs to fill the harder leg first — if the thin-book leg fails, you simply never open the easy leg. And predefine the unwind rule: if a leg is partially filled and the remainder cannot be completed within your time limit, close the filled portion immediately at market rather than hoping. Hope is not a hedge. For the transfer leg between venues, our [crypto transfer times guide](/blog/crypto-transfer-times) explains why the in-transit window is the longest partial-exposure period of all." },
+      { type: "p", text: "Controls: prefer fill-or-kill or immediate-or-cancel order types where venues support them, so a leg either completes or aborts cleanly. Sequence legs to fill the harder leg first — if the thin-book leg fails, you simply never open the easy leg. And predefine the unwind rule: if a leg is partially filled and the remainder cannot be completed within your time limit, close the filled portion immediately at market rather than hoping. Hope is not a hedge. For the transfer leg between venues, our crypto transfer times guide explains why the in-transit window is the longest partial-exposure period of all." },
       { type: "h2", text: "Latency: Milliseconds That Cost Real Money" },
       { type: "p", text: "**Latency** is the delay between market data reaching you, your decision, and the exchange confirming your fill. For manual traders it is measured in seconds — reading the screen, clicking, confirming. For bots, milliseconds — network round-trips, API rate limits, matching-engine queue position. In calm markets latency is a minor tax; in volatile ones it is the trade. When a coin is moving several percent per hour, a 30-second manual execution delay can erase a 0.5% spread before the second leg fills. This is why professional arbitrage is overwhelmingly automated: not for sophistication, but to compress the signal-to-fill window." },
       {

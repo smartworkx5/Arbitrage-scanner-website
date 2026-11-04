@@ -2,7 +2,7 @@ import type { BlogPost } from "../../blog-posts";
 
 export const post: BlogPost = {
   slug: "fee-calculator-arbitrage",
-  title: "Crypto Arbitrage Fee Calculator: Spreadsheet Template Walkthrough",
+  title: "Arbitrage Fee Calculator: Spreadsheet Walkthrough",
   description: "Build a crypto arbitrage fee calculator in a spreadsheet: every input, formula, and go/no-go rule you need to cost an arbitrage trade honestly in 2026.",
   keywords: [
       "crypto arbitrage fee calculator",
@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "arbitrage cost spreadsheet"
   ],
   datePublished: "2026-10-11",
-  dateModified: "2026-10-11",
+  dateModified: "2026-11-04",
   readingMinutes: 10,
   category: "Basics",
   excerpt: "A spreadsheet is the most honest arbitrage tool you own. This walkthrough builds a fee calculator cell by cell — inputs, formulas, and the go/no-go rules pros use.",

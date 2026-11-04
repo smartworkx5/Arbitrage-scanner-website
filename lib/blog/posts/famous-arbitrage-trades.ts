@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "historical arbitrage"
   ],
   datePublished: "2026-10-16",
-  dateModified: "2026-10-16",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Strategies",
   excerpt: "Arbitrage is older than crypto by centuries. The famous trades of history — from bond convergence to gold — teach lessons that still apply to crypto spreads in 2026.",
@@ -56,10 +56,7 @@ export const post: BlogPost = {
         text: "Every famous arbitrage edge eventually compressed or blew up. The durable skill is not finding one edge — it is managing leverage, costs, and exits across many edges over time.",
         tone: "info",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can help you learn from famous arbitrage trades by summarizing a classic trade's mechanics in simple words and comparing it with a modern crypto strategy." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",
