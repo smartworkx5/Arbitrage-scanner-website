@@ -24,16 +24,16 @@ async function getRegisteredUserCount(): Promise<number | null> {
 }
 
 const appScreenshots = [
-  { tab: "Spot Matrix", desc: "2,355 arbitrage pairs found across 16 exchanges", img: "https://aeb9hcvyfaw2hgog.public.blob.vercel-storage.com/app-screenshots/scanner-spot-matrix-Np57AV5jPoRihaeWtLBQzqF10atLNJ.jpg" },
+  { tab: "Spot Matrix", desc: "2,355 arbitrage pairs found across 19 exchanges", img: "https://aeb9hcvyfaw2hgog.public.blob.vercel-storage.com/app-screenshots/scanner-spot-matrix-Np57AV5jPoRihaeWtLBQzqF10atLNJ.jpg" },
   { tab: "CEX vs DEX", desc: "46 CEX vs DEX opportunities with profit calculator", img: "https://aeb9hcvyfaw2hgog.public.blob.vercel-storage.com/app-screenshots/cex-vs-dex-0EiOnCDYaRAb9HorNbHrBpx55rzDZH.jpg" },
   { tab: "Spread Analyzer", desc: "Bid/ask spreads ranked — spot gaps instantly", img: "https://aeb9hcvyfaw2hgog.public.blob.vercel-storage.com/app-screenshots/spread-analyzer-Y7NNBcDrGzGAlu9UNuToC6vQ7yjK4o.jpg" },
   { tab: "Top Movers", desc: "Biggest gainers with arbitrage routes mapped", img: "https://aeb9hcvyfaw2hgog.public.blob.vercel-storage.com/app-screenshots/top-movers-gH02EZ8gO21xMLys7zLT7uEFh0n4qI.jpg" },
 ];
 
 export const metadata: Metadata = {
-  title: "Cryptoscopia | Crypto Arbitrage Scanner — Real-Time Price Gaps Across 16 Exchanges",
+  title: "Cryptoscopia | Crypto Arbitrage Scanner — Real-Time Price Gaps Across 19 Exchanges",
   description:
-    "Cryptoscopia is a real-time crypto arbitrage scanner comparing prices across 16 exchanges — cross-exchange, triangular & funding-rate spreads. Free 3-day trial.",
+    "Cryptoscopia is a real-time crypto arbitrage scanner comparing prices across 19 exchanges — cross-exchange, triangular & funding-rate spreads. Free 3-day trial.",
   keywords: [
     "crypto arbitrage scanner",
     "crypto arbitrage finder",
@@ -52,15 +52,15 @@ export const metadata: Metadata = {
     type: "website",
     url: `${siteUrl}/`,
     siteName: "Cryptoscopia",
-    title: "Cryptoscopia | Crypto Arbitrage Scanner — Real-Time Price Gaps Across 16 Exchanges",
+    title: "Cryptoscopia | Crypto Arbitrage Scanner — Real-Time Price Gaps Across 19 Exchanges",
     description:
-      "Find real-time crypto arbitrage opportunities across 16 exchanges — cross-exchange, CEX vs DEX, triangular and funding-rate spreads, plus a paper trading bot to practice risk-free. Free 3-day trial.",
+      "Find real-time crypto arbitrage opportunities across 19 exchanges — cross-exchange, CEX vs DEX, triangular and funding-rate spreads, plus a paper trading bot to practice risk-free. Free 3-day trial.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Cryptoscopia | Crypto Arbitrage Scanner",
     description:
-      "Real-time arbitrage scanning across 16 exchanges, plus a paper trading bot. Free 3-day trial, no credit card required.",
+      "Real-time arbitrage scanning across 19 exchanges, plus a paper trading bot. Free 3-day trial, no credit card required.",
   },
   robots: { index: true, follow: true },
 };
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
 const features = [
   {
     title: "Arbitrage Scanner",
-    text: "The core engine. Scans 16 exchanges in real time, finds price differences on the same token, and ranks every opportunity by profit potential. Switch between cards and table view.",
+    text: "The core engine. Scans 19 exchanges in real time, finds price differences on the same token, and ranks every opportunity by profit potential. Switch between cards and table view.",
     icon: "🎯",
     tab: "Scanner",
   },
@@ -80,7 +80,7 @@ const features = [
   },
   {
     title: "Spread Analyzer",
-    text: "See the full spread picture across all 16 exchanges for any token. Know exactly where to buy low and sell high.",
+    text: "See the full spread picture across all 19 exchanges for any token. Know exactly where to buy low and sell high.",
     icon: "📊",
     tab: "Spread",
   },
@@ -131,7 +131,7 @@ const steps = [
   {
     n: "2",
     title: "Scan for arbitrage",
-    text: "Open the scanner, watch top gainers and losers update live, and see arbitrage spreads ranked across 16 exchanges.",
+    text: "Open the scanner, watch top gainers and losers update live, and see arbitrage spreads ranked across 19 exchanges.",
   },
   {
     n: "3",
@@ -143,7 +143,7 @@ const steps = [
 const faqs = [
   {
     q: "How does the free 3-day trial work?",
-    a: "Sign in with your Google account and you get full access — the Arbitrage Matrix, all 16 exchanges, and the paper trading bot — for 3 days, completely free. No credit card required. When the trial ends you simply lose access until you upgrade to Pro.",
+    a: "Sign in with your Google account and you get full access — the Arbitrage Matrix, all 19 exchanges, and the paper trading bot — for 3 days, completely free. No credit card required. When the trial ends you simply lose access until you upgrade to Pro.",
   },
       {
     q: "How much does Pro cost?",
@@ -176,7 +176,7 @@ const jsonLd = {
   operatingSystem: "Web",
   url: "https://cryptoscopia.com/app",
   description:
-    "Real-time crypto arbitrage scanner: finds top gainers and losers, detects cross-exchange, CEX vs DEX, triangular and funding-rate arbitrage across 16 exchanges, with a paper trading bot for risk-free practice.",
+    "Real-time crypto arbitrage scanner: finds top gainers and losers, detects cross-exchange, CEX vs DEX, triangular and funding-rate arbitrage across 19 exchanges, with a paper trading bot for risk-free practice.",
   offers: {
     "@type": "Offer",
     price: "24.99",
@@ -234,16 +234,16 @@ export default async function LandingPage() {
           <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
             <div className="text-center lg:text-left">
               <p className="animate-pulse-glow mb-5 inline-block rounded-full border border-green-500/30 bg-green-500/10 px-4 py-1 text-sm text-green-300">
-                ⚡ Real-time arbitrage scanning across 16 exchanges
+                ⚡ Real-time arbitrage scanning across 19 exchanges
               </p>
               <h1 className="text-4xl font-extrabold leading-tight tracking-tight md:text-5xl xl:text-6xl">
                 Find <span className="gradient-text-animated">crypto arbitrage gaps</span>
                 <br />
-                across 16 exchanges — before they close
+                across 19 exchanges — before they close
               </h1>
               <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-400 lg:mx-0">
                 Cryptoscopia scans the <strong className="text-slate-200">top gainers and losers</strong> across
-                <strong className="text-slate-200">16 exchanges</strong> in real time and ranks the best price differences for you.
+                <strong className="text-slate-200">19 exchanges</strong> in real time and ranks the best price differences for you.
                 Built for retail traders — no coding, nothing to install. Practice risk-free with the built-in
                 <strong className="text-slate-200">paper trading bot</strong>.
               </p>
@@ -412,7 +412,7 @@ export default async function LandingPage() {
                 {[
                   "Unlimited access to every feature",
                   "Top gainers & losers scanner",
-                  "16-exchange arbitrage detection",
+                  "19-exchange arbitrage detection",
                   "All 4 arbitrage strategies",
                   "Paper trading bot",
                   "Real-time price alerts",

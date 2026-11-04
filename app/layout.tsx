@@ -10,7 +10,7 @@ import { siteJsonLd } from "./components/Seo";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Cryptoscopia | Crypto Arbitrage Scanner — Real-Time Price Gaps Across 16 Exchanges",
+    default: "Cryptoscopia | Crypto Arbitrage Scanner — Real-Time Price Gaps Across 19 Exchanges",
     template: "%s | Cryptoscopia",
   },
   description: SITE_DESCRIPTION,

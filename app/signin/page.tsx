@@ -23,7 +23,7 @@ export default function SignInPage() {
           Sign in with Google — it takes 10 seconds. We only store your name and email.
         </p>
         <ul className="mx-auto mt-5 max-w-xs space-y-2 text-left text-sm text-slate-300">
-          <li className="flex gap-2"><span className="text-green-400">✓</span>Full access to all 16 exchanges + paper trading bot</li>
+          <li className="flex gap-2"><span className="text-green-400">✓</span>Full access to all 19 exchanges + paper trading bot</li>
           <li className="flex gap-2"><span className="text-green-400">✓</span>No credit card required</li>
           <li className="flex gap-2"><span className="text-green-400">✓</span>After 3 days, access simply stops unless you choose Pro</li>
         </ul>

@@ -45,7 +45,7 @@ export default function LiveSpreadsPage() {
           <strong className="text-slate-300">Please note:</strong> this is a
           free, slightly delayed preview that refreshes about once a minute and
           covers only the highest-volume pairs on 5 exchanges. The full
-          Cryptoscopia scanner tracks all 16 exchanges in real time, with the
+          Cryptoscopia scanner tracks all 19 exchanges in real time, with the
           complete opportunity list, CEX vs DEX, triangular and funding-rate
           scanning, alerts, and a paper trading bot to practice risk-free.
           Spreads move fast and can vanish before a transfer completes — a
@@ -61,7 +61,7 @@ export default function LiveSpreadsPage() {
         <h2 className="text-center text-2xl font-bold">What the full scanner adds</h2>
         <ul className="mx-auto mt-6 grid max-w-2xl gap-3 text-sm text-slate-300 sm:grid-cols-2">
           {[
-            "All 16 exchanges in real time — not a 1-minute delayed preview",
+            "All 19 exchanges in real time — not a 1-minute delayed preview",
             "Every tradable pair, ranked by spread and profit potential",
             "CEX vs DEX, triangular and funding-rate arbitrage scanners",
             "Real-time alerts when a gap opens",

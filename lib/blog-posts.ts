@@ -388,7 +388,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "p",
-        text: "[Cryptoscopia](/) does exactly this across 16 exchanges — covering cross-exchange, CEX-vs-DEX, triangular and funding-rate opportunities — and includes a paper trading bot so you can practice capturing spreads with virtual money first. When evaluating any scanner, look for real-time (not delayed) data, fee-adjusted profit calculations, and coverage of the exchanges you actually use. Our [glossary](/glossary) can help decode any unfamiliar terms you meet along the way.",
+        text: "[Cryptoscopia](/) does exactly this across 19 exchanges — covering cross-exchange, CEX-vs-DEX, triangular and funding-rate opportunities — and includes a paper trading bot so you can practice capturing spreads with virtual money first. When evaluating any scanner, look for real-time (not delayed) data, fee-adjusted profit calculations, and coverage of the exchanges you actually use. Our [glossary](/glossary) can help decode any unfamiliar terms you meet along the way.",
       },
       { type: "h2", text: "Why Speed Matters More Than Size" },
       {
@@ -687,7 +687,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "p",
-        text: "[Cryptoscopia](/) includes a paper trading bot built for exactly this: it tracks the same 16 exchanges and strategy types as live trading, so your test results reflect real market conditions. Only scale into real money when the paper journal proves the edge — and start at half the size you think you should.",
+        text: "[Cryptoscopia](/) includes a paper trading bot built for exactly this: it tracks the same 19 exchanges and strategy types as live trading, so your test results reflect real market conditions. Only scale into real money when the paper journal proves the edge — and start at half the size you think you should.",
       },
       {
         type: "callout",
@@ -929,7 +929,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "p",
-        text: "[Cryptoscopia](/) was built for exactly this workflow. It monitors 16 exchanges across four strategy types — cross-exchange, CEX-vs-DEX, triangular, and funding-rate — and shows fee-adjusted opportunities rather than misleading gross gaps. It also includes a **paper trading bot**, so you can practice the full find-verify-execute loop with virtual funds before risking real money. Start with the [3-day free trial](/) and run the workflow below during it.",
+        text: "[Cryptoscopia](/) was built for exactly this workflow. It monitors 19 exchanges across four strategy types — cross-exchange, CEX-vs-DEX, triangular, and funding-rate — and shows fee-adjusted opportunities rather than misleading gross gaps. It also includes a **paper trading bot**, so you can practice the full find-verify-execute loop with virtual funds before risking real money. Start with the [3-day free trial](/) and run the workflow below during it.",
       },
       {
         type: "callout",

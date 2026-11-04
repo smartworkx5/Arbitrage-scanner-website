@@ -16,7 +16,7 @@ export default defineConfig(() => {
           id: '/',
           name: 'Cryptoscopia',
           short_name: 'Cryptoscopia',
-          description: 'Real-time cryptocurrency arbitrage terminal with cross-exchange spot scanning across 16 exchanges, CEX vs DEX pools, and paper trading bot.',
+          description: 'Real-time cryptocurrency arbitrage terminal with cross-exchange spot scanning across 19 exchanges, CEX vs DEX pools, and paper trading bot.',
           theme_color: '#0f172a',
           background_color: '#020617',
           display: 'standalone',
