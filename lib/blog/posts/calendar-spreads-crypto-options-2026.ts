@@ -2,7 +2,7 @@ import type { BlogPost } from "../../blog-posts";
 
 export const post: BlogPost = {
   slug: "calendar-spreads-crypto-options-2026",
-  title: "Calendar Spreads in Crypto Options: Trading Time Instead of Direction",
+  title: "Calendar Spreads in Crypto Options, Explained",
   description: "Calendar spreads profit from decay differentials between near and far expiries. Learn how to structure one, when it works, and volatility risks that undo it.",
   keywords: [
       "Calendar Spreads",
@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "options spread risk"
   ],
   datePublished: "2026-11-02",
-  dateModified: "2026-11-02",
+  dateModified: "2026-11-04",
   readingMinutes: 10,
   category: "Strategies",
   excerpt: "A calendar spread buys time and sells time at the same time. This guide shows how near-versus-far expiry spreads profit from decay differentials without needing a big directional move.",
@@ -60,8 +60,6 @@ export const post: BlogPost = {
         text: "Calendar spreads can lose the full net debit, and a volatility collapse or a large directional move can cause losses even when the market looks calm at entry. Never fund a calendar with money needed soon, and always define your exit before opening.",
         tone: "warning",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
-      { type: "p", text: "Muse AI is Meta's personal AI assistant, built to explain ideas in plain language and help you think through questions step by step. For this topic, you can ask Muse AI to explain a calendar spread with a simple analogy, such as renting out a room short-term while holding a long-term lease. Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code. Disclosure: LTGSWD is the author's Muse invite code. Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",
         items: [
@@ -83,5 +81,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Options Expiry Arbitrage Effects](/blog/options-expiry-arbitrage), [Bitcoin Options Arbitrage Basics](/blog/bitcoin-options-arbitrage) and [AI in Arbitrage Trading: Hype vs Reality](/blog/ai-in-arbitrage-trading) next." },
   ],
 };

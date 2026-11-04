@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "bitcoin box spread"
   ],
   datePublished: "2026-10-12",
-  dateModified: "2026-10-12",
+  dateModified: "2026-11-04",
   readingMinutes: 10,
   category: "Markets",
   excerpt: "Bitcoin options contain mathematical relationships — put-call parity, skew, term structure — that must hold. When they don't, arbitrageurs step in. Here's how these trades work and what they really cost.",
@@ -23,7 +23,7 @@ export const post: BlogPost = {
       { type: "h2", text: "Put-call parity: the foundation of all options arbitrage" },
       { type: "p", text: "Put-call parity states that for European options with the same strike and expiry, call minus put equals the forward price minus the discounted strike. In crypto terms: if a $85,000 strike call and put with the same expiry are mispriced relative to the BTC futures price, a trader can buy the cheap side, sell the rich side, and hedge with the underlying to lock a riskless profit. In practice, true parity violations on major venues (Deribit dominates BTC options) are rare and tiny, because market makers' pricing engines enforce parity continuously. When deviations do appear — usually during volatility explosions when quotes go wide — they last seconds and require co-located, automated execution to capture. For retail traders, parity's value is diagnostic: persistent parity deviation signals a broken quote feed or extreme stress, not an opportunity." },
       { type: "h2", text: "Volatility skew: where the real (risky) edge lives" },
-      { type: "p", text: "The volatility skew — the pattern of implied volatility across strikes — is where bitcoin options differ most from textbook models. BTC options typically show a pronounced downside skew: out-of-the-money puts trade at higher implied vol than equidistant calls, because the market pays up for crash protection (the October 9 slide to $80,420 is a fresh reminder of why). Skew trades are relative-value, not pure arbitrage: a trader might sell rich downside puts and buy cheaper upside calls (a risk reversal), betting the skew normalizes. This is a bet on the shape of the distribution, and it carries real risk — if BTC crashes, the short puts explode. The edge comes from understanding when skew is historically extreme versus fairly priced, which requires tracking skew history, not just the current snapshot. Our [delta-neutral guide](/blog/delta-neutral-strategies) covers how professionals strip out directional exposure from such trades." },
+      { type: "p", text: "The volatility skew — the pattern of implied volatility across strikes — is where bitcoin options differ most from textbook models. BTC options typically show a pronounced downside skew: out-of-the-money puts trade at higher implied vol than equidistant calls, because the market pays up for crash protection (the October 9 slide to $80,420 is a fresh reminder of why). Skew trades are relative-value, not pure arbitrage: a trader might sell rich downside puts and buy cheaper upside calls (a risk reversal), betting the skew normalizes. This is a bet on the shape of the distribution, and it carries real risk — if BTC crashes, the short puts explode. The edge comes from understanding when skew is historically extreme versus fairly priced, which requires tracking skew history, not just the current snapshot. Our delta-neutral guide covers how professionals strip out directional exposure from such trades." },
       {
         type: "list",
         items: [
@@ -66,5 +66,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Bitcoin Arbitrage: Complete 2026 Guide](/blog/bitcoin-arbitrage-guide), [Bitcoin ETF Arbitrage Mechanics](/blog/bitcoin-etf-arbitrage) and [Post-Halving Bitcoin Market Structure](/blog/bitcoin-halving-arbitrage) next." },
   ],
 };

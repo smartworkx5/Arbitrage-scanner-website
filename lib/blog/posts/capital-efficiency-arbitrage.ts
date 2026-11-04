@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "small capital arbitrage"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Strategies",
   excerpt: "In arbitrage, how hard your capital works matters more than how much you have. Efficiency comes from positioning, turnover, and fee control.",
@@ -56,10 +56,7 @@ export const post: BlogPost = {
         text: "Fast turnover on losing routes multiplies losses. Only increase turnover on routes your trade log proves profitable after all fees.",
         tone: "warning",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you think through capital efficiency for your own numbers. Ask it to walk through a turnover calculation, or to compare two routes by net profit per round trip so you can see which one uses your capital better." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",
@@ -82,5 +79,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [How Much Capital Do You Need for Crypto Arbitrage?](/blog/crypto-arbitrage-minimum-capital), [AI in Arbitrage Trading: Hype vs Reality](/blog/ai-in-arbitrage-trading) and [Airdrop Farming vs Arbitrage Compared](/blog/airdrop-arbitrage) next." },
   ],
 };

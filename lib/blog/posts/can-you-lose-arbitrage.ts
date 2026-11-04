@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "arbitrage mistakes"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Risk",
   excerpt: "Yes, arbitrage loses money, and it does so in specific, predictable ways. Here are the loss mechanisms and how traders defend against each one.",
@@ -60,10 +60,7 @@ export const post: BlogPost = {
       { type: "h2", text: "Loss Mechanism 5: Bots, Bugs, and Human Error" },
       { type: "p", text: "Automation adds a final loss channel: the bot itself. A misconfigured bot can repeat a losing trade hundreds of times, trade the wrong pair, or ignore a halted market. An API outage can leave a position unhedged. A fat-fingered manual order can buy ten times the intended size. The defense is boring but effective: test with tiny amounts, set hard daily loss limits, use kill switches, restrict API permissions so a bot cannot withdraw funds, and supervise automation rather than trusting it. Every arbitrageur who has operated for years has a story about a bug that cost money. The ones who survived had limits that kept the bug from costing everything." },
       { type: "p", text: "The bottom line is that arbitrage loses money through ordinary, predictable mechanisms, and all of them are manageable with discipline. Compute net edge, execute both legs together, respect transfer risk, diversify venues and stablecoins, and cap your exposure to any single failure. Traders who do those five things do not eliminate losses, but they keep losses small and survivable. Traders who skip them eventually meet the loss mechanism they ignored. For a broader risk map, see the [glossary](/glossary) and [Binance vs Kraken](/arbitrage/binance-vs-kraken)." },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you learn from arbitrage losses before they happen to you. Ask it to explain slippage, depegs, or one-leg fills in simple words, or to draft a pre-trade checklist covering fees, execution, and venue risk." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

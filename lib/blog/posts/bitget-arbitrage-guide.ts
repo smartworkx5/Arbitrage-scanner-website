@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "bitget fees spreads"
   ],
   datePublished: "2026-10-11",
-  dateModified: "2026-10-11",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Markets",
   excerpt: "Bitget's copy-trading crowds create herding-driven derivatives flows you won't find elsewhere. Here is how that quirk — plus solid perps depth — shapes arbitrage on the venue.",
@@ -47,7 +47,7 @@ export const post: BlogPost = {
       { type: "p", text: "A practical note on the copy-trading product itself: arbitrageurs generally should not copy-trade as their strategy — it is directional speculation with extra steps. But watching copy-trading leaderboards and their aggregate positioning is legitimate market intelligence: when the crowd piles one way, funding and perp premiums tell you so, and the venue notes in this guide tell you how to position against the flow rather than with it." },
       { type: "h2", text: "Spot Listings and Cross-Exchange Spreads" },
       { type: "p", text: "Bitget's spot market is broad — hundreds of listed assets — which makes it a viable opportunity venue for cross-exchange spot spreads, not just a derivatives venue. Newer listings and mid-caps can show meaningful gaps versus deeper venues during volatility; October 11, 2026's session is illustrative, with Starknet (STRK) surging 40–61% and several altcoins moving 5–10% in either direction — exactly the conditions where a broad-listing venue's books fragment from the majors' consensus. The standard workflow applies: scanner flags the gap, verify depth on both books, execute simultaneously with pre-positioned balances, and log net results." },
-      { type: "p", text: "Withdrawal practicalities follow the usual small-to-mid venue pattern: check per-asset networks and fees before planning transfer legs, test routes with small amounts, and prefer simultaneous execution over sequential transfers whenever capital allows. Our [transfer-times guide](/blog/crypto-transfer-times) and [best exchange pairs roundup](/blog/best-exchange-pairs-arbitrage) cover the operational side." },
+      { type: "p", text: "Withdrawal practicalities follow the usual small-to-mid venue pattern: check per-asset networks and fees before planning transfer legs, test routes with small amounts, and prefer simultaneous execution over sequential transfers whenever capital allows. Our transfer-times guide and [best exchange pairs roundup](/blog/best-exchange-pairs-arbitrage) cover the operational side." },
       {
         type: "faq",
         items: [

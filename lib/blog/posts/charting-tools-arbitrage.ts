@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "TradingView crypto arbitrage"
   ],
   datePublished: "2026-10-15",
-  dateModified: "2026-10-15",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Basics",
   excerpt: "Arbitrage is a spread game, and charting tools are how you see the spread. Here are the charting platforms and setups that actually help arbitrageurs.",
@@ -54,10 +54,7 @@ export const post: BlogPost = {
         text: "A chart can show that a spread is real and persistent. It cannot guarantee the spread survives your transfer time, fees, and slippage. Always price the full round trip before trading.",
         tone: "warning",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can explain chart patterns, indicators, and spread charts in plain language, and help you draft a checklist of what to check on a chart before you act on a spread. For example, you can ask it to explain what a widening basis between spot and perpetual futures usually means, and what extra costs to check before treating it as an opportunity." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

@@ -2,7 +2,7 @@ import type { BlogPost } from "../../blog-posts";
 
 export const post: BlogPost = {
   slug: "choosing-arbitrage-exchanges",
-  title: "How to Choose Exchanges for Arbitrage: Liquidity, Fees, Reliability",
+  title: "How to Choose Exchanges for Arbitrage Trading",
   description: "How to choose exchanges for arbitrage in 2026: a practical framework scoring liquidity, fees, and reliability — with a checklist and venue-pairing playbook.",
   keywords: [
       "choose exchanges for arbitrage",
@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "arbitrage venue reliability 2026"
   ],
   datePublished: "2026-10-11",
-  dateModified: "2026-10-11",
+  dateModified: "2026-11-04",
   readingMinutes: 10,
   category: "Markets",
   excerpt: "Liquidity, fees, reliability — pick two? No: you need a framework that scores all three. Here is how professionals choose and pair arbitrage venues in 2026.",

@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "cross-chain trading"
   ],
   datePublished: "2026-10-15",
-  dateModified: "2026-10-15",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Strategies",
   excerpt: "The same token can trade at different prices on different chains. Bridge arbitrage chases that gap — but bridge delays and fees decide whether it pays.",
@@ -46,7 +46,7 @@ export const post: BlogPost = {
         ],
       },
       { type: "h2", text: "Bridge Risk Is the Real Cost" },
-      { type: "p", text: "Bridges have been among the most attacked pieces of crypto infrastructure, because they concentrate locked assets behind a single contract or validator set. A bridge exploit can freeze withdrawals or destroy the backing of bridged tokens, turning a small arbitrage profit into a total loss of principal. The smart-contract incident reported on 15 October 2026, with roughly $86,000 lost in the UNCX attack, is a small-scale reminder that contract risk is always live. Use bridges with public audits, bug bounties, and transparent validator or custodian arrangements, keep per-bridge exposure small, and never leave funds sitting in a bridge longer than necessary. For related risk thinking, see [funding rates explained](/blog/funding-rates-explained) for how funding can offset bridge costs, and [crypto transfer times](/blog/crypto-transfer-times) for realistic settlement expectations." },
+      { type: "p", text: "Bridges have been among the most attacked pieces of crypto infrastructure, because they concentrate locked assets behind a single contract or validator set. A bridge exploit can freeze withdrawals or destroy the backing of bridged tokens, turning a small arbitrage profit into a total loss of principal. The smart-contract incident reported on 15 October 2026, with roughly $86,000 lost in the UNCX attack, is a small-scale reminder that contract risk is always live. Use bridges with public audits, bug bounties, and transparent validator or custodian arrangements, keep per-bridge exposure small, and never leave funds sitting in a bridge longer than necessary. For related risk thinking, see [funding rates explained](/blog/funding-rates-explained) for how funding can offset bridge costs, and crypto transfer times for realistic settlement expectations." },
       {
         type: "callout",
         title: "Trust the bridge, not just the gap",
@@ -54,11 +54,8 @@ export const post: BlogPost = {
         tone: "warning",
       },
       { type: "p", text: "The most durable bridge edge is operational, not analytical: fast monitoring, pre-funded wallets on both chains, and a short list of trusted bridges you already know how to use. Traders who wait until a gap appears to learn a new bridge usually arrive too late. In a market where gold is near $4,130 to $4,160 an ounce and traders are rotating toward safety, cross-chain gaps can appear quickly, but only prepared traders with realistic cost models can capture them without giving the profit back to fees and delays." },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can answer questions, explain ideas in plain language, and help you organise research in a conversation. You can ask it to summarise a long explainer into the key points." },
       { type: "p", text: "For this topic, you can ask Muse AI to draft a research checklist for comparing two bridges, covering fees, settlement time, audits, and withdrawal terms. Muse AI is not a trading tool and does not give financial advice." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       {
         type: "faq",
         items: [
@@ -80,5 +77,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [AI in Arbitrage Trading: Hype vs Reality](/blog/ai-in-arbitrage-trading), [Airdrop Farming vs Arbitrage Compared](/blog/airdrop-arbitrage) and [Altcoin Arbitrage Strategy Guide](/blog/altcoin-arbitrage-strategy) next." },
   ],
 };
