@@ -31,7 +31,7 @@ export async function generateMetadata({
       description: post.description,
       publishedTime: post.datePublished,
       modifiedTime: post.dateModified,
-      authors: ["Crypto Arbitrage Scanner"],
+      authors: ["Tasleem Sanjrani"],
       ...(ogImage ? { images: [{ url: ogImage, width: 1200, height: 630 }] } : {}),
     },
     twitter: {
@@ -89,6 +89,13 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-white md:text-4xl">
           {post.title}
         </h1>
+        <p className="mt-2 text-sm text-slate-400">
+          By{" "}
+          <Link href="/about" className="text-emerald-400 hover:underline">
+            Tasleem Sanjrani
+          </Link>{" "}
+          — Founder, Cryptoscopia
+        </p>
         <p className="mt-3 text-sm text-slate-500">
           Published {post.datePublished}
           {post.dateModified !== post.datePublished &&
@@ -110,7 +117,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             See arbitrage opportunities live
           </h2>
           <p className="mt-2 text-slate-300">
-            Cryptoscopia monitors 16 exchanges in real time — try
+            Cryptoscopia monitors 19 exchanges in real time — try
             it free for 3 days.
           </p>
           <Link href="/signin" className="btn-primary mt-4 inline-block">

@@ -12,6 +12,126 @@ const nextConfig = {
         destination: "https://cryptoscopia.com/:path*",
         permanent: true,
       },
+      {
+        source: "/blog/best-funding-rate-opportunities",
+        destination: "/guides/funding-rate-arbitrage/",
+        permanent: true,
+      },
+      {
+        source: "/blog/best-pairs-triangular-arbitrage",
+        destination: "/guides/triangular-arbitrage/",
+        permanent: true,
+      },
+      {
+        source: "/blog/cex-vs-dex-arbitrage-guide",
+        destination: "/guides/cex-vs-dex-arbitrage/",
+        permanent: true,
+      },
+      {
+        source: "/blog/cross-exchange-arbitrage-guide",
+        destination: "/guides/cross-exchange-arbitrage/",
+        permanent: true,
+      },
+      {
+        source: "/blog/dex-vs-cex-2026",
+        destination: "/guides/cex-vs-dex-arbitrage/",
+        permanent: true,
+      },
+      {
+        source: "/blog/funding-arbitrage-advanced",
+        destination: "/guides/funding-rate-arbitrage/",
+        permanent: true,
+      },
+      {
+        source: "/blog/funding-arbitrage-capital-needed",
+        destination: "/guides/funding-rate-arbitrage/",
+        permanent: true,
+      },
+      {
+        source: "/blog/funding-arbitrage-vs-staking",
+        destination: "/guides/funding-rate-arbitrage/",
+        permanent: true,
+      },
+      {
+        source: "/blog/funding-costs-capital",
+        destination: "/guides/funding-rate-arbitrage/",
+        permanent: true,
+      },
+      {
+        source: "/blog/funding-rate-history-analysis",
+        destination: "/guides/funding-rate-arbitrage/",
+        permanent: true,
+      },
+      {
+        source: "/blog/funding-rate-risks",
+        destination: "/guides/funding-rate-arbitrage/",
+        permanent: true,
+      },
+      {
+        source: "/blog/funding-rate-sentiment",
+        destination: "/guides/funding-rate-arbitrage/",
+        permanent: true,
+      },
+      {
+        source: "/blog/funding-sentiment-combo",
+        destination: "/guides/funding-rate-arbitrage/",
+        permanent: true,
+      },
+      {
+        source: "/blog/funding-vs-basis-trade",
+        destination: "/guides/funding-rate-arbitrage/",
+        permanent: true,
+      },
+      {
+        source: "/blog/is-crypto-arbitrage-profitable-2026",
+        destination: "/blog/is-crypto-arbitrage-profitable/",
+        permanent: true,
+      },
+      {
+        source: "/blog/perp-funding-interval-timing-2026",
+        destination: "/guides/funding-rate-arbitrage/",
+        permanent: true,
+      },
+      {
+        source: "/blog/perp-funding-rate-clamp-mechanism-2026",
+        destination: "/guides/funding-rate-arbitrage/",
+        permanent: true,
+      },
+      {
+        source: "/blog/triangular-arbitrage-2026-viability",
+        destination: "/guides/triangular-arbitrage/",
+        permanent: true,
+      },
+      {
+        source: "/blog/triangular-arbitrage-binance",
+        destination: "/guides/triangular-arbitrage/",
+        permanent: true,
+      },
+      {
+        source: "/blog/triangular-arbitrage-bots",
+        destination: "/guides/triangular-arbitrage/",
+        permanent: true,
+      },
+      {
+        source: "/blog/triangular-arbitrage-profit-calculator",
+        destination: "/guides/triangular-arbitrage/",
+        permanent: true,
+      },
+      {
+        source: "/blog/triangular-arbitrage-risks",
+        destination: "/guides/triangular-arbitrage/",
+        permanent: true,
+      },
+      {
+        source: "/blog/triangular-vs-cross-exchange",
+        destination: "/guides/triangular-arbitrage/",
+        permanent: true,
+      },
+      {
+        source: "/blog/what-is-crypto-arbitrage-2026",
+        destination: "/blog/what-is-crypto-arbitrage/",
+        permanent: true,
+      },
     ];
   },
   // Baseline security headers on every response.

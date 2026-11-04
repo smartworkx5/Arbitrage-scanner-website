@@ -120,7 +120,7 @@ export function articleJsonLd(opts: {
     mainEntityOfPage: { "@type": "WebPage", "@id": opts.url },
     datePublished: opts.datePublished,
     dateModified: opts.dateModified,
-    author: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+    author: { "@type": "Person", name: "Tasleem Sanjrani", url: `${SITE_URL}/about` },
     publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
   };
 }

@@ -520,6 +520,7 @@ export default async function LandingPage() {
             <Link href="/affiliates" className="hover:text-white">Affiliates</Link>
             <Link href="/best-crypto-arbitrage-scanners" className="hover:text-white">Best Scanners</Link>
             <Link href="/glossary" className="hover:text-white">Glossary</Link>
+            <Link href="/about" className="hover:text-white">About</Link>
             <Link href="/privacy" className="hover:text-white">Privacy</Link>
             <LaunchAppButton className="hover:text-white">Launch App</LaunchAppButton>
           </nav>

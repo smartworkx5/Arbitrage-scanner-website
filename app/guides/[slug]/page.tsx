@@ -30,6 +30,7 @@ export async function generateMetadata({
       description: guide.description,
       publishedTime: guide.datePublished,
       modifiedTime: guide.dateModified,
+      authors: ["Tasleem Sanjrani"],
     },
   };
 }
@@ -83,6 +84,13 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
           {guide.title}
         </h1>
         <p className="mt-4 text-lg text-slate-400">{guide.excerpt}</p>
+        <p className="mt-2 text-sm text-slate-400">
+          By{" "}
+          <Link href="/about" className="text-emerald-400 hover:underline">
+            Tasleem Sanjrani
+          </Link>{" "}
+          — Founder, Cryptoscopia
+        </p>
         <p className="mt-3 text-sm text-slate-500">
           Updated {guide.dateModified} · {guide.readingMinutes} min read
         </p>

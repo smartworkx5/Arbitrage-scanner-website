@@ -14,7 +14,7 @@ export const post: BlogPost = {
       "crypto arbitrage emerging markets"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Markets",
   excerpt: "Africa's crypto spreads grow out of mobile money, currency frictions, and thin local liquidity — a market where payment rails matter as much as prices.",
@@ -60,10 +60,7 @@ export const post: BlogPost = {
       },
       { type: "h2", text: "A Practical Path for Africa-Focused Arbitrage" },
       { type: "p", text: "A practical path starts narrow: one country, one corridor, one pair. Learn the dominant payment method, the P2P platform norms, the banking and mobile-money cut-off times, and the typical spread between the best P2P offers and the global price, logged at the same timestamp over several weeks. Build a short list of reliable counterparties, rehearse small round trips, and define your trigger in advance: a minimum net spread, a maximum settlement time, and a per-counterparty cap. Most days will offer nothing worth trading. That is normal. The traders who last in African markets are the ones who treat patience as a strategy and who never let a tempting spread override counterparty discipline. For the broader framework, see our [cross-exchange arbitrage guide](/guides/cross-exchange-arbitrage) and the [arbitrage hub](/arbitrage)." },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you research African crypto corridors in plain language. Ask it to explain how mobile money settlement works, or to draft a checklist covering payment finality, counterparty checks, fees, and record-keeping for one country before you trade there." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",
@@ -86,5 +83,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Best Exchanges for Arbitrage 2026](/blog/best-exchanges-arbitrage-2026), [Binance Arbitrage Guide: Fees, Spreads & Execution in 2026](/blog/binance-arbitrage-guide) and [Bitcoin Arbitrage: Complete 2026 Guide](/blog/bitcoin-arbitrage-guide) next." },
   ],
 };

@@ -86,16 +86,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     })),
     {
+      url: u("/about"),
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
       url: u("/privacy"),
       lastModified: now,
       changeFrequency: "yearly",
       priority: 0.3,
-    },
-    {
-      url: u("/signin"),
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.5,
     },
   ];
 }
