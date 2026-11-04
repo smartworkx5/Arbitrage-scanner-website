@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "disciplined arbitrage trading"
   ],
   datePublished: "2026-10-15",
-  dateModified: "2026-10-15",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Basics",
   excerpt: "Most arbitrage losses come from impatience, not bad analysis. Here is why waiting for clean spreads, confirmed transfers, and disciplined exits is the edge that actually compounds.",
@@ -57,11 +57,8 @@ export const post: BlogPost = {
         text: "You do not need to be born patient to trade patiently. Pre-set thresholds, checklists, and logs turn patience into a repeatable process anyone can follow.",
         tone: "info",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can explain trading psychology in simple words and help you turn vague ideas like patience into concrete checklists. It is a general-purpose assistant, not a trading platform." },
       { type: "p", text: "For this topic, Muse AI can help you draft a pre-trade checklist that forces a pause: spread, fees, transfer time, and exit rule, all confirmed before you enter a route." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

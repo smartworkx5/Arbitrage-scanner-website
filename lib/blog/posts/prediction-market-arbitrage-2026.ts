@@ -2,7 +2,7 @@ import type { BlogPost } from "../../blog-posts";
 
 export const post: BlogPost = {
   slug: "prediction-market-arbitrage-2026",
-  title: "Prediction Market Arbitrage: Yes/No Pairs and Cross-Platform Gaps",
+  title: "Prediction Market Arbitrage: Yes/No Pair Gaps",
   description: "Prediction Market Arbitrage exploits mispriced Yes/No pairs and cross-platform gaps. Learn the mechanics, real costs, and why textbook arbs rarely survive fees.",
   keywords: [
       "Prediction Market Arbitrage",
@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "prediction market spreads"
   ],
   datePublished: "2026-10-20",
-  dateModified: "2026-10-20",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Strategies",
   excerpt: "Yes and No shares must sum to $1 — when they don't, there's an apparent arbitrage. Here's how these trades work and what usually eats the profit.",
@@ -24,7 +24,7 @@ export const post: BlogPost = {
       { type: "p", text: "Every binary market has complementary shares: Yes pays $1 if the event happens, No pays $1 if it doesn't. At resolution, exactly one of them is worth $1 and the other $0 — so the pair is always worth exactly $1 combined. If you can buy Yes at 40 cents and No at 55 cents (95 cents total), you lock in 5 cents of profit regardless of the outcome. Conversely, if Yes trades at 62 and No at 45 (107 cents), you can sell or mint the pair above $1 and pocket the difference." },
       { type: "p", text: "These dislocations arise from order-book imbalance, stale quotes in thin markets, or momentary panic after news. On deep headline markets they are arbitraged away in seconds by bots; on thin niche markets they can persist for minutes or hours — but thin markets are thin for a reason, and the apparent arb may be compensation for risks you cannot see." },
       { type: "h2", text: "Cross-Platform Gaps: Same Event, Different Prices" },
-      { type: "p", text: "The same event often trades on multiple venues — Polymarket, Kalshi, and smaller platforms — at slightly different prices, reflecting different user bases and information flows. Buying the cheaper Yes on one platform and the cheaper No on another can synthesize the pair trade across venues. Our [Polymarket vs Kalshi comparison](/blog/polymarket-vs-kalshi-compared-2026) details the structural differences that create these gaps." },
+      { type: "p", text: "The same event often trades on multiple venues — Polymarket, Kalshi, and smaller platforms — at slightly different prices, reflecting different user bases and information flows. Buying the cheaper Yes on one platform and the cheaper No on another can synthesize the pair trade across venues. Our Polymarket vs Kalshi comparison details the structural differences that create these gaps." },
       { type: "p", text: "The catch is settlement: cross-platform positions cannot be netted. You must fund both accounts, manage two sets of collateral (USDC on one side, USD on the other), and wait for both platforms to resolve — which they may do at different times or, in disputed cases, differently. Capital is tied up, and resolution-basis risk (the two platforms defining the event slightly differently) can turn a 'risk-free' trade into a loss." },
       { type: "h2", text: "The Costs That Eat the Edge" },
       {
@@ -51,8 +51,6 @@ export const post: BlogPost = {
       { type: "p", text: "Build a watchlist of the same events across venues, track the implied pair sum (Yes + No) on each, and set alerts for sums below ~97 or above ~103 cents — thresholds wide enough to survive costs. Before executing, verify resolution criteria match across venues, confirm you can actually trade both legs at the quoted sizes, and compute the all-in return net of fees and capital lockup. Log every trade with the thesis; most 'arbs' that fail teach you about a cost you had not modeled." },
       { type: "p", text: "One underappreciated risk is leg correlation during fast markets: when news breaks, both legs reprice simultaneously, and the fill you got on the cheap leg may be followed by the other leg vanishing before you complete the pair. Professional arb traders therefore execute both legs atomically where possible, or pre-position inventory in the less liquid leg. If you cannot complete both sides within seconds, treat the 'arb' as a directional bet on the unfilled leg — and size it accordingly." },
       { type: "p", text: "The mindset transfers from crypto arbitrage generally: apparent price gaps are usually compensation for some friction. Our guide to [cross-exchange arbitrage](/guides/cross-exchange-arbitrage) covers the same discipline for spot crypto, and the [glossary](/glossary) defines the order-book terms used throughout." },
-      { type: "h2", text: "AI Help: Muse AI" },
-      { type: "p", text: "Muse AI is Meta's personal AI assistant — a conversational helper you can ask questions, brainstorm, and get explanations from. For this article's topic, it can walk through a sample Yes/No pair trade step by step and build you a pre-trade checklist covering fees, spreads, and resolution criteria. Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code. Disclosure: LTGSWD is the author's Muse invite code. Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",
         items: [
@@ -74,5 +72,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [AI in Arbitrage Trading: Hype vs Reality](/blog/ai-in-arbitrage-trading), [Airdrop Farming vs Arbitrage Compared](/blog/airdrop-arbitrage) and [Altcoin Arbitrage Strategy Guide](/blog/altcoin-arbitrage-strategy) next." },
   ],
 };

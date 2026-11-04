@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "spread vs fees"
   ],
   datePublished: "2026-10-12",
-  dateModified: "2026-10-12",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Basics",
   excerpt: "Every strategy has a break-even spread below which you lose money. The formula, per-strategy thresholds, and why October 2026's volatility raised the bar.",
@@ -37,7 +37,7 @@ export const post: BlogPost = {
       },
       { type: "p", text: "Treat these as starting points, not gospel. Your thresholds depend on your venues, your size, and your measured slippage — a $100,000 trader and a $1,000 trader have different numbers on the same spread. Recompute quarterly, and recompute immediately after changing exchanges. [Execution risk](/blog/execution-risk-arbitrage) is the reason the suggested minimums sit well above raw costs." },
       { type: "h2", text: "Why Thresholds Rise in Volatile Markets" },
-      { type: "p", text: "October 2026 is a live case study. BTC fell to $80,420 on October 9, then recovered to roughly $83,650–83,854 by October 12 — a round trip of over 4% in three days. In conditions like that, slippage estimates from calm markets understate reality by two to three times, spreads you \"lock in\" evaporate between legs, and funding rates spike. Prudent traders raise their minimums in volatile regimes: a 0.6% threshold in calm markets becomes 1.0% or more when daily ranges exceed 3%. The spread has to pay you for the regime, not just the costs. Whether [crypto arbitrage is profitable in 2026](/blog/is-crypto-arbitrage-profitable-2026) depends heavily on this regime adjustment." },
+      { type: "p", text: "October 2026 is a live case study. BTC fell to $80,420 on October 9, then recovered to roughly $83,650–83,854 by October 12 — a round trip of over 4% in three days. In conditions like that, slippage estimates from calm markets understate reality by two to three times, spreads you \"lock in\" evaporate between legs, and funding rates spike. Prudent traders raise their minimums in volatile regimes: a 0.6% threshold in calm markets becomes 1.0% or more when daily ranges exceed 3%. The spread has to pay you for the regime, not just the costs. Whether [crypto arbitrage is profitable in 2026](/blog/is-crypto-arbitrage-profitable) depends heavily on this regime adjustment." },
       { type: "p", text: "There is also a subtler effect: volatility widens quoted spreads, which makes scanners light up with opportunities that are mostly mirage. A scanner showing twenty 0.8% spreads during a selloff is often showing twenty spreads with 0.8% of slippage hiding inside them. Threshold discipline is what keeps you from trading the mirage." },
       { type: "h2", text: "Turning Thresholds Into a Trading Rule" },
       { type: "p", text: "Write your thresholds down — per strategy, per venue pair — and make them a hard filter in your process or bot configuration. The rule is binary: spread at or above threshold plus margin means consider the trade; below means ignore, no exceptions, no \"this one looks safe.\" Most losing arbitrageurs do not have a strategy problem; they have a threshold problem, trading 0.4% spreads against 0.5% of costs because the number on the screen felt like progress. [Risk management](/blog/arbitrage-risk-management) starts with this filter." },

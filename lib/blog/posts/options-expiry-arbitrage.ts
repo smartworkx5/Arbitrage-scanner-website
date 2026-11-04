@@ -14,7 +14,7 @@ export const post: BlogPost = {
       "expiry trading crypto"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 10,
   category: "Strategies",
   excerpt: "Large options expiries can pin spot prices, squeeze gamma, and create brief dislocations — effects every derivatives trader should understand before expiry day.",
@@ -61,10 +61,7 @@ export const post: BlogPost = {
       { type: "h2", text: "Trading Around Expiry Without Gambling" },
       { type: "p", text: "A disciplined approach to expiry treats it as a risk window, not a lottery. First, map the calendar: know the dates and sizes of upcoming expiries on the venues you use. Second, check open interest by strike, and note where pinning or gamma risk concentrates. Third, decide in advance whether you want exposure through expiry at all; many experienced traders reduce size or close positions before large settlements. Fourth, if you do trade around expiry, use defined-risk structures, keep position sizes small, and avoid leverage that a gamma squeeze could liquidate. Fifth, after expiry, expect a volatility reset: implied volatility often falls once the event passes, which hurts long option holders and helps option sellers." },
       { type: "p", text: "For the wider derivatives context, including how futures and options interact around settlement, see our [cross-exchange arbitrage guide](/guides/cross-exchange-arbitrage) and the [arbitrage hub](/arbitrage). Expiry effects are real, but they are not free money. They reward traders who prepare, who know the calendar, and who respect the fact that the most mechanical days in the market can also be the most violent." },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you build an expiry checklist you will actually use. Ask it to explain pin risk and gamma squeezes with a simple worked example, or to draft a pre-expiry routine covering the calendar, open interest, settlement rules, and position sizing." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",
@@ -87,5 +84,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Bitcoin Options Arbitrage Basics](/blog/bitcoin-options-arbitrage), [AI in Arbitrage Trading: Hype vs Reality](/blog/ai-in-arbitrage-trading) and [Airdrop Farming vs Arbitrage Compared](/blog/airdrop-arbitrage) next." },
   ],
 };

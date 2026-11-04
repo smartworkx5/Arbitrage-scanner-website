@@ -2,7 +2,7 @@ import type { BlogPost } from "../../blog-posts";
 
 export const post: BlogPost = {
   slug: "news-trading-arbitrage",
-  title: "Trading Crypto News Events: How Headlines Move Arbitrage Spreads",
+  title: "Trading News Events: How Headlines Move Spreads",
   description: "Crypto news events move prices unevenly across venues. Learn how ETF decisions, exchange crackdowns, and macro headlines create measurable arbitrage spreads.",
   keywords: [
       "trading crypto news events",
@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "macro news crypto spreads"
   ],
   datePublished: "2026-10-14",
-  dateModified: "2026-10-14",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Markets",
   excerpt: "News moves one venue before another — and that lag is where arbitrage spreads appear. A dated, worked-through guide using this week's real headlines.",

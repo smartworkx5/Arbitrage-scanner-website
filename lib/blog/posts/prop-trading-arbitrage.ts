@@ -14,7 +14,7 @@ export const post: BlogPost = {
       "proprietary trading"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Strategies",
   excerpt: "Prop trading lets arbitrage traders use firm capital instead of their own. Here is how crypto prop firms work, what they pay, and the risks to watch.",
@@ -52,10 +52,7 @@ export const post: BlogPost = {
       { type: "h2", text: "Risks and Red Flags in Crypto Prop Firms" },
       { type: "p", text: "The crypto prop space includes legitimate firms and outright scams, so due diligence is essential. Be wary of firms that demand large upfront fees with vague promises, firms with no verifiable track record, and firms whose agreements let them withhold payouts for loosely defined rule violations. Check whether the firm is a real business with a public presence, real support, and traders who can describe their experience. Never hand over exchange API keys with withdrawal permissions to a third party, and never deposit your own money into an account controlled by a firm you have not verified. If a deal sounds too good to be true, it usually is." },
       { type: "p", text: "Market context matters too. On Oct 17, 2026, the crypto market was digesting a heavy liquidation day, gold traded near $4,160 per ounce, and the US Federal Reserve meeting on Oct 28 to 29, 2026 loomed as the next macro catalyst. A prop trader entering positions around such events must respect the firm's loss limits above all else, because forced liquidations can breach limits in minutes. The traders who keep funded accounts are the ones who size for the worst day, not the best one. Before committing to any firm, paper-trade your arbitrage approach under its exact rules for several weeks. If the strategy cannot survive the rules, the firm is not the right fit. Learn the strategies first with [cross-exchange arbitrage](/guides/cross-exchange-arbitrage) and [funding rate arbitrage](/guides/funding-rate-arbitrage)." },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you draft a checklist of questions to ask any prop firm before signing, covering profit splits, drawdown rules, and payout terms." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",
@@ -78,5 +75,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [AI in Arbitrage Trading: Hype vs Reality](/blog/ai-in-arbitrage-trading), [Grid Trading as Quasi-Arbitrage](/blog/grid-trading-arbitrage) and [Paper Trading Arbitrage Before Real Money](/blog/paper-trading-arbitrage) next." },
   ],
 };

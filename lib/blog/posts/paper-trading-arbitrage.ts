@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "test trading strategy no risk"
   ],
   datePublished: "2026-10-12",
-  dateModified: "2026-10-12",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Strategies",
   excerpt: "Paper trading lets you validate arbitrage strategies against live markets with zero capital at risk. Here is how to do it properly — and how to read the results without fooling yourself.",
@@ -25,7 +25,7 @@ export const post: BlogPost = {
       { type: "p", text: "Its limits are structural. Simulated fills cannot capture adverse selection — in real markets, faster participants take the best quotes first, so your fills are systematically worse than a naive simulation assumes. Paper trading cannot simulate your own market impact at larger sizes, exchange outages that would have stranded real positions, or the psychological pressure of real drawdowns. Treat paper results as necessary but not sufficient evidence: a strategy that fails in paper trading will fail live, but a strategy that succeeds in paper trading has only earned the right to small-size live testing." },
       { type: "h2", text: "Setting Up a Proper Paper Trading Environment" },
       { type: "p", text: "Use live data, not replayed history — the point is to experience real market behavior including the messy parts: feed drops, API latency spikes, and surprising volatility. Connect to the same WebSocket feeds and REST endpoints your live system would use, with read-only API keys; many exchanges also offer testnets, which are useful for practicing order mechanics but have different liquidity than production. Your paper engine should mirror your intended live architecture as closely as possible — same signal logic, same risk checks, same logging — so that graduating to live changes as little as possible." },
-      { type: "p", text: "Model executions pessimistically. Assume taker fees on both legs at your real tier, slippage worse than mid-price scaled to the book depth your size would consume, and fill delays matching your measured round-trip latency. Log every simulated order with the same detail you would log real ones: signal timestamp, assumed fill timestamp, assumed price versus quoted price, and the reason for any rejected signal. These logs are the deliverable of paper trading — they are what you analyze, not just the equity curve. For the cost components to model, our [trading fee guide](/blog/crypto-trading-fees-guide) and [hidden costs breakdown](/blog/hidden-costs-arbitrage) are the checklists." },
+      { type: "p", text: "Model executions pessimistically. Assume taker fees on both legs at your real tier, slippage worse than mid-price scaled to the book depth your size would consume, and fill delays matching your measured round-trip latency. Log every simulated order with the same detail you would log real ones: signal timestamp, assumed fill timestamp, assumed price versus quoted price, and the reason for any rejected signal. These logs are the deliverable of paper trading — they are what you analyze, not just the equity curve. For the cost components to model, our trading fee guide and [hidden costs breakdown](/blog/hidden-costs-arbitrage) are the checklists." },
       {
         type: "callout",
         title: "Paper trade the operations, not just the strategy",

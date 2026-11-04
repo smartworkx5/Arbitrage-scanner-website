@@ -2,7 +2,7 @@ import type { BlogPost } from "../../blog-posts";
 
 export const post: BlogPost = {
   slug: "overleveraging-arbitrage",
-  title: "Overleveraging in Arbitrage: How Hedged Positions Still Blow Up",
+  title: "Overleveraging in Arbitrage: Hedged Blow-Ups",
   description: "Overleveraging in arbitrage: why hedged, market-neutral positions still blow up — liquidation cascades, basis blowouts, and the leverage habits that cause them.",
   keywords: [
       "overleveraging arbitrage",
@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "crypto leverage dangers"
   ],
   datePublished: "2026-10-11",
-  dateModified: "2026-10-11",
+  dateModified: "2026-11-04",
   readingMinutes: 10,
   category: "Risk",
   excerpt: "Hedged does not mean safe. How overleveraged arbitrage positions blow up through liquidation cascades, funding spikes, and basis blowouts — and the leverage discipline that prevents it.",
