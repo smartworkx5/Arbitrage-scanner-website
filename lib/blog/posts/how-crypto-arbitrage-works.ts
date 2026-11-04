@@ -86,5 +86,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [How Arbitrage Scanners Work Under the Hood](/blog/how-arbitrage-scanners-work), [How to Find Crypto Arbitrage Opportunities Without Coding](/blog/how-to-find-crypto-arbitrage) and [Structuring Arbitrage as a Business](/blog/arbitrage-business-structure) next." },
   ],
 };

@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "exchange withdrawal limits"
   ],
   datePublished: "2026-10-15",
-  dateModified: "2026-10-15",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Risk",
   excerpt: "Arbitrage lives or dies on speed, and KYC/AML verification decides how fast your capital can actually move. Here is the multi-exchange compliance reality for active arbitrageurs in 2026.",
@@ -60,10 +60,7 @@ export const post: BlogPost = {
       },
       { type: "p", text: "Regulation keeps tightening, and the direction is clear. In the European Union, the MiCA framework is reshaping which venues and stablecoins are available to EU users, a shift covered in [MiCA Regulation Impact on Arbitrage](/blog/regulatory-risk-arbitrage) and in our guide to [CEX vs DEX Arbitrage](/guides/cex-vs-dex-arbitrage). In the United States, the SEC's comment deadline for its proposed Regulation Crypto Assets falls on 20 October 2026, another reminder that the rulebook is still moving. Traders who treat compliance as infrastructure, rather than paperwork to dodge, keep more routes open when the rules change." },
       { type: "p", text: "Finally, remember that KYC/AML is also personal security. A fully verified account with two-factor authentication, withdrawal allowlists, and anti-phishing codes is harder to hijack than a lightly verified one. Use a unique password per exchange, keep recovery codes offline, and never share verification selfies or documents with anyone claiming to help you pass a check. Legitimate exchanges never ask for your password or your two-factor codes." },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can explain KYC, AML, and verification tiers in simple words, so you can understand what an exchange is asking for before you submit documents." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

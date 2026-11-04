@@ -14,7 +14,7 @@ export const post: BlogPost = {
       "crypto arbitrage Asia"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Markets",
   excerpt: "Korean crypto prices have famously traded above global levels at times, but the gap is hard to capture because moving money across the border is the whole problem.",
@@ -61,10 +61,7 @@ export const post: BlogPost = {
       },
       { type: "h2", text: "Korea in the Global Arbitrage Map" },
       { type: "p", text: "Korea sits alongside Japan as one of Asia's two great case studies in how regulation shapes spreads. Japan's market is open but tightly supervised, producing small, clean spreads, while Korea's market is partly walled off, producing larger spreads that few can capture. Together they teach the same lesson from opposite directions: arbitrage is never just about the price gap. It is about the full path of money, identity, banking, and settlement between the two prices. Traders who internalize that lesson will evaluate every regional opportunity, from Latin America to Africa, with the right question first: not how big is the spread, but can the money actually travel? For the broader comparison of venues and structures, see our [arbitrage hub](/arbitrage) and the [best scanners guide](/best-crypto-arbitrage-scanners)." },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you untangle the kimchi premium without the hype. Ask it to explain why capital controls keep the premium alive, or to draft a checklist of the access, banking, and tax questions to research before considering any Korea-linked trade." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

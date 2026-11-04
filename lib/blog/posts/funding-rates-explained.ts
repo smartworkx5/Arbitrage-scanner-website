@@ -77,5 +77,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Funding Rate Arbitrage: Complete 2026 Guide](/blog/funding-rate-arbitrage-guide), [Why Crypto Prices Differ Across Exchanges](/blog/crypto-price-differences-explained) and [AI in Arbitrage Trading: Hype vs Reality](/blog/ai-in-arbitrage-trading) next." },
   ],
 };

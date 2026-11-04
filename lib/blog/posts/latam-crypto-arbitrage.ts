@@ -14,7 +14,7 @@ export const post: BlogPost = {
       "crypto arbitrage emerging markets"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Markets",
   excerpt: "Latin America's crypto spreads grow out of currency controls, inflation, and P2P markets — a very different arbitrage landscape from the regulated venues of Asia.",
@@ -60,10 +60,7 @@ export const post: BlogPost = {
       },
       { type: "h2", text: "A Practical Approach to LatAm Arbitrage" },
       { type: "p", text: "A practical approach starts with one country and one pair, not the whole region. Pick a market you understand, learn its payment methods, its banking hours, and its P2P platform norms, and track the spread between the best P2P offers and the global price at the same timestamp for a few weeks. Define your minimum net spread after all costs, your maximum payment-settlement time, and your per-counterparty cap. Rehearse with small amounts, build a short list of reliable counterparties, and review your log regularly. Most days will offer nothing worth trading, and that is fine. The goal is not to trade every spread, it is to trade the few that survive honest cost accounting. For the wider toolkit, see our [arbitrage hub](/arbitrage) and the [best scanners guide](/best-crypto-arbitrage-scanners)." },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you research Latin American crypto markets in structured, plain language. Ask it to compare P2P payment methods by reversibility, or to draft a research checklist covering currency controls, fees, and record-keeping for one country before you trade there." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

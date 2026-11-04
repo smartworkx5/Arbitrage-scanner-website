@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "crypto trading risk"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Risk",
   excerpt: "Arbitrage is marketed as risk-free profit. It is not. Here is an honest breakdown of every risk that stands between a spread and your profit.",
@@ -58,10 +58,7 @@ export const post: BlogPost = {
         text: "Anyone guaranteeing arbitrage profits, promising fixed daily returns, or asking you to deposit into their platform to run arbitrage for you is almost certainly running a scam. Real arbitrage has variable returns and real losses.",
         tone: "warning",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you understand arbitrage risks clearly. Ask it to explain execution risk, counterparty risk, or slippage in simple words, or to draft a risk checklist you can review before any arbitrage trade." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

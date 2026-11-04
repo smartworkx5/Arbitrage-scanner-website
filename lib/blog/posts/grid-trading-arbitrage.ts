@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "grid trading spacing"
   ],
   datePublished: "2026-10-15",
-  dateModified: "2026-10-15",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Strategies",
   excerpt: "Grid trading is not true arbitrage — but in a ranging market it harvests volatility the same way. Here is how grids work, how to set one up, and what happens when the range breaks.",
@@ -37,7 +37,7 @@ export const post: BlogPost = {
       },
       { type: "h2", text: "When Grids Work — and When They Fail" },
       { type: "p", text: "Grids work best in ranging, mean-reverting markets with moderate volatility: prices bounce between support and resistance, and each swing completes a round trip. They struggle in strong trends. In a sustained uptrend, a grid keeps selling as the price rises and ends up holding mostly cash while the asset runs away — profitable, but far less so than simply holding. In a sustained downtrend, the grid keeps buying as the price falls and ends up holding a large position at a large unrealised loss. The worst case is a trend with brief reversals: the grid buys the dips, sells the bounces, and still ends deeply underwater because the overall direction never changed." },
-      { type: "p", text: "That asymmetry is why grid traders need an exit and regime plan, not just a grid. Decide in advance what happens when the price leaves the range: does the grid stop and hold, stop and sell, or expand? Decide a maximum drawdown at which you shut the grid down entirely. And reconsider the grid after major news or macro events — a hot CPI print, a rate decision, or a protocol shock can flip a market from ranging to trending in minutes. A grid that made sense on Monday can be a liability by Wednesday. Review the conditions that justify the grid as often as you review the grid itself. For the broader risk picture, see [Arbitrage Risk Management](/blog/arbitrage-risk-management) and [Market-Neutral Crypto Portfolios](/blog/market-neutral-crypto)." },
+      { type: "p", text: "That asymmetry is why grid traders need an exit and regime plan, not just a grid. Decide in advance what happens when the price leaves the range: does the grid stop and hold, stop and sell, or expand? Decide a maximum drawdown at which you shut the grid down entirely. And reconsider the grid after major news or macro events — a hot CPI print, a rate decision, or a protocol shock can flip a market from ranging to trending in minutes. A grid that made sense on Monday can be a liability by Wednesday. Review the conditions that justify the grid as often as you review the grid itself. For the broader risk picture, see [Arbitrage Risk Management](/blog/arbitrage-risk-management) and Market-Neutral Crypto Portfolios." },
       {
         type: "callout",
         title: "Grid bots are not passive income",
@@ -56,11 +56,8 @@ export const post: BlogPost = {
         "Review the grid after major news, and backtest or paper-trade the parameters first."
         ],
       },
-      { type: "p", text: "Used this way, grid trading is a legitimate volatility-harvesting tool: a systematic way to profit from chop without predicting direction. It is not arbitrage, it is not passive, and it is not safe. But for a trader who understands the inventory risk, sizes conservatively, and monitors the regime, a grid can be a useful part of a broader, diversified approach — one tool among several, never the whole portfolio. Compare it honestly with the genuinely market-neutral approaches in [Pairs Trading Crypto Assets](/blog/pairs-trading-crypto) before deciding how much capital it deserves." },
-      { type: "h2", text: "AI Help: Muse AI" },
+      { type: "p", text: "Used this way, grid trading is a legitimate volatility-harvesting tool: a systematic way to profit from chop without predicting direction. It is not arbitrage, it is not passive, and it is not safe. But for a trader who understands the inventory risk, sizes conservatively, and monitors the regime, a grid can be a useful part of a broader, diversified approach — one tool among several, never the whole portfolio. Compare it honestly with the genuinely market-neutral approaches in Pairs Trading Crypto Assets before deciding how much capital it deserves." },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can explain grid trading, spacing, and range selection in plain language, and it can help you draft a pre-launch checklist of fees, capital, and exit rules for a grid." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",
@@ -83,5 +80,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [AI in Arbitrage Trading: Hype vs Reality](/blog/ai-in-arbitrage-trading), [Paper Trading Arbitrage Before Real Money](/blog/paper-trading-arbitrage) and [Prop Trading for Crypto Arbitrage](/blog/prop-trading-arbitrage) next." },
   ],
 };

@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "arbitrage alert system"
   ],
   datePublished: "2026-10-15",
-  dateModified: "2026-10-15",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Basics",
   excerpt: "A scanner looks simple: a list of spreads. Underneath, it is a pipeline of price feeds, matching logic, cost math, and alerting. Here is how each stage works, and where the numbers can mislead you.",
@@ -40,17 +40,14 @@ export const post: BlogPost = {
       { type: "p", text: "Volatile sessions expose weak cost math. On 15 October 2026, after a hot US CPI print at 3.7% year on year, Bitcoin traded near $80,980 to $81,835, Ether near $2,414 to $2,426, and roughly $973 million in leveraged positions were liquidated in 24 hours. Scanners that ignored transfer delays and stablecoin premiums made gaps look far more attractive than they were, because the real costs of moving funds during that session were unusually high. The lesson generalizes: scanner output is an estimate built on assumptions, and your job is to check the assumptions that matter most for your route. See [Cross-Exchange Hidden Risks](/blog/cross-exchange-hidden-risks) for the full list of costs that scanners tend to understate." },
       { type: "h2", text: "Ranking, Alerts, and the Limits of Scanner Data" },
       { type: "p", text: "Once spreads are computed, scanners rank them and alert you to the ones that pass your filters. Ranking usually favors the largest net spread, but the largest spread is not always the best trade. A 2% spread on a thin pair with a one-hour transfer is usually worse than a 0.4% spread on a deep pair with a five-minute transfer. Good scanners let you filter by minimum net spread, minimum volume, maximum transfer time, and venue, so you see only gaps you could plausibly trade. Alert design matters too: an alert that fires for every tiny fluctuation trains you to ignore it, while an alert tuned to your real thresholds is worth reading." },
-      { type: "p", text: "Finally, understand what a scanner cannot see. It cannot see whether your account is verified on a venue, whether your withdrawal limit covers the trade size, whether a venue is about to enter maintenance, or whether your own transfer will arrive before the gap closes. It also cannot see intent: a spread that exists because one venue's order book is thin and easily pushed around is not the same as a spread backed by deep liquidity. Use the scanner as a discovery tool, then verify with the order book, the venue status page, and your own cost sheet before committing capital. For the alerting side of the workflow, see [Setting Effective Arbitrage Price Alerts](/blog/setting-price-alerts) and our [best scanners](/best-crypto-arbitrage-scanners) page." },
+      { type: "p", text: "Finally, understand what a scanner cannot see. It cannot see whether your account is verified on a venue, whether your withdrawal limit covers the trade size, whether a venue is about to enter maintenance, or whether your own transfer will arrive before the gap closes. It also cannot see intent: a spread that exists because one venue's order book is thin and easily pushed around is not the same as a spread backed by deep liquidity. Use the scanner as a discovery tool, then verify with the order book, the venue status page, and your own cost sheet before committing capital. For the alerting side of the workflow, see Setting Effective Arbitrage Price Alerts and our [best scanners](/best-crypto-arbitrage-scanners) page." },
       {
         type: "callout",
         title: "Trust the pipeline, not the headline number",
         text: "A spread is only as good as the feed, the matching, and the cost math behind it. When a number looks too good, check the pair, the settlement asset, the venue status, and the transfer time before you believe it.",
         tone: "info",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can explain scanner pipelines, feeds, and spread math in plain language and help you draft a verification checklist for any spread you see." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

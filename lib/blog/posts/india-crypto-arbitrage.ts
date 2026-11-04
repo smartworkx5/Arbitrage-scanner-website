@@ -14,7 +14,7 @@ export const post: BlogPost = {
       "arbitrage trading India"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 10,
   category: "Markets",
   excerpt: "Crypto arbitrage in India faces a heavy tax regime and strict reporting. Learn venues, compliance, the tax reality, and practical strategy.",
@@ -57,10 +57,7 @@ export const post: BlogPost = {
         text: "India has applied a flat 30% tax on crypto gains in recent years, plus surcharge and cess, along with 1% TDS on transfers. Verify the current rate and rules before trading, and consult a tax professional. Tax rules change and this guide is not tax advice.",
         tone: "warning",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you summarize India's crypto tax rules in plain language or draft a record-keeping checklist to discuss with a tax professional." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

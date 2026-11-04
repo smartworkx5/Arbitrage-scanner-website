@@ -14,7 +14,7 @@ export const post: BlogPost = {
       "crypto arbitrage Asia"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Markets",
   excerpt: "Japan pairs a tightly regulated exchange sector with deep yen liquidity, which makes its crypto spreads orderly but still worth watching for patient arbitrageurs.",
@@ -62,10 +62,7 @@ export const post: BlogPost = {
       { type: "h2", text: "A Sensible Workflow for Japan-Focused Arbitrage" },
       { type: "p", text: "A workable workflow starts with a watchlist, not a trade. Track two or three JPY pairs against their USD or USDT equivalents on a global venue, and log the spread, the FX rate, and the all-in fees at the same timestamp so you know what a realistic net spread looks like. Next, define your trigger in advance: a minimum net spread after all costs, a maximum transfer time, and a maximum position size. Then rehearse the execution with small amounts, including a full round trip of yen in, crypto across, and yen or dollars out, so you learn the true timing. Finally, review your log weekly. If the average net spread is below your costs, the right move is to wait. Patience is a strategy in a market as efficient as Japan, and the traders who last are the ones who treat no-trade days as normal." },
       { type: "p", text: "For the broader toolkit behind this workflow, including how funding-rate and cross-venue structures differ, see our [funding-rate arbitrage guide](/guides/funding-rate-arbitrage) and the [arbitrage hub](/arbitrage). Japan will not hand out easy spreads, but its regulated, liquid market rewards preparation, careful cost accounting, and the discipline to act only when the numbers genuinely clear every fee." },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you work through Japan-focused arbitrage ideas in plain language. Ask it to explain how FSA regulation affects exchange risk, or to draft a checklist of every fee in a JPY-to-USD round trip so you do not miss the FX leg." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",
