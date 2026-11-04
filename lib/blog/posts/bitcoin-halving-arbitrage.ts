@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "halving price gaps"
   ],
   datePublished: "2026-10-12",
-  dateModified: "2026-10-12",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Markets",
   excerpt: "Each bitcoin halving rewrites the market's structure: miner economics, volatility regimes, and the gaps arbitrageurs feed on. Here's how post-halving markets behave and how to position for the 2028 countdown.",
@@ -43,7 +43,7 @@ export const post: BlogPost = {
         tone: "info",
       },
       { type: "h2", text: "Positioning for the 2028 halving countdown" },
-      { type: "p", text: "With the next halving roughly 18 months out (expected 2028), the market will gradually shift from late-cycle distribution to pre-halving anticipation. Historically, the 6–12 months before a halving see basis richen and funding turn persistently positive as traders position for the supply shock narrative — prime conditions for [cash-and-carry](/blog/cash-and-carry-crypto) and funding-rate strategies. The practical move now is to build infrastructure rather than chase direction: get capital positioned across venues, reduce fee tiers, automate spread monitoring, and study which strategies performed best in the 2023–2024 pre-halving run-up. Arbitrage is a business of preparation; the traders who profit most from halving-cycle volatility are the ones whose systems are running before the volatility arrives. Track the evolving structure through our [2026 spot-futures outlook](/blog/spot-futures-2026-outlook) and keep an eye on institutional positioning via ETF flow data." },
+      { type: "p", text: "With the next halving roughly 18 months out (expected 2028), the market will gradually shift from late-cycle distribution to pre-halving anticipation. Historically, the 6–12 months before a halving see basis richen and funding turn persistently positive as traders position for the supply shock narrative — prime conditions for cash-and-carry and funding-rate strategies. The practical move now is to build infrastructure rather than chase direction: get capital positioned across venues, reduce fee tiers, automate spread monitoring, and study which strategies performed best in the 2023–2024 pre-halving run-up. Arbitrage is a business of preparation; the traders who profit most from halving-cycle volatility are the ones whose systems are running before the volatility arrives. Track the evolving structure through our 2026 spot-futures outlook and keep an eye on institutional positioning via ETF flow data." },
       {
         type: "faq",
         items: [
@@ -65,5 +65,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Bitcoin Arbitrage: Complete 2026 Guide](/blog/bitcoin-arbitrage-guide), [Bitcoin ETF Arbitrage Mechanics](/blog/bitcoin-etf-arbitrage) and [Lightning Network Arbitrage Possibilities](/blog/bitcoin-lightning-arbitrage) next." },
   ],
 };

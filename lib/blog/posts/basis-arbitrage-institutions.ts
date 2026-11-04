@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "institutional crypto trading"
   ],
   datePublished: "2026-10-18",
-  dateModified: "2026-10-18",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Strategies",
   excerpt: "The basis trade is the quiet engine of institutional crypto. Here is how funds buy spot, sell futures, and harvest the gap, and why their flows move the whole market.",
@@ -48,10 +48,7 @@ export const post: BlogPost = {
         tone: "warning",
       },
       { type: "p", text: "Risk disclosure: basis strategies can lose money, and the returns institutions earn depend on capital scale, borrowing costs, and execution quality that most individuals cannot match. Bitcoin holding above $80,000 all week in mid-October 2026, with a total crypto market cap near $2.69 trillion and Bitcoin dominance around 60.4%, shows a market where institutional flows are a permanent feature, not a passing phase. The lesson for retail traders is not to copy institutional trades directly, but to understand how institutional flows shape the spreads, funding rates, and liquidity they trade against. The [best crypto arbitrage scanners](/best-crypto-arbitrage-scanners) page explains how traders monitor those conditions, and the [glossary](/glossary) defines basis, backwardation, and contango." },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you understand how institutions trade the crypto basis. Ask it to explain basis, backwardation, and contango in simple words, compare CME futures with crypto-native perpetuals, or summarize what ETF flows mean for spot prices." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

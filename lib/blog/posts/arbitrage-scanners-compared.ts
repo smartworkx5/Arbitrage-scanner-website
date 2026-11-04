@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "compare arbitrage tools"
   ],
   datePublished: "2026-10-15",
-  dateModified: "2026-10-15",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Basics",
   excerpt: "Arbitrage scanners all promise the same thing: spreads, fast. They differ in coverage, speed, cost accuracy, and honesty. Here is how to compare them on what actually matters in 2026.",
@@ -55,10 +55,7 @@ export const post: BlogPost = {
         text: "A scanner shows you a gap. It cannot move your funds, guarantee a fill, or stop a withdrawal queue. Treat every alert as a starting point for verification, not as a trade signal to follow blindly.",
         tone: "warning",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can explain scanner features in plain language and help you build a comparison checklist for the scanners you are evaluating." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

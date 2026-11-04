@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "bitcoin ETF 2026"
   ],
   datePublished: "2026-10-12",
-  dateModified: "2026-10-12",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Markets",
   excerpt: "Spot bitcoin ETFs rarely trade far from their net asset value — authorized participants make sure of it. Here's how the creation/redemption mechanism works, where small gaps appear, and what it means for traders.",
@@ -43,7 +43,7 @@ export const post: BlogPost = {
       { type: "h2", text: "What ETF flows signal for other bitcoin strategies" },
       { type: "p", text: "For most traders, the actionable part of the ETF story is not the premium/discount itself but what flows reveal. Sustained large inflows — like September 2026's $2.65B — indicate structural institutional demand that tends to support spot prices and can widen futures basis as leveraged demand follows. Heavy outflow days can foreshadow basis compression and funding-rate weakness. Some traders also watch the discount/premium pattern across issuers: persistent discounts on a specific ETF during calm markets can hint at AP or liquidity issues worth investigating before using that product. The flows are public data (published daily by issuers); treat them as a sentiment and positioning input alongside [funding rates](/blog/funding-rates-explained) and basis levels." },
       { type: "h2", text: "ETF-adjacent trades that are actually accessible" },
-      { type: "p", text: "While direct ETF arbitrage is closed to retail, adjacent strategies are not. Basis trading between spot BTC and CME futures benefits from the same institutional demand that drives ETF flows — see our [bitcoin futures basis guide](/blog/futures-basis-explained) for the mechanics. Spread trading between different spot ETFs is occasionally possible for retail during dislocations, though the edge is thin and execution must be fast. And for traders who simply want bitcoin exposure without managing keys, comparing ETF expense ratios, tracking error, and liquidity across issuers is the practical version of 'ETF arbitrage' — picking the best vehicle rather than trading its mispricing. The SEC's approval of six 3x leveraged BTC/ETH ETPs from Volatility Shares (Cboe BZX, trading pending as of October 2026) will add leveraged products to this landscape; their premiums, discounts, and daily rebalancing behavior will create a new set of mechanics to understand before trading." },
+      { type: "p", text: "While direct ETF arbitrage is closed to retail, adjacent strategies are not. Basis trading between spot BTC and CME futures benefits from the same institutional demand that drives ETF flows — see our bitcoin futures basis guide for the mechanics. Spread trading between different spot ETFs is occasionally possible for retail during dislocations, though the edge is thin and execution must be fast. And for traders who simply want bitcoin exposure without managing keys, comparing ETF expense ratios, tracking error, and liquidity across issuers is the practical version of 'ETF arbitrage' — picking the best vehicle rather than trading its mispricing. The SEC's approval of six 3x leveraged BTC/ETH ETPs from Volatility Shares (Cboe BZX, trading pending as of October 2026) will add leveraged products to this landscape; their premiums, discounts, and daily rebalancing behavior will create a new set of mechanics to understand before trading." },
       {
         type: "faq",
         items: [
@@ -65,5 +65,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Bitcoin Arbitrage: Complete 2026 Guide](/blog/bitcoin-arbitrage-guide), [Post-Halving Bitcoin Market Structure](/blog/bitcoin-halving-arbitrage) and [Lightning Network Arbitrage Possibilities](/blog/bitcoin-lightning-arbitrage) next." },
   ],
 };

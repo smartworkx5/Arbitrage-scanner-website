@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "HODL strategy"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Strategies",
   excerpt: "Active spread trading versus patient holding: two very different ways to make money in crypto. Here is how they compare across market cycles, effort, and risk.",
@@ -54,10 +54,7 @@ export const post: BlogPost = {
       { type: "h2", text: "Which One Fits You?" },
       { type: "p", text: "Choose HODLing if you have conviction in the long-term value of an asset, limited time, and the temperament to hold through deep drawdowns without panic. Choose arbitrage if you enjoy systems, can commit daily attention, have enough capital for spreads to matter after fees, and prefer steady small wins over big swings. If you are unsure, start with education: learn how spreads work through [cross-exchange arbitrage](/guides/cross-exchange-arbitrage) and [funding rate arbitrage](/guides/funding-rate-arbitrage), paper-trade or trade tiny amounts, and measure your real results before committing serious capital. The [glossary](/glossary) covers the key terms, and the [best crypto arbitrage scanners](/best-crypto-arbitrage-scanners) page shows how traders monitor spreads without guessing." },
       { type: "p", text: "Whatever you choose, avoid the two classic mistakes: HODLing a weak asset out of stubbornness, and arbitraging with money you cannot afford to have frozen on an exchange. Both strategies reward discipline and punish hope. The traders who last are the ones who pick a strategy that fits their life, write down their rules, and follow them through the full cycle." },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you compare strategies calmly. Ask it to explain the difference between arbitrage and HODLing in simple words, compare their risks and effort, or draft a checklist for deciding which approach fits your time and capital." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

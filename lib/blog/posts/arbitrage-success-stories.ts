@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "realistic arbitrage returns"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Strategies",
   excerpt: "Consistent arbitrage winners rarely have a secret strategy. They share habits: strict checklists, fee discipline, small position sizes, and honest trade logs.",
@@ -50,10 +50,7 @@ export const post: BlogPost = {
         "Scale only after dozens of after-fee profitable trades."
         ],
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you build the habits behind consistent arbitrage. Ask it to draft a trade-log template, or to summarize your weekly review notes into a short list of what to change next." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",
@@ -76,5 +73,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Arbitrage Trades That Blew Up](/blog/failed-arbitrage-stories), [AI in Arbitrage Trading: Hype vs Reality](/blog/ai-in-arbitrage-trading) and [Airdrop Farming vs Arbitrage Compared](/blog/airdrop-arbitrage) next." },
   ],
 };

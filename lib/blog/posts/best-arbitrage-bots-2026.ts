@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "arbitrage software review 2026"
   ],
   datePublished: "2026-10-12",
-  dateModified: "2026-10-12",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Strategies",
   excerpt: "Choosing an arbitrage bot means choosing a category first: cloud platforms, open-source frameworks, or exchange-native tools. Here is an honest comparison of each path's tradeoffs.",
@@ -51,7 +51,7 @@ export const post: BlogPost = {
       { type: "p", text: "The limitation is scope: exchange-native tools almost never do cross-exchange arbitrage, because no single exchange will help you take volume to a competitor. They automate single-venue strategies — grids, TWAP-style accumulation, portfolio rebalancing. If your goal is capturing spreads between venues, exchange tools cannot get you there; you need software that sees multiple venues at once. Treat them as convenient automation for simple strategies, not as arbitrage infrastructure." },
       { type: "h2", text: "How to Evaluate Any Bot Honestly" },
       { type: "p", text: "Whatever category you lean toward, evaluate with the same checklist. First, net profitability after all costs: subscription, server, fees, slippage, and your time — measured over months, not days. Second, risk architecture: does it support position limits, daily loss caps, and automatic halts? Third, transparency: can you see exactly what it trades and why, or is the logic a black box? Fourth, exit costs: how hard is it to stop, withdraw keys, and leave? A bot that is easy to start and hard to leave is a trap by design." },
-      { type: "p", text: "Also evaluate yourself against the bot. Do you have enough capital for the economics to work? Our [capital requirements analysis](/blog/crypto-arbitrage-minimum-capital) runs the numbers on when automation pays for itself. Do you understand the strategy well enough to know when it is broken? And do you have a plan for the day the bot misbehaves — because every bot misbehaves eventually. The [profitability reality check](/blog/is-crypto-arbitrage-profitable-2026) is worth reading before you spend a dollar on software." },
+      { type: "p", text: "Also evaluate yourself against the bot. Do you have enough capital for the economics to work? Our [capital requirements analysis](/blog/crypto-arbitrage-minimum-capital) runs the numbers on when automation pays for itself. Do you understand the strategy well enough to know when it is broken? And do you have a plan for the day the bot misbehaves — because every bot misbehaves eventually. The [profitability reality check](/blog/is-crypto-arbitrage-profitable) is worth reading before you spend a dollar on software." },
       {
         type: "list",
         items: [
