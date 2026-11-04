@@ -14,7 +14,7 @@ export const post: BlogPost = {
       "crypto arbitrage 2026"
   ],
   datePublished: "2026-10-13",
-  dateModified: "2026-10-13",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Strategies",
   excerpt: "Mid-cap altcoins produce the wildest cross-exchange gaps in crypto. Learn to find them, filter by real liquidity, size for thin books, and survive the volatility that creates the edge.",
@@ -55,7 +55,7 @@ export const post: BlogPost = {
       },
       { type: "h2", text: "Risks and honest expectations" },
       { type: "p", text: "Altcoin arbitrage carries every standard arbitrage risk plus token-specific ones: delistings, contract swaps, bridge exploits on wrapped versions, and liquidity that disappears mid-trade. Regulatory shocks hit smaller venues hardest, and South Korea's October 13, 2026 action against 27 unregistered offshore exchanges is a live example of venue risk crystallizing overnight. Diversify across tokens and venues, and keep any single position small enough that a frozen withdrawal is an annoyance, not a disaster." },
-      { type: "p", text: "Expect a high signal-to-noise ratio: you will evaluate dozens of gaps for every one worth trading, and many will fail the depth or fee test. That filtering discipline is the edge; most losses in altcoin arbitrage come from trading mediocre setups, not from missing good ones. Review the [risk management guide](/blog/arbitrage-risk-management) and the [profitability reality check](/blog/is-crypto-arbitrage-profitable-2026) before scaling size." },
+      { type: "p", text: "Expect a high signal-to-noise ratio: you will evaluate dozens of gaps for every one worth trading, and many will fail the depth or fee test. That filtering discipline is the edge; most losses in altcoin arbitrage come from trading mediocre setups, not from missing good ones. Review the [risk management guide](/blog/arbitrage-risk-management) and the [profitability reality check](/blog/is-crypto-arbitrage-profitable) before scaling size." },
       {
         type: "faq",
         items: [

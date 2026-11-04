@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "under 18 crypto trading"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Basics",
   excerpt: "Most centralized exchanges require traders to be at least 18, but the details vary by region, platform, and account type. Here is what the rules actually say.",
@@ -58,10 +58,7 @@ export const post: BlogPost = {
         tone: "warning",
       },
       { type: "p", text: "If you are already 18 and planning to run arbitrage, treat verification as step one of your setup. Complete full KYC on every exchange you plan to use before you need to move funds, because verification queues grow during volatile periods. On Oct 16, 2026, more than $830 million in positions were liquidated in 24 hours, a reminder that volatile days are exactly when you need accounts ready, limits raised, and withdrawal addresses whitelisted. An unverified account during a fast market is a missed opportunity at best and a stranded balance at worst. For the mechanics of moving funds between venues, read [Cross-Exchange Arbitrage](/guides/cross-exchange-arbitrage)." },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you understand age and KYC rules in plain language. Ask it to explain the difference between a custodial account and an account in your own name, or to summarize a platform's eligibility section before you sign up." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",
@@ -84,5 +81,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [How Much Capital Do You Need for Crypto Arbitrage?](/blog/crypto-arbitrage-minimum-capital), [Structuring Arbitrage as a Business](/blog/arbitrage-business-structure) and [Crypto Arbitrage Scanners Compared 2026](/blog/arbitrage-scanners-compared) next." },
   ],
 };

@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "airdrop strategy 2026"
   ],
   datePublished: "2026-10-13",
-  dateModified: "2026-10-13",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Strategies",
   excerpt: "Airdrop farming locks capital for months on uncertain payouts; arbitrage deploys it for small, repeatable spreads. Here is an honest comparison of the two games.",
@@ -57,7 +57,7 @@ export const post: BlogPost = {
         ],
       },
       { type: "h2", text: "The Honest Bottom Line" },
-      { type: "p", text: "Neither game is free money. Farming's expected value is dragged down by dilution, disqualification, and post-listing dumps; arbitrage's edge is ground down by fees, competition, and shrinking spreads as markets mature. The honest comparison is about fit: farming is speculation on future generosity with locked capital, arbitrage is execution on present inefficiency with liquid capital. Before committing to either, run the numbers the way a skeptic would — and if you lean toward arbitrage, check whether it is [actually profitable in 2026](/blog/is-crypto-arbitrage-profitable-2026) after every cost is counted. The traders who last are the ones who chose the game matching their capital, time, and temperament — not the one with the loudest success stories." },
+      { type: "p", text: "Neither game is free money. Farming's expected value is dragged down by dilution, disqualification, and post-listing dumps; arbitrage's edge is ground down by fees, competition, and shrinking spreads as markets mature. The honest comparison is about fit: farming is speculation on future generosity with locked capital, arbitrage is execution on present inefficiency with liquid capital. Before committing to either, run the numbers the way a skeptic would — and if you lean toward arbitrage, check whether it is [actually profitable in 2026](/blog/is-crypto-arbitrage-profitable) after every cost is counted. The traders who last are the ones who chose the game matching their capital, time, and temperament — not the one with the loudest success stories." },
       {
         type: "faq",
         items: [

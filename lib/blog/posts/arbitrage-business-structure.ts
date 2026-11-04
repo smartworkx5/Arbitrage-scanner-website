@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "arbitrage bookkeeping business"
   ],
   datePublished: "2026-10-15",
-  dateModified: "2026-10-15",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Basics",
   excerpt: "When arbitrage grows from a side activity into real volume, structure starts to matter. Here is how to think about sole trading versus a company, separating finances, and keeping books that survive scrutiny.",
@@ -49,7 +49,7 @@ export const post: BlogPost = {
         "Contracts or agreements for any shared capital, loans, or profit-sharing with partners."
         ],
       },
-      { type: "p", text: "Separation also protects your tax position. When personal and trading money mix, reconstructing cost basis becomes guesswork, and guesswork is what triggers disputes. A clean capital ledger, showing exactly what went into the operation and what came out, is the backbone of every credible tax filing and every compliance conversation. For the mechanics of keeping those records, see [Record Keeping for Crypto Traders](/blog/record-keeping-traders)." },
+      { type: "p", text: "Separation also protects your tax position. When personal and trading money mix, reconstructing cost basis becomes guesswork, and guesswork is what triggers disputes. A clean capital ledger, showing exactly what went into the operation and what came out, is the backbone of every credible tax filing and every compliance conversation. For the mechanics of keeping those records, see Record Keeping for Crypto Traders." },
       { type: "h2", text: "Compliance and Banking for a Trading Business" },
       { type: "p", text: "Running arbitrage as a business changes your compliance surface. Corporate exchange accounts typically require company registration documents, director identification, proof of address, and information about beneficial owners. Banks may ask for the source of funds and a description of the business before opening or maintaining an account, and some banks remain cautious about crypto-related businesses altogether. Expect more questions, not fewer, and answer them with documentation rather than assurances. A business that can show registration papers, a clean capital ledger, and consistent records is far easier for a bank to support than one that cannot." },
       {
@@ -58,13 +58,10 @@ export const post: BlogPost = {
         text: "Structure, tax, and licensing rules are jurisdiction-specific and change often. A short consultation with a local accountant or lawyer before you incorporate or scale up is far cheaper than fixing the wrong structure afterwards.",
         tone: "info",
       },
-      { type: "p", text: "Licensing is a separate question from structure. Incorporating does not by itself license you to offer services to others, manage other people's money, or operate an exchange. If your plan involves trading other people's capital, running a fund, or offering signals or managed accounts, that is a regulated activity in most jurisdictions and needs its own advice. Most arbitrageurs trade their own capital only, which keeps the regulatory picture simpler, but the line is easy to cross accidentally when friends or family ask you to trade for them. For the exchange side of compliance, see [Exchange Licensing: Why It Matters](/blog/exchange-licensing-guide) and [KYC/AML for Active Arbitrageurs](/blog/kyc-aml-arbitrage)." },
+      { type: "p", text: "Licensing is a separate question from structure. Incorporating does not by itself license you to offer services to others, manage other people's money, or operate an exchange. If your plan involves trading other people's capital, running a fund, or offering signals or managed accounts, that is a regulated activity in most jurisdictions and needs its own advice. Most arbitrageurs trade their own capital only, which keeps the regulatory picture simpler, but the line is easy to cross accidentally when friends or family ask you to trade for them. For the exchange side of compliance, see Exchange Licensing: Why It Matters and [KYC/AML for Active Arbitrageurs](/blog/kyc-aml-arbitrage)." },
       { type: "h2", text: "A Sensible Path: Start Simple, Formalise on Evidence" },
       { type: "p", text: "A practical path is to start as an individual with clean, separated records, prove the strategy is net-profitable after fees over several months, and formalise once the volume justifies it. The evidence that justifies formalising is concrete: consistent monthly profit, capital levels where liability protection matters, a need for corporate exchange accounts or higher limits, or a tax bill that a company structure would genuinely reduce. Until then, the best investment is discipline: reconciled books, separated accounts, and a fee tracker that tells you the truth about your edge. Arbitrage rewards operators who treat it like a business long before they register one." },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can explain business structures in plain language and help you draft a list of questions to ask an accountant before formalising your trading." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",
@@ -87,5 +84,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Age and Legal Requirements for Trading](/blog/arbitrage-minimum-age), [Crypto Arbitrage Scanners Compared 2026](/blog/arbitrage-scanners-compared) and [Charting Tools Worth Using](/blog/charting-tools-arbitrage) next." },
   ],
 };

@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "arbitrage earnings realistic"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Strategies",
   excerpt: "Arbitrage can fit around a day job, but only with the right setup: limited hours, automation-friendly routines, and honest expectations about returns.",
@@ -58,10 +58,7 @@ export const post: BlogPost = {
         text: "Even the best setups need monitoring, rebalancing, and fee checks. Treat it as an active side business with real risks, not as money that earns itself.",
         tone: "warning",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you plan a part-time arbitrage routine that fits your schedule. Ask it to draft a weekly checklist, or to explain fee structures and funding rates in simple words before you commit capital." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",
@@ -84,5 +81,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [How Much Time Does Crypto Arbitrage Take Daily?](/blog/crypto-arbitrage-time-needed), [AI in Arbitrage Trading: Hype vs Reality](/blog/ai-in-arbitrage-trading) and [Airdrop Farming vs Arbitrage Compared](/blog/airdrop-arbitrage) next." },
   ],
 };

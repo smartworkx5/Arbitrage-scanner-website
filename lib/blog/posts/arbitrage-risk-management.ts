@@ -2,7 +2,7 @@ import type { BlogPost } from "../../blog-posts";
 
 export const post: BlogPost = {
   slug: "arbitrage-risk-management",
-  title: "Crypto Arbitrage Risk Management: Position Sizing and Kill Switches",
+  title: "Arbitrage Risk Management: Sizing and Kill Switches",
   description: "Crypto arbitrage risk management in 2026: position sizing rules, kill switches, and drawdown limits that keep a bad week from becoming a career-ending loss.",
   keywords: [
       "crypto arbitrage risk management",
@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "risk management crypto 2026"
   ],
   datePublished: "2026-10-11",
-  dateModified: "2026-10-11",
+  dateModified: "2026-11-04",
   readingMinutes: 10,
   category: "Risk",
   excerpt: "Arbitrage trades look safe on paper — then one oversized position meets a volatile market. Here is a practical risk-management framework: how to size positions, where to put kill switches, and when to stop trading.",
@@ -21,7 +21,7 @@ export const post: BlogPost = {
       { type: "p", text: "**Crypto arbitrage risk management** is the difference between a strategy that compounds quietly for years and one that blows up in a single afternoon. Arbitrage trades are small, frequent, and low-margin — which means risk rarely arrives as one dramatic loss. It arrives as slow position bloat, a skipped stop rule, or a venue outage at the worst possible moment. The market of October 2026 illustrates the backdrop: bitcoin trades near $82,950–$83,015 as of October 11, 2026 — about 34% below its October 2025 all-time high — and ether sits near $2,505–$2,509, roughly 49% off its own high. In choppy, range-bound markets like this, spreads appear and vanish quickly, tempting traders to size up to make the economics work. That is exactly when a written risk policy matters most." },
       { type: "p", text: "Most arbitrage education focuses on finding the edge — scanning spreads, computing funding, timing transfers. Risk management is the boring half that determines whether you survive long enough to harvest edges repeatedly. The framework below has three pillars: position sizing (how much you put at risk per trade), kill switches (predefined conditions that halt trading automatically), and drawdown rules (how losses force you to reduce size or stop). None of this is glamorous, but professionals will tell you risk rules are the actual strategy — the trades are just the vehicle." },
       { type: "h2", text: "Position Sizing: The Rule That Decides Everything" },
-      { type: "p", text: "Position sizing in arbitrage answers one question: what fraction of total capital goes into a single opportunity? A sensible starting convention is **1–2% of dedicated trading capital at risk per trade**, where at risk means the estimated worst-case loss on that trade, not the notional size. In classic cross-exchange spot arbitrage, the notional can be large while the risk is small — the exposure is brief and directional only during transfer. But the risk is never zero: transfers fail, prices move mid-transit, and [withdrawal networks congest](/blog/crypto-transfer-times) at exactly the wrong times. Sizing against notional is how traders fool themselves; sizing against the loss you would take if everything went wrong is how professionals stay solvent." },
+      { type: "p", text: "Position sizing in arbitrage answers one question: what fraction of total capital goes into a single opportunity? A sensible starting convention is **1–2% of dedicated trading capital at risk per trade**, where at risk means the estimated worst-case loss on that trade, not the notional size. In classic cross-exchange spot arbitrage, the notional can be large while the risk is small — the exposure is brief and directional only during transfer. But the risk is never zero: transfers fail, prices move mid-transit, and withdrawal networks congest at exactly the wrong times. Sizing against notional is how traders fool themselves; sizing against the loss you would take if everything went wrong is how professionals stay solvent." },
       { type: "p", text: "A practical approach is tiered sizing by trade confidence and liquidity. High-confidence, deep-liquidity trades — a well-established spread on a major pair between two venues you know well — earn standard size. Thin-order-book or new-token trades earn a fraction of standard size, or are skipped entirely. This is the opposite of what beginners do: they size UP on exotic trades because the headline spread looks bigger, precisely when liquidity risk is highest. Our [cross-exchange arbitrage guide](/guides/cross-exchange-arbitrage) walks through spread mechanics; the sizing rule is what keeps those spreads from biting you." },
       {
         type: "list",

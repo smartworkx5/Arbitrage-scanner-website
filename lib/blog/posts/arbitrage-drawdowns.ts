@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "arbitrage regime change"
   ],
   datePublished: "2026-10-11",
-  dateModified: "2026-10-11",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Risk",
   excerpt: "Arbitrage edges do not disappear overnight — they compress for months. How to distinguish a regime change from bad luck, and the capital rules for surviving lean periods.",
@@ -22,7 +22,7 @@ export const post: BlogPost = {
       { type: "p", text: "A drawdown in arbitrage looks different from a drawdown in directional trading. There is no single catastrophic day; instead, monthly returns decay: 3% becomes 1.5% becomes 0.4% becomes slightly negative after fees. The psychological trap is that nothing feels broken — each trade still works mechanically, the scanner still flashes spreads — but the aggregate no longer compensates for the capital and effort deployed. Traders respond by sizing up to recover old income levels, which is precisely how a gentle edge compression becomes a real capital loss." },
       { type: "h2", text: "Why Edges Compress: The Four Forces" },
       { type: "p", text: "Edge compression has structural causes. First, **competition**: profitable, visible spreads attract professional market makers with better latency, lower fees, and more capital — the spread you found is the spread they now harvest in milliseconds. Second, **market maturation**: as venues improve connectivity and liquidity deepens, the fragmentation that creates cross-exchange gaps narrows. Third, **volatility regimes**: arbitrage feeds on movement — funding rates, basis, and spreads all fatten when markets trend or panic. In calm, range-bound stretches like much of 2026, the raw material of edge is scarce. Fourth, **fee and cost creep**: spreads compress while fees do not, so net edges decay faster than gross ones." },
-      { type: "p", text: "None of these reverse quickly. Competition does not leave; matured markets do not un-mature; volatility returns on its own schedule. This is why drawdown discipline matters more in arbitrage than almost any other strategy: the lean period is measured in quarters, not weeks. Our [profitability analysis](/blog/is-crypto-arbitrage-profitable-2026) puts honest numbers on what edges look like in the current environment — read it before assuming historical returns still apply." },
+      { type: "p", text: "None of these reverse quickly. Competition does not leave; matured markets do not un-mature; volatility returns on its own schedule. This is why drawdown discipline matters more in arbitrage than almost any other strategy: the lean period is measured in quarters, not weeks. Our [profitability analysis](/blog/is-crypto-arbitrage-profitable) puts honest numbers on what edges look like in the current environment — read it before assuming historical returns still apply." },
       { type: "h2", text: "Bad Luck or Regime Change? How to Tell" },
       {
         type: "callout",

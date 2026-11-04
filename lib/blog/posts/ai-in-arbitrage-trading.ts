@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "ML crypto trading 2026"
   ],
   datePublished: "2026-10-12",
-  dateModified: "2026-10-12",
+  dateModified: "2026-11-04",
   readingMinutes: 10,
   category: "Strategies",
   excerpt: "Everyone claims AI for their trading bot — but what can machine learning actually do in arbitrage? An honest look at real use cases, hard limits, and how to spot the hype.",
@@ -52,7 +52,7 @@ export const post: BlogPost = {
       { type: "p", text: "Ask vendors (or yourself, if building) the hard questions. What exactly does the model predict, and what decision does the prediction change? What is the dumb baseline it must beat — a fixed threshold, a moving average? How does performance degrade as markets change, and how would you detect that degradation live? What happens when the model is wrong — are errors small and frequent, or rare and catastrophic? Honest answers are specific and hedged; hype answers are grandiose and vague. The [scanner comparison](/best-crypto-arbitrage-scanners) gives you the broader framework for evaluating any trading product's claims." },
       { type: "h2", text: "A Sane Way to Use ML in Your Own Operation" },
       { type: "p", text: "If you are building, add ML last, not first. Start with a working rules-based arbitrage system — clean data pipelines, honest backtests, paper trading, small live size — because ML amplifies a working system and cannot rescue a broken one. Then pick one narrow, measurable problem: predicting whether a flagged spread will still be there after your latency, or estimating slippage for your typical sizes. Train on your own logged fills (the most valuable dataset you own), evaluate strictly out-of-sample, and deploy as a filter on existing signals rather than a standalone strategy." },
-      { type: "p", text: "Monitor for decay from day one: track the model's live predictions against outcomes weekly, and have a fallback — the original rules-based thresholds — ready the moment performance degrades. Keep models simple; in adversarial markets, a logistic regression you understand beats a deep network you cannot debug at 3 a.m. And keep expectations proportional: a filter that cuts your unprofitable trades by 10–20% is a genuine, valuable win. Anyone promising more is selling something else. For the strategy context these tools serve, our [profitability reality check](/blog/is-crypto-arbitrage-profitable-2026) keeps the economics grounded." },
+      { type: "p", text: "Monitor for decay from day one: track the model's live predictions against outcomes weekly, and have a fallback — the original rules-based thresholds — ready the moment performance degrades. Keep models simple; in adversarial markets, a logistic regression you understand beats a deep network you cannot debug at 3 a.m. And keep expectations proportional: a filter that cuts your unprofitable trades by 10–20% is a genuine, valuable win. Anyone promising more is selling something else. For the strategy context these tools serve, our [profitability reality check](/blog/is-crypto-arbitrage-profitable) keeps the economics grounded." },
       {
         type: "list",
         items: [

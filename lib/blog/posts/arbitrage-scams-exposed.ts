@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "arbitrage fraud"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Risk",
   excerpt: "Arbitrage scams promise guaranteed profits and pay early victims with later victims money. Here are the patterns, red flags, and checks that expose them.",
@@ -58,10 +58,7 @@ export const post: BlogPost = {
         text: "Stop depositing immediately, document everything, withdraw whatever you can, and report the platform to your local cybercrime authority and to the exchanges involved. Do not pay a recovery fee to anyone claiming they can retrieve your funds: recovery scams target victims twice.",
         tone: "warning",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you spot scams before you send money. Ask it to explain how a Ponzi scheme works, review a platform red-flag checklist with you, or help you draft the questions to ask before trusting any investment offer." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

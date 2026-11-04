@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "arbitrage fund fees"
   ],
   datePublished: "2026-10-15",
-  dateModified: "2026-10-15",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Strategies",
   excerpt: "Arbitrage funds turn a solo trading strategy into a pooled, professional operation. Here is how they are structured, how they manage risk at scale, and what investors should check before committing capital.",
@@ -47,10 +47,7 @@ export const post: BlogPost = {
         text: "Arbitrage funds can lose money through exchange failures, depegs, liquidation cascades, operational errors, and fraud. Past returns, even audited ones, do not guarantee future results. Never invest money you cannot afford to lose.",
         tone: "warning",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant. It can explain fund structures, fees, and lockups in plain language and help you draft a due-diligence checklist of questions to ask a fund manager." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",
@@ -73,5 +70,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [AI in Arbitrage Trading: Hype vs Reality](/blog/ai-in-arbitrage-trading), [Airdrop Farming vs Arbitrage Compared](/blog/airdrop-arbitrage) and [Altcoin Arbitrage Strategy Guide](/blog/altcoin-arbitrage-strategy) next." },
   ],
 };
