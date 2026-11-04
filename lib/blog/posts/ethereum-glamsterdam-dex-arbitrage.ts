@@ -2,7 +2,7 @@ import type { BlogPost } from "../../blog-posts";
 
 export const post: BlogPost = {
   slug: "ethereum-glamsterdam-dex-arbitrage",
-  title: "Ethereum's Glamsterdam Hits Sepolia: What L2 Upgrades Mean for DEX Arbitrage",
+  title: "Glamsterdam and DEX Arbitrage: What L2 Upgrades Change",
   description: "Ethereum's Glamsterdam upgrade hit Sepolia on Oct 6, 2026. How enshrined PBS, block-level access lists, and new gas accounting cut costs for DEX arbitrage.",
   keywords: [
       "Ethereum Glamsterdam upgrade",
@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "Ethereum L2 arbitrage 2026"
   ],
   datePublished: "2026-10-11",
-  dateModified: "2026-10-11",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Markets",
   excerpt: "Glamsterdam activated on Sepolia on October 6, 2026, with Hoodi next on October 26. Its execution-cost cuts could widen profitable DEX arbitrage windows — here is the mechanics-first read.",

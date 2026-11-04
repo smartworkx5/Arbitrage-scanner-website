@@ -2,7 +2,7 @@ import type { BlogPost } from "../../blog-posts";
 
 export const post: BlogPost = {
   slug: "diversification-arbitrage",
-  title: "Diversification for Arbitrage: Don't Keep All Capital on One Venue",
+  title: "Diversify Arbitrage Capital Across Venues",
   description: "Diversification for arbitrage traders: spread capital across venues, strategies, and stablecoins — beat concentration without diluting your edge in 2026.",
   keywords: [
       "diversification arbitrage",
@@ -12,7 +12,7 @@ export const post: BlogPost = {
       "crypto portfolio diversification"
   ],
   datePublished: "2026-10-11",
-  dateModified: "2026-10-11",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Risk",
   excerpt: "Concentration is the silent risk in arbitrage: one venue, one strategy, one stablecoin. How to diversify capital across venues, strategies, and assets without diluting your edge.",
@@ -33,7 +33,7 @@ export const post: BlogPost = {
       { type: "p", text: "Most arbitrageurs start with one strategy — usually [cross-exchange spot arbitrage](/guides/cross-exchange-arbitrage) — and never add a second. The risk: edges are regime-dependent. Funding rates go flat for months in calm markets; cross-exchange spreads compress when professional market makers arrive; triangular opportunities dry up as DEX aggregators get smarter. A trader running only one strategy experiences these regime shifts as income going to zero. A trader running two or three — say, cross-exchange spot plus [funding rate arbitrage](/guides/funding-rate-arbitrage) plus occasional cash-and-carry — experiences them as one sleeve underperforming while others carry on." },
       { type: "p", text: "Strategy diversification does not mean trading everything. It means having two to three approaches you genuinely understand, with different return drivers: one driven by venue fragmentation, one by leverage demand (funding), one by term structure (basis). When allocating, weight by edge quality and your own competence, not equally — a 60/30/10 split across a primary, secondary, and experimental strategy is more honest than pretending all edges are equal. And keep learning: our [hidden risks guide](/blog/cross-exchange-hidden-risks) is a good checklist when evaluating whether a new strategy's risks are ones you can actually manage." },
       { type: "h2", text: "Asset Diversification: Beyond the Stablecoin Stack" },
-      { type: "p", text: "The third level is what your balances are denominated in. Many arbitrageurs hold everything in a single stablecoin — usually USDT — which concentrates [stablecoin depeg risk](/blog/stablecoin-depeg-risk) across the entire operation. Splitting working capital between USDT and USDC is the minimum; keeping a portion in native BTC/ETH and sweeping profits to fiat or cold storage goes further. Each denomination hedges a different failure: stablecoin splits hedge issuer risk, native crypto hedges stablecoin-systemic risk, and fiat off-ramps hedge crypto-systemic risk." },
+      { type: "p", text: "The third level is what your balances are denominated in. Many arbitrageurs hold everything in a single stablecoin — usually USDT — which concentrates stablecoin depeg risk across the entire operation. Splitting working capital between USDT and USDC is the minimum; keeping a portion in native BTC/ETH and sweeping profits to fiat or cold storage goes further. Each denomination hedges a different failure: stablecoin splits hedge issuer risk, native crypto hedges stablecoin-systemic risk, and fiat off-ramps hedge crypto-systemic risk." },
       {
         type: "table",
         headers: ["Diversification level", "Failure it prevents", "Practical rule"],

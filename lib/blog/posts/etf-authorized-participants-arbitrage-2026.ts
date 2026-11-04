@@ -2,7 +2,7 @@ import type { BlogPost } from "../../blog-posts";
 
 export const post: BlogPost = {
   slug: "etf-authorized-participants-arbitrage-2026",
-  title: "Authorized Participants: The Hidden Arbitrageurs Behind Crypto ETFs",
+  title: "ETF Authorized Participants: The Hidden Arbitrageurs",
   description: "Authorized participants keep crypto ETF prices near NAV through creation and redemption. How this hidden arbitrage works — and when it breaks down under stress.",
   keywords: [
       "authorized participants",
@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "ETF market makers"
   ],
   datePublished: "2026-10-18",
-  dateModified: "2026-10-18",
+  dateModified: "2026-11-04",
   readingMinutes: 8,
   category: "Markets",
   excerpt: "Crypto ETFs track their holdings because authorized participants arbitrage away any gap. Here is how creation and redemption keep prices near NAV — and when the mechanism strains.",
@@ -47,10 +47,7 @@ export const post: BlogPost = {
         text: "ETF prices can trade above or below NAV, especially in volatile markets. Check premium/discount data before trading, and remember that ETF shares are market-priced securities, not direct claims on a fixed amount of Bitcoin.",
         tone: "warning",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, built to explain complex topics in plain language and help you research them step by step. If creation and redemption mechanics feel abstract, Muse AI can walk through a worked premium-and-discount example with simple numbers and explain what each step means for an ETF investor." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",
@@ -73,5 +70,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Bitcoin ETF Arbitrage Mechanics](/blog/bitcoin-etf-arbitrage), [ETF Launch Arbitrage Case Study](/blog/etf-launch-arbitrage) and [Crypto Arbitrage in Africa](/blog/africa-crypto-arbitrage) next." },
   ],
 };

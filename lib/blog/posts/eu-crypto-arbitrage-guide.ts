@@ -14,7 +14,7 @@ export const post: BlogPost = {
       "MiCA licensing"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 10,
   category: "Markets",
   excerpt: "MiCA reshaped crypto arbitrage across the EU with one licensing regime. Learn the post-MiCA venue landscape, compliance, taxes, and strategy.",
@@ -47,10 +47,7 @@ export const post: BlogPost = {
         text: "MiCA makes venue checks simple: a legitimate EU venue should clearly state its MiCA license and supervising regulator. If you cannot find licensing information, do not deposit funds there.",
         tone: "info",
       },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you summarize MiCA's key rules in plain language or draft a venue-comparison checklist for EU exchanges." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

@@ -2,7 +2,7 @@ import type { BlogPost } from "../../blog-posts";
 
 export const post: BlogPost = {
   slug: "defi-arbitrage-guide",
-  title: "DeFi Arbitrage: Complete 2026 Guide to On-Chain Strategies Beyond CEX-DEX",
+  title: "DeFi Arbitrage: Complete Guide to On-Chain Strategies",
   description: "DeFi arbitrage goes far beyond CEX vs DEX. Learn DEX-to-DEX, flash-loan, liquidation, and cross-chain strategies — with the real risks and costs explained.",
   keywords: [
       "DeFi arbitrage guide",
@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "cross-chain arbitrage 2026"
   ],
   datePublished: "2026-10-14",
-  dateModified: "2026-10-14",
+  dateModified: "2026-11-04",
   readingMinutes: 10,
   category: "Strategies",
   excerpt: "DeFi arbitrage lives entirely on-chain: DEX-to-DEX spreads, flash loans, liquidations, and cross-chain gaps. A complete 2026 guide to the strategies — and their real costs.",

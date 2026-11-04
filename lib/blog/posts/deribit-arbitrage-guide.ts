@@ -14,7 +14,7 @@ export const post: BlogPost = {
       "options arbitrage Deribit"
   ],
   datePublished: "2026-10-17",
-  dateModified: "2026-10-17",
+  dateModified: "2026-11-04",
   readingMinutes: 10,
   category: "Strategies",
   excerpt: "Deribit is the leading venue for crypto options, and its deep options books create arbitrage structures that do not exist anywhere else — if you understand its rules.",
@@ -60,10 +60,7 @@ export const post: BlogPost = {
       },
       { type: "h2", text: "A Sensible Deribit Workflow" },
       { type: "p", text: "A sensible Deribit workflow starts with observation, not trading. Watch a small set of liquid strikes, track the smile and the parity gap at fixed intervals, and compare Deribit quotes with one other venue at the same timestamp. Define your threshold in advance: a minimum net edge after all fees, a maximum position size, and a rule for unwinding. Rehearse the full structure on paper, including the hedge and the margin, before committing capital. When you do trade, use small sizes, keep the hedge tight, and close or manage positions before expiry rather than letting settlement surprise you. For the broader derivatives toolkit, see our [funding-rate arbitrage guide](/guides/funding-rate-arbitrage) and the [arbitrage hub](/arbitrage). Deribit rewards the prepared and the patient, and it punishes those who mistake a deep order book for easy money." },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you learn Deribit's structures before you trade them. Ask it to explain portfolio margin versus isolated margin in plain language, or to draft a pre-trade checklist covering settlement, margin, expiry, and hedge costs for one options combination." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",

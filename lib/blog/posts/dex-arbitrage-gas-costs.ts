@@ -77,5 +77,6 @@ export const post: BlogPost = {
           }
         ],
       },
+      { type: "p", text: "Keep exploring: read [Using DEX Aggregators for Arbitrage Execution](/blog/dex-aggregator-arbitrage), [Essential Tools for DEX Arbitrage in 2026](/blog/dex-arbitrage-tools) and [New Token Listings: DEX-to-CEX Arbitrage](/blog/new-token-dex-arbitrage) next." },
   ],
 };

@@ -13,7 +13,7 @@ export const post: BlogPost = {
       "Bitcoin ETF spread"
   ],
   datePublished: "2026-10-16",
-  dateModified: "2026-10-16",
+  dateModified: "2026-11-04",
   readingMinutes: 9,
   category: "Strategies",
   excerpt: "ETF launches create some of the most studied spreads in crypto, from the GBTC discount to basis trades. This case study explains how they worked and what traders should check before assuming a spread is free money.",
@@ -59,10 +59,7 @@ export const post: BlogPost = {
         tone: "warning",
       },
       { type: "p", text: "The enduring lesson of ETF launch arbitrage is that the market pays traders for bearing real frictions, not for spotting a number on a screen. GBTC rewarded patient, well-hedged traders who understood the structure, and punished those who treated the discount as guaranteed profit. New listings in markets such as Thailand will create fresh case studies in the coming months, and the traders who profit from them will be the ones who read the prospectus, model the costs, and respect the risks. For a broader view of how fund flows interact with venue spreads, see our guide to [funding-rate arbitrage](/guides/funding-rate-arbitrage) and the comparison of major venues on our [best scanners](/best-crypto-arbitrage-scanners) page." },
-      { type: "h2", text: "AI Help: Muse AI" },
       { type: "p", text: "Muse AI is Meta's personal AI assistant, and it can help you understand ETF structures in plain language. Ask it to explain the difference between a closed-end fund discount and an ETF premium, or to turn a prospectus section into a short checklist of the risks that matter for a spread trade." },
-      { type: "p", text: "Join Muse with invite code LTGSWD — in the Muse app, go to Settings > Redeem token and enter the code." },
-      { type: "p", text: "Disclosure: LTGSWD is the author's Muse invite code." },
       { type: "p", text: "Muse AI is not a trading tool and does not give financial advice." },
       {
         type: "faq",
