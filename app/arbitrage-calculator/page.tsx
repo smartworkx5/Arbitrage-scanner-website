@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "Can Cryptoscopia do this automatically?",
-    a: "Yes. This calculator works on prices you type in. The Cryptoscopia scanner watches 16 exchanges in real time, finds the gaps for you and ranks them — and the paper trading bot lets you practice the trades risk-free. You can try it free for 3 days.",
+    a: "Yes. This calculator works on prices you type in. The Cryptoscopia scanner watches 19 exchanges in real time, finds the gaps for you and ranks them — and the paper trading bot lets you practice the trades risk-free. You can try it free for 3 days.",
   },
 ];
 
@@ -69,7 +69,7 @@ export default function ArbitrageCalculatorPage() {
           a 0.5% gap is $0.50 before costs: usually a loss. On a larger trade the same gap can be real
           money. The honest way to judge any opportunity is net profit after all fees, which is exactly
           what this calculator shows — and what the Cryptoscopia scanner computes automatically,
-          live, across 16 exchanges.
+          live, across 19 exchanges.
         </p>
       </section>
 

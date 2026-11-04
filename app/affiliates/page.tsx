@@ -57,7 +57,7 @@ export default function AffiliatesPage() {
       <section className="mt-10">
         <h2 className="text-2xl font-bold text-white">What you get to promote</h2>
         <p className="mt-3 leading-relaxed text-slate-400">
-          A real-time scanner across 16 exchanges (cross-exchange, CEX vs DEX, triangular and
+          A real-time scanner across 19 exchanges (cross-exchange, CEX vs DEX, triangular and
           funding-rate arbitrage) with a paper trading bot — at $24.99/month, well below the
           $69–$795/month competitors charge. Your audience gets a free 3-day trial with no credit
           card, so your link converts without asking anyone to pay up front. The free{" "}

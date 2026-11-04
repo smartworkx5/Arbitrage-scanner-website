@@ -177,7 +177,7 @@ export default function PairPage({ params }: { params: { pair: string } }) {
             Scan {pair.a} vs {pair.b} spreads live
           </h2>
           <p className="mt-2 text-slate-300">
-            {SITE_NAME} watches 16 exchanges in real time and ranks {pair.a}–
+            {SITE_NAME} watches 19 exchanges in real time and ranks {pair.a}–
             {pair.b} opportunities by net spread — try it free for 3 days.
           </p>
           <Link href="/signin" className="btn-primary mt-4 inline-block">

@@ -22,7 +22,7 @@ const APP_URL = "/app";
 
 const unlockedFeatures = [
   "Top gainers & losers scanner",
-  "16-exchange arbitrage detection",
+  "19-exchange arbitrage detection",
   "Cross-exchange, CEX vs DEX, triangular & funding-rate arbitrage",
   "Paper trading bot",
   "Real-time price alerts",

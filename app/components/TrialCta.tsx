@@ -9,7 +9,7 @@ export default function TrialCta() {
           See these spreads live — free for 3 days
         </h2>
         <p className="mx-auto mt-2 max-w-xl text-sm text-slate-400">
-          Cryptoscopia scans 16 exchanges in real time and ranks live arbitrage
+          Cryptoscopia scans 19 exchanges in real time and ranks live arbitrage
           gaps. Start your free trial — no credit card required.
         </p>
         <Link href="/signin" className="btn-primary mt-5">
