@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Check } from "lucide-react";
 import TrialCta from "@/app/components/TrialCta";
+import { EXCHANGE_COUNT } from "@/lib/site";
 import LiveSpreads from "./LiveSpreads";
 
 export const metadata: Metadata = {
@@ -18,19 +19,10 @@ export const metadata: Metadata = {
 
 export default function LiveSpreadsPage() {
   return (
-    <main className="mx-auto max-w-6xl px-4 py-12">
-      <header className="mb-8 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 text-lg font-bold tracking-tight">
-          <img src="/images/logo-mark.svg" alt="Cryptoscopia logo" width={30} height={30} />
-          <span className="gradient-text">Cryptoscopia</span>
-        </Link>
-        <Link href="/signin" className="btn-primary hidden !px-4 !py-2 text-sm sm:inline-flex">
-          Free Trial
-        </Link>
-      </header>
-
+    <div className="mx-auto max-w-6xl px-4 py-12">
+      {/* Header/footer come from the shared shell in app/layout.tsx. */}
       <div className="max-w-3xl">
-        <p className="mb-4 inline-block rounded-full border border-green-500/30 bg-green-500/10 px-4 py-1 text-sm text-green-300">
+        <p className="mb-4 inline-block rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1 text-sm text-emerald-300">
           Free preview — live exchange data
         </p>
         <h1 className="text-3xl font-extrabold tracking-tight md:text-5xl">
@@ -45,7 +37,7 @@ export default function LiveSpreadsPage() {
           <strong className="text-slate-300">Please note:</strong> this is a
           free, slightly delayed preview that refreshes about once a minute and
           covers only the highest-volume pairs on 5 exchanges. The full
-          Cryptoscopia scanner tracks all 19 exchanges in real time, with the
+          Cryptoscopia scanner tracks all {EXCHANGE_COUNT} exchanges in real time, with the
           complete opportunity list, CEX vs DEX, triangular and funding-rate
           scanning, alerts, and a paper trading bot to practice risk-free.
           Spreads move fast and can vanish before a transfer completes — a
@@ -61,7 +53,7 @@ export default function LiveSpreadsPage() {
         <h2 className="text-center text-2xl font-bold">What the full scanner adds</h2>
         <ul className="mx-auto mt-6 grid max-w-2xl gap-3 text-sm text-slate-300 sm:grid-cols-2">
           {[
-            "All 19 exchanges in real time — not a 1-minute delayed preview",
+            `All ${EXCHANGE_COUNT} exchanges in real time — not a 1-minute delayed preview`,
             "Every tradable pair, ranked by spread and profit potential",
             "CEX vs DEX, triangular and funding-rate arbitrage scanners",
             "Real-time alerts when a gap opens",
@@ -69,7 +61,7 @@ export default function LiveSpreadsPage() {
             "Fee-aware profit estimates on every opportunity",
           ].map((li) => (
             <li key={li} className="flex gap-2">
-              <span className="text-green-400">✓</span>
+              <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" aria-hidden />
               {li}
             </li>
           ))}
@@ -79,6 +71,6 @@ export default function LiveSpreadsPage() {
       <div className="mt-10">
         <TrialCta />
       </div>
-    </main>
+    </div>
   );
 }

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, EXCHANGE_COUNT } from "@/lib/site";
 import { faqJsonLd } from "../components/Seo";
 import TrialCta from "../components/TrialCta";
 import Calculator from "./Calculator";
@@ -34,27 +33,28 @@ const faqs = [
   },
   {
     q: "Can Cryptoscopia do this automatically?",
-    a: "Yes. This calculator works on prices you type in. The Cryptoscopia scanner watches 19 exchanges in real time, finds the gaps for you and ranks them — and the paper trading bot lets you practice the trades risk-free. You can try it free for 3 days.",
+    a: `Yes. This calculator works on prices you type in. The Cryptoscopia scanner watches ${EXCHANGE_COUNT} exchanges in real time, finds the gaps for you and ranks them — and the paper trading bot lets you practice the trades risk-free. You can try it free for 3 days.`,
   },
 ];
 
 export default function ArbitrageCalculatorPage() {
   return (
-    <main className="mx-auto max-w-3xl px-4 py-12">
+    <div className="mx-auto max-w-3xl px-4 py-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(faqs)) }}
       />
-      <p className="text-sm font-medium text-emerald-400">
-        <Link href="/" className="hover:text-emerald-300">← Cryptoscopia</Link>
-      </p>
-      <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-white md:text-4xl">
+      {/* Header/footer come from the shared shell in app/layout.tsx. */}
+      <h1 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">
         Crypto Arbitrage Calculator
       </h1>
       <p className="mt-4 leading-relaxed text-slate-400">
         A price gap between two exchanges is only worth trading if money is left after fees.
         Enter a buy price and a sell price below and see your <strong className="text-slate-200">estimated
         net profit after trading and withdrawal fees</strong> — free, no sign-up.
+      </p>
+      <p className="mt-3 text-sm font-medium text-emerald-300">
+        Results update as you type — change any price, amount or fee and the estimate recalculates instantly.
       </p>
 
       <div className="mt-8">
@@ -69,7 +69,7 @@ export default function ArbitrageCalculatorPage() {
           a 0.5% gap is $0.50 before costs: usually a loss. On a larger trade the same gap can be real
           money. The honest way to judge any opportunity is net profit after all fees, which is exactly
           what this calculator shows — and what the Cryptoscopia scanner computes automatically,
-          live, across 19 exchanges.
+          live, across {EXCHANGE_COUNT} exchanges.
         </p>
       </section>
 
@@ -86,6 +86,6 @@ export default function ArbitrageCalculatorPage() {
       </section>
 
       <TrialCta />
-    </main>
+    </div>
   );
 }

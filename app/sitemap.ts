@@ -55,6 +55,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.6,
     },
+    {
+      url: u("/pricing"),
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
     ...pairs.map((p) => ({
       url: u(`/arbitrage/${p.slug}`),
       lastModified: now,
