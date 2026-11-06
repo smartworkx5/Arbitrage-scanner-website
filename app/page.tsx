@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { sql } from "@vercel/postgres";
 import { LaunchAppButton } from "./LaunchAppButton";
-import HeaderAuth from "./components/HeaderAuth";
-import { MobileMenu } from "./MobileMenu";
 import { faqJsonLd } from "./components/Seo";
 import ScreenshotCarousel from "./components/ScreenshotCarousel";
 import LazyLiveSpreads from "./components/LazyLiveSpreads";
@@ -199,29 +197,8 @@ export default async function LandingPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLd, faqJsonLd(faqs)]) }} />
 
-      {/* ---------- Header ---------- */}
-      <header className="sticky top-0 z-40 border-b border-slate-800/80 bg-[#0a0e17]/90 backdrop-blur">
-        <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-4" aria-label="Main">
-          <Link href="/" className="flex items-center gap-2 text-lg font-bold tracking-tight">
-            <img src="/images/logo-mark.svg" alt="Cryptoscopia logo" width={30} height={30} />
-            <span className="gradient-text">Cryptoscopia</span>
-          </Link>
-          <div className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
-            <a href="#features" className="hover:text-white">Features</a>
-            <a href="#how-it-works" className="hover:text-white">How it works</a>
-            <Link href="/guides" className="hover:text-white">Guides</Link>
-            <Link href="/blog" className="hover:text-white">Blog</Link>
-            <a href="#pricing" className="hover:text-white">Pricing</a>
-            <a href="#faq" className="hover:text-white">FAQ</a>
-          </div>
-          <div className="flex items-center gap-3">
-            <HeaderAuth />
-            <MobileMenu />
-          </div>
-        </nav>
-      </header>
-
-      <main>
+      {/* Header, footer and mobile trial bar come from the shared shell
+          in app/layout.tsx (SiteHeader / SiteFooter / MobileTrialBar). */}
         {/* ---------- Hero ---------- */}
         <section className="relative overflow-hidden px-4 pb-16 pt-14 md:pt-20">
           <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -435,11 +412,6 @@ export default async function LandingPage() {
           </div>
         </section>
 
-        {/* Sticky mobile trial CTA */}
-        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-800 bg-[#0a0e17]/95 px-4 py-3 backdrop-blur md:hidden">
-          <Link href="/signin" className="btn-primary flex w-full justify-center">Start Free 3-Day Trial — no card needed</Link>
-        </div>
-
         {/* ---------- FAQ ---------- */}
         <section id="faq" className="mx-auto max-w-3xl scroll-mt-20 px-4 py-16">
           <h2 className="text-center text-3xl font-bold md:text-4xl">Frequently asked questions</h2>
@@ -500,36 +472,6 @@ export default async function LandingPage() {
             </div>
           </div>
         </section>
-      </main>
-
-      {/* ---------- Footer ---------- */}
-      <footer className="border-t border-slate-800/80 px-4 py-10">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 md:flex-row">
-          <p className="text-sm text-slate-400">
-            <span className="font-bold text-slate-200">Cryptoscopia</span> · Trade smarter, not harder.
-          </p>
-          <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400" aria-label="Footer">
-            <a href="#features" className="hover:text-white">Features</a>
-            <a href="#pricing" className="hover:text-white">Pricing</a>
-            <a href="#faq" className="hover:text-white">FAQ</a>
-            <Link href="/guides" className="hover:text-white">Guides</Link>
-            <Link href="/blog" className="hover:text-white">Blog</Link>
-            <Link href="/arbitrage" className="hover:text-white">Exchange Comparisons</Link>
-            <Link href="/live" className="hover:text-white">Live Spreads</Link>
-            <Link href="/arbitrage-calculator" className="hover:text-white">Profit Calculator</Link>
-            <Link href="/affiliates" className="hover:text-white">Affiliates</Link>
-            <Link href="/best-crypto-arbitrage-scanners" className="hover:text-white">Best Scanners</Link>
-            <Link href="/glossary" className="hover:text-white">Glossary</Link>
-            <Link href="/about" className="hover:text-white">About</Link>
-            <Link href="/privacy" className="hover:text-white">Privacy</Link>
-            <LaunchAppButton className="hover:text-white">Launch App</LaunchAppButton>
-          </nav>
-        </div>
-        <p className="mx-auto mt-6 max-w-6xl text-xs leading-relaxed text-slate-400">
-          Disclaimer: Crypto trading involves substantial risk of loss. Signals are informational tools,
-          not financial advice. Never trade with money you cannot afford to lose.
-        </p>
-      </footer>
     </>
   );
 }
