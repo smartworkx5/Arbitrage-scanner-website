@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, EXCHANGE_COUNT } from "@/lib/site";
 import { Breadcrumbs } from "@/app/components/Seo";
 
 export const metadata: Metadata = {
@@ -14,10 +14,10 @@ export const metadata: Metadata = {
     "what is funding rate",
     "what is slippage crypto",
   ],
-  alternates: { canonical: `${SITE_URL}/glossary` },
+  alternates: { canonical: `${SITE_URL}/glossary/` },
   openGraph: {
     type: "website",
-    url: `${SITE_URL}/glossary`,
+    url: `${SITE_URL}/glossary/`,
     title: "Crypto Arbitrage Glossary",
     description:
       "Every crypto arbitrage term explained in plain English — from spreads to MEV.",
@@ -222,7 +222,7 @@ export default function GlossaryPage() {
             Know the terms. Now see the opportunities.
           </h2>
           <p className="mt-2 text-slate-300">
-            Cryptoscopia finds live spreads across 19 exchanges —
+            Cryptoscopia finds live spreads across {EXCHANGE_COUNT} exchanges —
             try it free for 3 days.
           </p>
           <Link href="/signin" className="btn-primary mt-4 inline-block">

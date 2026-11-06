@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SITE_URL } from "@/lib/site";
-import TrialCta from "../components/TrialCta";
+import { SITE_URL, EXCHANGE_COUNT } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Affiliate Program — Earn 40% Recurring",
@@ -19,11 +18,8 @@ export const metadata: Metadata = {
 
 export default function AffiliatesPage() {
   return (
-    <main className="mx-auto max-w-3xl px-4 py-12">
-      <p className="text-sm font-medium text-emerald-400">
-        <Link href="/" className="hover:text-emerald-300">← Cryptoscopia</Link>
-      </p>
-      <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-white md:text-4xl">
+    <div className="mx-auto max-w-3xl px-4 py-12">
+      <h1 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">
         Affiliate Program — earn 40% recurring
       </h1>
       <p className="mt-4 leading-relaxed text-slate-400">
@@ -38,7 +34,7 @@ export default function AffiliatesPage() {
         <h2 className="text-2xl font-bold text-white">How it works</h2>
         <ol className="mt-4 space-y-3 text-slate-300">
           <li className="flex gap-3"><span className="font-bold text-green-400">1.</span> Create your free Cryptoscopia account (the 3-day trial is included).</li>
-          <li className="flex gap-3"><span className="font-bold text-green-400">2.</span> Get your personal referral link — links are being activated in dashboards now; sign in and yours will appear in your dashboard as soon as your account is enabled.</li>
+          <li className="flex gap-3"><span className="font-bold text-green-400">2.</span> Sign in and open your dashboard — your personal referral link is shown there in the Referral card, ready to copy.</li>
           <li className="flex gap-3"><span className="font-bold text-green-400">3.</span> Share it anywhere honest promotion is welcome: your channel, community, videos or blog. When someone subscribes to Pro through your link, 40% of every payment they make is yours.</li>
           <li className="flex gap-3"><span className="font-bold text-green-400">4.</span> Get paid monthly in USDT via Binance, once your balance reaches $25.</li>
         </ol>
@@ -57,7 +53,7 @@ export default function AffiliatesPage() {
       <section className="mt-10">
         <h2 className="text-2xl font-bold text-white">What you get to promote</h2>
         <p className="mt-3 leading-relaxed text-slate-400">
-          A real-time scanner across 19 exchanges (cross-exchange, CEX vs DEX, triangular and
+          A real-time scanner across {EXCHANGE_COUNT} exchanges (cross-exchange, CEX vs DEX, triangular and
           funding-rate arbitrage) with a paper trading bot — at $24.99/month, well below the
           $69–$795/month competitors charge. Your audience gets a free 3-day trial with no credit
           card, so your link converts without asking anyone to pay up front. The free{" "}
@@ -71,8 +67,6 @@ export default function AffiliatesPage() {
         <Link href="/signin" className="btn-primary">Create your free account</Link>
         <p className="mt-3 text-sm text-slate-500">Free 3-day trial included · No credit card required</p>
       </div>
-
-      <TrialCta />
-    </main>
+    </div>
   );
 }

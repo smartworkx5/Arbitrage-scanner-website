@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SITE_URL, SITE_NAME } from "@/lib/site";
+import { SITE_URL, SITE_NAME, EXCHANGE_COUNT } from "@/lib/site";
 import { ArticleBody } from "@/app/components/ArticleBody";
 import { Breadcrumbs, faqJsonLd } from "@/app/components/Seo";
 import type { ContentBlock } from "@/lib/content";
@@ -16,10 +16,10 @@ export const metadata: Metadata = {
     "crypto arbitrage software",
     "best crypto arbitrage bot",
   ],
-  alternates: { canonical: `${SITE_URL}/best-crypto-arbitrage-scanners` },
+  alternates: { canonical: `${SITE_URL}/best-crypto-arbitrage-scanners/` },
   openGraph: {
     type: "article",
-    url: `${SITE_URL}/best-crypto-arbitrage-scanners`,
+    url: `${SITE_URL}/best-crypto-arbitrage-scanners/`,
     title: "Best Crypto Arbitrage Scanners — What to Look For",
     description:
       "Exchange coverage, speed, strategies, paper trading, pricing: how to choose a crypto arbitrage scanner without getting burned.",
@@ -51,7 +51,7 @@ const blocks: ContentBlock[] = [
       ["**Manual checking**", "Minutes", "2–3 exchanges", "Free", "Learning the concepts"],
       ["**Spreadsheet + APIs**", "Seconds–minutes", "As many as you code", "Your time", "Developers"],
       ["**Generic trading bots**", "Fast", "Varies", "$30–$100+/mo", "Automation-first traders"],
-      ["**Cryptoscopia**", "Real-time", "**19 exchanges**", "**$24.99/month**", "Retail traders who want it working now"],
+      ["**Cryptoscopia**", "Real-time", `**${EXCHANGE_COUNT} exchanges**`, "**$24.99/month**", "Retail traders who want it working now"],
     ],
   },
   {
@@ -62,10 +62,10 @@ const blocks: ContentBlock[] = [
   {
     type: "list",
     items: [
-      "**19 exchanges monitored simultaneously** — cross-exchange spreads, CEX vs DEX gaps, triangular loops and funding-rate opportunities in one view.",
+      `**${EXCHANGE_COUNT} exchanges monitored simultaneously** — cross-exchange spreads, CEX vs DEX gaps, triangular loops and funding-rate opportunities in one view.`,
       "**Ranked by profit potential** — opportunities sorted so the best net spreads surface first.",
       "**Paper trading bot included** — execute every strategy with virtual money and build a track record before going live.",
-      "**$24.99 per month, flat** — most competing tools charge $30–$100 *per month* for the same kind of scanning. Pro sits at the low end of that range while covering 19 exchanges, and you can verify it free for 3 days first.",
+      `**$24.99 per month, flat** — most competing tools charge $30–$100 *per month* for the same kind of scanning. Pro sits at the low end of that range while covering ${EXCHANGE_COUNT} exchanges, and you can verify it free for 3 days first.`,
       "**3-day free trial** — full access with just a Google sign-in, no credit card, so you can verify it works for you before paying anything.",
     ],
   },
@@ -143,7 +143,7 @@ export default function ComparisonPage() {
             Try {SITE_NAME} free for 3 days
           </h2>
           <p className="mt-2 text-slate-300">
-            Full access — 19 exchanges, all 4 strategies, paper trading bot. No
+            Full access — {EXCHANGE_COUNT} exchanges, all 4 strategies, paper trading bot. No
             credit card.
           </p>
           <Link href="/signin" className="btn-primary mt-4 inline-block">
