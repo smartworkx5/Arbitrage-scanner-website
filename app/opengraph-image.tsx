@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { EXCHANGE_COUNT } from "@/lib/site";
 
 export const alt = "Cryptoscopia — Crypto Arbitrage Scanner";
 export const size = { width: 1200, height: 630 };
@@ -59,7 +60,7 @@ export default function Image() {
             CRYPTO ARBITRAGE SCANNER
           </div>
           <div style={{ fontSize: 31, color: "#94a3b8", marginTop: 18 }}>
-            Real-time price gaps across 19 exchanges
+            {`Real-time price gaps across ${EXCHANGE_COUNT} exchanges`}
           </div>
         </div>
       </div>
