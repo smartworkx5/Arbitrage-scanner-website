@@ -31,7 +31,7 @@ export default async function AdminPage() {
 
   if (!isAdminEmail(email)) {
     return (
-      <main className="flex min-h-screen items-center justify-center px-4">
+      <div className="flex min-h-screen items-center justify-center px-4">
         <div className="card max-w-md text-center">
           <p className="text-4xl" aria-hidden>⛔</p>
           <h1 className="mt-4 text-2xl font-bold">Access denied</h1>
@@ -42,7 +42,7 @@ export default async function AdminPage() {
             Back to dashboard
           </Link>
         </div>
-      </main>
+      </div>
     );
   }
 
@@ -66,7 +66,7 @@ export default async function AdminPage() {
   }
 
   return (
-    <main className="mx-auto max-w-3xl px-4 py-10">
+    <div className="mx-auto max-w-3xl px-4 py-10">
       <header className="mb-8 flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold">Admin Dashboard</h1>
@@ -91,6 +91,6 @@ export default async function AdminPage() {
           </div>
         </div>
       )}
-    </main>
+    </div>
   );
 }

@@ -22,7 +22,7 @@ export default function DeviceBlockedPage({
   const registered = searchParams.registered || null;
 
   return (
-    <main className="flex min-h-screen items-center justify-center px-4">
+    <div className="flex min-h-screen items-center justify-center px-4">
       <div className="card w-full max-w-md text-center">
         <p className="text-4xl" aria-hidden>
           📱
@@ -53,6 +53,6 @@ export default function DeviceBlockedPage({
           ← Back to home
         </Link>
       </div>
-    </main>
+    </div>
   );
 }
