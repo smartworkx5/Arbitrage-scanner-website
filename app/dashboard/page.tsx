@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { cookies, headers } from "next/headers";
 import { authOptions } from "@/lib/auth";
+import { EXCHANGE_COUNT } from "@/lib/site";
 import { DEVICE_COOKIE, resolveDeviceAccess } from "@/lib/device";
 import { createUser, getUser, isDbConfigured, isProActive, proExpiresAt } from "@/lib/db";
 import { isLifetimeAdmin } from "@/lib/admin";
@@ -22,7 +23,7 @@ const APP_URL = "/app";
 
 const unlockedFeatures = [
   "Top gainers & losers scanner",
-  "19-exchange arbitrage detection",
+  `${EXCHANGE_COUNT}-exchange arbitrage detection`,
   "Cross-exchange, CEX vs DEX, triangular & funding-rate arbitrage",
   "Paper trading bot",
   "Real-time price alerts",
@@ -105,11 +106,11 @@ export default async function DashboardPage() {
         : "Free Trial";
 
   return (
-    <main className="mx-auto max-w-3xl px-4 py-10">
+    <div className="mx-auto max-w-3xl px-4 py-10">
       <header className="mb-8 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 text-lg font-bold tracking-tight">
           <img src="/images/logo-mark.svg" alt="Cryptoscopia logo" width={30} height={30} />
-          <span className="gradient-text">Cryptoscopia</span>
+          <span>Cryptoscopia</span>
         </Link>
         <ClientSignOut />
       </header>
@@ -281,6 +282,6 @@ export default async function DashboardPage() {
           )}
         </div>
       )}
-    </main>
+    </div>
   );
 }

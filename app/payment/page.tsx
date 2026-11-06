@@ -57,7 +57,7 @@ export default async function PaymentPage() {
   }
 
   return (
-    <main className="mx-auto max-w-xl px-4 py-10">
+    <div className="mx-auto max-w-xl px-4 py-10">
       <Link href="/dashboard" className="text-sm text-slate-400 hover:text-white">
         ← Back to dashboard
       </Link>
@@ -83,6 +83,6 @@ export default async function PaymentPage() {
           <PaymentForm binanceId={binanceId} />
         </div>
       </details>
-    </main>
+    </div>
   );
 }
