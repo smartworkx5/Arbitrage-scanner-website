@@ -11,7 +11,7 @@ export const EXCHANGE_COUNT = 16;
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
   "https://cryptoscopia.com";
-export const SITE_TAGLINE = "Real-time price gaps across 19 exchanges";
+export const SITE_TAGLINE = `Real-time price gaps across ${EXCHANGE_COUNT} exchanges`;
 export const SITE_DESCRIPTION =
-  "Cryptoscopia is a real-time crypto arbitrage scanner comparing prices across 19 exchanges — cross-exchange, triangular & funding-rate spreads. Free 3-day trial.";
+  `Cryptoscopia is a real-time crypto arbitrage scanner comparing prices across ${EXCHANGE_COUNT} exchanges — cross-exchange, triangular & funding-rate spreads. Free 3-day trial.`;
 export const BRAND_TWITTER = "@cryptoarbscan";

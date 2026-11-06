@@ -13,13 +13,13 @@ import RefCapture from "./components/RefCapture";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
 import MobileTrialBar from "./components/MobileTrialBar";
-import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/site";
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, EXCHANGE_COUNT } from "@/lib/site";
 import { siteJsonLd } from "./components/Seo";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Cryptoscopia | Crypto Arbitrage Scanner — Real-Time Price Gaps Across 19 Exchanges",
+    default: `Cryptoscopia | Crypto Arbitrage Scanner — Real-Time Price Gaps Across ${EXCHANGE_COUNT} Exchanges`,
     template: "%s | Cryptoscopia",
   },
   description: SITE_DESCRIPTION,
