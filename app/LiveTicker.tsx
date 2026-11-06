@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { EXCHANGE_COUNT } from "@/lib/site";
 
 type Opp = {
   pair: string;
@@ -53,7 +54,7 @@ export default function LiveTicker() {
             LIVE <span className="text-slate-500">· sample opportunities</span>
           </span>
         </div>
-        <span className="text-xs text-slate-500">19 exchanges</span>
+        <span className="text-xs text-slate-500">{EXCHANGE_COUNT} exchanges</span>
       </div>
       <ul key={tick} className="divide-y divide-slate-800/70">
         {sorted.slice(0, 4).map((o) => (

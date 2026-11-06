@@ -27,10 +27,6 @@ body {
   }
 }
 
-.gradient-text {
-  @apply bg-gradient-to-r from-green-400 via-emerald-300 to-blue-500 bg-clip-text text-transparent;
-}
-
 .card {
   @apply rounded-2xl border border-slate-800 bg-[#111827]/80 p-6 shadow-xl shadow-black/20 transition duration-300;
 }
@@ -69,10 +65,6 @@ body {
   0%, 100% { opacity: 0.5; }
   50% { opacity: 1; }
 }
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
 @keyframes ticker-scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -81,23 +73,6 @@ body {
 .animate-float { animation: float 6s ease-in-out infinite; }
 .animate-float-slow { animation: float-slow 8s ease-in-out infinite; }
 .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
-
-.gradient-text-animated {
-  @apply bg-gradient-to-r from-green-400 via-emerald-300 to-blue-500 bg-clip-text text-transparent;
-  background-size: 200% auto;
-  animation: gradient-shift 4s ease infinite;
-}
-
-/* Glassmorphism card */
-.glass-card {
-  /* backdrop-blur-xl removed 2026-10-31 (PageSpeed): the cards sit over the
-     near-flat dark page background, so the blur was visually negligible but
-     forced an expensive backdrop raster on every card on every paint. */
-  @apply rounded-2xl border border-white/10 bg-white/[0.03] p-6 shadow-xl shadow-black/20 transition duration-300;
-}
-.glass-card:hover {
-  @apply -translate-y-1 border-green-500/30 shadow-2xl shadow-green-500/10;
-}
 
 /* Modern section divider */
 .section-divider {
