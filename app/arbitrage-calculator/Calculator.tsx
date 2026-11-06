@@ -1,7 +1,15 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { formatPrice, formatPct } from "@/lib/format";
 
+/**
+ * Fee presets: typical published spot taker fees (%) for popular
+ * exchanges, offered as a helper for manual calculations. This list is
+ * NOT the set of exchanges the Cryptoscopia scanner tracks — the page
+ * copy says so, and the fees stay editable so users can enter their own
+ * account rates.
+ */
 const EXCHANGES: [string, number][] = [
   ["Binance", 0.1],
   ["Bybit", 0.1],
@@ -25,13 +33,21 @@ function num(v: string, fallback = 0) {
   return Number.isFinite(n) ? n : fallback;
 }
 
+/** Signed USD amount: -$2.35 / $6.99 — sign first, then the $ figure. */
+function money(v: number): string {
+  return `${v < 0 ? "-" : ""}${formatPrice(Math.abs(v), { usd: true })}`;
+}
+
 export default function Calculator() {
   const [buyEx, setBuyEx] = useState(0);
   const [sellEx, setSellEx] = useState(1);
   const [buyFee, setBuyFee] = useState("0.10");
   const [sellFee, setSellFee] = useState("0.10");
-  const [buyPrice, setBuyPrice] = useState("97000");
-  const [sellPrice, setSellPrice] = useState("97970");
+  // Default example, verified with the fee presets above (Binance → Bybit,
+  // 0.10% taker each side, $1 withdrawal, $1,000 trade): a 96,500 → 97,470
+  // gap is +$10.05 gross, $2.01 trading fees, $1 withdrawal → +$7.04 net.
+  const [buyPrice, setBuyPrice] = useState("96500");
+  const [sellPrice, setSellPrice] = useState("97470");
   const [amount, setAmount] = useState("1000");
   const [withdrawFee, setWithdrawFee] = useState("1");
 
@@ -69,8 +85,9 @@ export default function Calculator() {
     <div className="card">
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label className={labelCls}>Buy on</label>
+          <label className={labelCls} htmlFor="calc-buy-exchange">Buy on</label>
           <select
+            id="calc-buy-exchange"
             className={inputCls}
             value={buyEx}
             onChange={(e) => {
@@ -85,8 +102,9 @@ export default function Calculator() {
           </select>
         </div>
         <div>
-          <label className={labelCls}>Sell on</label>
+          <label className={labelCls} htmlFor="calc-sell-exchange">Sell on</label>
           <select
+            id="calc-sell-exchange"
             className={inputCls}
             value={sellEx}
             onChange={(e) => {
@@ -101,41 +119,41 @@ export default function Calculator() {
           </select>
         </div>
         <div>
-          <label className={labelCls}>Buy price (USDT)</label>
-          <input className={inputCls} inputMode="decimal" value={buyPrice} onChange={(e) => setBuyPrice(e.target.value)} />
+          <label className={labelCls} htmlFor="calc-buy-price">Buy price (USDT)</label>
+          <input id="calc-buy-price" className={inputCls} inputMode="decimal" value={buyPrice} onChange={(e) => setBuyPrice(e.target.value)} />
         </div>
         <div>
-          <label className={labelCls}>Sell price (USDT)</label>
-          <input className={inputCls} inputMode="decimal" value={sellPrice} onChange={(e) => setSellPrice(e.target.value)} />
+          <label className={labelCls} htmlFor="calc-sell-price">Sell price (USDT)</label>
+          <input id="calc-sell-price" className={inputCls} inputMode="decimal" value={sellPrice} onChange={(e) => setSellPrice(e.target.value)} />
         </div>
         <div>
-          <label className={labelCls}>Trade amount (USD)</label>
-          <input className={inputCls} inputMode="decimal" value={amount} onChange={(e) => setAmount(e.target.value)} />
+          <label className={labelCls} htmlFor="calc-amount">Trade amount (USD)</label>
+          <input id="calc-amount" className={inputCls} inputMode="decimal" value={amount} onChange={(e) => setAmount(e.target.value)} />
         </div>
         <div>
-          <label className={labelCls}>Withdrawal / transfer fee (USD, estimate)</label>
-          <input className={inputCls} inputMode="decimal" value={withdrawFee} onChange={(e) => setWithdrawFee(e.target.value)} />
+          <label className={labelCls} htmlFor="calc-withdraw-fee">Withdrawal / transfer fee (USD, estimate)</label>
+          <input id="calc-withdraw-fee" className={inputCls} inputMode="decimal" value={withdrawFee} onChange={(e) => setWithdrawFee(e.target.value)} />
         </div>
         <div>
-          <label className={labelCls}>Buy-side taker fee (%)</label>
-          <input className={inputCls} inputMode="decimal" value={buyFee} onChange={(e) => setBuyFee(e.target.value)} />
+          <label className={labelCls} htmlFor="calc-buy-fee">Buy-side taker fee (%)</label>
+          <input id="calc-buy-fee" className={inputCls} inputMode="decimal" value={buyFee} onChange={(e) => setBuyFee(e.target.value)} />
         </div>
         <div>
-          <label className={labelCls}>Sell-side taker fee (%)</label>
-          <input className={inputCls} inputMode="decimal" value={sellFee} onChange={(e) => setSellFee(e.target.value)} />
+          <label className={labelCls} htmlFor="calc-sell-fee">Sell-side taker fee (%)</label>
+          <input id="calc-sell-fee" className={inputCls} inputMode="decimal" value={sellFee} onChange={(e) => setSellFee(e.target.value)} />
         </div>
       </div>
 
       {r && (
         <div className="mt-6 rounded-xl border border-slate-800 bg-slate-900/60 p-4">
           <dl className="space-y-2 text-sm">
-            <div className="flex justify-between"><dt className="text-slate-400">Gross price difference</dt><dd className="font-medium text-slate-200">${r.grossProfit.toFixed(2)} ({r.grossPct.toFixed(2)}%)</dd></div>
-            <div className="flex justify-between"><dt className="text-slate-400">Trading fees (both sides)</dt><dd className="font-medium text-slate-200">−${(r.buyFeeUsd + r.sellFeeUsd).toFixed(2)}</dd></div>
-            <div className="flex justify-between"><dt className="text-slate-400">Withdrawal / transfer fee</dt><dd className="font-medium text-slate-200">−${num(withdrawFee).toFixed(2)}</dd></div>
+            <div className="flex justify-between"><dt className="text-slate-400">Gross price difference</dt><dd className="data font-medium text-slate-200">{money(r.grossProfit)} ({formatPct(r.grossPct)})</dd></div>
+            <div className="flex justify-between"><dt className="text-slate-400">Trading fees (both sides)</dt><dd className="data font-medium text-slate-200">−{formatPrice(r.buyFeeUsd + r.sellFeeUsd, { usd: true })}</dd></div>
+            <div className="flex justify-between"><dt className="text-slate-400">Withdrawal / transfer fee</dt><dd className="data font-medium text-slate-200">−{formatPrice(num(withdrawFee), { usd: true })}</dd></div>
             <div className="flex justify-between border-t border-slate-800 pt-2">
               <dt className="font-semibold text-white">Estimated net profit</dt>
-              <dd className={`text-base font-extrabold ${r.netProfit >= 0 ? "text-green-400" : "text-red-400"}`}>
-                ${r.netProfit.toFixed(2)} ({r.netPct.toFixed(2)}%)
+              <dd className={`data text-base font-extrabold ${r.netProfit >= 0 ? "text-emerald-400" : "text-red-400"}`}>
+                {money(r.netProfit)} ({formatPct(r.netPct)})
               </dd>
             </div>
           </dl>
@@ -145,6 +163,10 @@ export default function Calculator() {
           </p>
         </div>
       )}
+      <p className="mt-4 text-xs text-slate-500">
+        The exchange list above is a fee-preset helper for manual calculations — it is not the
+        set of exchanges the Cryptoscopia scanner tracks.
+      </p>
     </div>
   );
 }
