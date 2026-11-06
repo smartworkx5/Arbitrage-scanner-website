@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SITE_URL, EXCHANGE_COUNT } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About Cryptoscopia",
   description:
-    "Who runs Cryptoscopia: Tasleem Sanjrani, founder and creator of the Crypto Arbitrage Scanner — a real-time arbitrage scanner across 19 exchanges.",
-  alternates: { canonical: "https://cryptoscopia.com/about" },
+    `Who runs Cryptoscopia: Tasleem Sanjrani, founder and creator of the Crypto Arbitrage Scanner — a real-time arbitrage scanner across ${EXCHANGE_COUNT} exchanges.`,
+  alternates: { canonical: `${SITE_URL}/about/` },
   openGraph: {
     type: "website",
-    url: "https://cryptoscopia.com/about",
+    url: `${SITE_URL}/about/`,
     title: "About Cryptoscopia",
     description:
-      "Who runs Cryptoscopia: Tasleem Sanjrani, founder and creator of the Crypto Arbitrage Scanner — a real-time arbitrage scanner across 19 exchanges.",
+      `Who runs Cryptoscopia: Tasleem Sanjrani, founder and creator of the Crypto Arbitrage Scanner — a real-time arbitrage scanner across ${EXCHANGE_COUNT} exchanges.`,
   },
 };
 
@@ -19,10 +20,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-[#0a0e17]">
       <div className="mx-auto max-w-3xl px-4 py-10">
-        <Link href="/" className="text-sm text-slate-400 hover:text-white">
-          ← Back to home
-        </Link>
-        <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-white md:text-4xl">
+        <h1 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">
           About Cryptoscopia
         </h1>
         <p className="mt-3 text-sm text-slate-500">
@@ -43,7 +41,7 @@ export default function AboutPage() {
           <section>
             <h2 className="mb-2 text-xl font-bold text-white">What the scanner does</h2>
             <p>
-              The Crypto Arbitrage Scanner watches prices across 19 exchanges in real
+              The Crypto Arbitrage Scanner watches prices across {EXCHANGE_COUNT} exchanges in real
               time and ranks the gaps it finds: cross-exchange spreads, CEX vs DEX gaps,
               triangular loops and funding-rate opportunities. A paper trading bot lets
               you practice every strategy risk-free before any real money is involved.

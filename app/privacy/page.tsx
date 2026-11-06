@@ -1,20 +1,18 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "Privacy Policy for Cryptoscopia — how we collect, use and protect your data.",
+  alternates: { canonical: `${SITE_URL}/privacy/` },
   robots: { index: true, follow: true },
 };
 
 export default function PrivacyPage() {
   return (
-    <main className="mx-auto max-w-3xl px-4 py-12">
-      <Link href="/" className="text-sm text-slate-400 hover:text-white">
-        ← Back to home
-      </Link>
-      <h1 className="mt-4 text-3xl font-bold">Privacy Policy</h1>
+    <div className="mx-auto max-w-3xl px-4 py-12">
+      <h1 className="text-3xl font-bold">Privacy Policy</h1>
       <p className="mt-2 text-sm text-slate-500">Last updated: October 4, 2026</p>
 
       <div className="prose-slate mt-8 space-y-6 text-sm leading-relaxed text-slate-300">
@@ -67,6 +65,6 @@ export default function PrivacyPage() {
           </p>
         </section>
       </div>
-    </main>
+    </div>
   );
 }
