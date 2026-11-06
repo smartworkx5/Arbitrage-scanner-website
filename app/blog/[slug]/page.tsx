@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { blogPosts } from "@/lib/blog-posts";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, EXCHANGE_COUNT } from "@/lib/site";
+import { formatDate } from "@/lib/format";
 import { ArticleBody } from "@/app/components/ArticleBody";
 import { Breadcrumbs, articleJsonLd, faqJsonLd } from "@/app/components/Seo";
 import TrialCta from "@/app/components/TrialCta";
@@ -23,10 +24,10 @@ export async function generateMetadata({
     title: post.title,
     description: post.description,
     keywords: post.keywords,
-    alternates: { canonical: `${SITE_URL}/blog/${post.slug}` },
+    alternates: { canonical: `${SITE_URL}/blog/${post.slug}/` },
     openGraph: {
       type: "article",
-      url: `${SITE_URL}/blog/${post.slug}`,
+      url: `${SITE_URL}/blog/${post.slug}/`,
       title: post.title,
       description: post.description,
       publishedTime: post.datePublished,
@@ -47,7 +48,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = blogPosts.find((p) => p.slug === params.slug);
   if (!post) notFound();
 
-  const url = `${SITE_URL}/blog/${post.slug}`;
+  const url = `${SITE_URL}/blog/${post.slug}/`;
   const faqBlocks = post.blocks.filter((b) => b.type === "faq");
   const faqs = faqBlocks.flatMap((b) => (b.type === "faq" ? b.items : []));
   const related = blogPosts
@@ -97,19 +98,21 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           — Founder, Cryptoscopia
         </p>
         <p className="mt-3 text-sm text-slate-500">
-          Published {post.datePublished}
+          Published {formatDate(post.datePublished)}
           {post.dateModified !== post.datePublished &&
-            ` · Updated ${post.dateModified}`}{" "}
+            ` · Updated ${formatDate(post.dateModified)}`}{" "}
           · {post.readingMinutes} min read
         </p>
         {post.image && (
           <img
             src={post.image}
             alt={post.title}
-            className="mt-6 w-full rounded-2xl border border-slate-800"
+            width={1200}
+            height={630}
+            className="mt-6 aspect-[1200/630] w-full rounded-2xl border border-slate-800 object-cover"
           />
         )}
-        <div className="mt-8">
+        <div className="mx-auto mt-8 max-w-[70ch] text-[1.05rem]">
           <ArticleBody blocks={post.blocks} />
         </div>
         <div className="mt-10 rounded-2xl border border-emerald-500/30 bg-emerald-500/5 p-6 text-center">
@@ -117,7 +120,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             See arbitrage opportunities live
           </h2>
           <p className="mt-2 text-slate-300">
-            Cryptoscopia monitors 19 exchanges in real time — try
+            Cryptoscopia monitors {EXCHANGE_COUNT} exchanges in real time — try
             it free for 3 days.
           </p>
           <Link href="/signin" className="btn-primary mt-4 inline-block">
