@@ -14,10 +14,10 @@ export const metadata: Metadata = {
     "exchange price comparison crypto",
     "best exchanges for arbitrage",
   ],
-  alternates: { canonical: `${SITE_URL}/arbitrage` },
+  alternates: { canonical: `${SITE_URL}/arbitrage/` },
   openGraph: {
     type: "website",
-    url: `${SITE_URL}/arbitrage`,
+    url: `${SITE_URL}/arbitrage/`,
     title: "Exchange Arbitrage Comparisons",
     description:
       "Spreads, fees and execution tips for the top crypto exchange pairs.",
@@ -68,6 +68,24 @@ export default function ArbitrageHub() {
             </Link>
             .
           </p>
+        </div>
+        <div className="mt-6 rounded-2xl border border-emerald-500/30 bg-emerald-500/5 p-6">
+          <h2 className="text-xl font-bold text-white">Next step: see these pairs live</h2>
+          <p className="mt-2 text-slate-400">
+            Watch real spreads between these exchanges right now, or open the
+            full scanner free for 3 days.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <Link href="/signin" className="btn-primary">
+              Start Free 3-Day Trial
+            </Link>
+            <Link href="/live" className="btn-secondary">
+              Live spreads
+            </Link>
+            <Link href="/arbitrage-calculator" className="btn-secondary">
+              Profit calculator
+            </Link>
+          </div>
         </div>
       </div>
     </div>

@@ -15,10 +15,10 @@ export const metadata: Metadata = {
     "how crypto arbitrage works",
     "arbitrage trading guide",
   ],
-  alternates: { canonical: `${SITE_URL}/guides` },
+  alternates: { canonical: `${SITE_URL}/guides/` },
   openGraph: {
     type: "website",
-    url: `${SITE_URL}/guides`,
+    url: `${SITE_URL}/guides/`,
     title: "Crypto Arbitrage Guides",
     description:
       "Master cross-exchange, triangular, funding-rate and CEX vs DEX arbitrage with free step-by-step guides.",
@@ -73,6 +73,25 @@ export default function GuidesHub() {
             </Link>
             .
           </p>
+        </div>
+
+        <div className="mt-6 rounded-2xl border border-emerald-500/30 bg-emerald-500/5 p-6">
+          <h2 className="text-xl font-bold text-white">Next step: put it into practice</h2>
+          <p className="mt-2 text-slate-400">
+            Run the numbers on a real trade idea, watch live spreads, or open
+            the full scanner free for 3 days.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <Link href="/signin" className="btn-primary">
+              Start Free 3-Day Trial
+            </Link>
+            <Link href="/arbitrage-calculator" className="btn-secondary">
+              Profit calculator
+            </Link>
+            <Link href="/live" className="btn-secondary">
+              Live spreads
+            </Link>
+          </div>
         </div>
       </div>
       <TrialCta />
