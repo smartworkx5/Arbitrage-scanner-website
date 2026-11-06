@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SITE_URL, SITE_NAME } from "@/lib/site";
+import { SITE_URL, SITE_NAME, EXCHANGE_COUNT } from "@/lib/site";
 
 export interface Crumb {
   label: string;
@@ -82,7 +82,7 @@ export function softwareAppJsonLd() {
     operatingSystem: "Web",
     url: `${SITE_URL}/app`,
     description:
-      "Real-time crypto arbitrage scanner: finds top gainers and losers, detects cross-exchange, CEX vs DEX, triangular and funding-rate arbitrage across 19 exchanges, with a paper trading bot for risk-free practice.",
+      `Real-time crypto arbitrage scanner: finds top gainers and losers, detects cross-exchange, CEX vs DEX, triangular and funding-rate arbitrage across ${EXCHANGE_COUNT} exchanges, with a paper trading bot for risk-free practice.`,
     offers: {
       "@type": "Offer",
       price: "24.99",
