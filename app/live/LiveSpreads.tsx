@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { formatPrice, formatPct, formatVolume } from "@/lib/format";
 
 interface SpreadRow {
   pair: string;
@@ -18,25 +19,18 @@ interface SpreadsPayload {
   spreads: SpreadRow[];
 }
 
-function fmtPrice(p: number): string {
-  const digits = p >= 100 ? 2 : p >= 1 ? 4 : p >= 0.01 ? 6 : 8;
-  return p.toLocaleString("en-US", {
-    minimumFractionDigits: digits,
-    maximumFractionDigits: digits,
-  });
-}
-
-function fmtPct(v: number): string {
-  return `${v >= 0 ? "+" : ""}${v.toFixed(2)}%`;
-}
-
-function fmtVolume(v: number): string {
-  return `$${new Intl.NumberFormat("en-US", {
-    notation: "compact",
-    maximumFractionDigits: 1,
-  }).format(v)}`;
-}
-
+/**
+ * Live spreads table (Redesign Phase 4).
+ *
+ * Data path is unchanged — the browser polls /api/spreads every 60s.
+ * Presentation changes only:
+ * - rows are ranked by estimated NET after fees, best first;
+ * - every number goes through lib/format.ts;
+ * - on small screens each row becomes a stacked block (pair, route,
+ *   spread and net visible with NO sideways scrolling); the full
+ *   8-column table is kept on md+ screens;
+ * - gain/loss is always sign + colour + label, never colour alone.
+ */
 export default function LiveSpreads() {
   const [data, setData] = useState<SpreadsPayload | null>(null);
   const [error, setError] = useState(false);
@@ -86,13 +80,54 @@ export default function LiveSpreads() {
     );
   }
 
-  const spreads = data?.spreads ?? [];
+  // Rank by estimated net after fees, best first (copy — never mutate state).
+  const spreads = [...(data?.spreads ?? [])].sort((a, b) => b.netPct - a.netPct);
   const updated = data ? new Date(data.updatedAt) : null;
+  const emptyMessage =
+    "No spreads above 0.05% on the highest-volume pairs right now — markets are tight. The table refreshes automatically every minute.";
 
   return (
     <div>
       <div className="card !p-0 overflow-hidden">
-        <div className="overflow-x-auto">
+        {/* Mobile: stacked rows — the decision numbers (spread, net)
+            are visible without any sideways scrolling. */}
+        <ul className="divide-y divide-slate-800/60 md:hidden">
+          {spreads.map((s) => (
+            <li key={s.pair} className="px-5 py-4">
+              <div className="flex items-baseline justify-between gap-3">
+                <span className="font-semibold text-white">{s.pair}</span>
+                <span className="text-right">
+                  <span className="block text-[11px] uppercase tracking-wide text-slate-500">
+                    Est. net after fees
+                  </span>
+                  <span
+                    className={`data text-base font-semibold ${
+                      s.netPct >= 0 ? "text-emerald-400" : "text-red-400"
+                    }`}
+                  >
+                    {formatPct(s.netPct)}
+                  </span>
+                </span>
+              </div>
+              <p className="mt-2 text-sm text-slate-300">
+                Buy on <span className="text-white">{s.buyExchange}</span>
+                <span className="data text-slate-400"> @ {formatPrice(s.buyPrice)}</span>
+                <span aria-hidden className="mx-1.5 text-slate-500">→</span>
+                Sell on <span className="text-white">{s.sellExchange}</span>
+                <span className="data text-slate-400"> @ {formatPrice(s.sellPrice)}</span>
+              </p>
+              <p className="data mt-1.5 text-xs text-slate-400">
+                Spread {formatPct(s.spreadPct)} · 24h volume {formatVolume(s.volume24h)}
+              </p>
+            </li>
+          ))}
+          {spreads.length === 0 && (
+            <li className="px-5 py-8 text-center text-sm text-slate-400">{emptyMessage}</li>
+          )}
+        </ul>
+
+        {/* Desktop: the full table, unchanged columns. */}
+        <div className="hidden overflow-x-auto md:block">
           <table className="w-full min-w-[720px] text-left text-sm">
             <thead>
               <tr className="border-b border-slate-800 text-xs uppercase tracking-wide text-slate-400">
@@ -117,33 +152,31 @@ export default function LiveSpreads() {
                   <td className="px-5 py-3 font-semibold text-white">{s.pair}</td>
                   <td className="px-5 py-3 text-slate-300">{s.buyExchange}</td>
                   <td className="px-5 py-3 text-slate-300">{s.sellExchange}</td>
-                  <td className="px-5 py-3 text-right font-mono text-slate-200">
-                    {fmtPrice(s.buyPrice)}
+                  <td className="data px-5 py-3 text-right text-slate-200">
+                    {formatPrice(s.buyPrice)}
                   </td>
-                  <td className="px-5 py-3 text-right font-mono text-slate-200">
-                    {fmtPrice(s.sellPrice)}
+                  <td className="data px-5 py-3 text-right text-slate-200">
+                    {formatPrice(s.sellPrice)}
                   </td>
-                  <td className="px-5 py-3 text-right font-mono font-semibold text-green-400">
-                    {fmtPct(s.spreadPct)}
+                  <td className="data px-5 py-3 text-right font-semibold text-emerald-400">
+                    {formatPct(s.spreadPct)}
                   </td>
                   <td
-                    className={`px-5 py-3 text-right font-mono font-semibold ${
-                      s.netPct >= 0 ? "text-green-400" : "text-red-400"
+                    className={`data px-5 py-3 text-right font-semibold ${
+                      s.netPct >= 0 ? "text-emerald-400" : "text-red-400"
                     }`}
                   >
-                    {fmtPct(s.netPct)}
+                    {formatPct(s.netPct)}
                   </td>
-                  <td className="px-5 py-3 text-right font-mono text-slate-400">
-                    {fmtVolume(s.volume24h)}
+                  <td className="data px-5 py-3 text-right text-slate-400">
+                    {formatVolume(s.volume24h)}
                   </td>
                 </tr>
               ))}
               {spreads.length === 0 && (
                 <tr>
                   <td colSpan={8} className="px-5 py-8 text-center text-slate-400">
-                    No spreads above 0.05% on the highest-volume pairs right
-                    now — markets are tight. The table refreshes automatically
-                    every minute.
+                    {emptyMessage}
                   </td>
                 </tr>
               )}
@@ -152,9 +185,7 @@ export default function LiveSpreads() {
         </div>
       </div>
       <p className="mt-3 text-xs text-slate-400">
-        {updated
-          ? `Last updated ${updated.toLocaleTimeString()} · `
-          : ""}
+        {updated ? `Last updated ${updated.toLocaleTimeString()}. ` : ""}
         Auto-refreshes every 60 seconds. Net estimate subtracts typical taker
         fees on both exchanges; withdrawal fees and transfer times are not
         included, so always check both order books before trading.
