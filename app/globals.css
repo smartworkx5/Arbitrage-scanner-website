@@ -7,8 +7,24 @@
 }
 
 body {
-  @apply bg-[#0a0e17] text-slate-100 antialiased;
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  @apply bg-[#0a0e17] font-sans text-slate-100 antialiased;
+}
+
+/* Data contexts: mono typeface + tabular numerals so prices, spreads and
+   percentages line up in columns and never jitter as values update. */
+.font-mono {
+  font-variant-numeric: tabular-nums;
+}
+
+@layer utilities {
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+  /* One class for any numeric/data readout (tables, stats, tickers). */
+  .data {
+    @apply font-mono;
+    font-variant-numeric: tabular-nums;
+  }
 }
 
 .gradient-text {
@@ -24,7 +40,8 @@ body {
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-green-500 to-blue-600 px-6 py-3 font-semibold text-white shadow-lg shadow-green-500/20 transition hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:ring-offset-[#0a0e17];
+  /* Redesign (Phase 3): SOLID emerald — no gradient, no glow shadow. */
+  @apply inline-flex items-center justify-center rounded-xl bg-emerald-500 px-6 py-3 font-semibold text-white shadow-lg shadow-black/30 transition hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-[#0a0e17] disabled:cursor-not-allowed disabled:opacity-60;
 }
 
 .btn-secondary {
@@ -32,7 +49,7 @@ body {
 }
 
 .input {
-  @apply w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500;
+  @apply w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500;
 }
 
 .label {
