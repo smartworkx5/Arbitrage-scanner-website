@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { guides } from "@/lib/guides";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, EXCHANGE_COUNT } from "@/lib/site";
+import { formatDate } from "@/lib/format";
 import { ArticleBody } from "@/app/components/ArticleBody";
 import { Breadcrumbs, articleJsonLd, faqJsonLd } from "@/app/components/Seo";
 import TrialCta from "@/app/components/TrialCta";
@@ -22,10 +23,10 @@ export async function generateMetadata({
     title: guide.title,
     description: guide.description,
     keywords: guide.keywords,
-    alternates: { canonical: `${SITE_URL}/guides/${guide.slug}` },
+    alternates: { canonical: `${SITE_URL}/guides/${guide.slug}/` },
     openGraph: {
       type: "article",
-      url: `${SITE_URL}/guides/${guide.slug}`,
+      url: `${SITE_URL}/guides/${guide.slug}/`,
       title: guide.title,
       description: guide.description,
       publishedTime: guide.datePublished,
@@ -39,7 +40,7 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
   const guide = guides.find((g) => g.slug === params.slug);
   if (!guide) notFound();
 
-  const url = `${SITE_URL}/guides/${guide.slug}`;
+  const url = `${SITE_URL}/guides/${guide.slug}/`;
   const faqBlocks = guide.blocks.filter((b) => b.type === "faq");
   const faqs = faqBlocks.flatMap((b) => (b.type === "faq" ? b.items : []));
   const related = guides.filter((g) => g.slug !== guide.slug).slice(0, 3);
@@ -92,10 +93,10 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
           — Founder, Cryptoscopia
         </p>
         <p className="mt-3 text-sm text-slate-500">
-          Updated {guide.dateModified} · {guide.readingMinutes} min read
+          Updated {formatDate(guide.dateModified)} · {guide.readingMinutes} min read
         </p>
 
-        <div className="mt-8">
+        <div className="mx-auto mt-8 max-w-[70ch] text-[1.05rem]">
           <ArticleBody blocks={guide.blocks} />
         </div>
 
@@ -104,11 +105,22 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
             Put this strategy into practice
           </h2>
           <p className="mt-2 text-slate-300">
-            Cryptoscopia detects {guide.title.toLowerCase().includes("triangular") ? "triangular loops" : guide.title.toLowerCase().includes("funding") ? "funding-rate opportunities" : guide.title.toLowerCase().includes("cex") ? "CEX vs DEX gaps" : "cross-exchange spreads"} in real time across 19 exchanges — and the paper trading bot lets you practice risk-free.
+            Cryptoscopia detects {guide.title.toLowerCase().includes("triangular") ? "triangular loops" : guide.title.toLowerCase().includes("funding") ? "funding-rate opportunities" : guide.title.toLowerCase().includes("cex") ? "CEX vs DEX gaps" : "cross-exchange spreads"} in real time across {EXCHANGE_COUNT} exchanges — and the paper trading bot lets you practice risk-free.
           </p>
           <Link href="/signin" className="btn-primary mt-4 inline-block">
             Start Free 3-Day Trial
           </Link>
+          <p className="mt-4 text-sm text-slate-400">
+            Next step: check a trade idea in the{" "}
+            <Link href="/arbitrage-calculator" className="text-emerald-300 underline">
+              profit calculator
+            </Link>{" "}
+            or watch{" "}
+            <Link href="/live" className="text-emerald-300 underline">
+              live spreads
+            </Link>
+            .
+          </p>
         </div>
 
         <div className="mt-10">

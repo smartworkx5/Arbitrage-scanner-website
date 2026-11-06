@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { pairs } from "@/lib/pairs";
-import { SITE_URL, SITE_NAME } from "@/lib/site";
+import { SITE_URL, SITE_NAME, EXCHANGE_COUNT } from "@/lib/site";
 import { Breadcrumbs, articleJsonLd, faqJsonLd } from "@/app/components/Seo";
 import PairLive from "./PairLive";
 
@@ -28,10 +28,10 @@ export async function generateMetadata({
       `${pair.a.toLowerCase()} vs ${pair.b.toLowerCase()} price difference`,
       "cross exchange arbitrage",
     ],
-    alternates: { canonical: `${SITE_URL}/arbitrage/${pair.slug}` },
+    alternates: { canonical: `${SITE_URL}/arbitrage/${pair.slug}/` },
     openGraph: {
       type: "article",
-      url: `${SITE_URL}/arbitrage/${pair.slug}`,
+      url: `${SITE_URL}/arbitrage/${pair.slug}/`,
       title,
       description,
     },
@@ -42,7 +42,7 @@ export default function PairPage({ params }: { params: { pair: string } }) {
   const pair = pairs.find((p) => p.slug === params.pair);
   if (!pair) notFound();
 
-  const url = `${SITE_URL}/arbitrage/${pair.slug}`;
+  const url = `${SITE_URL}/arbitrage/${pair.slug}/`;
   const related = pairs.filter((p) => p.slug !== pair.slug).slice(0, 4);
   const faqs = [
     {
@@ -177,7 +177,7 @@ export default function PairPage({ params }: { params: { pair: string } }) {
             Scan {pair.a} vs {pair.b} spreads live
           </h2>
           <p className="mt-2 text-slate-300">
-            {SITE_NAME} watches 19 exchanges in real time and ranks {pair.a}–
+            {SITE_NAME} watches {EXCHANGE_COUNT} exchanges in real time and ranks {pair.a}–
             {pair.b} opportunities by net spread — try it free for 3 days.
           </p>
           <Link href="/signin" className="btn-primary mt-4 inline-block">
